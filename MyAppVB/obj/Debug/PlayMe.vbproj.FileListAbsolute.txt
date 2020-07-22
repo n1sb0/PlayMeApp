@@ -93,3 +93,4 @@ A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.VideoForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.LanguageForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.VoiceAndVideoForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.PrivacyAndSeftyForm.resources
+A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.ChatFriendForm.resources

@@ -1,5 +1,8 @@
-﻿Imports Guna.UI.WinForms
+﻿Imports FontAwesome.Sharp
+Imports Guna.UI.WinForms
 Imports System.Runtime.InteropServices
+Imports System
+Imports System.Windows.Forms
 
 Public Class MainForm
     Private _UserName As String
@@ -9,6 +12,9 @@ Public Class MainForm
     Private GenericButton As GunaButton
     Private ButtonWasSelected As GunaButton
     Private MoveForm_MousePosition As Point
+
+    Private vScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
+    Private hScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
 
     Private _Subject As New Subject
     Private _Utility_Style As New Utility_Style
@@ -29,7 +35,9 @@ Public Class MainForm
 
         ' Aggiungere le eventuali istruzioni di inizializzazione dopo la chiamata a InitializeComponent().
         SetStyle_For_Components()
+
     End Sub
+
 
     Sub New(userName As String)
         ' La chiamata è richiesta dalla finestra di progettazione.
@@ -63,9 +71,12 @@ Public Class MainForm
     '*****///// STYLE FORM
     Private Sub SetStyle_For_Components()
         Form_style()
+        Create_ListOfFriends()
     End Sub
 
     Private Sub Form_style()
+        FriendsPicture.SendToBack()
+
         UserPicture.SendToBack()
         ButtonWasSelected = btnHomeChat
 
@@ -78,6 +89,43 @@ Public Class MainForm
         TopPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColor))
         LeftButtomPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColor))
     End Sub
+
+    Private Sub Create_ListOfFriends()
+        Dim x = 0, y = 0
+        Dim panelName As String = "Panel"
+
+        vScrollHelper = New Guna.UI.Lib.ScrollBar.PanelScrollHelper(PanelListOfFriends, FriendScrollBar, True)
+
+        For value As Integer = 0 To 5
+            Dim cc As New CreateComponents
+
+            Dim pnl As Panel = cc.Get_FriendPanel(panelName + CStr(value + 1))
+
+            Debug.WriteLine(pnl.Name)
+
+            Dim locationOfFriendPanel As Point = New Point(x, y)
+            y += 60
+            pnl.Location = locationOfFriendPanel
+
+            PanelListOfFriends.Controls.Add(pnl)
+        Next
+
+        vScrollHelper.UpdateScrollBar()
+    End Sub
+
+    Private Function Create_FriendPanel() As Panel
+        Dim width = 260, hight = 60
+
+        Dim _FriendsPanel As New Panel
+        Dim size As Size = New Size(width, hight)
+
+        _FriendsPanel.Cursor = Cursors.Hand
+        '_FriendsPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
+        _FriendsPanel.BackColor = Color.White
+        _FriendsPanel.Size = size
+
+        Return _FriendsPanel
+    End Function
 
     Private Sub HomeForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Application.OpenForms().OfType(Of LoginForm).Any Then
@@ -229,11 +277,42 @@ Public Class MainForm
     End Sub
     '*****///// END FUNCTION TO OPEN OTHER FORMS ON LEFT MAIN PANEL
 
-    Private Sub pnlFriend_MouseHover(sender As Object, e As EventArgs) Handles pnlFriend.MouseHover
-        pnlFriend.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
+    Private Sub On_MouseClickFriendList(sender As System.Object, e As System.EventArgs) _
+      Handles pnlFriend.Click, FriendsPicture.Click, lblFriendName.Click, btnDeleteMessages.Click
+
+        Dim chatform As New ChatFriendForm
+
+        _ControlChildForm.OpenChildForm(chatform, MainChatAndFriendPanel, currentChildForm)
     End Sub
 
-    Private Sub pnlFriend_MouseLeave(sender As Object, e As EventArgs) Handles pnlFriend.MouseLeave
+    Private Sub On_MouseHoverFriendList(sender As System.Object, e As System.EventArgs) _
+      Handles pnlFriend.MouseMove, FriendsPicture.MouseMove, lblFriendName.MouseMove, btnDeleteMessages.MouseMove, lblFriendOnline.MouseMove
+
+        pnlFriend.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
+        lblFriendName.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GrayColor))
+    End Sub
+
+    Private Sub On_MouseLeaveFriendList(sender As System.Object, e As System.EventArgs) _
+      Handles pnlFriend.MouseLeave
+
+        lblFriendName.ForeColor = Color.Gray
         pnlFriend.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
     End Sub
+
+    Private Sub btnDeleteMessages_Click(sender As Object, e As EventArgs) Handles btnDeleteMessages.MouseClick
+        pnlMsgFriends.Controls.Remove(pnlFriend)
+
+        If currentChildForm IsNot Nothing Then
+            currentChildForm.Close()
+        End If
+    End Sub
+
+    Private Sub btnFriends_Click(sender As Object, e As EventArgs) Handles btnFriends.Click
+        If currentChildForm IsNot Nothing Then
+            currentChildForm.Close()
+        End If
+    End Sub
+
+
+
 End Class
