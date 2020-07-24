@@ -22,6 +22,7 @@ Partial Class MainForm
     'Non modificarla mediante l'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Me.LeftButtomPanel = New System.Windows.Forms.Panel()
         Me.clikedPoint = New Guna.UI.WinForms.GunaButton()
@@ -42,6 +43,12 @@ Partial Class MainForm
         Me.MainPanel = New System.Windows.Forms.Panel()
         Me.PlayGroundPanel = New System.Windows.Forms.Panel()
         Me.MainChatAndFriendPanel = New System.Windows.Forms.Panel()
+        Me.pnlFriend = New System.Windows.Forms.Panel()
+        Me.lblFriendName = New System.Windows.Forms.Label()
+        Me.btnDeleteMessages = New FontAwesome.Sharp.IconPictureBox()
+        Me.FriendsPicture = New Guna.UI.WinForms.GunaCirclePictureBox()
+        Me.ShapeContainer2 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.lblFriendOnline = New Microsoft.VisualBasic.PowerPacks.OvalShape()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.GunaButton4 = New Guna.UI.WinForms.GunaButton()
         Me.GunaButton3 = New Guna.UI.WinForms.GunaButton()
@@ -52,14 +59,8 @@ Partial Class MainForm
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.pnlMsgFriends = New System.Windows.Forms.Panel()
-        Me.PanelListOfFriends = New Guna.UI.WinForms.GunaPanel()
-        Me.pnlFriend = New System.Windows.Forms.Panel()
-        Me.lblFriendName = New System.Windows.Forms.Label()
-        Me.btnDeleteMessages = New FontAwesome.Sharp.IconPictureBox()
-        Me.FriendsPicture = New Guna.UI.WinForms.GunaCirclePictureBox()
-        Me.ShapeContainer2 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.lblFriendOnline = New Microsoft.VisualBasic.PowerPacks.OvalShape()
         Me.FriendScrollBar = New Guna.UI.WinForms.GunaVScrollBar()
+        Me.PanelListOfFriends = New Guna.UI.WinForms.GunaPanel()
         Me.btnNewDirect = New FontAwesome.Sharp.IconPictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnFriends = New Guna.UI.WinForms.GunaButton()
@@ -68,19 +69,19 @@ Partial Class MainForm
         Me.btnHide = New FontAwesome.Sharp.IconPictureBox()
         Me.btnMaxSizeForm = New FontAwesome.Sharp.IconPictureBox()
         Me.btnExit = New FontAwesome.Sharp.IconPictureBox()
+        Me.waitForScroll = New System.Windows.Forms.Timer(Me.components)
         Me.LeftButtomPanel.SuspendLayout()
         CType(Me.UserPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnSettings, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MainPanel.SuspendLayout()
         Me.PlayGroundPanel.SuspendLayout()
         Me.MainChatAndFriendPanel.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        CType(Me.picFriend, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlMsgFriends.SuspendLayout()
-        Me.PanelListOfFriends.SuspendLayout()
         Me.pnlFriend.SuspendLayout()
         CType(Me.btnDeleteMessages, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FriendsPicture, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        CType(Me.picFriend, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlMsgFriends.SuspendLayout()
         CType(Me.btnNewDirect, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnHide, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnMaxSizeForm, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -349,14 +350,14 @@ Partial Class MainForm
         Me.pointOnline.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.pointOnline.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.pointOnline.BorderColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.pointOnline.BorderWidth = 5
+        Me.pointOnline.BorderWidth = 3
         Me.pointOnline.Cursor = System.Windows.Forms.Cursors.Hand
         Me.pointOnline.FillColor = System.Drawing.Color.Lime
         Me.pointOnline.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.pointOnline.Location = New System.Drawing.Point(45, 635)
+        Me.pointOnline.Location = New System.Drawing.Point(45, 636)
         Me.pointOnline.Name = "pointOnline"
         Me.pointOnline.SelectionColor = System.Drawing.Color.Transparent
-        Me.pointOnline.Size = New System.Drawing.Size(15, 15)
+        Me.pointOnline.Size = New System.Drawing.Size(13, 13)
         '
         'TopPanel
         '
@@ -407,11 +408,86 @@ Partial Class MainForm
         '
         'MainChatAndFriendPanel
         '
+        Me.MainChatAndFriendPanel.Controls.Add(Me.pnlFriend)
         Me.MainChatAndFriendPanel.Controls.Add(Me.Panel2)
         Me.MainChatAndFriendPanel.Location = New System.Drawing.Point(260, 0)
         Me.MainChatAndFriendPanel.Name = "MainChatAndFriendPanel"
         Me.MainChatAndFriendPanel.Size = New System.Drawing.Size(950, 700)
         Me.MainChatAndFriendPanel.TabIndex = 2
+        '
+        'pnlFriend
+        '
+        Me.pnlFriend.Controls.Add(Me.lblFriendName)
+        Me.pnlFriend.Controls.Add(Me.btnDeleteMessages)
+        Me.pnlFriend.Controls.Add(Me.FriendsPicture)
+        Me.pnlFriend.Controls.Add(Me.ShapeContainer2)
+        Me.pnlFriend.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pnlFriend.Location = New System.Drawing.Point(236, 190)
+        Me.pnlFriend.Name = "pnlFriend"
+        Me.pnlFriend.Size = New System.Drawing.Size(260, 60)
+        Me.pnlFriend.TabIndex = 77
+        Me.pnlFriend.Visible = False
+        '
+        'lblFriendName
+        '
+        Me.lblFriendName.BackColor = System.Drawing.Color.Transparent
+        Me.lblFriendName.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.lblFriendName.ForeColor = System.Drawing.Color.Gray
+        Me.lblFriendName.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblFriendName.Location = New System.Drawing.Point(55, 20)
+        Me.lblFriendName.Name = "lblFriendName"
+        Me.lblFriendName.Size = New System.Drawing.Size(150, 20)
+        Me.lblFriendName.TabIndex = 94
+        Me.lblFriendName.Text = "Friends"
+        '
+        'btnDeleteMessages
+        '
+        Me.btnDeleteMessages.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnDeleteMessages.BackColor = System.Drawing.Color.Transparent
+        Me.btnDeleteMessages.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDeleteMessages.ForeColor = System.Drawing.Color.Silver
+        Me.btnDeleteMessages.IconChar = FontAwesome.Sharp.IconChar.Times
+        Me.btnDeleteMessages.IconColor = System.Drawing.Color.Silver
+        Me.btnDeleteMessages.IconSize = 20
+        Me.btnDeleteMessages.Location = New System.Drawing.Point(232, 21)
+        Me.btnDeleteMessages.Name = "btnDeleteMessages"
+        Me.btnDeleteMessages.Size = New System.Drawing.Size(20, 20)
+        Me.btnDeleteMessages.TabIndex = 76
+        Me.btnDeleteMessages.TabStop = False
+        '
+        'FriendsPicture
+        '
+        Me.FriendsPicture.BackColor = System.Drawing.Color.Transparent
+        Me.FriendsPicture.BaseColor = System.Drawing.Color.White
+        Me.FriendsPicture.Image = Global.PlayME.My.Resources.Resources.i2gb4m7j7cb41
+        Me.FriendsPicture.Location = New System.Drawing.Point(11, 9)
+        Me.FriendsPicture.Name = "FriendsPicture"
+        Me.FriendsPicture.Size = New System.Drawing.Size(40, 40)
+        Me.FriendsPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.FriendsPicture.TabIndex = 74
+        Me.FriendsPicture.TabStop = False
+        Me.FriendsPicture.UseTransfarantBackground = False
+        '
+        'ShapeContainer2
+        '
+        Me.ShapeContainer2.Location = New System.Drawing.Point(0, 0)
+        Me.ShapeContainer2.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer2.Name = "ShapeContainer2"
+        Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.lblFriendOnline})
+        Me.ShapeContainer2.Size = New System.Drawing.Size(260, 60)
+        Me.ShapeContainer2.TabIndex = 95
+        Me.ShapeContainer2.TabStop = False
+        '
+        'lblFriendOnline
+        '
+        Me.lblFriendOnline.BorderColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.lblFriendOnline.BorderWidth = 2
+        Me.lblFriendOnline.FillColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.lblFriendOnline.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.lblFriendOnline.Location = New System.Drawing.Point(39, 37)
+        Me.lblFriendOnline.Name = "lblFriendOnline"
+        Me.lblFriendOnline.SelectionColor = System.Drawing.Color.Transparent
+        Me.lblFriendOnline.Size = New System.Drawing.Size(12, 12)
         '
         'Panel2
         '
@@ -579,8 +655,8 @@ Partial Class MainForm
         Me.pnlMsgFriends.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.pnlMsgFriends.BackColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.pnlMsgFriends.Controls.Add(Me.PanelListOfFriends)
         Me.pnlMsgFriends.Controls.Add(Me.FriendScrollBar)
+        Me.pnlMsgFriends.Controls.Add(Me.PanelListOfFriends)
         Me.pnlMsgFriends.Controls.Add(Me.btnNewDirect)
         Me.pnlMsgFriends.Controls.Add(Me.Label1)
         Me.pnlMsgFriends.Controls.Add(Me.btnFriends)
@@ -591,102 +667,31 @@ Partial Class MainForm
         Me.pnlMsgFriends.Size = New System.Drawing.Size(260, 700)
         Me.pnlMsgFriends.TabIndex = 0
         '
-        'PanelListOfFriends
-        '
-        Me.PanelListOfFriends.Controls.Add(Me.pnlFriend)
-        Me.PanelListOfFriends.Location = New System.Drawing.Point(0, 140)
-        Me.PanelListOfFriends.Name = "PanelListOfFriends"
-        Me.PanelListOfFriends.Size = New System.Drawing.Size(260, 580)
-        Me.PanelListOfFriends.TabIndex = 3
-        '
-        'pnlFriend
-        '
-        Me.pnlFriend.Controls.Add(Me.lblFriendName)
-        Me.pnlFriend.Controls.Add(Me.btnDeleteMessages)
-        Me.pnlFriend.Controls.Add(Me.FriendsPicture)
-        Me.pnlFriend.Controls.Add(Me.ShapeContainer2)
-        Me.pnlFriend.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pnlFriend.Location = New System.Drawing.Point(0, 0)
-        Me.pnlFriend.Name = "pnlFriend"
-        Me.pnlFriend.Size = New System.Drawing.Size(260, 60)
-        Me.pnlFriend.TabIndex = 77
-        Me.pnlFriend.Visible = False
-        '
-        'lblFriendName
-        '
-        Me.lblFriendName.BackColor = System.Drawing.Color.Transparent
-        Me.lblFriendName.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.lblFriendName.ForeColor = System.Drawing.Color.Gray
-        Me.lblFriendName.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.lblFriendName.Location = New System.Drawing.Point(55, 20)
-        Me.lblFriendName.Name = "lblFriendName"
-        Me.lblFriendName.Size = New System.Drawing.Size(150, 20)
-        Me.lblFriendName.TabIndex = 94
-        Me.lblFriendName.Text = "Friends"
-        '
-        'btnDeleteMessages
-        '
-        Me.btnDeleteMessages.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnDeleteMessages.BackColor = System.Drawing.Color.Transparent
-        Me.btnDeleteMessages.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnDeleteMessages.ForeColor = System.Drawing.Color.Silver
-        Me.btnDeleteMessages.IconChar = FontAwesome.Sharp.IconChar.Times
-        Me.btnDeleteMessages.IconColor = System.Drawing.Color.Silver
-        Me.btnDeleteMessages.IconSize = 20
-        Me.btnDeleteMessages.Location = New System.Drawing.Point(232, 21)
-        Me.btnDeleteMessages.Name = "btnDeleteMessages"
-        Me.btnDeleteMessages.Size = New System.Drawing.Size(20, 20)
-        Me.btnDeleteMessages.TabIndex = 76
-        Me.btnDeleteMessages.TabStop = False
-        '
-        'FriendsPicture
-        '
-        Me.FriendsPicture.BackColor = System.Drawing.Color.Transparent
-        Me.FriendsPicture.BaseColor = System.Drawing.Color.White
-        Me.FriendsPicture.Image = Global.PlayME.My.Resources.Resources.i2gb4m7j7cb41
-        Me.FriendsPicture.Location = New System.Drawing.Point(11, 9)
-        Me.FriendsPicture.Name = "FriendsPicture"
-        Me.FriendsPicture.Size = New System.Drawing.Size(40, 40)
-        Me.FriendsPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.FriendsPicture.TabIndex = 74
-        Me.FriendsPicture.TabStop = False
-        Me.FriendsPicture.UseTransfarantBackground = False
-        '
-        'ShapeContainer2
-        '
-        Me.ShapeContainer2.Location = New System.Drawing.Point(0, 0)
-        Me.ShapeContainer2.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShapeContainer2.Name = "ShapeContainer2"
-        Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.lblFriendOnline})
-        Me.ShapeContainer2.Size = New System.Drawing.Size(260, 60)
-        Me.ShapeContainer2.TabIndex = 95
-        Me.ShapeContainer2.TabStop = False
-        '
-        'lblFriendOnline
-        '
-        Me.lblFriendOnline.BorderColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.lblFriendOnline.BorderWidth = 2
-        Me.lblFriendOnline.FillColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.lblFriendOnline.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.lblFriendOnline.Location = New System.Drawing.Point(39, 37)
-        Me.lblFriendOnline.Name = "lblFriendOnline"
-        Me.lblFriendOnline.SelectionColor = System.Drawing.Color.Transparent
-        Me.lblFriendOnline.Size = New System.Drawing.Size(12, 12)
-        '
         'FriendScrollBar
         '
-        Me.FriendScrollBar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FriendScrollBar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FriendScrollBar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.FriendScrollBar.LargeChange = 10
         Me.FriendScrollBar.Location = New System.Drawing.Point(250, 140)
-        Me.FriendScrollBar.Maximum = 100
+        Me.FriendScrollBar.Maximum = 5000
+        Me.FriendScrollBar.MouseWheelBarPartitions = 2
         Me.FriendScrollBar.Name = "FriendScrollBar"
         Me.FriendScrollBar.ScrollIdleColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
-        Me.FriendScrollBar.Size = New System.Drawing.Size(10, 580)
+        Me.FriendScrollBar.Size = New System.Drawing.Size(10, 560)
         Me.FriendScrollBar.TabIndex = 2
         Me.FriendScrollBar.ThumbColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.FriendScrollBar.ThumbHoverColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.FriendScrollBar.ThumbPressedColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
+        '
+        'PanelListOfFriends
+        '
+        Me.PanelListOfFriends.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.PanelListOfFriends.Location = New System.Drawing.Point(0, 140)
+        Me.PanelListOfFriends.Name = "PanelListOfFriends"
+        Me.PanelListOfFriends.Size = New System.Drawing.Size(260, 577)
+        Me.PanelListOfFriends.TabIndex = 3
         '
         'btnNewDirect
         '
@@ -814,6 +819,10 @@ Partial Class MainForm
         Me.btnExit.TabIndex = 70
         Me.btnExit.TabStop = False
         '
+        'waitForScroll
+        '
+        Me.waitForScroll.Interval = 300
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -840,13 +849,12 @@ Partial Class MainForm
         Me.MainPanel.ResumeLayout(False)
         Me.PlayGroundPanel.ResumeLayout(False)
         Me.MainChatAndFriendPanel.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
-        CType(Me.picFriend, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlMsgFriends.ResumeLayout(False)
-        Me.PanelListOfFriends.ResumeLayout(False)
         Me.pnlFriend.ResumeLayout(False)
         CType(Me.btnDeleteMessages, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FriendsPicture, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        CType(Me.picFriend, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlMsgFriends.ResumeLayout(False)
         CType(Me.btnNewDirect, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnHide, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnMaxSizeForm, System.ComponentModel.ISupportInitialize).EndInit()
@@ -899,4 +907,5 @@ Partial Class MainForm
     Friend WithEvents lblFriendOnline As PowerPacks.OvalShape
     Friend WithEvents FriendScrollBar As Guna.UI.WinForms.GunaVScrollBar
     Friend WithEvents PanelListOfFriends As Guna.UI.WinForms.GunaPanel
+    Friend WithEvents waitForScroll As Timer
 End Class

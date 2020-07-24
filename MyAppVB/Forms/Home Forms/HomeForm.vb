@@ -3,23 +3,27 @@ Imports Guna.UI.WinForms
 Imports System.Runtime.InteropServices
 Imports System
 Imports System.Windows.Forms
+Imports System.Threading
 
 Public Class MainForm
     Private _UserName As String
     Private MoveForm As Boolean
 
-    Private currentChildForm As Form
+    Public currentChildForm As Form
     Private GenericButton As GunaButton
     Private ButtonWasSelected As GunaButton
     Private MoveForm_MousePosition As Point
 
+    Private newValue, oldValue As Integer
+
     Private vScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
-    Private hScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
 
     Private _Subject As New Subject
     Private _Utility_Style As New Utility_Style
     Private _Utility_Secure As New Utility_Secure
-    Private _ControlChildForm As New ControlChildForm
+    Public _ControlChildForm As New ControlChildForm
+
+    Public _ListOfUserFriendsPanel As New List(Of FriendsPanel)
 
     Private _RedColor As String = _Utility_Style.RedColor
     Private _OrngColor As String = _Utility_Style.OrngColor
@@ -48,6 +52,7 @@ Public Class MainForm
 
         'Take UserName
         Save_UserName(userName)
+
     End Sub
 
     '*****///// SAVE USER DATA AND UPDATE USER DATA ON UI
@@ -74,8 +79,13 @@ Public Class MainForm
         Create_ListOfFriends()
     End Sub
 
-    Private Sub Form_style()
-        FriendsPicture.SendToBack()
+    Public Sub Form_style()
+
+        vScrollHelper = New Guna.UI.Lib.ScrollBar.PanelScrollHelper(PanelListOfFriends, FriendScrollBar, True)
+        vScrollHelper.UpdateScrollBar()
+        FriendScrollBar.BringToFront()
+
+        waitForScroll.Enabled = True
 
         UserPicture.SendToBack()
         ButtonWasSelected = btnHomeChat
@@ -91,26 +101,18 @@ Public Class MainForm
     End Sub
 
     Private Sub Create_ListOfFriends()
-        Dim x = 0, y = 0
-        Dim panelName As String = "Panel"
+        Dim x = 0, y = 0, count = 1
 
-        vScrollHelper = New Guna.UI.Lib.ScrollBar.PanelScrollHelper(PanelListOfFriends, FriendScrollBar, True)
-
-        For value As Integer = 0 To 5
-            Dim cc As New CreateComponents
-
-            Dim pnl As Panel = cc.Get_FriendPanel(panelName + CStr(value + 1))
-
-            Debug.WriteLine(pnl.Name)
-
+        For value As Integer = 0 To 20
             Dim locationOfFriendPanel As Point = New Point(x, y)
+            Dim friendPanel As New FriendsPanel(locationOfFriendPanel, FriendScrollBar, (count).ToString)
             y += 60
-            pnl.Location = locationOfFriendPanel
+            friendPanel.Get_FriendsPanel()
+            count += 1
 
-            PanelListOfFriends.Controls.Add(pnl)
+            _ListOfUserFriendsPanel.Add(friendPanel)
+            PanelListOfFriends.Controls.Add(friendPanel._FriendsPanel)
         Next
-
-        vScrollHelper.UpdateScrollBar()
     End Sub
 
     Private Function Create_FriendPanel() As Panel
@@ -229,7 +231,7 @@ Public Class MainForm
 
     '*****///// MOUSE HOVER AND CLICK ON BUTTONS UI
     Private Sub Mouse_Hover_Buttons(sender As System.Object, e As System.EventArgs) _
-      Handles btnHomeChat.MouseHover, btnPersonalBlog.MouseHover, btnVideo.MouseHover, btnMusic.MouseHover, btnGames.MouseHover
+      Handles btnHomeChat.MouseEnter, btnPersonalBlog.MouseEnter, btnVideo.MouseEnter, btnMusic.MouseEnter, btnGames.MouseEnter
 
         GenericButton = DirectCast(sender, GunaButton)
 
@@ -247,6 +249,12 @@ Public Class MainForm
         _Utility_Style.Select_Btn_UI(selectedPoint, New Point(selectedPoint.Location.X, GenericButton.Location.Y + 18))
         _Utility_Style.Selected_Btn_Cliked_UI(clikedPoint, GenericButton)
         ButtonWasSelected = GenericButton
+    End Sub
+
+    Private Sub btnFriends_Click(sender As Object, e As EventArgs) Handles btnFriends.Click
+        If currentChildForm IsNot Nothing Then
+            currentChildForm.Close()
+        End If
     End Sub
     '*****///// END MOUSE HOVER AND CLICK ON BUTTONS UI
 
@@ -277,42 +285,10 @@ Public Class MainForm
     End Sub
     '*****///// END FUNCTION TO OPEN OTHER FORMS ON LEFT MAIN PANEL
 
-    Private Sub On_MouseClickFriendList(sender As System.Object, e As System.EventArgs) _
-      Handles pnlFriend.Click, FriendsPicture.Click, lblFriendName.Click, btnDeleteMessages.Click
-
-        Dim chatform As New ChatFriendForm
-
-        _ControlChildForm.OpenChildForm(chatform, MainChatAndFriendPanel, currentChildForm)
+    Private Sub FriendScrollBar_Scroll(sender As Object, e As ScrollEventArgs) Handles FriendScrollBar.Scroll
+        For i As Integer = 0 To _ListOfUserFriendsPanel.Count - 1
+            _ListOfUserFriendsPanel.Item(i).Leave_ListOfFriend()
+        Next
     End Sub
-
-    Private Sub On_MouseHoverFriendList(sender As System.Object, e As System.EventArgs) _
-      Handles pnlFriend.MouseMove, FriendsPicture.MouseMove, lblFriendName.MouseMove, btnDeleteMessages.MouseMove, lblFriendOnline.MouseMove
-
-        pnlFriend.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
-        lblFriendName.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GrayColor))
-    End Sub
-
-    Private Sub On_MouseLeaveFriendList(sender As System.Object, e As System.EventArgs) _
-      Handles pnlFriend.MouseLeave
-
-        lblFriendName.ForeColor = Color.Gray
-        pnlFriend.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
-    End Sub
-
-    Private Sub btnDeleteMessages_Click(sender As Object, e As EventArgs) Handles btnDeleteMessages.MouseClick
-        pnlMsgFriends.Controls.Remove(pnlFriend)
-
-        If currentChildForm IsNot Nothing Then
-            currentChildForm.Close()
-        End If
-    End Sub
-
-    Private Sub btnFriends_Click(sender As Object, e As EventArgs) Handles btnFriends.Click
-        If currentChildForm IsNot Nothing Then
-            currentChildForm.Close()
-        End If
-    End Sub
-
-
 
 End Class
