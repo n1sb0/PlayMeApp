@@ -94,3 +94,7 @@ A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.LanguageForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.VoiceAndVideoForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.PrivacyAndSeftyForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.ChatFriendForm.resources
+A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.AddFriendForm.resources
+A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.AllFriendsForm.resources
+A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.BlockedFriendsForm.resources
+A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.OnlineFriendsForm.resources

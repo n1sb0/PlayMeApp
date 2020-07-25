@@ -73,6 +73,36 @@ Namespace My.Resources
         '''<summary>
         '''  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property BlockedUser() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("BlockedUser", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property chatToFriend() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("chatToFriend", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property chatToFriendx1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("chatToFriendx1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property i2gb4m7j7cb41() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("i2gb4m7j7cb41", resourceCulture)
@@ -156,6 +186,16 @@ Namespace My.Resources
         Friend ReadOnly Property t9f6bjjt7br31() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("t9f6bjjt7br31", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property VerticleMenuDots() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("VerticleMenuDots", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

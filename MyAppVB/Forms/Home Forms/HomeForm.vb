@@ -14,7 +14,7 @@ Public Class MainForm
     Private ButtonWasSelected As GunaButton
     Private MoveForm_MousePosition As Point
 
-    Private newValue, oldValue As Integer
+    Public _OpenedChat As Integer
 
     Private vScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
 
@@ -39,7 +39,6 @@ Public Class MainForm
 
         ' Aggiungere le eventuali istruzioni di inizializzazione dopo la chiamata a InitializeComponent().
         SetStyle_For_Components()
-
     End Sub
 
 
@@ -48,11 +47,9 @@ Public Class MainForm
         InitializeComponent()
 
         ' Aggiungere le eventuali istruzioni di inizializzazione dopo la chiamata a InitializeComponent().
-        SetStyle_For_Components()
-
         'Take UserName
         Save_UserName(userName)
-
+        SetStyle_For_Components()
     End Sub
 
     '*****///// SAVE USER DATA AND UPDATE USER DATA ON UI
@@ -99,22 +96,22 @@ Public Class MainForm
     End Sub
 
     Private Sub Create_ListOfFriends()
-        'If Not String.IsNullOrEmpty(_Subject.SUBJECT_USERNAME) Then
-        pnlFriend.Dispose()
+        If Not String.IsNullOrEmpty(_Subject.SUBJECT_USERNAME) Then
+            pnlFriend.Dispose()
 
-        Dim x = 0, y = 0, count = 1
+            Dim x = 0, y = 0, count = 1
 
-        For value As Integer = 0 To 20
-            Dim locationOfFriendPanel As Point = New Point(x, y)
-            Dim pnl As New Panel
-            Dim friendPanel As New FriendsPanel(Me, locationOfFriendPanel, FriendScrollBar, (count).ToString)
-            y += 60
-            count += 1
+            For value As Integer = 0 To 20
+                Dim locationOfFriendPanel As Point = New Point(x, y)
+                Dim pnl As New Panel
+                Dim friendPanel As New FriendsPanel(Me, locationOfFriendPanel, FriendScrollBar, (count).ToString)
+                y += 60
+                count += 1
 
-            _ListOfUserFriendsPanel.Add(friendPanel)
-            PanelListOfFriends.Controls.Add(friendPanel._FriendsPanel)
-        Next
-        'End If
+                _ListOfUserFriendsPanel.Add(friendPanel)
+                PanelListOfFriends.Controls.Add(friendPanel._FriendsPanel)
+            Next
+        End If
     End Sub
 
     Private Function Create_FriendPanel() As Panel
@@ -240,19 +237,6 @@ Public Class MainForm
         _Utility_Style.Select_Btn_UI(selectedPoint, New Point(selectedPoint.Location.X, GenericButton.Location.Y + 18))
     End Sub
 
-    Private Sub On_Click_Buttons(sender As System.Object, e As System.EventArgs) _
-      Handles btnHomeChat.Click, btnPersonalBlog.Click, btnVideo.Click, btnMusic.Click, btnGames.Click
-        ButtonWasSelected.Radius = 25
-
-        GenericButton = DirectCast(sender, GunaButton)
-
-        Onclick_OpenForm(GenericButton.Name)
-
-        _Utility_Style.Select_Btn_UI(selectedPoint, New Point(selectedPoint.Location.X, GenericButton.Location.Y + 18))
-        _Utility_Style.Selected_Btn_Cliked_UI(clikedPoint, GenericButton)
-        ButtonWasSelected = GenericButton
-    End Sub
-
     Private Sub btnFriends_Click(sender As Object, e As EventArgs) Handles btnFriends.Click
         If currentChildForm IsNot Nothing Then
             currentChildForm.Close()
@@ -261,7 +245,20 @@ Public Class MainForm
     '*****///// END MOUSE HOVER AND CLICK ON BUTTONS UI
 
     '*****///// FUNCTION TO OPEN OTHER FORMS ON LEFT MAIN PANEL
-    Private Sub Onclick_OpenForm(buttonName As String)
+    Private Sub On_Click_LeftPanel_Buttons(sender As System.Object, e As System.EventArgs) _
+      Handles btnHomeChat.Click, btnPersonalBlog.Click, btnVideo.Click, btnMusic.Click, btnGames.Click
+        ButtonWasSelected.Radius = 25
+
+        GenericButton = DirectCast(sender, GunaButton)
+
+        Onclick_OpenChildForm_LeftPanel(GenericButton.Name)
+
+        _Utility_Style.Select_Btn_UI(selectedPoint, New Point(selectedPoint.Location.X, GenericButton.Location.Y + 18))
+        _Utility_Style.Selected_Btn_Cliked_UI(clikedPoint, GenericButton)
+        ButtonWasSelected = GenericButton
+    End Sub
+
+    Private Sub Onclick_OpenChildForm_LeftPanel(buttonName As String)
         Select Case buttonName
             Case "btnPersonalBlog"
                 Dim persinalBlogForm As New PersonalBlogForm
@@ -278,6 +275,41 @@ Public Class MainForm
             Case "btnVideo"
                 Dim videoForm As New VideoForm
                 _ControlChildForm.OpenChildForm(videoForm, PlayGroundPanel, currentChildForm)
+
+            Case "btnHomeChat"
+                If currentChildForm IsNot Nothing Then
+                    currentChildForm.Close()
+                End If
+        End Select
+    End Sub
+    '*****///// END FUNCTION TO OPEN OTHER FORMS ON LEFT MAIN PANEL
+
+    '*****///// FUNCTION TO OPEN OTHER FORMS ON LEFT MAIN PANEL
+    Private Sub On_Click_UpperPanel_FriendPanel_Button(sender As System.Object, e As System.EventArgs) _
+      Handles btnFriendsOnile.Click, btnFriendsOnile.Click, btnBlockedFriends.Click, btnAddNewFriends.Click
+
+        GenericButton = DirectCast(sender, GunaButton)
+
+        Onclick_OpenChildForm_LeftPanel(GenericButton.Name)
+    End Sub
+
+    Private Sub Onclick_OpenChildForm_FriendPanels(buttonName As String)
+        Select Case buttonName
+            Case "btnFriendsOnile"
+                Dim persinalBlogForm As New PersonalBlogForm
+                _ControlChildForm.OpenChildForm(persinalBlogForm, FriendsPanelChild, currentChildForm)
+
+            Case "btnFriendsOnile"
+                Dim gameForm As New GameForm
+                _ControlChildForm.OpenChildForm(gameForm, FriendsPanelChild, currentChildForm)
+
+            Case "btnBlockedFriends"
+                Dim musicForm As New MusicForm
+                _ControlChildForm.OpenChildForm(musicForm, FriendsPanelChild, currentChildForm)
+
+            Case "btnAddNewFriends"
+                Dim videoForm As New VideoForm
+                _ControlChildForm.OpenChildForm(videoForm, FriendsPanelChild, currentChildForm)
 
             Case "btnHomeChat"
                 If currentChildForm IsNot Nothing Then

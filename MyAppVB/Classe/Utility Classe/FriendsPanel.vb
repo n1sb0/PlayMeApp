@@ -28,10 +28,6 @@ Public Class FriendsPanel
     Private _BackGColor As String = _Utility_Style.BackGroundColor
     Private _PanelsColorLightDarkBlue As String = _Utility_Style.LightDarkBlue
 
-    Public Function Get_FriendsPanel()
-        Return _FriendsPanel
-    End Function
-
     Sub New(ByRef mainForm As MainForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar, panelname As String)
         _mainForm = mainForm
         _locationOfPanel = locationOfPanel
@@ -190,11 +186,12 @@ Public Class FriendsPanel
     Private Sub On_MouseClickFriendList(sender As System.Object, e As System.EventArgs)
         Dim chatform As New ChatFriendForm
 
+        MainForm._OpenedChat = _pnlNumber
+
         _ControlChildForm.OpenChildForm(chatform, _mainForm.MainChatAndFriendPanel, _mainForm.currentChildForm)
     End Sub
 
     Private Sub btnDeleteMessages_Click(sender As Object, e As EventArgs)
-
 
         Dim btn = DirectCast(sender, IconPictureBox)
 
@@ -205,16 +202,12 @@ Public Class FriendsPanel
         _mainForm.PanelListOfFriends.Controls.Remove(_FriendsPanel)
         _mainForm._ListOfUserFriendsPanel.RemoveAt(index)
 
-        For i As Integer = 0 To _mainForm._ListOfUserFriendsPanel.Count - 1
-            Debug.WriteLine(_mainForm._ListOfUserFriendsPanel.Item(i)._FriendsPanel.Name)
-        Next
-
-        Debug.WriteLine(index)
-
         On_DirectWasDeleted(index)
 
-        If _mainForm.currentChildForm IsNot Nothing Then
-            _mainForm.currentChildForm.Close()
+        If MainForm._OpenedChat = _pnlNumber Then
+            If _mainForm.currentChildForm IsNot Nothing Then
+                _mainForm.currentChildForm.Close()
+            End If
         End If
     End Sub
 

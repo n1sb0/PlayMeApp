@@ -27,6 +27,21 @@ PlayME
   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:PlayME.My.Resources.Resources.BlockedUser">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:PlayME.My.Resources.Resources.chatToFriend">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:PlayME.My.Resources.Resources.chatToFriendx1">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:PlayME.My.Resources.Resources.i2gb4m7j7cb41">
 <summary>
   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
@@ -68,6 +83,11 @@ PlayME
 </summary>
 </member>
 <member name="P:PlayME.My.Resources.Resources.t9f6bjjt7br31">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:PlayME.My.Resources.Resources.VerticleMenuDots">
 <summary>
   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
 </summary>

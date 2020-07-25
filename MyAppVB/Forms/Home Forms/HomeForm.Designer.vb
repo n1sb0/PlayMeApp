@@ -42,17 +42,12 @@ Partial Class MainForm
         Me.MainPanel = New System.Windows.Forms.Panel()
         Me.PlayGroundPanel = New System.Windows.Forms.Panel()
         Me.MainChatAndFriendPanel = New System.Windows.Forms.Panel()
-        Me.pnlFriend = New System.Windows.Forms.Panel()
-        Me.lblFriendName = New System.Windows.Forms.Label()
-        Me.btnDeleteMessages = New FontAwesome.Sharp.IconPictureBox()
-        Me.FriendsPicture = New Guna.UI.WinForms.GunaCirclePictureBox()
-        Me.ShapeContainer2 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.lblFriendOnline = New Microsoft.VisualBasic.PowerPacks.OvalShape()
+        Me.FriendsPanelChild = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.GunaButton4 = New Guna.UI.WinForms.GunaButton()
-        Me.GunaButton3 = New Guna.UI.WinForms.GunaButton()
-        Me.GunaButton1 = New Guna.UI.WinForms.GunaButton()
-        Me.btnMyAccount = New Guna.UI.WinForms.GunaButton()
+        Me.btnAddNewFriends = New Guna.UI.WinForms.GunaButton()
+        Me.btnBlockedFriends = New Guna.UI.WinForms.GunaButton()
+        Me.btnAllFrineds = New Guna.UI.WinForms.GunaButton()
+        Me.btnFriendsOnile = New Guna.UI.WinForms.GunaButton()
         Me.picFriend = New System.Windows.Forms.PictureBox()
         Me.lblFriends = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
@@ -60,6 +55,12 @@ Partial Class MainForm
         Me.pnlMsgFriends = New System.Windows.Forms.Panel()
         Me.FriendScrollBar = New Guna.UI.WinForms.GunaVScrollBar()
         Me.PanelListOfFriends = New Guna.UI.WinForms.GunaPanel()
+        Me.pnlFriend = New System.Windows.Forms.Panel()
+        Me.lblFriendName = New System.Windows.Forms.Label()
+        Me.btnDeleteMessages = New FontAwesome.Sharp.IconPictureBox()
+        Me.FriendsPicture = New Guna.UI.WinForms.GunaCirclePictureBox()
+        Me.ShapeContainer2 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.lblFriendOnline = New Microsoft.VisualBasic.PowerPacks.OvalShape()
         Me.btnNewDirect = New FontAwesome.Sharp.IconPictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnFriends = New Guna.UI.WinForms.GunaButton()
@@ -74,13 +75,13 @@ Partial Class MainForm
         Me.MainPanel.SuspendLayout()
         Me.PlayGroundPanel.SuspendLayout()
         Me.MainChatAndFriendPanel.SuspendLayout()
-        Me.pnlFriend.SuspendLayout()
-        CType(Me.btnDeleteMessages, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FriendsPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.picFriend, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMsgFriends.SuspendLayout()
         Me.PanelListOfFriends.SuspendLayout()
+        Me.pnlFriend.SuspendLayout()
+        CType(Me.btnDeleteMessages, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FriendsPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnNewDirect, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnHide, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnMaxSizeForm, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -407,94 +408,28 @@ Partial Class MainForm
         '
         'MainChatAndFriendPanel
         '
+        Me.MainChatAndFriendPanel.Controls.Add(Me.FriendsPanelChild)
         Me.MainChatAndFriendPanel.Controls.Add(Me.Panel2)
         Me.MainChatAndFriendPanel.Location = New System.Drawing.Point(260, 0)
         Me.MainChatAndFriendPanel.Name = "MainChatAndFriendPanel"
         Me.MainChatAndFriendPanel.Size = New System.Drawing.Size(950, 700)
         Me.MainChatAndFriendPanel.TabIndex = 2
         '
-        'pnlFriend
+        'FriendsPanelChild
         '
-        Me.pnlFriend.Controls.Add(Me.lblFriendName)
-        Me.pnlFriend.Controls.Add(Me.btnDeleteMessages)
-        Me.pnlFriend.Controls.Add(Me.FriendsPicture)
-        Me.pnlFriend.Controls.Add(Me.ShapeContainer2)
-        Me.pnlFriend.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pnlFriend.Location = New System.Drawing.Point(0, 0)
-        Me.pnlFriend.Name = "pnlFriend"
-        Me.pnlFriend.Size = New System.Drawing.Size(260, 60)
-        Me.pnlFriend.TabIndex = 77
-        Me.pnlFriend.Visible = False
-        '
-        'lblFriendName
-        '
-        Me.lblFriendName.BackColor = System.Drawing.Color.Transparent
-        Me.lblFriendName.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.lblFriendName.ForeColor = System.Drawing.Color.Gray
-        Me.lblFriendName.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.lblFriendName.Location = New System.Drawing.Point(55, 20)
-        Me.lblFriendName.Name = "lblFriendName"
-        Me.lblFriendName.Size = New System.Drawing.Size(150, 20)
-        Me.lblFriendName.TabIndex = 94
-        Me.lblFriendName.Text = "Friends"
-        '
-        'btnDeleteMessages
-        '
-        Me.btnDeleteMessages.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnDeleteMessages.BackColor = System.Drawing.Color.Transparent
-        Me.btnDeleteMessages.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnDeleteMessages.ForeColor = System.Drawing.Color.Silver
-        Me.btnDeleteMessages.IconChar = FontAwesome.Sharp.IconChar.Times
-        Me.btnDeleteMessages.IconColor = System.Drawing.Color.Silver
-        Me.btnDeleteMessages.IconSize = 20
-        Me.btnDeleteMessages.Location = New System.Drawing.Point(232, 21)
-        Me.btnDeleteMessages.Name = "btnDeleteMessages"
-        Me.btnDeleteMessages.Size = New System.Drawing.Size(20, 20)
-        Me.btnDeleteMessages.TabIndex = 76
-        Me.btnDeleteMessages.TabStop = False
-        '
-        'FriendsPicture
-        '
-        Me.FriendsPicture.BackColor = System.Drawing.Color.Transparent
-        Me.FriendsPicture.BaseColor = System.Drawing.Color.White
-        Me.FriendsPicture.Image = Global.PlayME.My.Resources.Resources.i2gb4m7j7cb41
-        Me.FriendsPicture.Location = New System.Drawing.Point(11, 9)
-        Me.FriendsPicture.Name = "FriendsPicture"
-        Me.FriendsPicture.Size = New System.Drawing.Size(40, 40)
-        Me.FriendsPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.FriendsPicture.TabIndex = 74
-        Me.FriendsPicture.TabStop = False
-        Me.FriendsPicture.UseTransfarantBackground = False
-        '
-        'ShapeContainer2
-        '
-        Me.ShapeContainer2.Location = New System.Drawing.Point(0, 0)
-        Me.ShapeContainer2.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShapeContainer2.Name = "ShapeContainer2"
-        Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.lblFriendOnline})
-        Me.ShapeContainer2.Size = New System.Drawing.Size(260, 60)
-        Me.ShapeContainer2.TabIndex = 95
-        Me.ShapeContainer2.TabStop = False
-        '
-        'lblFriendOnline
-        '
-        Me.lblFriendOnline.BorderColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.lblFriendOnline.BorderWidth = 2
-        Me.lblFriendOnline.FillColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.lblFriendOnline.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.lblFriendOnline.Location = New System.Drawing.Point(39, 37)
-        Me.lblFriendOnline.Name = "lblFriendOnline"
-        Me.lblFriendOnline.SelectionColor = System.Drawing.Color.Transparent
-        Me.lblFriendOnline.Size = New System.Drawing.Size(12, 12)
+        Me.FriendsPanelChild.Location = New System.Drawing.Point(0, 52)
+        Me.FriendsPanelChild.Name = "FriendsPanelChild"
+        Me.FriendsPanelChild.Size = New System.Drawing.Size(950, 650)
+        Me.FriendsPanelChild.TabIndex = 2
         '
         'Panel2
         '
         Me.Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel2.Controls.Add(Me.GunaButton4)
-        Me.Panel2.Controls.Add(Me.GunaButton3)
-        Me.Panel2.Controls.Add(Me.GunaButton1)
-        Me.Panel2.Controls.Add(Me.btnMyAccount)
+        Me.Panel2.Controls.Add(Me.btnAddNewFriends)
+        Me.Panel2.Controls.Add(Me.btnBlockedFriends)
+        Me.Panel2.Controls.Add(Me.btnAllFrineds)
+        Me.Panel2.Controls.Add(Me.btnFriendsOnile)
         Me.Panel2.Controls.Add(Me.picFriend)
         Me.Panel2.Controls.Add(Me.lblFriends)
         Me.Panel2.Controls.Add(Me.Panel5)
@@ -504,109 +439,109 @@ Partial Class MainForm
         Me.Panel2.Size = New System.Drawing.Size(950, 52)
         Me.Panel2.TabIndex = 1
         '
-        'GunaButton4
+        'btnAddNewFriends
         '
-        Me.GunaButton4.AnimationHoverSpeed = 0.07!
-        Me.GunaButton4.AnimationSpeed = 0.03!
-        Me.GunaButton4.BackColor = System.Drawing.Color.Transparent
-        Me.GunaButton4.BaseColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.GunaButton4.BorderColor = System.Drawing.Color.Black
-        Me.GunaButton4.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.GunaButton4.DialogResult = System.Windows.Forms.DialogResult.None
-        Me.GunaButton4.FocusedColor = System.Drawing.Color.Empty
-        Me.GunaButton4.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.GunaButton4.ForeColor = System.Drawing.Color.White
-        Me.GunaButton4.Image = Nothing
-        Me.GunaButton4.ImageSize = New System.Drawing.Size(20, 20)
-        Me.GunaButton4.Location = New System.Drawing.Point(343, 10)
-        Me.GunaButton4.Name = "GunaButton4"
-        Me.GunaButton4.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.GunaButton4.OnHoverBorderColor = System.Drawing.Color.Black
-        Me.GunaButton4.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.GunaButton4.OnHoverImage = Nothing
-        Me.GunaButton4.OnPressedColor = System.Drawing.Color.Black
-        Me.GunaButton4.Radius = 7
-        Me.GunaButton4.Size = New System.Drawing.Size(106, 30)
-        Me.GunaButton4.TabIndex = 93
-        Me.GunaButton4.Text = "Add Friend"
+        Me.btnAddNewFriends.AnimationHoverSpeed = 0.07!
+        Me.btnAddNewFriends.AnimationSpeed = 0.03!
+        Me.btnAddNewFriends.BackColor = System.Drawing.Color.Transparent
+        Me.btnAddNewFriends.BaseColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.btnAddNewFriends.BorderColor = System.Drawing.Color.Black
+        Me.btnAddNewFriends.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnAddNewFriends.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnAddNewFriends.FocusedColor = System.Drawing.Color.Empty
+        Me.btnAddNewFriends.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.btnAddNewFriends.ForeColor = System.Drawing.Color.White
+        Me.btnAddNewFriends.Image = Nothing
+        Me.btnAddNewFriends.ImageSize = New System.Drawing.Size(20, 20)
+        Me.btnAddNewFriends.Location = New System.Drawing.Point(343, 10)
+        Me.btnAddNewFriends.Name = "btnAddNewFriends"
+        Me.btnAddNewFriends.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnAddNewFriends.OnHoverBorderColor = System.Drawing.Color.Black
+        Me.btnAddNewFriends.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.btnAddNewFriends.OnHoverImage = Nothing
+        Me.btnAddNewFriends.OnPressedColor = System.Drawing.Color.Black
+        Me.btnAddNewFriends.Radius = 7
+        Me.btnAddNewFriends.Size = New System.Drawing.Size(106, 30)
+        Me.btnAddNewFriends.TabIndex = 93
+        Me.btnAddNewFriends.Text = "Add Friend"
         '
-        'GunaButton3
+        'btnBlockedFriends
         '
-        Me.GunaButton3.AnimationHoverSpeed = 0.07!
-        Me.GunaButton3.AnimationSpeed = 0.03!
-        Me.GunaButton3.BackColor = System.Drawing.Color.Transparent
-        Me.GunaButton3.BaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.GunaButton3.BorderColor = System.Drawing.Color.Black
-        Me.GunaButton3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.GunaButton3.DialogResult = System.Windows.Forms.DialogResult.None
-        Me.GunaButton3.FocusedColor = System.Drawing.Color.Empty
-        Me.GunaButton3.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.GunaButton3.ForeColor = System.Drawing.Color.DarkGray
-        Me.GunaButton3.Image = Nothing
-        Me.GunaButton3.ImageSize = New System.Drawing.Size(20, 20)
-        Me.GunaButton3.Location = New System.Drawing.Point(257, 10)
-        Me.GunaButton3.Name = "GunaButton3"
-        Me.GunaButton3.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.GunaButton3.OnHoverBorderColor = System.Drawing.Color.Black
-        Me.GunaButton3.OnHoverForeColor = System.Drawing.Color.White
-        Me.GunaButton3.OnHoverImage = Nothing
-        Me.GunaButton3.OnPressedColor = System.Drawing.Color.Black
-        Me.GunaButton3.Radius = 7
-        Me.GunaButton3.Size = New System.Drawing.Size(80, 30)
-        Me.GunaButton3.TabIndex = 92
-        Me.GunaButton3.Text = "Blocked"
+        Me.btnBlockedFriends.AnimationHoverSpeed = 0.07!
+        Me.btnBlockedFriends.AnimationSpeed = 0.03!
+        Me.btnBlockedFriends.BackColor = System.Drawing.Color.Transparent
+        Me.btnBlockedFriends.BaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnBlockedFriends.BorderColor = System.Drawing.Color.Black
+        Me.btnBlockedFriends.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnBlockedFriends.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnBlockedFriends.FocusedColor = System.Drawing.Color.Empty
+        Me.btnBlockedFriends.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.btnBlockedFriends.ForeColor = System.Drawing.Color.DarkGray
+        Me.btnBlockedFriends.Image = Nothing
+        Me.btnBlockedFriends.ImageSize = New System.Drawing.Size(20, 20)
+        Me.btnBlockedFriends.Location = New System.Drawing.Point(257, 10)
+        Me.btnBlockedFriends.Name = "btnBlockedFriends"
+        Me.btnBlockedFriends.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.btnBlockedFriends.OnHoverBorderColor = System.Drawing.Color.Black
+        Me.btnBlockedFriends.OnHoverForeColor = System.Drawing.Color.White
+        Me.btnBlockedFriends.OnHoverImage = Nothing
+        Me.btnBlockedFriends.OnPressedColor = System.Drawing.Color.Black
+        Me.btnBlockedFriends.Radius = 7
+        Me.btnBlockedFriends.Size = New System.Drawing.Size(80, 30)
+        Me.btnBlockedFriends.TabIndex = 92
+        Me.btnBlockedFriends.Text = "Blocked"
         '
-        'GunaButton1
+        'btnAllFrineds
         '
-        Me.GunaButton1.AnimationHoverSpeed = 0.07!
-        Me.GunaButton1.AnimationSpeed = 0.03!
-        Me.GunaButton1.BackColor = System.Drawing.Color.Transparent
-        Me.GunaButton1.BaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.GunaButton1.BorderColor = System.Drawing.Color.Black
-        Me.GunaButton1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.GunaButton1.DialogResult = System.Windows.Forms.DialogResult.None
-        Me.GunaButton1.FocusedColor = System.Drawing.Color.Empty
-        Me.GunaButton1.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.GunaButton1.ForeColor = System.Drawing.Color.DarkGray
-        Me.GunaButton1.Image = Nothing
-        Me.GunaButton1.ImageSize = New System.Drawing.Size(20, 20)
-        Me.GunaButton1.Location = New System.Drawing.Point(210, 10)
-        Me.GunaButton1.Name = "GunaButton1"
-        Me.GunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.GunaButton1.OnHoverBorderColor = System.Drawing.Color.Black
-        Me.GunaButton1.OnHoverForeColor = System.Drawing.Color.White
-        Me.GunaButton1.OnHoverImage = Nothing
-        Me.GunaButton1.OnPressedColor = System.Drawing.Color.Black
-        Me.GunaButton1.Radius = 7
-        Me.GunaButton1.Size = New System.Drawing.Size(41, 30)
-        Me.GunaButton1.TabIndex = 91
-        Me.GunaButton1.Text = "All"
+        Me.btnAllFrineds.AnimationHoverSpeed = 0.07!
+        Me.btnAllFrineds.AnimationSpeed = 0.03!
+        Me.btnAllFrineds.BackColor = System.Drawing.Color.Transparent
+        Me.btnAllFrineds.BaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnAllFrineds.BorderColor = System.Drawing.Color.Black
+        Me.btnAllFrineds.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnAllFrineds.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnAllFrineds.FocusedColor = System.Drawing.Color.Empty
+        Me.btnAllFrineds.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.btnAllFrineds.ForeColor = System.Drawing.Color.DarkGray
+        Me.btnAllFrineds.Image = Nothing
+        Me.btnAllFrineds.ImageSize = New System.Drawing.Size(20, 20)
+        Me.btnAllFrineds.Location = New System.Drawing.Point(210, 10)
+        Me.btnAllFrineds.Name = "btnAllFrineds"
+        Me.btnAllFrineds.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.btnAllFrineds.OnHoverBorderColor = System.Drawing.Color.Black
+        Me.btnAllFrineds.OnHoverForeColor = System.Drawing.Color.White
+        Me.btnAllFrineds.OnHoverImage = Nothing
+        Me.btnAllFrineds.OnPressedColor = System.Drawing.Color.Black
+        Me.btnAllFrineds.Radius = 7
+        Me.btnAllFrineds.Size = New System.Drawing.Size(41, 30)
+        Me.btnAllFrineds.TabIndex = 91
+        Me.btnAllFrineds.Text = "All"
         '
-        'btnMyAccount
+        'btnFriendsOnile
         '
-        Me.btnMyAccount.AnimationHoverSpeed = 0.07!
-        Me.btnMyAccount.AnimationSpeed = 0.03!
-        Me.btnMyAccount.BackColor = System.Drawing.Color.Transparent
-        Me.btnMyAccount.BaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnMyAccount.BorderColor = System.Drawing.Color.Black
-        Me.btnMyAccount.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnMyAccount.DialogResult = System.Windows.Forms.DialogResult.None
-        Me.btnMyAccount.FocusedColor = System.Drawing.Color.Empty
-        Me.btnMyAccount.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.btnMyAccount.ForeColor = System.Drawing.Color.DarkGray
-        Me.btnMyAccount.Image = Nothing
-        Me.btnMyAccount.ImageSize = New System.Drawing.Size(20, 20)
-        Me.btnMyAccount.Location = New System.Drawing.Point(138, 10)
-        Me.btnMyAccount.Name = "btnMyAccount"
-        Me.btnMyAccount.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.btnMyAccount.OnHoverBorderColor = System.Drawing.Color.Black
-        Me.btnMyAccount.OnHoverForeColor = System.Drawing.Color.White
-        Me.btnMyAccount.OnHoverImage = Nothing
-        Me.btnMyAccount.OnPressedColor = System.Drawing.Color.Black
-        Me.btnMyAccount.Radius = 7
-        Me.btnMyAccount.Size = New System.Drawing.Size(66, 30)
-        Me.btnMyAccount.TabIndex = 90
-        Me.btnMyAccount.Text = "Online"
+        Me.btnFriendsOnile.AnimationHoverSpeed = 0.07!
+        Me.btnFriendsOnile.AnimationSpeed = 0.03!
+        Me.btnFriendsOnile.BackColor = System.Drawing.Color.Transparent
+        Me.btnFriendsOnile.BaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnFriendsOnile.BorderColor = System.Drawing.Color.Black
+        Me.btnFriendsOnile.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnFriendsOnile.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnFriendsOnile.FocusedColor = System.Drawing.Color.Empty
+        Me.btnFriendsOnile.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.btnFriendsOnile.ForeColor = System.Drawing.Color.DarkGray
+        Me.btnFriendsOnile.Image = Nothing
+        Me.btnFriendsOnile.ImageSize = New System.Drawing.Size(20, 20)
+        Me.btnFriendsOnile.Location = New System.Drawing.Point(138, 10)
+        Me.btnFriendsOnile.Name = "btnFriendsOnile"
+        Me.btnFriendsOnile.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.btnFriendsOnile.OnHoverBorderColor = System.Drawing.Color.Black
+        Me.btnFriendsOnile.OnHoverForeColor = System.Drawing.Color.White
+        Me.btnFriendsOnile.OnHoverImage = Nothing
+        Me.btnFriendsOnile.OnPressedColor = System.Drawing.Color.Black
+        Me.btnFriendsOnile.Radius = 7
+        Me.btnFriendsOnile.Size = New System.Drawing.Size(66, 30)
+        Me.btnFriendsOnile.TabIndex = 90
+        Me.btnFriendsOnile.Text = "Online"
         '
         'picFriend
         '
@@ -691,6 +626,80 @@ Partial Class MainForm
         Me.PanelListOfFriends.Name = "PanelListOfFriends"
         Me.PanelListOfFriends.Size = New System.Drawing.Size(260, 577)
         Me.PanelListOfFriends.TabIndex = 3
+        '
+        'pnlFriend
+        '
+        Me.pnlFriend.Controls.Add(Me.lblFriendName)
+        Me.pnlFriend.Controls.Add(Me.btnDeleteMessages)
+        Me.pnlFriend.Controls.Add(Me.FriendsPicture)
+        Me.pnlFriend.Controls.Add(Me.ShapeContainer2)
+        Me.pnlFriend.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pnlFriend.Location = New System.Drawing.Point(0, 0)
+        Me.pnlFriend.Name = "pnlFriend"
+        Me.pnlFriend.Size = New System.Drawing.Size(260, 60)
+        Me.pnlFriend.TabIndex = 77
+        Me.pnlFriend.Visible = False
+        '
+        'lblFriendName
+        '
+        Me.lblFriendName.BackColor = System.Drawing.Color.Transparent
+        Me.lblFriendName.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.lblFriendName.ForeColor = System.Drawing.Color.Gray
+        Me.lblFriendName.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblFriendName.Location = New System.Drawing.Point(55, 20)
+        Me.lblFriendName.Name = "lblFriendName"
+        Me.lblFriendName.Size = New System.Drawing.Size(150, 20)
+        Me.lblFriendName.TabIndex = 94
+        Me.lblFriendName.Text = "Friends"
+        '
+        'btnDeleteMessages
+        '
+        Me.btnDeleteMessages.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnDeleteMessages.BackColor = System.Drawing.Color.Transparent
+        Me.btnDeleteMessages.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDeleteMessages.ForeColor = System.Drawing.Color.Silver
+        Me.btnDeleteMessages.IconChar = FontAwesome.Sharp.IconChar.Times
+        Me.btnDeleteMessages.IconColor = System.Drawing.Color.Silver
+        Me.btnDeleteMessages.IconSize = 20
+        Me.btnDeleteMessages.Location = New System.Drawing.Point(232, 21)
+        Me.btnDeleteMessages.Name = "btnDeleteMessages"
+        Me.btnDeleteMessages.Size = New System.Drawing.Size(20, 20)
+        Me.btnDeleteMessages.TabIndex = 76
+        Me.btnDeleteMessages.TabStop = False
+        '
+        'FriendsPicture
+        '
+        Me.FriendsPicture.BackColor = System.Drawing.Color.Transparent
+        Me.FriendsPicture.BaseColor = System.Drawing.Color.White
+        Me.FriendsPicture.Image = Global.PlayME.My.Resources.Resources.i2gb4m7j7cb41
+        Me.FriendsPicture.Location = New System.Drawing.Point(11, 9)
+        Me.FriendsPicture.Name = "FriendsPicture"
+        Me.FriendsPicture.Size = New System.Drawing.Size(40, 40)
+        Me.FriendsPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.FriendsPicture.TabIndex = 74
+        Me.FriendsPicture.TabStop = False
+        Me.FriendsPicture.UseTransfarantBackground = False
+        '
+        'ShapeContainer2
+        '
+        Me.ShapeContainer2.Location = New System.Drawing.Point(0, 0)
+        Me.ShapeContainer2.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer2.Name = "ShapeContainer2"
+        Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.lblFriendOnline})
+        Me.ShapeContainer2.Size = New System.Drawing.Size(260, 60)
+        Me.ShapeContainer2.TabIndex = 95
+        Me.ShapeContainer2.TabStop = False
+        '
+        'lblFriendOnline
+        '
+        Me.lblFriendOnline.BorderColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.lblFriendOnline.BorderWidth = 2
+        Me.lblFriendOnline.FillColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.lblFriendOnline.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.lblFriendOnline.Location = New System.Drawing.Point(39, 37)
+        Me.lblFriendOnline.Name = "lblFriendOnline"
+        Me.lblFriendOnline.SelectionColor = System.Drawing.Color.Transparent
+        Me.lblFriendOnline.Size = New System.Drawing.Size(12, 12)
         '
         'btnNewDirect
         '
@@ -844,13 +853,13 @@ Partial Class MainForm
         Me.MainPanel.ResumeLayout(False)
         Me.PlayGroundPanel.ResumeLayout(False)
         Me.MainChatAndFriendPanel.ResumeLayout(False)
-        Me.pnlFriend.ResumeLayout(False)
-        CType(Me.btnDeleteMessages, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FriendsPicture, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         CType(Me.picFriend, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMsgFriends.ResumeLayout(False)
         Me.PanelListOfFriends.ResumeLayout(False)
+        Me.pnlFriend.ResumeLayout(False)
+        CType(Me.btnDeleteMessages, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FriendsPicture, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnNewDirect, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnHide, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnMaxSizeForm, System.ComponentModel.ISupportInitialize).EndInit()
@@ -891,10 +900,10 @@ Partial Class MainForm
     Friend WithEvents lblFriends As Label
     Friend WithEvents Panel5 As Panel
     Friend WithEvents picFriend As PictureBox
-    Friend WithEvents btnMyAccount As Guna.UI.WinForms.GunaButton
-    Friend WithEvents GunaButton4 As Guna.UI.WinForms.GunaButton
-    Friend WithEvents GunaButton3 As Guna.UI.WinForms.GunaButton
-    Friend WithEvents GunaButton1 As Guna.UI.WinForms.GunaButton
+    Friend WithEvents btnFriendsOnile As Guna.UI.WinForms.GunaButton
+    Friend WithEvents btnAddNewFriends As Guna.UI.WinForms.GunaButton
+    Friend WithEvents btnBlockedFriends As Guna.UI.WinForms.GunaButton
+    Friend WithEvents btnAllFrineds As Guna.UI.WinForms.GunaButton
     Friend WithEvents pnlFriend As Panel
     Friend WithEvents btnDeleteMessages As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents MainChatAndFriendPanel As Panel
@@ -903,4 +912,5 @@ Partial Class MainForm
     Friend WithEvents lblFriendOnline As PowerPacks.OvalShape
     Friend WithEvents FriendScrollBar As Guna.UI.WinForms.GunaVScrollBar
     Friend WithEvents PanelListOfFriends As Guna.UI.WinForms.GunaPanel
+    Friend WithEvents FriendsPanelChild As Panel
 End Class

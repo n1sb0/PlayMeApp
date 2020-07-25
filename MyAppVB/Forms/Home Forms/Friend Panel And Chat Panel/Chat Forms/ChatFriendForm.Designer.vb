@@ -72,7 +72,7 @@ Partial Class ChatFriendForm
         '
         Me.OvalShape1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.OvalShape1.BorderWidth = 2
-        Me.OvalShape1.FillColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.OvalShape1.FillColor = System.Drawing.Color.Gray
         Me.OvalShape1.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
         Me.OvalShape1.Location = New System.Drawing.Point(165, 18)
         Me.OvalShape1.Name = "OvalShape1"
