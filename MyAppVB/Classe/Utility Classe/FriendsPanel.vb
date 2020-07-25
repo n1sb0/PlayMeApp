@@ -22,6 +22,7 @@ Public Class FriendsPanel
 
     Private _enter As Boolean = False
     Private _pnlNumber As String
+    Private _mainForm As MainForm
 
     Private _GrayColor As String = _Utility_Style.GrayColor
     Private _BackGColor As String = _Utility_Style.BackGroundColor
@@ -31,7 +32,8 @@ Public Class FriendsPanel
         Return _FriendsPanel
     End Function
 
-    Sub New(locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar, panelname As String)
+    Sub New(ByRef mainForm As MainForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar, panelname As String)
+        _mainForm = mainForm
         _locationOfPanel = locationOfPanel
         _friendScrollBar = friendScrollBar
         _pnlNumber = panelname
@@ -169,7 +171,7 @@ Public Class FriendsPanel
     End Sub
 
     Private Sub On_FriendsPanel_Leave(sender As Object, e As EventArgs)
-        If MainForm.PanelListOfFriends.GetChildAtPoint(MainForm.PanelListOfFriends.PointToClient(Cursor.Position)) Is MainForm.FriendScrollBar OrElse _FriendsPanel.GetChildAtPoint(_FriendsPanel.PointToClient(Cursor.Position)) Is Nothing Then
+        If _mainForm.PanelListOfFriends.GetChildAtPoint(_mainForm.PanelListOfFriends.PointToClient(Cursor.Position)) Is _mainForm.FriendScrollBar OrElse _FriendsPanel.GetChildAtPoint(_FriendsPanel.PointToClient(Cursor.Position)) Is Nothing Then
             Leave_ListOfFriend()
         End If
     End Sub
@@ -188,28 +190,37 @@ Public Class FriendsPanel
     Private Sub On_MouseClickFriendList(sender As System.Object, e As System.EventArgs)
         Dim chatform As New ChatFriendForm
 
-        _ControlChildForm.OpenChildForm(chatform, MainForm.MainChatAndFriendPanel, MainForm.currentChildForm)
+        _ControlChildForm.OpenChildForm(chatform, _mainForm.MainChatAndFriendPanel, _mainForm.currentChildForm)
     End Sub
 
     Private Sub btnDeleteMessages_Click(sender As Object, e As EventArgs)
-        MainForm.PanelListOfFriends.Controls.Remove(_FriendsPanel)
+
 
         Dim btn = DirectCast(sender, IconPictureBox)
 
         Dim s As String = btn.Name.Substring(btn.Name.IndexOf("Btn") + 3)
 
-        Dim index = MainForm._ListOfUserFriendsPanel.FindIndex(Function(panel) panel._FriendsPanel.Name = "pnl" + s)
+        Dim index = _mainForm._ListOfUserFriendsPanel.FindIndex(Function(panel) panel._FriendsPanel.Name = "pnl" + s)
+
+        _mainForm.PanelListOfFriends.Controls.Remove(_FriendsPanel)
+        _mainForm._ListOfUserFriendsPanel.RemoveAt(index)
+
+        For i As Integer = 0 To _mainForm._ListOfUserFriendsPanel.Count - 1
+            Debug.WriteLine(_mainForm._ListOfUserFriendsPanel.Item(i)._FriendsPanel.Name)
+        Next
+
+        Debug.WriteLine(index)
 
         On_DirectWasDeleted(index)
 
-        If MainForm.currentChildForm IsNot Nothing Then
-            MainForm.currentChildForm.Close()
+        If _mainForm.currentChildForm IsNot Nothing Then
+            _mainForm.currentChildForm.Close()
         End If
     End Sub
 
     Private Sub On_DirectWasDeleted(index As Integer)
-        For i As Integer = index To MainForm._ListOfUserFriendsPanel.Count - 1
-            MainForm._ListOfUserFriendsPanel.Item(i)._FriendsPanel.Location = New Point(0, MainForm._ListOfUserFriendsPanel.Item(i)._FriendsPanel.Location.Y - 60)
+        For i As Integer = index To _mainForm._ListOfUserFriendsPanel.Count - 1
+            _mainForm._ListOfUserFriendsPanel.Item(i)._FriendsPanel.Location = New Point(0, _mainForm._ListOfUserFriendsPanel.Item(i)._FriendsPanel.Location.Y - 60)
         Next
     End Sub
 

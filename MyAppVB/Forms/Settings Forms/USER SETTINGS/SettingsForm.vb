@@ -55,6 +55,7 @@ Public Class SettingsForm
     '*****///// UPDATE USER DATA ON UI
     Private Sub Put_Subject_Data()
         _Subject = Subject.Get_Subject_Data(_userName)
+
         If Not String.IsNullOrEmpty(_Subject.SUBJECT_USERNAME) Then
             txtUserEmail.Text = _Subject.SUBJECT_EMAIL
             txtUserName.Text = _Subject.SUBJECT_USERNAME
@@ -238,13 +239,11 @@ Public Class SettingsForm
                 setQuery = MyConnection.Get_Update_Some_Data_Query() + "WHERE SUBJECT_ID = @SUBJECT_ID"
             End If
 
-            If Not String.IsNullOrEmpty(_Subject.SUBJECT_USERNAME) Then
-                _Subject.Update_Subject_Data(setQuery)
+            _Subject.Update_Subject_Data(setQuery)
 
-                Change_EditState(False)
+            Change_EditState(False)
 
-                _Subject = Subject.Get_Subject_Data(_Subject.SUBJECT_USERNAME)
-            End If
+            _Subject = Subject.Get_Subject_Data(_Subject.SUBJECT_USERNAME)
         Else
             lblWrongPassword.Visible = True
         End If

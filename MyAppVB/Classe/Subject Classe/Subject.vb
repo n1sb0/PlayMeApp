@@ -152,45 +152,49 @@
     End Sub
 
     Public Shared Function Get_Subject_Data(userName As String)
-        Dim Connection As New SqlClient.SqlConnection(MyConnection.Get_Connection)
-        Dim command As New SqlClient.SqlCommand
         Dim subject As New Subject
 
-        Dim login As String
-        Dim strQuery As String
+        If Not String.IsNullOrEmpty(userName) Then
+            Dim Connection As New SqlClient.SqlConnection(MyConnection.Get_Connection)
+            Dim command As New SqlClient.SqlCommand
 
-        If userName.Contains("@") Then
-            login = "@EMAIL"
-            strQuery = " WHERE SUBJECT_EMAIL = @EMAIL"
-        Else
-            login = "@USERNAME"
-            strQuery = " WHERE SUBJECT_USERNAME = @USERNAME"
-        End If
+            Dim login As String
+            Dim strQuery As String
 
-        Try
-            command.CommandText = MyConnection.Get_Base_Select_SujectData()
-
-            With command
-                .CommandText = MyConnection.Get_Base_Select_SujectData() + strQuery
-                .Connection = Connection
-
-                .Parameters.AddWithValue(login, userName)
-            End With
-
-            command.Connection.Open()
-            Dim reader As SqlClient.SqlDataReader = command.ExecuteReader()
-
-            If reader.Read Then
-                ReadFromDataReader(subject, reader)
+            If userName.Contains("@") Then
+                login = "@EMAIL"
+                strQuery = " WHERE SUBJECT_EMAIL = @EMAIL"
+            Else
+                login = "@USERNAME"
+                strQuery = " WHERE SUBJECT_USERNAME = @USERNAME"
             End If
 
-            reader.Close()
-            command.Dispose()
-            Connection.Close()
-            Connection.Dispose()
-        Catch ex As Exception
-            MessageBox.Show("Can't read data :(" + vbCrLf + ex.Message, "ERRORE")
-        End Try
+            Try
+                command.CommandText = MyConnection.Get_Base_Select_SujectData()
+
+                With command
+                    .CommandText = MyConnection.Get_Base_Select_SujectData() + strQuery
+                    .Connection = Connection
+
+                    .Parameters.AddWithValue(login, userName)
+                End With
+
+                command.Connection.Open()
+                Dim reader As SqlClient.SqlDataReader = command.ExecuteReader()
+
+                If reader.Read Then
+                    ReadFromDataReader(subject, reader)
+                End If
+
+                reader.Close()
+                command.Dispose()
+                Connection.Close()
+                Connection.Dispose()
+            Catch ex As Exception
+                MessageBox.Show("Can't read data :(" + vbCrLf + ex.Message, "ERRORE")
+            End Try
+
+        End If
 
         Return subject
     End Function

@@ -22,7 +22,6 @@ Partial Class MainForm
     'Non modificarla mediante l'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Me.LeftButtomPanel = New System.Windows.Forms.Panel()
         Me.clikedPoint = New Guna.UI.WinForms.GunaButton()
@@ -69,7 +68,6 @@ Partial Class MainForm
         Me.btnHide = New FontAwesome.Sharp.IconPictureBox()
         Me.btnMaxSizeForm = New FontAwesome.Sharp.IconPictureBox()
         Me.btnExit = New FontAwesome.Sharp.IconPictureBox()
-        Me.waitForScroll = New System.Windows.Forms.Timer(Me.components)
         Me.LeftButtomPanel.SuspendLayout()
         CType(Me.UserPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnSettings, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -82,6 +80,7 @@ Partial Class MainForm
         Me.Panel2.SuspendLayout()
         CType(Me.picFriend, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMsgFriends.SuspendLayout()
+        Me.PanelListOfFriends.SuspendLayout()
         CType(Me.btnNewDirect, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnHide, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnMaxSizeForm, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -408,7 +407,6 @@ Partial Class MainForm
         '
         'MainChatAndFriendPanel
         '
-        Me.MainChatAndFriendPanel.Controls.Add(Me.pnlFriend)
         Me.MainChatAndFriendPanel.Controls.Add(Me.Panel2)
         Me.MainChatAndFriendPanel.Location = New System.Drawing.Point(260, 0)
         Me.MainChatAndFriendPanel.Name = "MainChatAndFriendPanel"
@@ -422,7 +420,7 @@ Partial Class MainForm
         Me.pnlFriend.Controls.Add(Me.FriendsPicture)
         Me.pnlFriend.Controls.Add(Me.ShapeContainer2)
         Me.pnlFriend.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pnlFriend.Location = New System.Drawing.Point(236, 190)
+        Me.pnlFriend.Location = New System.Drawing.Point(0, 0)
         Me.pnlFriend.Name = "pnlFriend"
         Me.pnlFriend.Size = New System.Drawing.Size(260, 60)
         Me.pnlFriend.TabIndex = 77
@@ -688,6 +686,7 @@ Partial Class MainForm
         '
         Me.PanelListOfFriends.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.PanelListOfFriends.Controls.Add(Me.pnlFriend)
         Me.PanelListOfFriends.Location = New System.Drawing.Point(0, 140)
         Me.PanelListOfFriends.Name = "PanelListOfFriends"
         Me.PanelListOfFriends.Size = New System.Drawing.Size(260, 577)
@@ -819,10 +818,6 @@ Partial Class MainForm
         Me.btnExit.TabIndex = 70
         Me.btnExit.TabStop = False
         '
-        'waitForScroll
-        '
-        Me.waitForScroll.Interval = 300
-        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -855,6 +850,7 @@ Partial Class MainForm
         Me.Panel2.ResumeLayout(False)
         CType(Me.picFriend, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMsgFriends.ResumeLayout(False)
+        Me.PanelListOfFriends.ResumeLayout(False)
         CType(Me.btnNewDirect, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnHide, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnMaxSizeForm, System.ComponentModel.ISupportInitialize).EndInit()
@@ -907,5 +903,4 @@ Partial Class MainForm
     Friend WithEvents lblFriendOnline As PowerPacks.OvalShape
     Friend WithEvents FriendScrollBar As Guna.UI.WinForms.GunaVScrollBar
     Friend WithEvents PanelListOfFriends As Guna.UI.WinForms.GunaPanel
-    Friend WithEvents waitForScroll As Timer
 End Class

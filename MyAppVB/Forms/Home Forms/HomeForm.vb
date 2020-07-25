@@ -85,8 +85,6 @@ Public Class MainForm
         vScrollHelper.UpdateScrollBar()
         FriendScrollBar.BringToFront()
 
-        waitForScroll.Enabled = True
-
         UserPicture.SendToBack()
         ButtonWasSelected = btnHomeChat
 
@@ -101,18 +99,22 @@ Public Class MainForm
     End Sub
 
     Private Sub Create_ListOfFriends()
+        'If Not String.IsNullOrEmpty(_Subject.SUBJECT_USERNAME) Then
+        pnlFriend.Dispose()
+
         Dim x = 0, y = 0, count = 1
 
         For value As Integer = 0 To 20
             Dim locationOfFriendPanel As Point = New Point(x, y)
-            Dim friendPanel As New FriendsPanel(locationOfFriendPanel, FriendScrollBar, (count).ToString)
+            Dim pnl As New Panel
+            Dim friendPanel As New FriendsPanel(Me, locationOfFriendPanel, FriendScrollBar, (count).ToString)
             y += 60
-            friendPanel.Get_FriendsPanel()
             count += 1
 
             _ListOfUserFriendsPanel.Add(friendPanel)
             PanelListOfFriends.Controls.Add(friendPanel._FriendsPanel)
         Next
+        'End If
     End Sub
 
     Private Function Create_FriendPanel() As Panel
@@ -285,10 +287,12 @@ Public Class MainForm
     End Sub
     '*****///// END FUNCTION TO OPEN OTHER FORMS ON LEFT MAIN PANEL
 
+    '*****///// ON SCROLL FRIENDSLIST TO NOT SEE MILTIPLE SELECTED FIRENDS
     Private Sub FriendScrollBar_Scroll(sender As Object, e As ScrollEventArgs) Handles FriendScrollBar.Scroll
         For i As Integer = 0 To _ListOfUserFriendsPanel.Count - 1
             _ListOfUserFriendsPanel.Item(i).Leave_ListOfFriend()
         Next
     End Sub
+    '*****///// END ON SCROLL FRIENDSLIST TO NOT SEE MILTIPLE SELECTED FIRENDS
 
 End Class

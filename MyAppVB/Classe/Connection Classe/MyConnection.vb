@@ -1,6 +1,6 @@
 ﻿Public Class MyConnection
     Public Shared Function Get_Connection() As String
-        Dim ConnQuery As String = "MY CONNECTION STRING ******"
+        Dim ConnQuery As String = "*****"
         Return ConnQuery
     End Function
 
