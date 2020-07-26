@@ -1,4 +1,5 @@
 ﻿Public Class Subject
+
     Property SUBJECT_SALT As String
     Property SUBJECT_ID As Integer
     Property SUBJECT_EMAIL As String
@@ -202,7 +203,6 @@
     Public Sub Delete_Subject_Accout()
 
     End Sub
-
 
     Public Shared Sub ReadFromDataReader(ByRef rec As Subject, ByVal reader As SqlClient.SqlDataReader)
         With rec

@@ -26,8 +26,8 @@ Partial Class AddFriendForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.FindFriendPanel = New System.Windows.Forms.Panel()
-        Me.btnSendFriendRequest = New Guna.UI.WinForms.GunaButton()
         Me.txtFindFriend = New System.Windows.Forms.TextBox()
+        Me.btnSendFriendRequest = New Guna.UI.WinForms.GunaButton()
         Me.FindFriendPanel.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -70,33 +70,6 @@ Partial Class AddFriendForm
         Me.FindFriendPanel.Size = New System.Drawing.Size(870, 50)
         Me.FindFriendPanel.TabIndex = 77
         '
-        'btnSendFriendRequest
-        '
-        Me.btnSendFriendRequest.AnimationHoverSpeed = 0.07!
-        Me.btnSendFriendRequest.AnimationSpeed = 0.03!
-        Me.btnSendFriendRequest.BackColor = System.Drawing.Color.Transparent
-        Me.btnSendFriendRequest.BaseColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
-        Me.btnSendFriendRequest.BorderColor = System.Drawing.Color.Black
-        Me.btnSendFriendRequest.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSendFriendRequest.DialogResult = System.Windows.Forms.DialogResult.None
-        Me.btnSendFriendRequest.Enabled = False
-        Me.btnSendFriendRequest.FocusedColor = System.Drawing.Color.Empty
-        Me.btnSendFriendRequest.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.btnSendFriendRequest.ForeColor = System.Drawing.Color.White
-        Me.btnSendFriendRequest.Image = Nothing
-        Me.btnSendFriendRequest.ImageSize = New System.Drawing.Size(20, 20)
-        Me.btnSendFriendRequest.Location = New System.Drawing.Point(680, 10)
-        Me.btnSendFriendRequest.Name = "btnSendFriendRequest"
-        Me.btnSendFriendRequest.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.btnSendFriendRequest.OnHoverBorderColor = System.Drawing.Color.Black
-        Me.btnSendFriendRequest.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.btnSendFriendRequest.OnHoverImage = Nothing
-        Me.btnSendFriendRequest.OnPressedColor = System.Drawing.Color.Black
-        Me.btnSendFriendRequest.Radius = 7
-        Me.btnSendFriendRequest.Size = New System.Drawing.Size(175, 30)
-        Me.btnSendFriendRequest.TabIndex = 94
-        Me.btnSendFriendRequest.Text = "Send Friend Request"
-        '
         'txtFindFriend
         '
         Me.txtFindFriend.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
@@ -109,6 +82,33 @@ Partial Class AddFriendForm
         Me.txtFindFriend.Size = New System.Drawing.Size(650, 25)
         Me.txtFindFriend.TabIndex = 95
         Me.txtFindFriend.Text = "Enter a Username"
+        '
+        'btnSendFriendRequest
+        '
+        Me.btnSendFriendRequest.AnimationHoverSpeed = 0.07!
+        Me.btnSendFriendRequest.AnimationSpeed = 0.03!
+        Me.btnSendFriendRequest.BackColor = System.Drawing.Color.Transparent
+        Me.btnSendFriendRequest.BaseColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
+        Me.btnSendFriendRequest.BorderColor = System.Drawing.Color.Black
+        Me.btnSendFriendRequest.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSendFriendRequest.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnSendFriendRequest.Enabled = False
+        Me.btnSendFriendRequest.FocusedColor = System.Drawing.Color.Empty
+        Me.btnSendFriendRequest.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.btnSendFriendRequest.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.btnSendFriendRequest.Image = Nothing
+        Me.btnSendFriendRequest.ImageSize = New System.Drawing.Size(20, 20)
+        Me.btnSendFriendRequest.Location = New System.Drawing.Point(680, 10)
+        Me.btnSendFriendRequest.Name = "btnSendFriendRequest"
+        Me.btnSendFriendRequest.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(101, Byte), Integer), CType(CType(124, Byte), Integer), CType(CType(206, Byte), Integer))
+        Me.btnSendFriendRequest.OnHoverBorderColor = System.Drawing.Color.Black
+        Me.btnSendFriendRequest.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.btnSendFriendRequest.OnHoverImage = Nothing
+        Me.btnSendFriendRequest.OnPressedColor = System.Drawing.Color.Black
+        Me.btnSendFriendRequest.Radius = 7
+        Me.btnSendFriendRequest.Size = New System.Drawing.Size(175, 30)
+        Me.btnSendFriendRequest.TabIndex = 94
+        Me.btnSendFriendRequest.Text = "Send Friend Request"
         '
         'AddFriendForm
         '

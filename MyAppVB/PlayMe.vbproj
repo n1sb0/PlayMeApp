@@ -210,6 +210,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Classe\Subject Classe\Subject_Friends.vb" />
     <Compile Include="Classe\Utility Classe\ControlChildForm.vb" />
     <Compile Include="Classe\Utility Classe\FriendsPanel.vb" />
     <Compile Include="Classe\Utility Classe\ResizeImage.vb" />
@@ -276,12 +277,6 @@
       <DependentUpon>BlockedFriendsForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\BlockedFriendsForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\OnlineFriendsForm.Designer.vb">
-      <DependentUpon>OnlineFriendsForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\OnlineFriendsForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Login Form\LoginForm.Designer.vb">
@@ -356,9 +351,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\BlockedFriendsForm.resx">
       <DependentUpon>BlockedFriendsForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\OnlineFriendsForm.resx">
-      <DependentUpon>OnlineFriendsForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home Forms\HomeForm.resx">
       <DependentUpon>HomeForm.vb</DependentUpon>

@@ -97,4 +97,3 @@ A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.ChatFriendForm.resource
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.AddFriendForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.AllFriendsForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.BlockedFriendsForm.resources
-A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.OnlineFriendsForm.resources

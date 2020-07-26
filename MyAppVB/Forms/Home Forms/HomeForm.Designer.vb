@@ -43,6 +43,19 @@ Partial Class MainForm
         Me.PlayGroundPanel = New System.Windows.Forms.Panel()
         Me.MainChatAndFriendPanel = New System.Windows.Forms.Panel()
         Me.FriendsPanelChild = New System.Windows.Forms.Panel()
+        Me.AllFriendsPanel = New Guna.UI.WinForms.GunaPanel()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.GunaButton2 = New Guna.UI.WinForms.GunaButton()
+        Me.GunaButton1 = New Guna.UI.WinForms.GunaButton()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.GunaCirclePictureBox1 = New Guna.UI.WinForms.GunaCirclePictureBox()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.ShapeContainer3 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.OvalShape1 = New Microsoft.VisualBasic.PowerPacks.OvalShape()
+        Me.AllFriendScrollBar = New Guna.UI.WinForms.GunaVScrollBar()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnAddNewFriends = New Guna.UI.WinForms.GunaButton()
         Me.btnBlockedFriends = New Guna.UI.WinForms.GunaButton()
@@ -75,6 +88,10 @@ Partial Class MainForm
         Me.MainPanel.SuspendLayout()
         Me.PlayGroundPanel.SuspendLayout()
         Me.MainChatAndFriendPanel.SuspendLayout()
+        Me.FriendsPanelChild.SuspendLayout()
+        Me.AllFriendsPanel.SuspendLayout()
+        Me.Panel6.SuspendLayout()
+        CType(Me.GunaCirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.picFriend, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMsgFriends.SuspendLayout()
@@ -417,10 +434,188 @@ Partial Class MainForm
         '
         'FriendsPanelChild
         '
+        Me.FriendsPanelChild.Controls.Add(Me.AllFriendsPanel)
+        Me.FriendsPanelChild.Controls.Add(Me.AllFriendScrollBar)
+        Me.FriendsPanelChild.Controls.Add(Me.Label4)
+        Me.FriendsPanelChild.Controls.Add(Me.Panel8)
         Me.FriendsPanelChild.Location = New System.Drawing.Point(0, 52)
         Me.FriendsPanelChild.Name = "FriendsPanelChild"
         Me.FriendsPanelChild.Size = New System.Drawing.Size(950, 650)
         Me.FriendsPanelChild.TabIndex = 2
+        '
+        'AllFriendsPanel
+        '
+        Me.AllFriendsPanel.Controls.Add(Me.Panel6)
+        Me.AllFriendsPanel.Location = New System.Drawing.Point(15, 50)
+        Me.AllFriendsPanel.Name = "AllFriendsPanel"
+        Me.AllFriendsPanel.Size = New System.Drawing.Size(900, 600)
+        Me.AllFriendsPanel.TabIndex = 88
+        '
+        'Panel6
+        '
+        Me.Panel6.Controls.Add(Me.GunaButton2)
+        Me.Panel6.Controls.Add(Me.GunaButton1)
+        Me.Panel6.Controls.Add(Me.Label2)
+        Me.Panel6.Controls.Add(Me.Label3)
+        Me.Panel6.Controls.Add(Me.GunaCirclePictureBox1)
+        Me.Panel6.Controls.Add(Me.Panel7)
+        Me.Panel6.Controls.Add(Me.ShapeContainer3)
+        Me.Panel6.Location = New System.Drawing.Point(0, 0)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(900, 62)
+        Me.Panel6.TabIndex = 0
+        '
+        'GunaButton2
+        '
+        Me.GunaButton2.AnimationHoverSpeed = 0.07!
+        Me.GunaButton2.AnimationSpeed = 0.03!
+        Me.GunaButton2.BackColor = System.Drawing.Color.Transparent
+        Me.GunaButton2.BaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.GunaButton2.BorderColor = System.Drawing.Color.Black
+        Me.GunaButton2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.GunaButton2.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.GunaButton2.FocusedColor = System.Drawing.Color.Empty
+        Me.GunaButton2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.GunaButton2.ForeColor = System.Drawing.Color.White
+        Me.GunaButton2.Image = Global.PlayME.My.Resources.Resources.VerticleMenuDots
+        Me.GunaButton2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.GunaButton2.ImageSize = New System.Drawing.Size(25, 25)
+        Me.GunaButton2.Location = New System.Drawing.Point(840, 12)
+        Me.GunaButton2.Name = "GunaButton2"
+        Me.GunaButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.GunaButton2.OnHoverBorderColor = System.Drawing.Color.Black
+        Me.GunaButton2.OnHoverForeColor = System.Drawing.Color.White
+        Me.GunaButton2.OnHoverImage = Nothing
+        Me.GunaButton2.OnPressedColor = System.Drawing.Color.Black
+        Me.GunaButton2.Radius = 15
+        Me.GunaButton2.Size = New System.Drawing.Size(35, 35)
+        Me.GunaButton2.TabIndex = 100
+        '
+        'GunaButton1
+        '
+        Me.GunaButton1.AnimationHoverSpeed = 0.07!
+        Me.GunaButton1.AnimationSpeed = 0.03!
+        Me.GunaButton1.BackColor = System.Drawing.Color.Transparent
+        Me.GunaButton1.BaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.GunaButton1.BorderColor = System.Drawing.Color.Black
+        Me.GunaButton1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.GunaButton1.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.GunaButton1.FocusedColor = System.Drawing.Color.Empty
+        Me.GunaButton1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.GunaButton1.ForeColor = System.Drawing.Color.White
+        Me.GunaButton1.Image = Global.PlayME.My.Resources.Resources.chatToFriendx1
+        Me.GunaButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.GunaButton1.ImageSize = New System.Drawing.Size(22, 22)
+        Me.GunaButton1.Location = New System.Drawing.Point(790, 12)
+        Me.GunaButton1.Name = "GunaButton1"
+        Me.GunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.GunaButton1.OnHoverBorderColor = System.Drawing.Color.Black
+        Me.GunaButton1.OnHoverForeColor = System.Drawing.Color.White
+        Me.GunaButton1.OnHoverImage = Nothing
+        Me.GunaButton1.OnPressedColor = System.Drawing.Color.Black
+        Me.GunaButton1.Radius = 15
+        Me.GunaButton1.Size = New System.Drawing.Size(35, 35)
+        Me.GunaButton1.TabIndex = 99
+        '
+        'Label2
+        '
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Gray
+        Me.Label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label2.Location = New System.Drawing.Point(66, 30)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(101, 20)
+        Me.Label2.TabIndex = 97
+        Me.Label2.Text = "Online"
+        '
+        'Label3
+        '
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Gray
+        Me.Label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label3.Location = New System.Drawing.Point(66, 10)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(150, 20)
+        Me.Label3.TabIndex = 96
+        Me.Label3.Text = "Friends"
+        '
+        'GunaCirclePictureBox1
+        '
+        Me.GunaCirclePictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GunaCirclePictureBox1.BaseColor = System.Drawing.Color.White
+        Me.GunaCirclePictureBox1.Image = Global.PlayME.My.Resources.Resources.i2gb4m7j7cb41
+        Me.GunaCirclePictureBox1.Location = New System.Drawing.Point(20, 10)
+        Me.GunaCirclePictureBox1.Name = "GunaCirclePictureBox1"
+        Me.GunaCirclePictureBox1.Size = New System.Drawing.Size(40, 40)
+        Me.GunaCirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.GunaCirclePictureBox1.TabIndex = 95
+        Me.GunaCirclePictureBox1.TabStop = False
+        Me.GunaCirclePictureBox1.UseTransfarantBackground = False
+        '
+        'Panel7
+        '
+        Me.Panel7.Location = New System.Drawing.Point(0, 60)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(900, 2)
+        Me.Panel7.TabIndex = 78
+        '
+        'ShapeContainer3
+        '
+        Me.ShapeContainer3.Location = New System.Drawing.Point(0, 0)
+        Me.ShapeContainer3.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer3.Name = "ShapeContainer3"
+        Me.ShapeContainer3.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.OvalShape1})
+        Me.ShapeContainer3.Size = New System.Drawing.Size(900, 62)
+        Me.ShapeContainer3.TabIndex = 101
+        Me.ShapeContainer3.TabStop = False
+        '
+        'OvalShape1
+        '
+        Me.OvalShape1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.OvalShape1.BorderWidth = 3
+        Me.OvalShape1.FillColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.OvalShape1.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.OvalShape1.Location = New System.Drawing.Point(47, 34)
+        Me.OvalShape1.Name = "lblFriendOnline"
+        Me.OvalShape1.SelectionColor = System.Drawing.Color.Transparent
+        Me.OvalShape1.Size = New System.Drawing.Size(12, 12)
+        '
+        'AllFriendScrollBar
+        '
+        Me.AllFriendScrollBar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.AllFriendScrollBar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.AllFriendScrollBar.LargeChange = 10
+        Me.AllFriendScrollBar.Location = New System.Drawing.Point(930, 50)
+        Me.AllFriendScrollBar.Maximum = 5000
+        Me.AllFriendScrollBar.MouseWheelBarPartitions = 2
+        Me.AllFriendScrollBar.Name = "AllFriendScrollBar"
+        Me.AllFriendScrollBar.ScrollIdleColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
+        Me.AllFriendScrollBar.Size = New System.Drawing.Size(10, 595)
+        Me.AllFriendScrollBar.TabIndex = 87
+        Me.AllFriendScrollBar.ThumbColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.AllFriendScrollBar.ThumbHoverColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.AllFriendScrollBar.ThumbPressedColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
+        '
+        'Label4
+        '
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Silver
+        Me.Label4.Location = New System.Drawing.Point(30, 5)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(136, 20)
+        Me.Label4.TabIndex = 86
+        Me.Label4.Text = "Online -"
+        '
+        'Panel8
+        '
+        Me.Panel8.Location = New System.Drawing.Point(15, 30)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(900, 2)
+        Me.Panel8.TabIndex = 85
         '
         'Panel2
         '
@@ -638,7 +833,6 @@ Partial Class MainForm
         Me.pnlFriend.Name = "pnlFriend"
         Me.pnlFriend.Size = New System.Drawing.Size(260, 60)
         Me.pnlFriend.TabIndex = 77
-        Me.pnlFriend.Visible = False
         '
         'lblFriendName
         '
@@ -853,6 +1047,10 @@ Partial Class MainForm
         Me.MainPanel.ResumeLayout(False)
         Me.PlayGroundPanel.ResumeLayout(False)
         Me.MainChatAndFriendPanel.ResumeLayout(False)
+        Me.FriendsPanelChild.ResumeLayout(False)
+        Me.AllFriendsPanel.ResumeLayout(False)
+        Me.Panel6.ResumeLayout(False)
+        CType(Me.GunaCirclePictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         CType(Me.picFriend, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMsgFriends.ResumeLayout(False)
@@ -913,4 +1111,17 @@ Partial Class MainForm
     Friend WithEvents FriendScrollBar As Guna.UI.WinForms.GunaVScrollBar
     Friend WithEvents PanelListOfFriends As Guna.UI.WinForms.GunaPanel
     Friend WithEvents FriendsPanelChild As Panel
+    Friend WithEvents AllFriendsPanel As Guna.UI.WinForms.GunaPanel
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents GunaButton2 As Guna.UI.WinForms.GunaButton
+    Friend WithEvents GunaButton1 As Guna.UI.WinForms.GunaButton
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents GunaCirclePictureBox1 As Guna.UI.WinForms.GunaCirclePictureBox
+    Friend WithEvents Panel7 As Panel
+    Friend WithEvents ShapeContainer3 As PowerPacks.ShapeContainer
+    Friend WithEvents OvalShape1 As PowerPacks.OvalShape
+    Friend WithEvents AllFriendScrollBar As Guna.UI.WinForms.GunaVScrollBar
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Panel8 As Panel
 End Class

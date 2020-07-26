@@ -174,4 +174,15 @@ Public Class Utility_Style
 
         userPictureBox.Image = Image.FromStream(ms)
     End Sub
+
+    Public Sub Set_UserStateOnline(ByRef ovalOnline As OvalShape, userStateOnline As String)
+
+        Select Case userStateOnline
+            Case "Online"
+                ovalOnline.FillColor = Color.Green
+            Case "Offline"
+                ovalOnline.FillColor = Color.Silver
+        End Select
+
+    End Sub
 End Class

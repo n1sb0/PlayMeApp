@@ -27,14 +27,14 @@ Partial Class AllFriendsForm
         Me.AllFriendScrollBar = New Guna.UI.WinForms.GunaVScrollBar()
         Me.AllFriendsPanel = New Guna.UI.WinForms.GunaPanel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.lblFriendName = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.GunaButton2 = New Guna.UI.WinForms.GunaButton()
         Me.GunaButton1 = New Guna.UI.WinForms.GunaButton()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblFriendName = New System.Windows.Forms.Label()
         Me.FriendsPicture = New Guna.UI.WinForms.GunaCirclePictureBox()
-        Me.lblFriendOnline = New Microsoft.VisualBasic.PowerPacks.OvalShape()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.lblFriendOnline = New Microsoft.VisualBasic.PowerPacks.OvalShape()
         Me.AllFriendsPanel.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.FriendsPicture, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -42,7 +42,7 @@ Partial Class AllFriendsForm
         '
         'Panel1
         '
-        Me.Panel1.Location = New System.Drawing.Point(25, 30)
+        Me.Panel1.Location = New System.Drawing.Point(15, 30)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(900, 2)
         Me.Panel1.TabIndex = 77
@@ -52,7 +52,7 @@ Partial Class AllFriendsForm
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Silver
-        Me.Label1.Location = New System.Drawing.Point(40, 7)
+        Me.Label1.Location = New System.Drawing.Point(30, 5)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(136, 20)
         Me.Label1.TabIndex = 78
@@ -64,12 +64,12 @@ Partial Class AllFriendsForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.AllFriendScrollBar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.AllFriendScrollBar.LargeChange = 10
-        Me.AllFriendScrollBar.Location = New System.Drawing.Point(935, 30)
+        Me.AllFriendScrollBar.Location = New System.Drawing.Point(930, 50)
         Me.AllFriendScrollBar.Maximum = 5000
         Me.AllFriendScrollBar.MouseWheelBarPartitions = 2
         Me.AllFriendScrollBar.Name = "AllFriendScrollBar"
         Me.AllFriendScrollBar.ScrollIdleColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
-        Me.AllFriendScrollBar.Size = New System.Drawing.Size(10, 610)
+        Me.AllFriendScrollBar.Size = New System.Drawing.Size(10, 595)
         Me.AllFriendScrollBar.TabIndex = 79
         Me.AllFriendScrollBar.ThumbColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.AllFriendScrollBar.ThumbHoverColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
@@ -78,9 +78,9 @@ Partial Class AllFriendsForm
         'AllFriendsPanel
         '
         Me.AllFriendsPanel.Controls.Add(Me.Panel2)
-        Me.AllFriendsPanel.Location = New System.Drawing.Point(25, 38)
+        Me.AllFriendsPanel.Location = New System.Drawing.Point(15, 50)
         Me.AllFriendsPanel.Name = "AllFriendsPanel"
-        Me.AllFriendsPanel.Size = New System.Drawing.Size(900, 610)
+        Me.AllFriendsPanel.Size = New System.Drawing.Size(900, 600)
         Me.AllFriendsPanel.TabIndex = 80
         '
         'Panel2
@@ -96,37 +96,6 @@ Partial Class AllFriendsForm
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(900, 62)
         Me.Panel2.TabIndex = 0
-        '
-        'Panel3
-        '
-        Me.Panel3.Location = New System.Drawing.Point(0, 60)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(900, 2)
-        Me.Panel3.TabIndex = 78
-        '
-        'lblFriendName
-        '
-        Me.lblFriendName.BackColor = System.Drawing.Color.Transparent
-        Me.lblFriendName.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.lblFriendName.ForeColor = System.Drawing.Color.Gray
-        Me.lblFriendName.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.lblFriendName.Location = New System.Drawing.Point(66, 10)
-        Me.lblFriendName.Name = "lblFriendName"
-        Me.lblFriendName.Size = New System.Drawing.Size(150, 20)
-        Me.lblFriendName.TabIndex = 96
-        Me.lblFriendName.Text = "Friends"
-        '
-        'Label2
-        '
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Gray
-        Me.Label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label2.Location = New System.Drawing.Point(66, 30)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(101, 20)
-        Me.Label2.TabIndex = 97
-        Me.Label2.Text = "Offline"
         '
         'GunaButton2
         '
@@ -180,6 +149,30 @@ Partial Class AllFriendsForm
         Me.GunaButton1.Size = New System.Drawing.Size(35, 35)
         Me.GunaButton1.TabIndex = 99
         '
+        'Label2
+        '
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Gray
+        Me.Label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label2.Location = New System.Drawing.Point(66, 30)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(101, 20)
+        Me.Label2.TabIndex = 97
+        Me.Label2.Text = "Offline"
+        '
+        'lblFriendName
+        '
+        Me.lblFriendName.BackColor = System.Drawing.Color.Transparent
+        Me.lblFriendName.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.lblFriendName.ForeColor = System.Drawing.Color.Gray
+        Me.lblFriendName.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblFriendName.Location = New System.Drawing.Point(66, 10)
+        Me.lblFriendName.Name = "lblFriendName"
+        Me.lblFriendName.Size = New System.Drawing.Size(150, 20)
+        Me.lblFriendName.TabIndex = 96
+        Me.lblFriendName.Text = "Friends"
+        '
         'FriendsPicture
         '
         Me.FriendsPicture.BackColor = System.Drawing.Color.Transparent
@@ -193,16 +186,12 @@ Partial Class AllFriendsForm
         Me.FriendsPicture.TabStop = False
         Me.FriendsPicture.UseTransfarantBackground = False
         '
-        'lblFriendOnline
+        'Panel3
         '
-        Me.lblFriendOnline.BorderColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.lblFriendOnline.BorderWidth = 3
-        Me.lblFriendOnline.FillColor = System.Drawing.Color.Gray
-        Me.lblFriendOnline.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.lblFriendOnline.Location = New System.Drawing.Point(47, 34)
-        Me.lblFriendOnline.Name = "lblFriendOnline"
-        Me.lblFriendOnline.SelectionColor = System.Drawing.Color.Transparent
-        Me.lblFriendOnline.Size = New System.Drawing.Size(12, 12)
+        Me.Panel3.Location = New System.Drawing.Point(0, 60)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(900, 2)
+        Me.Panel3.TabIndex = 78
         '
         'ShapeContainer1
         '
@@ -213,6 +202,17 @@ Partial Class AllFriendsForm
         Me.ShapeContainer1.Size = New System.Drawing.Size(900, 62)
         Me.ShapeContainer1.TabIndex = 101
         Me.ShapeContainer1.TabStop = False
+        '
+        'lblFriendOnline
+        '
+        Me.lblFriendOnline.BorderColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.lblFriendOnline.BorderWidth = 3
+        Me.lblFriendOnline.FillColor = System.Drawing.Color.Gray
+        Me.lblFriendOnline.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.lblFriendOnline.Location = New System.Drawing.Point(47, 34)
+        Me.lblFriendOnline.Name = "lblFriendOnline"
+        Me.lblFriendOnline.SelectionColor = System.Drawing.Color.Transparent
+        Me.lblFriendOnline.Size = New System.Drawing.Size(12, 12)
         '
         'AllFriendsForm
         '

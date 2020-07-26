@@ -7,32 +7,39 @@ Imports System.Object
 Imports System.EventArgs
 
 Public Class FriendsPanel
-    Private _locationOfPanel As New Point
+    Private _LocationOfPanel As New Point
 
     Property _FriendsPanel As New Panel
     Property _FriendsUserName As New Label
-    Private ctr As ShapeContainer = New ShapeContainer()
-    Property _LblFriendsOnline As OvalShape = New OvalShape(ctr)
+    Private Ctr As ShapeContainer = New ShapeContainer()
+    Property _LblFriendsOnline As OvalShape = New OvalShape(Ctr)
     Property _FriendsPictureBox As New GunaCirclePictureBox
     Property _BtnDeleteChatWithFriend As New IconPictureBox
 
     Private _Utility_Style As New Utility_Style
     Private _ControlChildForm As New ControlChildForm
-    Private _friendScrollBar As GunaVScrollBar
+    Private _FriendScrollBar As GunaVScrollBar
 
-    Private _enter As Boolean = False
-    Private _pnlNumber As String
-    Private _mainForm As MainForm
+    Private _UserName As String
+    Private _UserPicture As Byte()
+    Private _UserStateOnline As String
+
+    Private _PnlNumber As String
+    Private _MainForm As MainForm
 
     Private _GrayColor As String = _Utility_Style.GrayColor
     Private _BackGColor As String = _Utility_Style.BackGroundColor
     Private _PanelsColorLightDarkBlue As String = _Utility_Style.LightDarkBlue
 
-    Sub New(ByRef mainForm As MainForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar, panelname As String)
-        _mainForm = mainForm
-        _locationOfPanel = locationOfPanel
-        _friendScrollBar = friendScrollBar
-        _pnlNumber = panelname
+    Sub New(ByRef mainForm As MainForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar, panelname As String, userPicture As Byte(), userName As String, userStateOnline As String)
+        _MainForm = mainForm
+        _UserName = userName
+        _PnlNumber = panelname
+        _UserPicture = userPicture
+        _LocationOfPanel = locationOfPanel
+        _FriendScrollBar = friendScrollBar
+        _UserStateOnline = userStateOnline
+
 
         Create_FriendsPanel()
     End Sub
@@ -66,20 +73,20 @@ Public Class FriendsPanel
 
 
         AddHandler _FriendsPanel.MouseLeave, AddressOf On_FriendsPanel_Leave
-        AddHandler _friendScrollBar.MouseEnter, AddressOf On_ScrollBar_Hover
+        AddHandler _FriendScrollBar.MouseEnter, AddressOf On_ScrollBar_Hover
         AddHandler _BtnDeleteChatWithFriend.Click, AddressOf btnDeleteMessages_Click
     End Sub
 
     Private Sub Set_Name()
-        _FriendsPanel.Name = "pnl" + _pnlNumber
-        _FriendsUserName.Name = "pnlName" + _pnlNumber
-        _FriendsPictureBox.Name = "pnlPic" + _pnlNumber
-        _LblFriendsOnline.Name = "pnlOnline" + _pnlNumber
-        _BtnDeleteChatWithFriend.Name = "pnlBtn" + _pnlNumber
+        _FriendsPanel.Name = "pnl" + _PnlNumber
+        _FriendsUserName.Name = "pnlName" + _PnlNumber
+        _FriendsPictureBox.Name = "pnlPic" + _PnlNumber
+        _LblFriendsOnline.Name = "pnlOnline" + _PnlNumber
+        _BtnDeleteChatWithFriend.Name = "pnlBtn" + _PnlNumber
     End Sub
 
     Private Sub AddComponents()
-        _FriendsPanel.Controls.Add(ctr)
+        _FriendsPanel.Controls.Add(Ctr)
         _FriendsPanel.Controls.Add(_FriendsUserName)
         _FriendsPanel.Controls.Add(_FriendsPictureBox)
         _FriendsPanel.Controls.Add(_BtnDeleteChatWithFriend)
@@ -91,7 +98,7 @@ Public Class FriendsPanel
         Dim locationOnlineLabel As Point = New Point(39, 37)
         Dim locationOfDeleteButton As Point = New Point(215, 21)
 
-        _FriendsPanel.Location = _locationOfPanel
+        _FriendsPanel.Location = _LocationOfPanel
         _FriendsUserName.Location = locationOfUserName
         _FriendsPictureBox.Location = locationOfPicture
         _LblFriendsOnline.Location = locationOnlineLabel
@@ -114,11 +121,12 @@ Public Class FriendsPanel
 
         Dim size As Size = New Size(width, hight)
 
+        _Utility_Style.Set_UserStateOnline(_LblFriendsOnline, _UserStateOnline)
+
         _LblFriendsOnline.Size = size
         _LblFriendsOnline.BorderWidth = 3
         _LblFriendsOnline.Enabled = False
         _LblFriendsOnline.Cursor = Cursors.Hand
-        _LblFriendsOnline.FillColor = Color.Gray
         _LblFriendsOnline.FillStyle = FillStyle.Solid
         _LblFriendsOnline.BorderColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
     End Sub
@@ -128,6 +136,7 @@ Public Class FriendsPanel
 
         Dim size As Size = New Size(width, hight)
 
+        _Utility_Style.Set_UserPicture(_FriendsPictureBox, _UserPicture)
         _FriendsPictureBox.Size = size
         _FriendsPictureBox.Cursor = Cursors.Hand
         _FriendsPictureBox.BackColor = Color.Transparent
@@ -139,7 +148,7 @@ Public Class FriendsPanel
         Dim size As Size = New Size(width, hight)
 
         _FriendsUserName.Size = size
-        _FriendsUserName.Text = "Friend Name " + _pnlNumber
+        _FriendsUserName.Text = _UserName
         _FriendsUserName.Cursor = Cursors.Hand
         _FriendsUserName.ForeColor = Color.Gray
         _FriendsUserName.BackColor = Color.Transparent
@@ -167,7 +176,7 @@ Public Class FriendsPanel
     End Sub
 
     Private Sub On_FriendsPanel_Leave(sender As Object, e As EventArgs)
-        If _mainForm.PanelListOfFriends.GetChildAtPoint(_mainForm.PanelListOfFriends.PointToClient(Cursor.Position)) Is _mainForm.FriendScrollBar OrElse _FriendsPanel.GetChildAtPoint(_FriendsPanel.PointToClient(Cursor.Position)) Is Nothing Then
+        If _MainForm.PanelListOfFriends.GetChildAtPoint(_MainForm.PanelListOfFriends.PointToClient(Cursor.Position)) Is _MainForm.FriendScrollBar OrElse _FriendsPanel.GetChildAtPoint(_FriendsPanel.PointToClient(Cursor.Position)) Is Nothing Then
             Leave_ListOfFriend()
         End If
     End Sub
@@ -186,9 +195,9 @@ Public Class FriendsPanel
     Private Sub On_MouseClickFriendList(sender As System.Object, e As System.EventArgs)
         Dim chatform As New ChatFriendForm
 
-        MainForm._OpenedChat = _pnlNumber
+        MainForm._OpenedChat = _PnlNumber
 
-        _ControlChildForm.OpenChildForm(chatform, _mainForm.MainChatAndFriendPanel, _mainForm.currentChildForm)
+        _ControlChildForm.OpenChildForm(chatform, _MainForm.MainChatAndFriendPanel, _MainForm.currentChildForm)
     End Sub
 
     Private Sub btnDeleteMessages_Click(sender As Object, e As EventArgs)
@@ -197,23 +206,23 @@ Public Class FriendsPanel
 
         Dim s As String = btn.Name.Substring(btn.Name.IndexOf("Btn") + 3)
 
-        Dim index = _mainForm._ListOfUserFriendsPanel.FindIndex(Function(panel) panel._FriendsPanel.Name = "pnl" + s)
+        Dim index = _MainForm._ListOfUserFriendsPanel.FindIndex(Function(panel) panel._FriendsPanel.Name = "pnl" + s)
 
-        _mainForm.PanelListOfFriends.Controls.Remove(_FriendsPanel)
-        _mainForm._ListOfUserFriendsPanel.RemoveAt(index)
+        _MainForm.PanelListOfFriends.Controls.Remove(_FriendsPanel)
+        _MainForm._ListOfUserFriendsPanel.RemoveAt(index)
 
         On_DirectWasDeleted(index)
 
-        If MainForm._OpenedChat = _pnlNumber Then
-            If _mainForm.currentChildForm IsNot Nothing Then
-                _mainForm.currentChildForm.Close()
+        If MainForm._OpenedChat = _PnlNumber Then
+            If _MainForm.currentChildForm IsNot Nothing Then
+                _MainForm.currentChildForm.Close()
             End If
         End If
     End Sub
 
     Private Sub On_DirectWasDeleted(index As Integer)
-        For i As Integer = index To _mainForm._ListOfUserFriendsPanel.Count - 1
-            _mainForm._ListOfUserFriendsPanel.Item(i)._FriendsPanel.Location = New Point(0, _mainForm._ListOfUserFriendsPanel.Item(i)._FriendsPanel.Location.Y - 60)
+        For i As Integer = index To _MainForm._ListOfUserFriendsPanel.Count - 1
+            _MainForm._ListOfUserFriendsPanel.Item(i)._FriendsPanel.Location = New Point(0, _MainForm._ListOfUserFriendsPanel.Item(i)._FriendsPanel.Location.Y - 60)
         Next
     End Sub
 

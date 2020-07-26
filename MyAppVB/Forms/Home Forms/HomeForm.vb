@@ -101,16 +101,26 @@ Public Class MainForm
 
             Dim x = 0, y = 0, count = 1
 
-            For value As Integer = 0 To 20
-                Dim locationOfFriendPanel As Point = New Point(x, y)
-                Dim pnl As New Panel
-                Dim friendPanel As New FriendsPanel(Me, locationOfFriendPanel, FriendScrollBar, (count).ToString)
-                y += 60
-                count += 1
+            Dim ListOfsbjFriends As List(Of Subject_Friends) = Subject_Friends.Get_SubjectFriends_ByID(_Subject.SUBJECT_ID)
 
-                _ListOfUserFriendsPanel.Add(friendPanel)
-                PanelListOfFriends.Controls.Add(friendPanel._FriendsPanel)
-            Next
+            If ListOfsbjFriends IsNot Nothing Then
+                For i As Integer = 0 To ListOfsbjFriends.Count - 1
+
+                    If ListOfsbjFriends.Item(i).HAVE_CHAT.Equals("Yes") Then
+                        Dim locationOfFriendPanel As Point = New Point(x, y)
+                        Dim pnl As New Panel
+
+                        Dim friendPanel As New FriendsPanel(Me, locationOfFriendPanel, FriendScrollBar, (count).ToString _
+                                                            , ListOfsbjFriends.Item(i).FRIENDS_PICTURE, ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
+                                                            , ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE)
+                        y += 60
+                        count += 1
+
+                        _ListOfUserFriendsPanel.Add(friendPanel)
+                        PanelListOfFriends.Controls.Add(friendPanel._FriendsPanel)
+                    End If
+                Next
+            End If
         End If
     End Sub
 
@@ -286,32 +296,28 @@ Public Class MainForm
 
     '*****///// FUNCTION TO OPEN OTHER FORMS ON LEFT MAIN PANEL
     Private Sub On_Click_UpperPanel_FriendPanel_Button(sender As System.Object, e As System.EventArgs) _
-      Handles btnFriendsOnile.Click, btnFriendsOnile.Click, btnBlockedFriends.Click, btnAddNewFriends.Click
+      Handles btnFriendsOnile.Click, btnAllFrineds.Click, btnBlockedFriends.Click, btnAddNewFriends.Click
 
         GenericButton = DirectCast(sender, GunaButton)
 
-        Onclick_OpenChildForm_LeftPanel(GenericButton.Name)
+        Onclick_OpenChildForm_FriendPanels(GenericButton.Name)
     End Sub
 
     Private Sub Onclick_OpenChildForm_FriendPanels(buttonName As String)
         Select Case buttonName
-            Case "btnFriendsOnile"
-                Dim persinalBlogForm As New PersonalBlogForm
-                _ControlChildForm.OpenChildForm(persinalBlogForm, FriendsPanelChild, currentChildForm)
-
-            Case "btnFriendsOnile"
-                Dim gameForm As New GameForm
-                _ControlChildForm.OpenChildForm(gameForm, FriendsPanelChild, currentChildForm)
+            Case "btnAllFrineds"
+                Dim allFriendsForm As New AllFriendsForm
+                _ControlChildForm.OpenChildForm(allFriendsForm, FriendsPanelChild, currentChildForm)
 
             Case "btnBlockedFriends"
-                Dim musicForm As New MusicForm
-                _ControlChildForm.OpenChildForm(musicForm, FriendsPanelChild, currentChildForm)
+                Dim blockedFriendsForm As New BlockedFriendsForm
+                _ControlChildForm.OpenChildForm(blockedFriendsForm, FriendsPanelChild, currentChildForm)
 
             Case "btnAddNewFriends"
-                Dim videoForm As New VideoForm
-                _ControlChildForm.OpenChildForm(videoForm, FriendsPanelChild, currentChildForm)
+                Dim addNewFriendsForm As New AddFriendForm
+                _ControlChildForm.OpenChildForm(addNewFriendsForm, FriendsPanelChild, currentChildForm)
 
-            Case "btnHomeChat"
+            Case "btnFriendsOnile"
                 If currentChildForm IsNot Nothing Then
                     currentChildForm.Close()
                 End If
@@ -325,6 +331,7 @@ Public Class MainForm
             _ListOfUserFriendsPanel.Item(i).Leave_ListOfFriend()
         Next
     End Sub
+
     '*****///// END ON SCROLL FRIENDSLIST TO NOT SEE MILTIPLE SELECTED FIRENDS
 
 End Class

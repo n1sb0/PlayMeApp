@@ -31,9 +31,9 @@ Partial Class BlockedFriendsForm
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.lblFriendOnline = New Microsoft.VisualBasic.PowerPacks.OvalShape()
-        Me.AllFriendScrollBar = New Guna.UI.WinForms.GunaVScrollBar()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.AllFriendScrollBar = New Guna.UI.WinForms.GunaVScrollBar()
         Me.AllFriendsPanel.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.FriendsPicture, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -42,9 +42,9 @@ Partial Class BlockedFriendsForm
         'AllFriendsPanel
         '
         Me.AllFriendsPanel.Controls.Add(Me.Panel2)
-        Me.AllFriendsPanel.Location = New System.Drawing.Point(15, 36)
+        Me.AllFriendsPanel.Location = New System.Drawing.Point(15, 50)
         Me.AllFriendsPanel.Name = "AllFriendsPanel"
-        Me.AllFriendsPanel.Size = New System.Drawing.Size(900, 610)
+        Me.AllFriendsPanel.Size = New System.Drawing.Size(900, 600)
         Me.AllFriendsPanel.TabIndex = 84
         '
         'Panel2
@@ -151,23 +151,6 @@ Partial Class BlockedFriendsForm
         Me.lblFriendOnline.SelectionColor = System.Drawing.Color.Transparent
         Me.lblFriendOnline.Size = New System.Drawing.Size(12, 12)
         '
-        'AllFriendScrollBar
-        '
-        Me.AllFriendScrollBar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AllFriendScrollBar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.AllFriendScrollBar.LargeChange = 10
-        Me.AllFriendScrollBar.Location = New System.Drawing.Point(925, 28)
-        Me.AllFriendScrollBar.Maximum = 5000
-        Me.AllFriendScrollBar.MouseWheelBarPartitions = 2
-        Me.AllFriendScrollBar.Name = "AllFriendScrollBar"
-        Me.AllFriendScrollBar.ScrollIdleColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
-        Me.AllFriendScrollBar.Size = New System.Drawing.Size(10, 610)
-        Me.AllFriendScrollBar.TabIndex = 83
-        Me.AllFriendScrollBar.ThumbColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.AllFriendScrollBar.ThumbHoverColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.AllFriendScrollBar.ThumbPressedColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
-        '
         'Label1
         '
         Me.Label1.BackColor = System.Drawing.Color.Transparent
@@ -181,10 +164,27 @@ Partial Class BlockedFriendsForm
         '
         'Panel1
         '
-        Me.Panel1.Location = New System.Drawing.Point(15, 28)
+        Me.Panel1.Location = New System.Drawing.Point(15, 30)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(900, 2)
         Me.Panel1.TabIndex = 81
+        '
+        'AllFriendScrollBar
+        '
+        Me.AllFriendScrollBar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.AllFriendScrollBar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.AllFriendScrollBar.LargeChange = 10
+        Me.AllFriendScrollBar.Location = New System.Drawing.Point(930, 50)
+        Me.AllFriendScrollBar.Maximum = 5000
+        Me.AllFriendScrollBar.MouseWheelBarPartitions = 2
+        Me.AllFriendScrollBar.Name = "AllFriendScrollBar"
+        Me.AllFriendScrollBar.ScrollIdleColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
+        Me.AllFriendScrollBar.Size = New System.Drawing.Size(10, 595)
+        Me.AllFriendScrollBar.TabIndex = 80
+        Me.AllFriendScrollBar.ThumbColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.AllFriendScrollBar.ThumbHoverColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.AllFriendScrollBar.ThumbPressedColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         '
         'BlockedFriendsForm
         '
@@ -192,8 +192,8 @@ Partial Class BlockedFriendsForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(950, 650)
-        Me.Controls.Add(Me.AllFriendsPanel)
         Me.Controls.Add(Me.AllFriendScrollBar)
+        Me.Controls.Add(Me.AllFriendsPanel)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -215,7 +215,7 @@ Partial Class BlockedFriendsForm
     Friend WithEvents Panel3 As Panel
     Friend WithEvents ShapeContainer1 As PowerPacks.ShapeContainer
     Friend WithEvents lblFriendOnline As PowerPacks.OvalShape
-    Friend WithEvents AllFriendScrollBar As Guna.UI.WinForms.GunaVScrollBar
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents AllFriendScrollBar As Guna.UI.WinForms.GunaVScrollBar
 End Class
