@@ -55,6 +55,8 @@ Partial Class AddFriendForm
         '
         'Panel1
         '
+        Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.Location = New System.Drawing.Point(0, 160)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(950, 2)
@@ -62,6 +64,8 @@ Partial Class AddFriendForm
         '
         'FindFriendPanel
         '
+        Me.FindFriendPanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FindFriendPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.FindFriendPanel.Controls.Add(Me.txtFindFriend)
         Me.FindFriendPanel.Controls.Add(Me.btnSendFriendRequest)
@@ -72,6 +76,8 @@ Partial Class AddFriendForm
         '
         'txtFindFriend
         '
+        Me.txtFindFriend.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtFindFriend.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.txtFindFriend.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtFindFriend.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
@@ -85,6 +91,7 @@ Partial Class AddFriendForm
         '
         'btnSendFriendRequest
         '
+        Me.btnSendFriendRequest.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSendFriendRequest.AnimationHoverSpeed = 0.07!
         Me.btnSendFriendRequest.AnimationSpeed = 0.03!
         Me.btnSendFriendRequest.BackColor = System.Drawing.Color.Transparent

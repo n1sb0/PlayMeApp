@@ -22,12 +22,12 @@ Partial Class ChatFriendForm
     'Non modificarla mediante l'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.lblFriends = New System.Windows.Forms.Label()
+        Me.lblFriendName = New System.Windows.Forms.Label()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.OvalShape1 = New Microsoft.VisualBasic.PowerPacks.OvalShape()
+        Me.lblStateOnlineOfFriend = New Microsoft.VisualBasic.PowerPacks.OvalShape()
         Me.txtFindMessage = New Guna.UI.WinForms.GunaTextBox()
         Me.picFriend = New System.Windows.Forms.PictureBox()
-        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.UpperPanelLine = New System.Windows.Forms.Panel()
         Me.btnAddFriendToChat = New FontAwesome.Sharp.IconPictureBox()
         Me.btnCall = New FontAwesome.Sharp.IconPictureBox()
         Me.btnHelp = New FontAwesome.Sharp.IconPictureBox()
@@ -46,41 +46,43 @@ Partial Class ChatFriendForm
         CType(Me.btnAddFiles, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'lblFriends
+        'lblFriendName
         '
-        Me.lblFriends.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.lblFriends.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.lblFriends.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.lblFriends.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.lblFriends.Location = New System.Drawing.Point(55, 15)
-        Me.lblFriends.Name = "lblFriends"
-        Me.lblFriends.Size = New System.Drawing.Size(108, 20)
-        Me.lblFriends.TabIndex = 79
-        Me.lblFriends.Text = "Friend Name"
+        Me.lblFriendName.AutoSize = True
+        Me.lblFriendName.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.lblFriendName.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.lblFriendName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.lblFriendName.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblFriendName.Location = New System.Drawing.Point(55, 15)
+        Me.lblFriendName.Name = "lblFriendName"
+        Me.lblFriendName.Size = New System.Drawing.Size(106, 19)
+        Me.lblFriendName.TabIndex = 79
+        Me.lblFriendName.Text = "Friend Name"
         '
         'ShapeContainer1
         '
         Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.OvalShape1})
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.lblStateOnlineOfFriend})
         Me.ShapeContainer1.Size = New System.Drawing.Size(950, 700)
         Me.ShapeContainer1.TabIndex = 81
         Me.ShapeContainer1.TabStop = False
         '
-        'OvalShape1
+        'lblStateOnlineOfFriend
         '
-        Me.OvalShape1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.OvalShape1.BorderWidth = 2
-        Me.OvalShape1.FillColor = System.Drawing.Color.Gray
-        Me.OvalShape1.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.OvalShape1.Location = New System.Drawing.Point(165, 18)
-        Me.OvalShape1.Name = "OvalShape1"
-        Me.OvalShape1.SelectionColor = System.Drawing.Color.Transparent
-        Me.OvalShape1.Size = New System.Drawing.Size(12, 12)
+        Me.lblStateOnlineOfFriend.BorderColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.lblStateOnlineOfFriend.BorderWidth = 2
+        Me.lblStateOnlineOfFriend.FillColor = System.Drawing.Color.Gray
+        Me.lblStateOnlineOfFriend.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
+        Me.lblStateOnlineOfFriend.Location = New System.Drawing.Point(165, 18)
+        Me.lblStateOnlineOfFriend.Name = "lblStateOnlineOfFriend"
+        Me.lblStateOnlineOfFriend.SelectionColor = System.Drawing.Color.Transparent
+        Me.lblStateOnlineOfFriend.Size = New System.Drawing.Size(12, 12)
         '
         'txtFindMessage
         '
+        Me.txtFindMessage.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtFindMessage.BackColor = System.Drawing.Color.Transparent
         Me.txtFindMessage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.txtFindMessage.BaseColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
@@ -111,18 +113,19 @@ Partial Class ChatFriendForm
         Me.picFriend.TabIndex = 80
         Me.picFriend.TabStop = False
         '
-        'Panel4
+        'UpperPanelLine
         '
-        Me.Panel4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.UpperPanelLine.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
-        Me.Panel4.Location = New System.Drawing.Point(0, 50)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(950, 2)
-        Me.Panel4.TabIndex = 87
+        Me.UpperPanelLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.UpperPanelLine.Location = New System.Drawing.Point(0, 50)
+        Me.UpperPanelLine.Name = "UpperPanelLine"
+        Me.UpperPanelLine.Size = New System.Drawing.Size(950, 2)
+        Me.UpperPanelLine.TabIndex = 87
         '
         'btnAddFriendToChat
         '
+        Me.btnAddFriendToChat.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAddFriendToChat.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.btnAddFriendToChat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnAddFriendToChat.IconChar = FontAwesome.Sharp.IconChar.UserPlus
@@ -136,6 +139,7 @@ Partial Class ChatFriendForm
         '
         'btnCall
         '
+        Me.btnCall.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCall.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.btnCall.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnCall.IconChar = FontAwesome.Sharp.IconChar.Phone
@@ -150,6 +154,7 @@ Partial Class ChatFriendForm
         '
         'btnHelp
         '
+        Me.btnHelp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnHelp.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.btnHelp.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnHelp.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle
@@ -163,6 +168,7 @@ Partial Class ChatFriendForm
         '
         'btnVideoCall
         '
+        Me.btnVideoCall.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnVideoCall.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.btnVideoCall.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnVideoCall.IconChar = FontAwesome.Sharp.IconChar.Video
@@ -176,6 +182,8 @@ Partial Class ChatFriendForm
         '
         'Panel1
         '
+        Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.Panel1.Controls.Add(Me.btnAddSmile)
         Me.Panel1.Controls.Add(Me.btnAddFiles)
@@ -187,6 +195,7 @@ Partial Class ChatFriendForm
         '
         'btnAddSmile
         '
+        Me.btnAddSmile.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAddSmile.BackColor = System.Drawing.Color.Transparent
         Me.btnAddSmile.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnAddSmile.IconChar = FontAwesome.Sharp.IconChar.SmileWink
@@ -213,6 +222,8 @@ Partial Class ChatFriendForm
         '
         'txtPassword
         '
+        Me.txtPassword.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtPassword.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
@@ -235,10 +246,10 @@ Partial Class ChatFriendForm
         Me.Controls.Add(Me.btnHelp)
         Me.Controls.Add(Me.btnCall)
         Me.Controls.Add(Me.btnAddFriendToChat)
-        Me.Controls.Add(Me.Panel4)
+        Me.Controls.Add(Me.UpperPanelLine)
         Me.Controls.Add(Me.txtFindMessage)
         Me.Controls.Add(Me.picFriend)
-        Me.Controls.Add(Me.lblFriends)
+        Me.Controls.Add(Me.lblFriendName)
         Me.Controls.Add(Me.ShapeContainer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ChatFriendForm"
@@ -253,15 +264,16 @@ Partial Class ChatFriendForm
         CType(Me.btnAddSmile, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnAddFiles, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents picFriend As PictureBox
-    Friend WithEvents lblFriends As Label
+    Friend WithEvents lblFriendName As Label
     Friend WithEvents ShapeContainer1 As PowerPacks.ShapeContainer
-    Friend WithEvents OvalShape1 As PowerPacks.OvalShape
+    Friend WithEvents lblStateOnlineOfFriend As PowerPacks.OvalShape
     Friend WithEvents txtFindMessage As Guna.UI.WinForms.GunaTextBox
-    Friend WithEvents Panel4 As Panel
+    Friend WithEvents UpperPanelLine As Panel
     Friend WithEvents btnAddFriendToChat As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents btnCall As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents btnHelp As FontAwesome.Sharp.IconPictureBox

@@ -7,7 +7,11 @@
     Property SUBJECT_PASSWORD As String
     Property SUBJECT_BIRTHDAY As String
     Property SUBJECT_USER_PICTURE As Byte()
+    Property SUBJECT_STATE_ONLINE As String = "Offline"
     Property SUBJECT_EMAIL_NOTIFICATION As String
+
+    Private _Utility_Style As New Utility_Style
+
 
     Private NewAccout As Boolean = False
 
@@ -21,6 +25,7 @@
         SUBJECT_BIRTHDAY = Nothing
         SUBJECT_USER_PICTURE = Nothing
         SUBJECT_EMAIL_NOTIFICATION = Nothing
+        SUBJECT_STATE_ONLINE = "Offline"
     End Sub
 
     Public Sub Insert_With_Transaction()
@@ -81,6 +86,8 @@
             End With
 
             transazione.Commit()
+
+            NewAccout = False
 
             commandB.Connection.Close()
             commandB.Dispose()
@@ -212,6 +219,7 @@
             .SUBJECT_USERNAME = ReadValue(reader("SUBJECT_USERNAME"))
             .SUBJECT_PASSWORD = ReadValue(reader("SUBJECT_PASSWORD"))
             .SUBJECT_USER_PICTURE = ReadValue(reader("SUBJECT_PICTURE"))
+            .SUBJECT_STATE_ONLINE = ReadValue(reader("SUBJECT_STATE_ONLINE"))
         End With
     End Sub
 
@@ -226,11 +234,25 @@
             .Parameters.AddWithValue("@SUBJECT_PASSWORD", SUBJECT_PASSWORD)
             .Parameters.AddWithValue("@SUBJECT_BIRTHDAY", SUBJECT_BIRTHDAY)
             .Parameters.AddWithValue("@SUBJECT_EMAIL_NOTIFICATION", SUBJECT_EMAIL_NOTIFICATION)
+            .Parameters.AddWithValue("@SUBJECT_STATE_ONLINE", SUBJECT_STATE_ONLINE)
 
             If Not NewAccout Then
                 .Parameters.AddWithValue("@SUBJECT_PICTURE", SUBJECT_USER_PICTURE)
+            Else
+                Get_Standard_Picture()
+                .Parameters.AddWithValue("@SUBJECT_PICTURE", SUBJECT_USER_PICTURE)
             End If
         End With
+    End Sub
+
+    Private Sub Get_Standard_Picture()
+        Dim passPic As New PictureBox
+        Dim _ResizeImage As New ResizeImage
+
+        passPic.Image = My.Resources.NewUserPicture
+        passPic.Image = ResizeImage.ResizeImage(passPic.Image, 300, 300)
+
+        SUBJECT_USER_PICTURE = _ResizeImage.ConvertImage(passPic.Image)
     End Sub
 
     Private Shared Function ReadValue(value As Object) As Object

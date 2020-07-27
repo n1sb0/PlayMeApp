@@ -100,7 +100,7 @@
     '*****///// END TEXT BOX STYLE
 
     '*****///// BUTTON MOUSE HOVER
-    Private Sub btnLogin_MouseHover(sender As Object, e As EventArgs) Handles btnLogin.MouseHover
+    Private Sub btnLogin_MouseHover(sender As Object, e As EventArgs) Handles btnLogin.Enter
         _Utility_Style.Mouse_Hover_Button(btnLogin)
     End Sub
 

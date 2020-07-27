@@ -42,6 +42,8 @@ Partial Class AllFriendsForm
         '
         'Panel1
         '
+        Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.Location = New System.Drawing.Point(15, 30)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(900, 2)
@@ -77,6 +79,9 @@ Partial Class AllFriendsForm
         '
         'AllFriendsPanel
         '
+        Me.AllFriendsPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.AllFriendsPanel.Controls.Add(Me.Panel2)
         Me.AllFriendsPanel.Location = New System.Drawing.Point(15, 50)
         Me.AllFriendsPanel.Name = "AllFriendsPanel"
@@ -85,6 +90,8 @@ Partial Class AllFriendsForm
         '
         'Panel2
         '
+        Me.Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel2.Controls.Add(Me.GunaButton2)
         Me.Panel2.Controls.Add(Me.GunaButton1)
         Me.Panel2.Controls.Add(Me.Label2)
@@ -99,6 +106,7 @@ Partial Class AllFriendsForm
         '
         'GunaButton2
         '
+        Me.GunaButton2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GunaButton2.AnimationHoverSpeed = 0.07!
         Me.GunaButton2.AnimationSpeed = 0.03!
         Me.GunaButton2.BackColor = System.Drawing.Color.Transparent
@@ -125,6 +133,7 @@ Partial Class AllFriendsForm
         '
         'GunaButton1
         '
+        Me.GunaButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GunaButton1.AnimationHoverSpeed = 0.07!
         Me.GunaButton1.AnimationSpeed = 0.03!
         Me.GunaButton1.BackColor = System.Drawing.Color.Transparent

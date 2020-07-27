@@ -453,6 +453,8 @@
     <Content Include="obj\Debug\PlayMe.xml" />
     <Content Include="obj\Debug\TempPE\DB_PlayMeAppDataSet.Designer.vb.dll" />
     <Content Include="obj\Debug\TempPE\My Project.Resources.Designer.vb.dll" />
+    <None Include="Resources\NewUserPicture.png" />
+    <None Include="Resources\PictureLogo.jpg" />
     <None Include="Resources\VerticleMenuDots.png" />
     <None Include="Resources\Person.png" />
     <None Include="Resources\t9f6bjjt7br31.jpg" />

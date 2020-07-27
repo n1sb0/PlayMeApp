@@ -300,6 +300,9 @@ Public Class SettingsForm
 
 
     Private Sub Onclick_OpenForm(buttonName As String)
+
+        pnlEditAccount.Visible = False
+
         Select Case buttonName
             Case "btnPrivacyAndSefty"
                 Dim privacyandSeftyForm As New PrivacyAndSeftyForm
@@ -317,6 +320,7 @@ Public Class SettingsForm
                 If currentChildForm IsNot Nothing Then
                     currentChildForm.Close()
                 End If
+                pnlEditAccount.Visible = True
         End Select
     End Sub
     '*****///// END OPEN OTHER FORM IN SETTINGS FORM

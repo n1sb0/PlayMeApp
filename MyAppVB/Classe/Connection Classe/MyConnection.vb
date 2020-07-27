@@ -1,12 +1,12 @@
 ﻿Public Class MyConnection
     Public Shared Function Get_Connection() As String
-        Dim ConnQuery As String = "*******"
+        Dim ConnQuery As String = "******"
         Return ConnQuery
     End Function
 
     Public Shared Function Get_Insert_Query_SubjectData() As String
-        Dim query As String = "INSERT INTO TBL_USER_DATA (SUBJECT_USERNAME, SUBJECT_EMAIL, SUBJECT_PASSWORD, SALT ,SUBJECT_EMAIL_NOTIFICATION) " &
-                              "VALUES (@SUBJECT_USERNAME, @SUBJECT_EMAIL, @SUBJECT_PASSWORD, @SALT, @SUBJECT_EMAIL_NOTIFICATION)"
+        Dim query As String = "INSERT INTO TBL_USER_DATA (SUBJECT_USERNAME, SUBJECT_EMAIL, SUBJECT_PASSWORD, SALT ,SUBJECT_EMAIL_NOTIFICATION, SUBJECT_PICTURE, SUBJECT_STATE_ONLINE) " &
+                              "VALUES (@SUBJECT_USERNAME, @SUBJECT_EMAIL, @SUBJECT_PASSWORD, @SALT, @SUBJECT_EMAIL_NOTIFICATION, @SUBJECT_PICTURE, @SUBJECT_STATE_ONLINE)"
 
         Return query
     End Function
