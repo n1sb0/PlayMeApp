@@ -26,7 +26,6 @@ Public Class PassRecForm
 
     '*****///// STYLE COMPONENTS
     Private Sub SetStyle_For_Components()
-        Btn_Style()
         Lbl_Style()
         Txt_Style()
         Form_Style()
@@ -51,20 +50,6 @@ Public Class PassRecForm
         lblMsgConfPassword.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_RedColor))
         lblMsgEmail.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_OrngColor))
         lblMsgComfCode.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_RedColor))
-    End Sub
-
-    Private Sub Btn_Style()
-        btnSubmit.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
-        btnSubmit.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
-        btnSubmit.FlatAppearance.BorderColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
-
-        btnVerifyCode.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
-        btnVerifyCode.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
-        btnVerifyCode.FlatAppearance.BorderColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
-
-        btnChangePassword.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
-        btnChangePassword.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
-        btnChangePassword.FlatAppearance.BorderColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
     End Sub
     '*****///// END STYLE COMPONENTS
 
@@ -117,7 +102,7 @@ Public Class PassRecForm
                 Dim smtp As New SmtpClient("smtp.gmail.com")
                 smtp.Port = 587
                 smtp.EnableSsl = True
-                smtp.Credentials = New System.Net.NetworkCredential("nsb.app0@gmail.com", "********")
+                smtp.Credentials = New System.Net.NetworkCredential("nsb.app0@gmail.com", "******")
                 smtp.Send(message)
 
                 Me.Height = 650
@@ -146,7 +131,7 @@ Public Class PassRecForm
     '*****///// END BUTTON SUBMIT TO GET EMAIL CODE TO RECOVERY PASSWORD
 
     '*****///// BUTTON VERIFY RANDON CODE 
-    Private Sub btnVerifyCode_Click(sender As Object, e As EventArgs) Handles btnVerifyCode.Click
+    Private Sub btnVerifyCode_Click_1(sender As Object, e As EventArgs) Handles btnVerifyCode.Click
         If (_randomCode = txtCode.Text) Then
             Me.Width = 1000
             Me.CenterToScreen()
@@ -163,7 +148,6 @@ Public Class PassRecForm
 
     '*****///// BUTTON CONFIRM TO CHANGE PASSWOR
     Private Sub btnChangePassword_Click(sender As Object, e As EventArgs) Handles btnChangePassword.Click
-
         If confNewPassword.Text.Equals("✔") AndAlso confConfPassword.Text.Equals("✔") Then
             Dim subj As New Subject
 
@@ -257,32 +241,6 @@ Public Class PassRecForm
 
     '*****///// END TEXT BOX RANDOME CODE
 
-    '*****///// MOUSE HOVER AND LEAVE ON BUTTONS
-    Private Sub btnSubmit_MouseHover(sender As Object, e As EventArgs) Handles btnSubmit.MouseHover
-        _Utility_Style.Mouse_Hover_Button(btnSubmit)
-    End Sub
-
-    Private Sub btnSubmit_MouseLeave(sender As Object, e As EventArgs) Handles btnSubmit.MouseLeave
-        _Utility_Style.Mouse_Leave_Button(btnSubmit)
-    End Sub
-
-    Private Sub btnVerifyCode_MouseHover(sender As Object, e As EventArgs) Handles btnVerifyCode.MouseHover
-        _Utility_Style.Mouse_Hover_Button(btnVerifyCode)
-    End Sub
-
-    Private Sub btnVerifyCode_MouseLeave(sender As Object, e As EventArgs) Handles btnVerifyCode.MouseLeave
-        _Utility_Style.Mouse_Leave_Button(btnVerifyCode)
-    End Sub
-
-    Private Sub btnChangePassword_MouseHover(sender As Object, e As EventArgs) Handles btnChangePassword.MouseHover
-        _Utility_Style.Mouse_Hover_Button(btnChangePassword)
-    End Sub
-
-    Private Sub btnChangePassword_MouseLeave(sender As Object, e As EventArgs) Handles btnChangePassword.MouseLeave
-        _Utility_Style.Mouse_Leave_Button(btnChangePassword)
-    End Sub
-    '*****///// END MOUSE HOVER AND LEAVE ON BUTTONS
-
     '*****///// BUTTONS TO SEE PASSWORD 
     Private Sub btnSeeNewPassword_MouseDown(sender As Object, e As MouseEventArgs) Handles btnSeeNewPassword.MouseDown
         _Utility_Style.Mouse_Down_To_See_Password(txtNewPassword, btnSeeNewPassword)
@@ -316,5 +274,6 @@ Public Class PassRecForm
     Private Sub btnComeBack_MouseLeave(sender As Object, e As EventArgs) Handles btnComeBack.MouseLeave
         btnComeBack.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GrayColor))
     End Sub
+
     '*****///// END BUTTON COME BACK
 End Class

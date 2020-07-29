@@ -38,6 +38,10 @@ Partial Class SettingsForm
         Me.lblAppSettings = New System.Windows.Forms.Label()
         Me.lblUserSettings = New System.Windows.Forms.Label()
         Me.pnlEditAccount = New System.Windows.Forms.Panel()
+        Me.btnDeleteAccount = New Guna.UI.WinForms.GunaButton()
+        Me.btnSave = New Guna.UI.WinForms.GunaButton()
+        Me.btnCancel = New Guna.UI.WinForms.GunaButton()
+        Me.btnEdit = New Guna.UI.WinForms.GunaButton()
         Me.lblWrongPassword = New System.Windows.Forms.Label()
         Me.userPictureBox = New Guna.UI.WinForms.GunaCirclePictureBox()
         Me.lblMsgWarningPass = New System.Windows.Forms.Label()
@@ -48,17 +52,13 @@ Partial Class SettingsForm
         Me.txtNewPassword = New System.Windows.Forms.TextBox()
         Me.lblChangePassword = New System.Windows.Forms.Label()
         Me.pnlCurrentPassword = New System.Windows.Forms.Panel()
-        Me.btnDeleteAccount = New System.Windows.Forms.Button()
         Me.txtCurrentPassword = New System.Windows.Forms.TextBox()
-        Me.btnCancel = New System.Windows.Forms.Button()
         Me.lblCurrentPassword = New System.Windows.Forms.Label()
-        Me.btnSave = New System.Windows.Forms.Button()
         Me.pnlUserName = New System.Windows.Forms.Panel()
         Me.pnlUserEmail = New System.Windows.Forms.Panel()
         Me.txtUserEmail = New System.Windows.Forms.TextBox()
-        Me.btnEdit = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblEmail = New System.Windows.Forms.Label()
+        Me.lblUserName = New System.Windows.Forms.Label()
         Me.LogoName = New System.Windows.Forms.Label()
         Me.centerPanel = New System.Windows.Forms.Panel()
         Me.btnClose = New FontAwesome.Sharp.IconPictureBox()
@@ -115,6 +115,7 @@ Partial Class SettingsForm
         'btnLogOut
         '
         Me.btnLogOut.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnLogOut.Animated = True
         Me.btnLogOut.AnimationHoverSpeed = 0.07!
         Me.btnLogOut.AnimationSpeed = 0.03!
         Me.btnLogOut.BackColor = System.Drawing.Color.Transparent
@@ -142,6 +143,7 @@ Partial Class SettingsForm
         'btnVoiceAndVideo
         '
         Me.btnVoiceAndVideo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnVoiceAndVideo.Animated = True
         Me.btnVoiceAndVideo.AnimationHoverSpeed = 0.07!
         Me.btnVoiceAndVideo.AnimationSpeed = 0.03!
         Me.btnVoiceAndVideo.BackColor = System.Drawing.Color.Transparent
@@ -169,6 +171,7 @@ Partial Class SettingsForm
         'btnLanguage
         '
         Me.btnLanguage.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnLanguage.Animated = True
         Me.btnLanguage.AnimationHoverSpeed = 0.07!
         Me.btnLanguage.AnimationSpeed = 0.03!
         Me.btnLanguage.BackColor = System.Drawing.Color.Transparent
@@ -196,6 +199,7 @@ Partial Class SettingsForm
         'btnPrivacyAndSefty
         '
         Me.btnPrivacyAndSefty.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnPrivacyAndSefty.Animated = True
         Me.btnPrivacyAndSefty.AnimationHoverSpeed = 0.07!
         Me.btnPrivacyAndSefty.AnimationSpeed = 0.03!
         Me.btnPrivacyAndSefty.BackColor = System.Drawing.Color.Transparent
@@ -223,6 +227,7 @@ Partial Class SettingsForm
         'btnMyAccount
         '
         Me.btnMyAccount.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMyAccount.Animated = True
         Me.btnMyAccount.AnimationHoverSpeed = 0.07!
         Me.btnMyAccount.AnimationSpeed = 0.03!
         Me.btnMyAccount.BackColor = System.Drawing.Color.Transparent
@@ -352,6 +357,10 @@ Partial Class SettingsForm
         Me.pnlEditAccount.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlEditAccount.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.pnlEditAccount.Controls.Add(Me.btnDeleteAccount)
+        Me.pnlEditAccount.Controls.Add(Me.btnSave)
+        Me.pnlEditAccount.Controls.Add(Me.btnCancel)
+        Me.pnlEditAccount.Controls.Add(Me.btnEdit)
         Me.pnlEditAccount.Controls.Add(Me.lblWrongPassword)
         Me.pnlEditAccount.Controls.Add(Me.userPictureBox)
         Me.pnlEditAccount.Controls.Add(Me.lblMsgWarningPass)
@@ -362,22 +371,134 @@ Partial Class SettingsForm
         Me.pnlEditAccount.Controls.Add(Me.txtNewPassword)
         Me.pnlEditAccount.Controls.Add(Me.lblChangePassword)
         Me.pnlEditAccount.Controls.Add(Me.pnlCurrentPassword)
-        Me.pnlEditAccount.Controls.Add(Me.btnDeleteAccount)
         Me.pnlEditAccount.Controls.Add(Me.txtCurrentPassword)
-        Me.pnlEditAccount.Controls.Add(Me.btnCancel)
         Me.pnlEditAccount.Controls.Add(Me.lblCurrentPassword)
-        Me.pnlEditAccount.Controls.Add(Me.btnSave)
         Me.pnlEditAccount.Controls.Add(Me.pnlUserName)
         Me.pnlEditAccount.Controls.Add(Me.pnlUserEmail)
         Me.pnlEditAccount.Controls.Add(Me.txtUserEmail)
-        Me.pnlEditAccount.Controls.Add(Me.btnEdit)
-        Me.pnlEditAccount.Controls.Add(Me.Label3)
-        Me.pnlEditAccount.Controls.Add(Me.Label1)
+        Me.pnlEditAccount.Controls.Add(Me.lblEmail)
+        Me.pnlEditAccount.Controls.Add(Me.lblUserName)
         Me.pnlEditAccount.ForeColor = System.Drawing.SystemColors.ControlDark
         Me.pnlEditAccount.Location = New System.Drawing.Point(10, 124)
         Me.pnlEditAccount.Name = "pnlEditAccount"
         Me.pnlEditAccount.Size = New System.Drawing.Size(650, 175)
         Me.pnlEditAccount.TabIndex = 3
+        '
+        'btnDeleteAccount
+        '
+        Me.btnDeleteAccount.Animated = True
+        Me.btnDeleteAccount.AnimationHoverSpeed = 0.07!
+        Me.btnDeleteAccount.AnimationSpeed = 0.03!
+        Me.btnDeleteAccount.BackColor = System.Drawing.Color.Transparent
+        Me.btnDeleteAccount.BaseColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.btnDeleteAccount.BorderColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.btnDeleteAccount.BorderSize = 1
+        Me.btnDeleteAccount.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDeleteAccount.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnDeleteAccount.FocusedColor = System.Drawing.Color.Empty
+        Me.btnDeleteAccount.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.btnDeleteAccount.ForeColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.btnDeleteAccount.Image = Nothing
+        Me.btnDeleteAccount.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnDeleteAccount.Location = New System.Drawing.Point(40, 370)
+        Me.btnDeleteAccount.Name = "btnDeleteAccount"
+        Me.btnDeleteAccount.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.btnDeleteAccount.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.btnDeleteAccount.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.btnDeleteAccount.OnHoverImage = Nothing
+        Me.btnDeleteAccount.OnPressedColor = System.Drawing.Color.Black
+        Me.btnDeleteAccount.Radius = 5
+        Me.btnDeleteAccount.Size = New System.Drawing.Size(125, 30)
+        Me.btnDeleteAccount.TabIndex = 94
+        Me.btnDeleteAccount.Text = "Delete Account"
+        Me.btnDeleteAccount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'btnSave
+        '
+        Me.btnSave.Animated = True
+        Me.btnSave.AnimationHoverSpeed = 0.07!
+        Me.btnSave.AnimationSpeed = 0.03!
+        Me.btnSave.BackColor = System.Drawing.Color.Transparent
+        Me.btnSave.BaseColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.btnSave.BorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnSave.BorderSize = 1
+        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSave.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnSave.FocusedColor = System.Drawing.Color.Empty
+        Me.btnSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.btnSave.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnSave.Image = Nothing
+        Me.btnSave.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnSave.Location = New System.Drawing.Point(535, 370)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnSave.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnSave.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.btnSave.OnHoverImage = Nothing
+        Me.btnSave.OnPressedColor = System.Drawing.Color.Black
+        Me.btnSave.Radius = 5
+        Me.btnSave.Size = New System.Drawing.Size(75, 30)
+        Me.btnSave.TabIndex = 93
+        Me.btnSave.Text = "Save"
+        Me.btnSave.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'btnCancel
+        '
+        Me.btnCancel.Animated = True
+        Me.btnCancel.AnimationHoverSpeed = 0.07!
+        Me.btnCancel.AnimationSpeed = 0.03!
+        Me.btnCancel.BackColor = System.Drawing.Color.Transparent
+        Me.btnCancel.BaseColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.btnCancel.BorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnCancel.BorderSize = 1
+        Me.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnCancel.FocusedColor = System.Drawing.Color.Empty
+        Me.btnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.btnCancel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnCancel.Image = Nothing
+        Me.btnCancel.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnCancel.Location = New System.Drawing.Point(447, 370)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnCancel.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnCancel.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.btnCancel.OnHoverImage = Nothing
+        Me.btnCancel.OnPressedColor = System.Drawing.Color.Black
+        Me.btnCancel.Radius = 5
+        Me.btnCancel.Size = New System.Drawing.Size(75, 30)
+        Me.btnCancel.TabIndex = 92
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'btnEdit
+        '
+        Me.btnEdit.Animated = True
+        Me.btnEdit.AnimationHoverSpeed = 0.07!
+        Me.btnEdit.AnimationSpeed = 0.03!
+        Me.btnEdit.BackColor = System.Drawing.Color.Transparent
+        Me.btnEdit.BaseColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.btnEdit.BorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnEdit.BorderSize = 1
+        Me.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnEdit.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnEdit.FocusedColor = System.Drawing.Color.Empty
+        Me.btnEdit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.btnEdit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnEdit.Image = Nothing
+        Me.btnEdit.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnEdit.Location = New System.Drawing.Point(535, 20)
+        Me.btnEdit.Name = "btnEdit"
+        Me.btnEdit.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnEdit.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnEdit.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.btnEdit.OnHoverImage = Nothing
+        Me.btnEdit.OnPressedColor = System.Drawing.Color.Black
+        Me.btnEdit.Radius = 5
+        Me.btnEdit.Size = New System.Drawing.Size(75, 30)
+        Me.btnEdit.TabIndex = 76
+        Me.btnEdit.Text = "Edit"
+        Me.btnEdit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblWrongPassword
         '
@@ -478,7 +599,7 @@ Partial Class SettingsForm
         Me.lblChangePassword.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         Me.lblChangePassword.Cursor = System.Windows.Forms.Cursors.Hand
         Me.lblChangePassword.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.lblChangePassword.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.lblChangePassword.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
         Me.lblChangePassword.Location = New System.Drawing.Point(197, 260)
         Me.lblChangePassword.Name = "lblChangePassword"
         Me.lblChangePassword.Size = New System.Drawing.Size(129, 20)
@@ -493,21 +614,6 @@ Partial Class SettingsForm
         Me.pnlCurrentPassword.Size = New System.Drawing.Size(323, 1)
         Me.pnlCurrentPassword.TabIndex = 85
         '
-        'btnDeleteAccount
-        '
-        Me.btnDeleteAccount.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
-        Me.btnDeleteAccount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnDeleteAccount.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnDeleteAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDeleteAccount.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.btnDeleteAccount.ForeColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.btnDeleteAccount.Location = New System.Drawing.Point(40, 370)
-        Me.btnDeleteAccount.Name = "btnDeleteAccount"
-        Me.btnDeleteAccount.Size = New System.Drawing.Size(125, 30)
-        Me.btnDeleteAccount.TabIndex = 86
-        Me.btnDeleteAccount.Text = "Delete Account"
-        Me.btnDeleteAccount.UseVisualStyleBackColor = False
-        '
         'txtCurrentPassword
         '
         Me.txtCurrentPassword.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
@@ -521,48 +627,18 @@ Partial Class SettingsForm
         Me.txtCurrentPassword.TabIndex = 84
         Me.txtCurrentPassword.Text = "CURRENT PASSWORD"
         '
-        'btnCancel
-        '
-        Me.btnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
-        Me.btnCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancel.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.btnCancel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.btnCancel.Location = New System.Drawing.Point(447, 370)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 30)
-        Me.btnCancel.TabIndex = 85
-        Me.btnCancel.Text = "Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = False
-        '
         'lblCurrentPassword
         '
         Me.lblCurrentPassword.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblCurrentPassword.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         Me.lblCurrentPassword.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.lblCurrentPassword.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.lblCurrentPassword.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
         Me.lblCurrentPassword.Location = New System.Drawing.Point(196, 180)
         Me.lblCurrentPassword.Name = "lblCurrentPassword"
         Me.lblCurrentPassword.Size = New System.Drawing.Size(150, 20)
         Me.lblCurrentPassword.TabIndex = 83
         Me.lblCurrentPassword.Text = "CURRENT PASSWORD"
         Me.lblCurrentPassword.Visible = False
-        '
-        'btnSave
-        '
-        Me.btnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
-        Me.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.btnSave.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.btnSave.Location = New System.Drawing.Point(535, 370)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(75, 30)
-        Me.btnSave.TabIndex = 84
-        Me.btnSave.Text = "Save"
-        Me.btnSave.UseVisualStyleBackColor = False
         '
         'pnlUserName
         '
@@ -596,44 +672,29 @@ Partial Class SettingsForm
         Me.txtUserEmail.TabIndex = 81
         Me.txtUserEmail.Text = "UserEmail"
         '
-        'btnEdit
+        'lblEmail
         '
-        Me.btnEdit.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
-        Me.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEdit.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.btnEdit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.btnEdit.Location = New System.Drawing.Point(535, 25)
-        Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(75, 30)
-        Me.btnEdit.TabIndex = 79
-        Me.btnEdit.Text = "Edit"
-        Me.btnEdit.UseVisualStyleBackColor = False
+        Me.lblEmail.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.lblEmail.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.lblEmail.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.lblEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.lblEmail.Location = New System.Drawing.Point(197, 100)
+        Me.lblEmail.Name = "lblEmail"
+        Me.lblEmail.Size = New System.Drawing.Size(53, 20)
+        Me.lblEmail.TabIndex = 77
+        Me.lblEmail.Text = "EMAIL"
         '
-        'Label3
+        'lblUserName
         '
-        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
-        Me.Label3.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(197, 100)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(86, 20)
-        Me.Label3.TabIndex = 77
-        Me.Label3.Text = "EMAIL"
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
-        Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(197, 20)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(86, 20)
-        Me.Label1.TabIndex = 75
-        Me.Label1.Text = "USERNAME"
+        Me.lblUserName.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.lblUserName.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.lblUserName.Font = New System.Drawing.Font("Microsoft YaHei", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.lblUserName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.lblUserName.Location = New System.Drawing.Point(197, 20)
+        Me.lblUserName.Name = "lblUserName"
+        Me.lblUserName.Size = New System.Drawing.Size(86, 20)
+        Me.lblUserName.TabIndex = 75
+        Me.lblUserName.Text = "USERNAME"
         '
         'LogoName
         '
@@ -704,16 +765,12 @@ Partial Class SettingsForm
     Friend WithEvents LeftPanel As Panel
     Friend WithEvents pnlEditAccount As Panel
     Friend WithEvents LogoName As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents btnEdit As Button
+    Friend WithEvents lblUserName As Label
+    Friend WithEvents lblEmail As Label
     Friend WithEvents txtUserEmail As TextBox
     Friend WithEvents txtUserName As TextBox
     Friend WithEvents pnlUserName As Panel
     Friend WithEvents pnlUserEmail As Panel
-    Friend WithEvents btnDeleteAccount As Button
-    Friend WithEvents btnCancel As Button
-    Friend WithEvents btnSave As Button
     Friend WithEvents pnlCurrentPassword As Panel
     Friend WithEvents txtCurrentPassword As TextBox
     Friend WithEvents lblCurrentPassword As Label
@@ -740,4 +797,8 @@ Partial Class SettingsForm
     Friend WithEvents userPictureBox As Guna.UI.WinForms.GunaCirclePictureBox
     Friend WithEvents lblWrongPassword As Label
     Friend WithEvents btnLinkedin As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents btnEdit As Guna.UI.WinForms.GunaButton
+    Friend WithEvents btnCancel As Guna.UI.WinForms.GunaButton
+    Friend WithEvents btnSave As Guna.UI.WinForms.GunaButton
+    Friend WithEvents btnDeleteAccount As Guna.UI.WinForms.GunaButton
 End Class

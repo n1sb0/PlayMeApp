@@ -13,7 +13,6 @@ A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayMe.exe
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayMe.xml
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayMe.pdb
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayMe.vbproj.CoreCompileInputs.cache
-A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayMe.vbprojAssemblyReference.cache
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\bin\Debug\FontAwesome.Sharp.dll
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\bin\Debug\MetroFramework.Design.dll
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\bin\Debug\MetroFramework.dll

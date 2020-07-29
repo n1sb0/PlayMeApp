@@ -28,7 +28,6 @@
 
     '*****///// STYLE COMPONENTS
     Private Sub SetStyle_For_Components()
-        Btn_Style()
         Lbl_Style()
         Txt_Style()
         Form_Style()
@@ -37,12 +36,6 @@
 
     Private Sub Form_Style()
         Me.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
-    End Sub
-
-    Private Sub Btn_Style()
-        btnContinue.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
-        btnContinue.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
-        btnContinue.FlatAppearance.BorderColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
     End Sub
 
     Private Sub Txt_Style()
@@ -207,16 +200,6 @@
     End Sub
     '*****///// END CONFIRM PASSWORD 
 
-    '*****///// MOUSE HOVER AND LEAVE ON BUTTON
-    Private Sub btnContinue_MouseHover(sender As Object, e As EventArgs) Handles btnContinue.MouseHover
-        _Utility_Style.Mouse_Hover_Button(btnContinue)
-    End Sub
-
-    Private Sub btnContinue_MouseLeave(sender As Object, e As EventArgs) Handles btnContinue.MouseLeave
-        _Utility_Style.Mouse_Leave_Button(btnContinue)
-    End Sub
-    '*****///// END MOUSE HOVER AND LEAVE ON BUTTON
-
     '*****///// TXT USER NAME TEXT CHANGE
     Private Sub txtUserName_TextChanged(sender As Object, e As EventArgs) Handles txtUserName.TextChanged
 
@@ -259,7 +242,8 @@
     '*****/////END RISULT COMBOBOX 
 
     '*****/////WHEN ALL DATA WAS COMPLETED ON CLICK BUTTON CONTINUE TO CONFIRM REGISTRATION
-    Private Sub btnContinue_Click(sender As Object, e As EventArgs) Handles btnContinue.Click
+
+    Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnContinue.Click
         _ris_ComoBox = _Utility_Style.ComboBox_Check_Data(cmbBoxDay, cmbBoxMonth, cmbBoxYear)
 
         Risult_CmbBox()
@@ -341,5 +325,6 @@
     Private Sub btnComeBack_MouseLeave(sender As Object, e As EventArgs) Handles btnComeBack.MouseLeave
         btnComeBack.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GrayColor))
     End Sub
+
     '*****///// END UI CHANGE COLOR OF COMEBACK BUTTON
 End Class

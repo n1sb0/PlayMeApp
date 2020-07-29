@@ -194,13 +194,13 @@ Public Class FriendsPanel
 
     Private Sub On_MouseClickFriendList(sender As System.Object, e As System.EventArgs)
         Dim chatform As New ChatFriendForm
-        Dim x = chatform.lblFriendName.Location.X + chatform.lblFriendName.Width + 5,
-            y = chatform.lblStateOnlineOfFriend.Location.Y
 
         MainForm._OpenedChat = _PnlNumber
         chatform.lblFriendName.Text = _UserName
 
-        chatform.lblStateOnlineOfFriend.Location = New Point(x, y)
+        Dim positionOflblOnline As New Point(chatform.lblFriendName.Location.X + chatform.lblFriendName.Width + 5, chatform.lblStateOnlineOfFriend.Location.Y)
+
+        chatform.lblStateOnlineOfFriend.Location = New Point(positionOflblOnline)
 
         _ControlChildForm.OpenChildForm(chatform, _MainForm.MainChatAndFriendPanel, _MainForm.currentChildForm)
     End Sub

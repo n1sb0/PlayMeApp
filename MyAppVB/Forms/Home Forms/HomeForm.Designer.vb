@@ -57,6 +57,7 @@ Partial Class MainForm
         Me.lblFriendsOnlineNow = New System.Windows.Forms.Label()
         Me.pnlUnderLblFriendsOnlineNow = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnHelp = New FontAwesome.Sharp.IconPictureBox()
         Me.btnAddNewFriends = New Guna.UI.WinForms.GunaButton()
         Me.btnBlockedFriends = New Guna.UI.WinForms.GunaButton()
         Me.btnAllFrineds = New Guna.UI.WinForms.GunaButton()
@@ -82,7 +83,6 @@ Partial Class MainForm
         Me.btnHide = New FontAwesome.Sharp.IconPictureBox()
         Me.btnMaxSizeForm = New FontAwesome.Sharp.IconPictureBox()
         Me.btnExit = New FontAwesome.Sharp.IconPictureBox()
-        Me.btnHelp = New FontAwesome.Sharp.IconPictureBox()
         Me.LeftButtomPanel.SuspendLayout()
         CType(Me.UserPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnSettings, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -94,6 +94,7 @@ Partial Class MainForm
         Me.pnlOfFriendOnlineNow.SuspendLayout()
         CType(Me.UserOnlinePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
+        CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picFriend, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMsgFriends.SuspendLayout()
         Me.PanelListOfFriends.SuspendLayout()
@@ -104,7 +105,6 @@ Partial Class MainForm
         CType(Me.btnHide, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnMaxSizeForm, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnExit, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LeftButtomPanel
@@ -187,6 +187,7 @@ Partial Class MainForm
         '
         'btnGames
         '
+        Me.btnGames.Animated = True
         Me.btnGames.AnimationHoverSpeed = 0.07!
         Me.btnGames.AnimationSpeed = 0.03!
         Me.btnGames.BackColor = System.Drawing.Color.Transparent
@@ -213,6 +214,7 @@ Partial Class MainForm
         '
         'btnMusic
         '
+        Me.btnMusic.Animated = True
         Me.btnMusic.AnimationHoverSpeed = 0.07!
         Me.btnMusic.AnimationSpeed = 0.03!
         Me.btnMusic.BackColor = System.Drawing.Color.Transparent
@@ -239,6 +241,7 @@ Partial Class MainForm
         '
         'btnVideo
         '
+        Me.btnVideo.Animated = True
         Me.btnVideo.AnimationHoverSpeed = 0.07!
         Me.btnVideo.AnimationSpeed = 0.03!
         Me.btnVideo.BackColor = System.Drawing.Color.Transparent
@@ -265,6 +268,7 @@ Partial Class MainForm
         '
         'btnPersonalBlog
         '
+        Me.btnPersonalBlog.Animated = True
         Me.btnPersonalBlog.AnimationHoverSpeed = 0.07!
         Me.btnPersonalBlog.AnimationSpeed = 0.03!
         Me.btnPersonalBlog.BackColor = System.Drawing.Color.Transparent
@@ -290,6 +294,7 @@ Partial Class MainForm
         '
         'btnHomeChat
         '
+        Me.btnHomeChat.Animated = True
         Me.btnHomeChat.AnimationHoverSpeed = 0.07!
         Me.btnHomeChat.AnimationSpeed = 0.03!
         Me.btnHomeChat.BackColor = System.Drawing.Color.Transparent
@@ -656,8 +661,23 @@ Partial Class MainForm
         Me.Panel2.Size = New System.Drawing.Size(950, 52)
         Me.Panel2.TabIndex = 1
         '
+        'btnHelp
+        '
+        Me.btnHelp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnHelp.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnHelp.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.btnHelp.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle
+        Me.btnHelp.IconColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.btnHelp.IconSize = 30
+        Me.btnHelp.Location = New System.Drawing.Point(905, 12)
+        Me.btnHelp.Name = "btnHelp"
+        Me.btnHelp.Size = New System.Drawing.Size(30, 30)
+        Me.btnHelp.TabIndex = 94
+        Me.btnHelp.TabStop = False
+        '
         'btnAddNewFriends
         '
+        Me.btnAddNewFriends.Animated = True
         Me.btnAddNewFriends.AnimationHoverSpeed = 0.07!
         Me.btnAddNewFriends.AnimationSpeed = 0.03!
         Me.btnAddNewFriends.BackColor = System.Drawing.Color.Transparent
@@ -684,6 +704,7 @@ Partial Class MainForm
         '
         'btnBlockedFriends
         '
+        Me.btnBlockedFriends.Animated = True
         Me.btnBlockedFriends.AnimationHoverSpeed = 0.07!
         Me.btnBlockedFriends.AnimationSpeed = 0.03!
         Me.btnBlockedFriends.BackColor = System.Drawing.Color.Transparent
@@ -702,7 +723,7 @@ Partial Class MainForm
         Me.btnBlockedFriends.OnHoverBorderColor = System.Drawing.Color.Black
         Me.btnBlockedFriends.OnHoverForeColor = System.Drawing.Color.White
         Me.btnBlockedFriends.OnHoverImage = Nothing
-        Me.btnBlockedFriends.OnPressedColor = System.Drawing.Color.Black
+        Me.btnBlockedFriends.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.btnBlockedFriends.Radius = 7
         Me.btnBlockedFriends.Size = New System.Drawing.Size(80, 30)
         Me.btnBlockedFriends.TabIndex = 92
@@ -710,6 +731,7 @@ Partial Class MainForm
         '
         'btnAllFrineds
         '
+        Me.btnAllFrineds.Animated = True
         Me.btnAllFrineds.AnimationHoverSpeed = 0.07!
         Me.btnAllFrineds.AnimationSpeed = 0.03!
         Me.btnAllFrineds.BackColor = System.Drawing.Color.Transparent
@@ -728,7 +750,7 @@ Partial Class MainForm
         Me.btnAllFrineds.OnHoverBorderColor = System.Drawing.Color.Black
         Me.btnAllFrineds.OnHoverForeColor = System.Drawing.Color.White
         Me.btnAllFrineds.OnHoverImage = Nothing
-        Me.btnAllFrineds.OnPressedColor = System.Drawing.Color.Black
+        Me.btnAllFrineds.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.btnAllFrineds.Radius = 7
         Me.btnAllFrineds.Size = New System.Drawing.Size(41, 30)
         Me.btnAllFrineds.TabIndex = 91
@@ -736,6 +758,7 @@ Partial Class MainForm
         '
         'btnFriendsOnile
         '
+        Me.btnFriendsOnile.Animated = True
         Me.btnFriendsOnile.AnimationHoverSpeed = 0.07!
         Me.btnFriendsOnile.AnimationSpeed = 0.03!
         Me.btnFriendsOnile.BackColor = System.Drawing.Color.Transparent
@@ -754,7 +777,7 @@ Partial Class MainForm
         Me.btnFriendsOnile.OnHoverBorderColor = System.Drawing.Color.Black
         Me.btnFriendsOnile.OnHoverForeColor = System.Drawing.Color.White
         Me.btnFriendsOnile.OnHoverImage = Nothing
-        Me.btnFriendsOnile.OnPressedColor = System.Drawing.Color.Black
+        Me.btnFriendsOnile.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.btnFriendsOnile.Radius = 7
         Me.btnFriendsOnile.Size = New System.Drawing.Size(66, 30)
         Me.btnFriendsOnile.TabIndex = 90
@@ -945,6 +968,7 @@ Partial Class MainForm
         '
         'btnFriends
         '
+        Me.btnFriends.Animated = True
         Me.btnFriends.AnimationHoverSpeed = 0.07!
         Me.btnFriends.AnimationSpeed = 0.03!
         Me.btnFriends.BackColor = System.Drawing.Color.Transparent
@@ -1043,20 +1067,6 @@ Partial Class MainForm
         Me.btnExit.TabIndex = 70
         Me.btnExit.TabStop = False
         '
-        'btnHelp
-        '
-        Me.btnHelp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnHelp.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnHelp.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.btnHelp.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle
-        Me.btnHelp.IconColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.btnHelp.IconSize = 30
-        Me.btnHelp.Location = New System.Drawing.Point(905, 12)
-        Me.btnHelp.Name = "btnHelp"
-        Me.btnHelp.Size = New System.Drawing.Size(30, 30)
-        Me.btnHelp.TabIndex = 94
-        Me.btnHelp.TabStop = False
-        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1090,6 +1100,7 @@ Partial Class MainForm
         Me.pnlOfFriendOnlineNow.PerformLayout()
         CType(Me.UserOnlinePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
+        CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picFriend, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMsgFriends.ResumeLayout(False)
         Me.PanelListOfFriends.ResumeLayout(False)
@@ -1100,7 +1111,6 @@ Partial Class MainForm
         CType(Me.btnHide, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnMaxSizeForm, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnExit, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -20,7 +20,6 @@
     End Sub
 
     Private Sub SetStyle_For_Components()
-        Btn_Style()
         Form_style()
         TxtBox_Style()
     End Sub
@@ -34,12 +33,6 @@
         lblPassword.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
         txtLogin.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
         txtPassword.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
-    End Sub
-
-    Private Sub Btn_Style()
-        btnLogin.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
-        btnLogin.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
-        btnLogin.FlatAppearance.BorderColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
     End Sub
 
     '*****///// TEXT BOX STYLE 
@@ -98,16 +91,6 @@
         _Utility_Style.Mouse_Up_To_Hide_Password(txtPassword, "PASSWORD", btnSeePassword)
     End Sub
     '*****///// END TEXT BOX STYLE
-
-    '*****///// BUTTON MOUSE HOVER
-    Private Sub btnLogin_MouseHover(sender As Object, e As EventArgs) Handles btnLogin.Enter
-        _Utility_Style.Mouse_Hover_Button(btnLogin)
-    End Sub
-
-    Private Sub btnLogin_MouseLeave(sender As Object, e As EventArgs) Handles btnLogin.MouseLeave
-        _Utility_Style.Mouse_Leave_Button(btnLogin)
-    End Sub
-    '*****///// END BUTTON MOUSE HOVER
 
     '*****///// CHECK BOX CHEKED
     Private Sub ckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ckBox.CheckedChanged

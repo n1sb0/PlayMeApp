@@ -38,7 +38,6 @@ Partial Class RegisterForm
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.btnContinue = New System.Windows.Forms.Button()
         Me.confEmail = New System.Windows.Forms.Label()
         Me.confPass = New System.Windows.Forms.Label()
         Me.confConfPass = New System.Windows.Forms.Label()
@@ -66,6 +65,7 @@ Partial Class RegisterForm
         Me.btnSeeConfPassword = New FontAwesome.Sharp.IconPictureBox()
         Me.btnSeePassword = New FontAwesome.Sharp.IconPictureBox()
         Me.btnComeBack = New FontAwesome.Sharp.IconPictureBox()
+        Me.btnContinue = New Guna.UI.WinForms.GunaButton()
         Me.Panel8.SuspendLayout()
         CType(Me.btnSeeConfPassword, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnSeePassword, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -219,20 +219,6 @@ Partial Class RegisterForm
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(85, 1)
         Me.Panel7.TabIndex = 50
-        '
-        'btnContinue
-        '
-        Me.btnContinue.BackColor = System.Drawing.Color.Transparent
-        Me.btnContinue.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnContinue.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.btnContinue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.btnContinue.Location = New System.Drawing.Point(175, 770)
-        Me.btnContinue.Name = "btnContinue"
-        Me.btnContinue.Size = New System.Drawing.Size(300, 50)
-        Me.btnContinue.TabIndex = 56
-        Me.btnContinue.Text = "COMTINUE"
-        Me.btnContinue.UseVisualStyleBackColor = False
         '
         'confEmail
         '
@@ -444,7 +430,7 @@ Partial Class RegisterForm
         Me.cmbBoxYear.FormattingEnabled = True
         Me.cmbBoxYear.IntegralHeight = False
         Me.cmbBoxYear.ItemHeight = 20
-        Me.cmbBoxYear.Items.AddRange(New Object() {"YEAR", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940", "1939", "1938", "1937", "1936", "1935", "1934", "1933", "1932", "1931", "1930", "1929", "1928", "1927", "1926", "1925"})
+        Me.cmbBoxYear.Items.AddRange(New Object() {"YEAR", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940", "1939", "1938", "1937", "1936", "1935", "1934", "1933", "1932", "1931", "1930", "1929", "1928", "1927", "1926", "1925"})
         Me.cmbBoxYear.Location = New System.Drawing.Point(390, 520)
         Me.cmbBoxYear.Name = "cmbBoxYear"
         Me.cmbBoxYear.Size = New System.Drawing.Size(85, 28)
@@ -558,6 +544,35 @@ Partial Class RegisterForm
         Me.btnComeBack.TabIndex = 119
         Me.btnComeBack.TabStop = False
         '
+        'btnContinue
+        '
+        Me.btnContinue.Animated = True
+        Me.btnContinue.AnimationHoverSpeed = 0.07!
+        Me.btnContinue.AnimationSpeed = 0.03!
+        Me.btnContinue.BackColor = System.Drawing.Color.Transparent
+        Me.btnContinue.BaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnContinue.BorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnContinue.BorderSize = 1
+        Me.btnContinue.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnContinue.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnContinue.FocusedColor = System.Drawing.Color.Empty
+        Me.btnContinue.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.btnContinue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnContinue.Image = Nothing
+        Me.btnContinue.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnContinue.Location = New System.Drawing.Point(175, 770)
+        Me.btnContinue.Name = "btnContinue"
+        Me.btnContinue.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnContinue.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnContinue.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnContinue.OnHoverImage = Nothing
+        Me.btnContinue.OnPressedColor = System.Drawing.Color.Black
+        Me.btnContinue.Radius = 5
+        Me.btnContinue.Size = New System.Drawing.Size(300, 50)
+        Me.btnContinue.TabIndex = 120
+        Me.btnContinue.Text = "CONTINUE"
+        Me.btnContinue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'RegisterForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -565,6 +580,7 @@ Partial Class RegisterForm
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(650, 900)
+        Me.Controls.Add(Me.btnContinue)
         Me.Controls.Add(Me.btnComeBack)
         Me.Controls.Add(Me.btnSeeConfPassword)
         Me.Controls.Add(Me.btnSeePassword)
@@ -591,7 +607,6 @@ Partial Class RegisterForm
         Me.Controls.Add(Me.confConfPass)
         Me.Controls.Add(Me.confPass)
         Me.Controls.Add(Me.confEmail)
-        Me.Controls.Add(Me.btnContinue)
         Me.Controls.Add(Me.Panel7)
         Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.Panel2)
@@ -635,7 +650,6 @@ Partial Class RegisterForm
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel6 As Panel
     Friend WithEvents Panel7 As Panel
-    Friend WithEvents btnContinue As Button
     Friend WithEvents confEmail As Label
     Friend WithEvents confPass As Label
     Friend WithEvents confConfPass As Label
@@ -663,4 +677,5 @@ Partial Class RegisterForm
     Friend WithEvents btnSeeConfPassword As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents btnSeePassword As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents btnComeBack As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents btnContinue As Guna.UI.WinForms.GunaButton
 End Class

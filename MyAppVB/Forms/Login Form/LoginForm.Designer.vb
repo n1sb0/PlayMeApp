@@ -30,7 +30,6 @@ Partial Class LoginForm
         Me.txtLogin = New System.Windows.Forms.TextBox()
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.panelPass = New System.Windows.Forms.Panel()
-        Me.btnLogin = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.myMoveForm = New System.Windows.Forms.Label()
         Me.AppLogo = New System.Windows.Forms.PictureBox()
@@ -43,6 +42,7 @@ Partial Class LoginForm
         Me.btnSeePassword = New FontAwesome.Sharp.IconPictureBox()
         Me.btnExit = New FontAwesome.Sharp.IconPictureBox()
         Me.btnHide = New FontAwesome.Sharp.IconPictureBox()
+        Me.btnLogin = New Guna.UI.WinForms.GunaButton()
         CType(Me.AppLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnSeePassword, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnExit, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -128,21 +128,6 @@ Partial Class LoginForm
         Me.panelPass.Name = "panelPass"
         Me.panelPass.Size = New System.Drawing.Size(240, 1)
         Me.panelPass.TabIndex = 22
-        '
-        'btnLogin
-        '
-        Me.btnLogin.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.btnLogin.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.btnLogin.Location = New System.Drawing.Point(80, 345)
-        Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(240, 35)
-        Me.btnLogin.TabIndex = 26
-        Me.btnLogin.Text = "LOGIN"
-        Me.btnLogin.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -286,6 +271,35 @@ Partial Class LoginForm
         Me.btnHide.TabIndex = 68
         Me.btnHide.TabStop = False
         '
+        'btnLogin
+        '
+        Me.btnLogin.Animated = True
+        Me.btnLogin.AnimationHoverSpeed = 0.07!
+        Me.btnLogin.AnimationSpeed = 0.03!
+        Me.btnLogin.BackColor = System.Drawing.Color.Transparent
+        Me.btnLogin.BaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnLogin.BorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnLogin.BorderSize = 1
+        Me.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnLogin.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnLogin.FocusedColor = System.Drawing.Color.Empty
+        Me.btnLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.btnLogin.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnLogin.Image = Nothing
+        Me.btnLogin.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnLogin.Location = New System.Drawing.Point(80, 350)
+        Me.btnLogin.Name = "btnLogin"
+        Me.btnLogin.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnLogin.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnLogin.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnLogin.OnHoverImage = Nothing
+        Me.btnLogin.OnPressedColor = System.Drawing.Color.Black
+        Me.btnLogin.Radius = 5
+        Me.btnLogin.Size = New System.Drawing.Size(240, 40)
+        Me.btnLogin.TabIndex = 69
+        Me.btnLogin.Text = "LOGIN"
+        Me.btnLogin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'LoginForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -294,6 +308,7 @@ Partial Class LoginForm
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(400, 500)
+        Me.Controls.Add(Me.btnLogin)
         Me.Controls.Add(Me.btnHide)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnSeePassword)
@@ -305,7 +320,6 @@ Partial Class LoginForm
         Me.Controls.Add(Me.AppLogo)
         Me.Controls.Add(Me.myMoveForm)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.btnLogin)
         Me.Controls.Add(Me.panelLogin)
         Me.Controls.Add(Me.panelPass)
         Me.Controls.Add(Me.txtPassword)
@@ -338,7 +352,6 @@ Partial Class LoginForm
     Friend WithEvents txtLogin As TextBox
     Friend WithEvents txtPassword As TextBox
     Friend WithEvents panelPass As Panel
-    Friend WithEvents btnLogin As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents myMoveForm As Label
     Friend WithEvents AppLogo As PictureBox
@@ -351,4 +364,5 @@ Partial Class LoginForm
     Friend WithEvents btnSeePassword As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents btnExit As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents btnHide As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents btnLogin As Guna.UI.WinForms.GunaButton
 End Class

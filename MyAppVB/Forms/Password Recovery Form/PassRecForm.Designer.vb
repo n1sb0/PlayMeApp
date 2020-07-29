@@ -28,13 +28,10 @@ Partial Class PassRecForm
         Me.Label3 = New System.Windows.Forms.Label()
         Me.pnlEmail = New System.Windows.Forms.Panel()
         Me.txtEmail = New System.Windows.Forms.TextBox()
-        Me.btnSubmit = New System.Windows.Forms.Button()
         Me.lblEmail = New System.Windows.Forms.Label()
-        Me.btnVerifyCode = New System.Windows.Forms.Button()
         Me.pnlCode = New System.Windows.Forms.Panel()
         Me.txtCode = New System.Windows.Forms.TextBox()
         Me.lblCode = New System.Windows.Forms.Label()
-        Me.btnChangePassword = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.confCode = New System.Windows.Forms.Label()
         Me.lblMsgComfCode = New System.Windows.Forms.Label()
@@ -52,9 +49,12 @@ Partial Class PassRecForm
         Me.confConfPassword = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pnlVirCode = New System.Windows.Forms.Panel()
+        Me.btnVerifyCode = New Guna.UI.WinForms.GunaButton()
         Me.btnSeeNewPassword = New FontAwesome.Sharp.IconPictureBox()
         Me.btnSeeConfPassword = New FontAwesome.Sharp.IconPictureBox()
         Me.btnComeBack = New FontAwesome.Sharp.IconPictureBox()
+        Me.btnChangePassword = New Guna.UI.WinForms.GunaButton()
+        Me.btnSubmit = New Guna.UI.WinForms.GunaButton()
         Me.pnlVirCode.SuspendLayout()
         CType(Me.btnSeeNewPassword, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnSeeConfPassword, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -121,21 +121,6 @@ Partial Class PassRecForm
         Me.txtEmail.TabIndex = 35
         Me.txtEmail.Text = "EMAIL ADDRESS"
         '
-        'btnSubmit
-        '
-        Me.btnSubmit.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnSubmit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnSubmit.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSubmit.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.btnSubmit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.btnSubmit.Location = New System.Drawing.Point(66, 350)
-        Me.btnSubmit.Name = "btnSubmit"
-        Me.btnSubmit.Size = New System.Drawing.Size(350, 50)
-        Me.btnSubmit.TabIndex = 37
-        Me.btnSubmit.Text = "SUBMIT"
-        Me.btnSubmit.UseVisualStyleBackColor = False
-        '
         'lblEmail
         '
         Me.lblEmail.AutoSize = True
@@ -147,21 +132,6 @@ Partial Class PassRecForm
         Me.lblEmail.TabIndex = 38
         Me.lblEmail.Text = "EMAIL ADDRESS"
         Me.lblEmail.Visible = False
-        '
-        'btnVerifyCode
-        '
-        Me.btnVerifyCode.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnVerifyCode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnVerifyCode.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnVerifyCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnVerifyCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.btnVerifyCode.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.btnVerifyCode.Location = New System.Drawing.Point(66, 130)
-        Me.btnVerifyCode.Name = "btnVerifyCode"
-        Me.btnVerifyCode.Size = New System.Drawing.Size(350, 50)
-        Me.btnVerifyCode.TabIndex = 40
-        Me.btnVerifyCode.Text = "VERIFY CODE"
-        Me.btnVerifyCode.UseVisualStyleBackColor = False
         '
         'pnlCode
         '
@@ -195,21 +165,6 @@ Partial Class PassRecForm
         Me.lblCode.TabIndex = 43
         Me.lblCode.Text = "CODE"
         Me.lblCode.Visible = False
-        '
-        'btnChangePassword
-        '
-        Me.btnChangePassword.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnChangePassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnChangePassword.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnChangePassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.btnChangePassword.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.btnChangePassword.Location = New System.Drawing.Point(566, 505)
-        Me.btnChangePassword.Name = "btnChangePassword"
-        Me.btnChangePassword.Size = New System.Drawing.Size(350, 50)
-        Me.btnChangePassword.TabIndex = 50
-        Me.btnChangePassword.Text = "CHANGE PASSWORD"
-        Me.btnChangePassword.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -392,17 +347,46 @@ Partial Class PassRecForm
         'pnlVirCode
         '
         Me.pnlVirCode.BackColor = System.Drawing.Color.Transparent
+        Me.pnlVirCode.Controls.Add(Me.btnVerifyCode)
         Me.pnlVirCode.Controls.Add(Me.txtCode)
         Me.pnlVirCode.Controls.Add(Me.lblMsgComfCode)
         Me.pnlVirCode.Controls.Add(Me.confCode)
         Me.pnlVirCode.Controls.Add(Me.lblCode)
         Me.pnlVirCode.Controls.Add(Me.pnlCode)
-        Me.pnlVirCode.Controls.Add(Me.btnVerifyCode)
         Me.pnlVirCode.Location = New System.Drawing.Point(0, 436)
         Me.pnlVirCode.Name = "pnlVirCode"
         Me.pnlVirCode.Size = New System.Drawing.Size(494, 214)
         Me.pnlVirCode.TabIndex = 114
         Me.pnlVirCode.Visible = False
+        '
+        'btnVerifyCode
+        '
+        Me.btnVerifyCode.Animated = True
+        Me.btnVerifyCode.AnimationHoverSpeed = 0.07!
+        Me.btnVerifyCode.AnimationSpeed = 0.03!
+        Me.btnVerifyCode.BackColor = System.Drawing.Color.Transparent
+        Me.btnVerifyCode.BaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnVerifyCode.BorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnVerifyCode.BorderSize = 1
+        Me.btnVerifyCode.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnVerifyCode.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnVerifyCode.FocusedColor = System.Drawing.Color.Empty
+        Me.btnVerifyCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.btnVerifyCode.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnVerifyCode.Image = Nothing
+        Me.btnVerifyCode.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnVerifyCode.Location = New System.Drawing.Point(66, 139)
+        Me.btnVerifyCode.Name = "btnVerifyCode"
+        Me.btnVerifyCode.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnVerifyCode.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnVerifyCode.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnVerifyCode.OnHoverImage = Nothing
+        Me.btnVerifyCode.OnPressedColor = System.Drawing.Color.Black
+        Me.btnVerifyCode.Radius = 5
+        Me.btnVerifyCode.Size = New System.Drawing.Size(350, 50)
+        Me.btnVerifyCode.TabIndex = 123
+        Me.btnVerifyCode.Text = "VERIFY CODE"
+        Me.btnVerifyCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'btnSeeNewPassword
         '
@@ -444,6 +428,64 @@ Partial Class PassRecForm
         Me.btnComeBack.TabIndex = 117
         Me.btnComeBack.TabStop = False
         '
+        'btnChangePassword
+        '
+        Me.btnChangePassword.Animated = True
+        Me.btnChangePassword.AnimationHoverSpeed = 0.07!
+        Me.btnChangePassword.AnimationSpeed = 0.03!
+        Me.btnChangePassword.BackColor = System.Drawing.Color.Transparent
+        Me.btnChangePassword.BaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnChangePassword.BorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnChangePassword.BorderSize = 1
+        Me.btnChangePassword.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnChangePassword.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnChangePassword.FocusedColor = System.Drawing.Color.Empty
+        Me.btnChangePassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.btnChangePassword.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnChangePassword.Image = Nothing
+        Me.btnChangePassword.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnChangePassword.Location = New System.Drawing.Point(565, 480)
+        Me.btnChangePassword.Name = "btnChangePassword"
+        Me.btnChangePassword.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnChangePassword.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnChangePassword.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnChangePassword.OnHoverImage = Nothing
+        Me.btnChangePassword.OnPressedColor = System.Drawing.Color.Black
+        Me.btnChangePassword.Radius = 5
+        Me.btnChangePassword.Size = New System.Drawing.Size(350, 50)
+        Me.btnChangePassword.TabIndex = 121
+        Me.btnChangePassword.Text = "CHANGE PASSWORD"
+        Me.btnChangePassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'btnSubmit
+        '
+        Me.btnSubmit.Animated = True
+        Me.btnSubmit.AnimationHoverSpeed = 0.07!
+        Me.btnSubmit.AnimationSpeed = 0.03!
+        Me.btnSubmit.BackColor = System.Drawing.Color.Transparent
+        Me.btnSubmit.BaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnSubmit.BorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnSubmit.BorderSize = 1
+        Me.btnSubmit.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSubmit.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnSubmit.FocusedColor = System.Drawing.Color.Empty
+        Me.btnSubmit.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.btnSubmit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnSubmit.Image = Nothing
+        Me.btnSubmit.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnSubmit.Location = New System.Drawing.Point(66, 330)
+        Me.btnSubmit.Name = "btnSubmit"
+        Me.btnSubmit.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnSubmit.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnSubmit.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnSubmit.OnHoverImage = Nothing
+        Me.btnSubmit.OnPressedColor = System.Drawing.Color.Black
+        Me.btnSubmit.Radius = 5
+        Me.btnSubmit.Size = New System.Drawing.Size(350, 50)
+        Me.btnSubmit.TabIndex = 122
+        Me.btnSubmit.Text = "SUBMIT"
+        Me.btnSubmit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'PassRecForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -451,6 +493,8 @@ Partial Class PassRecForm
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(500, 500)
+        Me.Controls.Add(Me.btnSubmit)
+        Me.Controls.Add(Me.btnChangePassword)
         Me.Controls.Add(Me.btnComeBack)
         Me.Controls.Add(Me.btnSeeConfPassword)
         Me.Controls.Add(Me.btnSeeNewPassword)
@@ -464,7 +508,6 @@ Partial Class PassRecForm
         Me.Controls.Add(Me.lblConfPassword)
         Me.Controls.Add(Me.pnlEmail)
         Me.Controls.Add(Me.lblMsgConfPassword)
-        Me.Controls.Add(Me.btnSubmit)
         Me.Controls.Add(Me.pnlConfPassword)
         Me.Controls.Add(Me.lblEmail)
         Me.Controls.Add(Me.txtConfPassword)
@@ -476,7 +519,6 @@ Partial Class PassRecForm
         Me.Controls.Add(Me.txtNewPassword)
         Me.Controls.Add(Me.lblMsgEmail)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.btnChangePassword)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "PassRecForm"
@@ -496,13 +538,10 @@ Partial Class PassRecForm
     Friend WithEvents Label3 As Label
     Friend WithEvents pnlEmail As Panel
     Friend WithEvents txtEmail As TextBox
-    Friend WithEvents btnSubmit As Button
     Friend WithEvents lblEmail As Label
-    Friend WithEvents btnVerifyCode As Button
     Friend WithEvents pnlCode As Panel
     Friend WithEvents txtCode As TextBox
     Friend WithEvents lblCode As Label
-    Friend WithEvents btnChangePassword As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents confCode As Label
     Friend WithEvents lblMsgComfCode As Label
@@ -523,4 +562,7 @@ Partial Class PassRecForm
     Friend WithEvents btnSeeNewPassword As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents btnSeeConfPassword As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents btnComeBack As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents btnChangePassword As Guna.UI.WinForms.GunaButton
+    Friend WithEvents btnSubmit As Guna.UI.WinForms.GunaButton
+    Friend WithEvents btnVerifyCode As Guna.UI.WinForms.GunaButton
 End Class

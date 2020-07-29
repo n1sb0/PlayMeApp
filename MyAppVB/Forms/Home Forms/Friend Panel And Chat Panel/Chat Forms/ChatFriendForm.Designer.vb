@@ -75,7 +75,7 @@ Partial Class ChatFriendForm
         Me.lblStateOnlineOfFriend.BorderWidth = 2
         Me.lblStateOnlineOfFriend.FillColor = System.Drawing.Color.Gray
         Me.lblStateOnlineOfFriend.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.lblStateOnlineOfFriend.Location = New System.Drawing.Point(165, 18)
+        Me.lblStateOnlineOfFriend.Location = New System.Drawing.Point(165, 19)
         Me.lblStateOnlineOfFriend.Name = "lblStateOnlineOfFriend"
         Me.lblStateOnlineOfFriend.SelectionColor = System.Drawing.Color.Transparent
         Me.lblStateOnlineOfFriend.Size = New System.Drawing.Size(12, 12)

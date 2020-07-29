@@ -94,7 +94,6 @@ Public Class SettingsForm
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
         Change_EditState(True)
     End Sub
-
     Private Sub Change_EditState(state As Boolean)
         If state Then
             pnlEditAccount.Height = 420
@@ -327,14 +326,12 @@ Public Class SettingsForm
 
     '*****///// BUTTON DELETE ACCOUT AND OPEN LOGIN FORM WHEN ACCOUNT WAS DELETED
     Private Sub btnDeleteAccount_Click(sender As Object, e As EventArgs) Handles btnDeleteAccount.Click
-
         Dim result As MsgBoxResult = MessageBox.Show("Are you sure?" + vbCrLf + "Do you want to delete your Account?", "Attention!", MessageBoxButtons.YesNo)
 
         If result = MsgBoxResult.Yes Then
             _Subject.Delete_Subject_Accout()
             OpenLoginForm()
         End If
-
     End Sub
 
     Private Sub OpenLoginForm()
@@ -345,6 +342,30 @@ Public Class SettingsForm
 
         _Utility_Secure.Close_AllOpenedFormAndLeftOnlyOne("LoginForm")
     End Sub
+
+    Private Sub OnFocus_UserAndEmail_text(sender As Object, e As MouseEventArgs) Handles txtUserName.MouseClick, txtUserEmail.MouseClick
+        Dim GenericText = DirectCast(sender, TextBox)
+
+        If GenericText.Name.Equals("txtUserName") Then
+            _Utility_Style.On_Mouse_Click_Change_TextBox(txtUserName, lblUserName, pnlUserName, "left")
+        Else
+            _Utility_Style.On_Mouse_Click_Change_TextBox(txtUserEmail, lblEmail, pnlUserEmail, "left")
+        End If
+    End Sub
+
+    Private Sub OnLeave_UserAndEmail_text(sender As Object, e As EventArgs) Handles txtUserName.Leave, txtUserEmail.Leave
+        Dim GenericText = DirectCast(sender, TextBox)
+
+        If GenericText.Name.Equals("txtUserName") Then
+            _Utility_Style.Mouse_Leave_TextBox(txtUserName, lblUserName, pnlUserName, "left")
+        Else
+            _Utility_Style.Mouse_Leave_TextBox(txtUserEmail, lblEmail, pnlUserEmail, "left")
+        End If
+    End Sub
+
+
+
+
     '*****///// END BUTTON DELETE ACCOUT AND OPEN LOGIN FORM WHEN ACCOUNT WAS DELETED
 
 End Class

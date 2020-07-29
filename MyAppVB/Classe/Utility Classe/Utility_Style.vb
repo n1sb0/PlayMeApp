@@ -20,7 +20,8 @@ Public Class Utility_Style
 
     Public defaultLabel As New Label
 
-    Public Sub On_Mouse_Click_Change_TextBox(ByRef txtBox As TextBox, ByRef lbl As Label, pnl As Panel, myText As String)
+    Public Sub On_Mouse_Click_Change_TextBox(ByRef txtBox As TextBox, ByRef lbl As Label, ByRef pnl As Panel, myText As String)
+        lbl.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(MainColor))
         pnl.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(MainColor))
         pnl.Height = 2
         lbl.Visible = True
@@ -31,14 +32,19 @@ Public Class Utility_Style
         End If
     End Sub
 
-    Public Sub Mouse_Leave_TextBox(ByRef txtBox As TextBox, ByRef lbl As Label, pnl As Panel, myText As String)
-        If String.IsNullOrEmpty(txtBox.Text) OrElse txtBox.Text.Equals(myText) Then
-            pnl.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(GrayColor))
-            pnl.Height = 1
+    Public Sub Mouse_Leave_TextBox(ByRef txtBox As TextBox, ByRef lbl As Label, ByRef pnl As Panel, myText As String)
+        pnl.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(GrayColor))
+        pnl.Height = 1
 
+        If String.IsNullOrEmpty(txtBox.Text) OrElse txtBox.Text.Equals(myText) Then
+            lbl.ForeColor = Color.Silver
             txtBox.Text = myText
             txtBox.ForeColor = Color.Gray
             lbl.Visible = False
+        End If
+
+        If myText.Equals("left") Then
+            lbl.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(GrayColor))
         End If
     End Sub
 

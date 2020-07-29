@@ -8,6 +8,7 @@ Imports System.Threading
 Public Class MainForm
     Private _UserName As String
     Private MoveForm As Boolean
+    Private lastGenericButton As New GunaButton
 
     Public currentChildForm As Form
     Private GenericButton As GunaButton
@@ -298,7 +299,19 @@ Public Class MainForm
     Private Sub On_Click_UpperPanel_FriendPanel_Button(sender As System.Object, e As System.EventArgs) _
       Handles btnFriendsOnile.Click, btnAllFrineds.Click, btnBlockedFriends.Click, btnAddNewFriends.Click
 
+        If Not lastGenericButton.Name.Equals("btnAddNewFriends") Then
+            lastGenericButton.BaseColor = Color.Transparent
+            lastGenericButton.ForeColor = Color.DarkGray
+        End If
+
         GenericButton = DirectCast(sender, GunaButton)
+
+        lastGenericButton = GenericButton
+
+        If Not lastGenericButton.Name.Equals("btnAddNewFriends") Then
+            GenericButton.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
+            GenericButton.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GrayColor))
+        End If
 
         Onclick_OpenChildForm_FriendPanels(GenericButton.Name)
     End Sub
@@ -332,6 +345,17 @@ Public Class MainForm
         Next
     End Sub
 
-    '*****///// END ON SCROLL FRIENDSLIST TO NOT SEE MILTIPLE SELECTED FIRENDS
 
+    Private Sub txtFindFriends_Leave(sender As Object, e As EventArgs) Handles txtFindFriends.Leave
+        If txtFindFriends.Text.Equals("") Then
+            txtFindFriends.Text = "Find Your Friends"
+        End If
+    End Sub
+
+    Private Sub txtFindFriends_Enter(sender As Object, e As EventArgs) Handles txtFindFriends.Enter
+        If txtFindFriends.Text.Equals("Find Your Friends") Then
+            txtFindFriends.Text = ""
+        End If
+    End Sub
+    '*****///// END ON SCROLL FRIENDSLIST TO NOT SEE MILTIPLE SELECTED FIRENDS
 End Class

@@ -1,6 +1,6 @@
 ﻿Public Class MyConnection
     Public Shared Function Get_Connection() As String
-        Dim ConnQuery As String = "******"
+        Dim ConnQuery As String = "*****"
         Return ConnQuery
     End Function
 
@@ -40,7 +40,6 @@
                               "FROM TBL_USER_FRIENDS AS tblF" &
                               "LEFT JOIN  TBL_USER_DATA AS tblU ON tblU.SUBJECT_ID = FRIEND_ID " &
                               "WHERE USER_ID = @USER_ID"
-
         Return query
     End Function
 End Class
