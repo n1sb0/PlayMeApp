@@ -207,7 +207,7 @@ Partial Class MainForm
         Me.btnGames.OnHoverBorderColor = System.Drawing.Color.Black
         Me.btnGames.OnHoverForeColor = System.Drawing.Color.White
         Me.btnGames.OnHoverImage = Nothing
-        Me.btnGames.OnPressedColor = System.Drawing.Color.Black
+        Me.btnGames.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
         Me.btnGames.Radius = 25
         Me.btnGames.Size = New System.Drawing.Size(50, 50)
         Me.btnGames.TabIndex = 71
@@ -234,7 +234,7 @@ Partial Class MainForm
         Me.btnMusic.OnHoverBorderColor = System.Drawing.Color.Black
         Me.btnMusic.OnHoverForeColor = System.Drawing.Color.White
         Me.btnMusic.OnHoverImage = Nothing
-        Me.btnMusic.OnPressedColor = System.Drawing.Color.Black
+        Me.btnMusic.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
         Me.btnMusic.Radius = 25
         Me.btnMusic.Size = New System.Drawing.Size(50, 50)
         Me.btnMusic.TabIndex = 70
@@ -261,7 +261,7 @@ Partial Class MainForm
         Me.btnVideo.OnHoverBorderColor = System.Drawing.Color.Black
         Me.btnVideo.OnHoverForeColor = System.Drawing.Color.White
         Me.btnVideo.OnHoverImage = Nothing
-        Me.btnVideo.OnPressedColor = System.Drawing.Color.Black
+        Me.btnVideo.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
         Me.btnVideo.Radius = 25
         Me.btnVideo.Size = New System.Drawing.Size(50, 50)
         Me.btnVideo.TabIndex = 69
@@ -287,7 +287,7 @@ Partial Class MainForm
         Me.btnPersonalBlog.OnHoverBorderColor = System.Drawing.Color.Black
         Me.btnPersonalBlog.OnHoverForeColor = System.Drawing.Color.White
         Me.btnPersonalBlog.OnHoverImage = Nothing
-        Me.btnPersonalBlog.OnPressedColor = System.Drawing.Color.Black
+        Me.btnPersonalBlog.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
         Me.btnPersonalBlog.Radius = 25
         Me.btnPersonalBlog.Size = New System.Drawing.Size(50, 50)
         Me.btnPersonalBlog.TabIndex = 68
@@ -314,7 +314,7 @@ Partial Class MainForm
         Me.btnHomeChat.OnHoverBorderColor = System.Drawing.Color.Black
         Me.btnHomeChat.OnHoverForeColor = System.Drawing.Color.White
         Me.btnHomeChat.OnHoverImage = Nothing
-        Me.btnHomeChat.OnPressedColor = System.Drawing.Color.Black
+        Me.btnHomeChat.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
         Me.btnHomeChat.Radius = 10
         Me.btnHomeChat.Size = New System.Drawing.Size(50, 50)
         Me.btnHomeChat.TabIndex = 66
@@ -762,13 +762,13 @@ Partial Class MainForm
         Me.btnFriendsOnile.AnimationHoverSpeed = 0.07!
         Me.btnFriendsOnile.AnimationSpeed = 0.03!
         Me.btnFriendsOnile.BackColor = System.Drawing.Color.Transparent
-        Me.btnFriendsOnile.BaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnFriendsOnile.BaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.btnFriendsOnile.BorderColor = System.Drawing.Color.Black
         Me.btnFriendsOnile.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnFriendsOnile.DialogResult = System.Windows.Forms.DialogResult.None
         Me.btnFriendsOnile.FocusedColor = System.Drawing.Color.Empty
         Me.btnFriendsOnile.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.btnFriendsOnile.ForeColor = System.Drawing.Color.DarkGray
+        Me.btnFriendsOnile.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnFriendsOnile.Image = Nothing
         Me.btnFriendsOnile.ImageSize = New System.Drawing.Size(20, 20)
         Me.btnFriendsOnile.Location = New System.Drawing.Point(138, 10)

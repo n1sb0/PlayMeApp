@@ -35,6 +35,7 @@
     End Sub
 
     Private Sub Form_Style()
+        Me.ActiveControl = lblCreaAcc
         Me.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
     End Sub
 

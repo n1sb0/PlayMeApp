@@ -9,6 +9,7 @@ Public Class MainForm
     Private _UserName As String
     Private MoveForm As Boolean
     Private lastGenericButton As New GunaButton
+    Private firstClick As Boolean = False
 
     Public currentChildForm As Form
     Private GenericButton As GunaButton
@@ -300,13 +301,22 @@ Public Class MainForm
       Handles btnFriendsOnile.Click, btnAllFrineds.Click, btnBlockedFriends.Click, btnAddNewFriends.Click
 
         If Not lastGenericButton.Name.Equals("btnAddNewFriends") Then
-            lastGenericButton.BaseColor = Color.Transparent
-            lastGenericButton.ForeColor = Color.DarkGray
+            Change_lastGenericButton()
         End If
 
         GenericButton = DirectCast(sender, GunaButton)
 
-        lastGenericButton = GenericButton
+        If firstClick Then
+            lastGenericButton = GenericButton
+        Else
+            lastGenericButton = btnFriendsOnile
+
+            Change_lastGenericButton()
+
+            lastGenericButton = GenericButton
+            firstClick = True
+        End If
+
 
         If Not lastGenericButton.Name.Equals("btnAddNewFriends") Then
             GenericButton.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
@@ -314,6 +324,11 @@ Public Class MainForm
         End If
 
         Onclick_OpenChildForm_FriendPanels(GenericButton.Name)
+    End Sub
+
+    Private Sub Change_lastGenericButton()
+        lastGenericButton.BaseColor = Color.Transparent
+        lastGenericButton.ForeColor = Color.DarkGray
     End Sub
 
     Private Sub Onclick_OpenChildForm_FriendPanels(buttonName As String)
@@ -345,11 +360,8 @@ Public Class MainForm
         Next
     End Sub
 
-
-    Private Sub txtFindFriends_Leave(sender As Object, e As EventArgs) Handles txtFindFriends.Leave
-        If txtFindFriends.Text.Equals("") Then
-            txtFindFriends.Text = "Find Your Friends"
-        End If
+    Public Sub txtFindFriends_Leave(sender As Object, e As EventArgs) Handles txtFindFriends.Leave
+        txtFindFriends.Text = "Find Your Friends"
     End Sub
 
     Private Sub txtFindFriends_Enter(sender As Object, e As EventArgs) Handles txtFindFriends.Enter
@@ -358,4 +370,31 @@ Public Class MainForm
         End If
     End Sub
     '*****///// END ON SCROLL FRIENDSLIST TO NOT SEE MILTIPLE SELECTED FIRENDS
+
+    Private Sub txtFindFriends_TextChanged(sender As Object, e As EventArgs) Handles txtFindFriends.TextChanged
+        If Not txtFindFriends.Text.Equals("Find Your Friends") Then
+            Dim txtString As String = txtFindFriends.Text
+
+            For Each pnl In _ListOfUserFriendsPanel
+                If Not String.IsNullOrEmpty(txtString) Then
+                    If pnl._FriendsUserName.Text.Contains(txtString) Then
+                        pnl._FriendsPanel.Visible = True
+                    Else
+                        pnl._FriendsPanel.Visible = False
+                    End If
+                Else
+                    pnlVisible(True)
+                End If
+            Next
+        Else
+            pnlVisible(True)
+        End If
+    End Sub
+
+    Private Sub pnlVisible(state As Boolean)
+        For Each pnl In _ListOfUserFriendsPanel
+            pnl._FriendsPanel.Visible = True
+        Next
+    End Sub
+
 End Class

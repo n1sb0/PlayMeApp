@@ -93,8 +93,8 @@
     '*****///// END TEXT BOX STYLE
 
     '*****///// CHECK BOX CHEKED
-    Private Sub ckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ckBox.CheckedChanged
-        _Utility_Style.CheckBox_On_Change_State(ckBox)
+    Private Sub ckBox_CheckedChanged(sender As Object, e As EventArgs) Handles ckBoxRememberMe.CheckedChanged
+        _Utility_Style.CheckBox_On_Change_State(ckBoxRememberMe)
     End Sub
     '*****/////
 
@@ -174,6 +174,14 @@
 
         Dim ris As Boolean = DR_Subject.Get_Subject_Login_And_Password(txtLogin.Text, txtPassword.Text)
 
+        If ckBoxRememberMe.Checked Then
+            My.Settings.Login = txtLogin.Text
+            My.Settings.RememberMe = True
+        Else
+            My.Settings.Login = ""
+            My.Settings.RememberMe = False
+        End If
+
         If ris Then
             Dim homeform As New MainForm(txtLogin.Text)
             homeform.Show()
@@ -199,4 +207,12 @@
         End If
     End Sub
     '*****/////END keyDown (Enter to Login)
+
+    Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If My.Settings.RememberMe Then
+            ckBoxRememberMe.Checked = True
+            txtLogin.Text = My.Settings.Login
+            txtLogin_Leave(sender, e)
+        End If
+    End Sub
 End Class

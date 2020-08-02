@@ -31,6 +31,7 @@ Public Class PassRecForm
         Form_Style()
     End Sub
     Private Sub Form_Style()
+        Me.ActiveControl = lblCreaAcc
         Me.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
     End Sub
 
@@ -102,7 +103,7 @@ Public Class PassRecForm
                 Dim smtp As New SmtpClient("smtp.gmail.com")
                 smtp.Port = 587
                 smtp.EnableSsl = True
-                smtp.Credentials = New System.Net.NetworkCredential("nsb.app0@gmail.com", "******")
+                smtp.Credentials = New System.Net.NetworkCredential("nsb.app0@gmail.com", My.Settings.EmailPass)
                 smtp.Send(message)
 
                 Me.Height = 650
@@ -131,7 +132,7 @@ Public Class PassRecForm
     '*****///// END BUTTON SUBMIT TO GET EMAIL CODE TO RECOVERY PASSWORD
 
     '*****///// BUTTON VERIFY RANDON CODE 
-    Private Sub btnVerifyCode_Click_1(sender As Object, e As EventArgs) Handles btnVerifyCode.Click
+    Private Sub btnVerifyCode_Click(sender As Object, e As EventArgs) Handles btnVerifyCode.Click
         If (_randomCode = txtCode.Text) Then
             Me.Width = 1000
             Me.CenterToScreen()

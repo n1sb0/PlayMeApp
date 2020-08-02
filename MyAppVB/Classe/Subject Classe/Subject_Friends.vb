@@ -42,13 +42,15 @@
                 command.Connection.Open()
                 reader = command.ExecuteReader()
 
-                If reader.Read Then
+                While reader.Read
                     sbjFriend = New Subject_Friends
 
                     ReadFromDataReader(sbjFriend, reader)
 
+                    Debug.WriteLine(sbjFriend.FRIENDS_USERNAME)
+
                     listOfUserFriends.Add(sbjFriend)
-                End If
+                End While
 
                 reader.Close()
                 command.Dispose()

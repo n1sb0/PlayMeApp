@@ -208,6 +208,26 @@
     End Function
 
     Public Sub Delete_Subject_Accout()
+        Try
+            Dim conn As New SqlClient.SqlConnection(MyConnection.Get_Connection)
+            Dim queryS As String = MyConnection.Get_Delete_By_IDQuery
+            Dim command As New SqlClient.SqlCommand
+
+            conn.Open()
+
+            With command
+                .CommandText = queryS
+                .Connection = conn
+
+                .Parameters.AddWithValue("@SUBJECT_ID", SUBJECT_ID)
+                .ExecuteNonQuery()
+            End With
+
+            command.Connection.Close()
+            command.Dispose()
+        Catch ex As Exception
+            Throw ex
+        End Try
 
     End Sub
 

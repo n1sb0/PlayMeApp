@@ -24,7 +24,7 @@ Partial Class LoginForm
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(LoginForm))
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.ckBox = New System.Windows.Forms.CheckBox()
+        Me.ckBoxRememberMe = New System.Windows.Forms.CheckBox()
         Me.lblCreaAcc = New System.Windows.Forms.Label()
         Me.lblResetAcc = New System.Windows.Forms.Label()
         Me.txtLogin = New System.Windows.Forms.TextBox()
@@ -56,18 +56,18 @@ Partial Class LoginForm
         Me.TextBox1.Size = New System.Drawing.Size(100, 20)
         Me.TextBox1.TabIndex = 0
         '
-        'ckBox
+        'ckBoxRememberMe
         '
-        Me.ckBox.BackColor = System.Drawing.Color.Transparent
-        Me.ckBox.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ckBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.ckBox.ForeColor = System.Drawing.Color.White
-        Me.ckBox.Location = New System.Drawing.Point(80, 315)
-        Me.ckBox.Name = "ckBox"
-        Me.ckBox.Size = New System.Drawing.Size(240, 25)
-        Me.ckBox.TabIndex = 9
-        Me.ckBox.Text = "Remember Login"
-        Me.ckBox.UseVisualStyleBackColor = False
+        Me.ckBoxRememberMe.BackColor = System.Drawing.Color.Transparent
+        Me.ckBoxRememberMe.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ckBoxRememberMe.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.ckBoxRememberMe.ForeColor = System.Drawing.Color.White
+        Me.ckBoxRememberMe.Location = New System.Drawing.Point(80, 315)
+        Me.ckBoxRememberMe.Name = "ckBoxRememberMe"
+        Me.ckBoxRememberMe.Size = New System.Drawing.Size(240, 25)
+        Me.ckBoxRememberMe.TabIndex = 9
+        Me.ckBoxRememberMe.Text = "Remember Login"
+        Me.ckBoxRememberMe.UseVisualStyleBackColor = False
         '
         'lblCreaAcc
         '
@@ -326,7 +326,7 @@ Partial Class LoginForm
         Me.Controls.Add(Me.txtLogin)
         Me.Controls.Add(Me.lblResetAcc)
         Me.Controls.Add(Me.lblCreaAcc)
-        Me.Controls.Add(Me.ckBox)
+        Me.Controls.Add(Me.ckBoxRememberMe)
         Me.Controls.Add(Me.TextBox1)
         Me.DoubleBuffered = True
         Me.ForeColor = System.Drawing.SystemColors.ControlText
@@ -345,7 +345,7 @@ Partial Class LoginForm
     End Sub
 
     Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents ckBox As CheckBox
+    Friend WithEvents ckBoxRememberMe As CheckBox
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents lblCreaAcc As Label
     Friend WithEvents lblResetAcc As Label

@@ -212,7 +212,8 @@
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Classe\Subject Classe\Subject_Friends.vb" />
     <Compile Include="Classe\Utility Classe\ControlChildForm.vb" />
-    <Compile Include="Classe\Utility Classe\FriendsPanel.vb" />
+    <Compile Include="Classe\Components\FriendsPanel.vb" />
+    <Compile Include="Classe\Components\GenericPanel.vb" />
     <Compile Include="Classe\Utility Classe\ResizeImage.vb" />
     <Compile Include="Classe\Subject Classe\DR_Subject.vb" />
     <Compile Include="Classe\Encryption Classe\Encryption.vb" />

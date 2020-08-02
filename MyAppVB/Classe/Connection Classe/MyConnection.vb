@@ -1,6 +1,6 @@
 ﻿Public Class MyConnection
     Public Shared Function Get_Connection() As String
-        Dim ConnQuery As String = "*****"
+        Dim ConnQuery As String = "******"
         Return ConnQuery
     End Function
 
@@ -40,6 +40,11 @@
                               "FROM TBL_USER_FRIENDS AS tblF" &
                               "LEFT JOIN  TBL_USER_DATA AS tblU ON tblU.SUBJECT_ID = FRIEND_ID " &
                               "WHERE USER_ID = @USER_ID"
+        Return query
+    End Function
+
+    Public Shared Function Get_Delete_By_IDQuery() As String
+        Dim query As String = "DELETE FROM TBL_USER_DATA WHERE SUBJECT_ID = @SUBJECT_ID"
         Return query
     End Function
 End Class

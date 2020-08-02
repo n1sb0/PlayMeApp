@@ -92,6 +92,8 @@ Public Class SettingsForm
     End Sub
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
+        Me.ActiveControl = lblUserName
+
         Change_EditState(True)
     End Sub
     Private Sub Change_EditState(state As Boolean)
@@ -329,7 +331,8 @@ Public Class SettingsForm
         Dim result As MsgBoxResult = MessageBox.Show("Are you sure?" + vbCrLf + "Do you want to delete your Account?", "Attention!", MessageBoxButtons.YesNo)
 
         If result = MsgBoxResult.Yes Then
-            _Subject.Delete_Subject_Accout()
+            'Need to delete all ref with this id with transactions
+            '_Subject.Delete_Subject_Accout()
             OpenLoginForm()
         End If
     End Sub
@@ -342,13 +345,14 @@ Public Class SettingsForm
 
         _Utility_Secure.Close_AllOpenedFormAndLeftOnlyOne("LoginForm")
     End Sub
+    '*****///// END BUTTON DELETE ACCOUT AND OPEN LOGIN FORM WHEN ACCOUNT WAS DELETED
 
-    Private Sub OnFocus_UserAndEmail_text(sender As Object, e As MouseEventArgs) Handles txtUserName.MouseClick, txtUserEmail.MouseClick
+    Private Sub OnFocus_UserAndEmail_text(sender As Object, e As MouseEventArgs) Handles txtUserName.Click, txtUserEmail.Click
         Dim GenericText = DirectCast(sender, TextBox)
 
         If GenericText.Name.Equals("txtUserName") Then
             _Utility_Style.On_Mouse_Click_Change_TextBox(txtUserName, lblUserName, pnlUserName, "left")
-        Else
+        ElseIf GenericText.Name.Equals("txtUserEmail") Then
             _Utility_Style.On_Mouse_Click_Change_TextBox(txtUserEmail, lblEmail, pnlUserEmail, "left")
         End If
     End Sub
@@ -358,14 +362,8 @@ Public Class SettingsForm
 
         If GenericText.Name.Equals("txtUserName") Then
             _Utility_Style.Mouse_Leave_TextBox(txtUserName, lblUserName, pnlUserName, "left")
-        Else
+        ElseIf GenericText.Name.Equals("txtUserEmail") Then
             _Utility_Style.Mouse_Leave_TextBox(txtUserEmail, lblEmail, pnlUserEmail, "left")
         End If
     End Sub
-
-
-
-
-    '*****///// END BUTTON DELETE ACCOUT AND OPEN LOGIN FORM WHEN ACCOUNT WAS DELETED
-
 End Class
