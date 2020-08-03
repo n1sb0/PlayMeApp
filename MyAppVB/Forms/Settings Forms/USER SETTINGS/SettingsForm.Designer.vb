@@ -381,7 +381,7 @@ Partial Class SettingsForm
         Me.pnlEditAccount.ForeColor = System.Drawing.SystemColors.ControlDark
         Me.pnlEditAccount.Location = New System.Drawing.Point(10, 124)
         Me.pnlEditAccount.Name = "pnlEditAccount"
-        Me.pnlEditAccount.Size = New System.Drawing.Size(650, 448)
+        Me.pnlEditAccount.Size = New System.Drawing.Size(650, 175)
         Me.pnlEditAccount.TabIndex = 3
         '
         'btnDeleteAccount

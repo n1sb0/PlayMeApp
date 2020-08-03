@@ -2,6 +2,7 @@
 Imports System.Net.Mail
 
 Public Class PassRecForm
+
     Private _randomCode As String
 
     Private _Utility_Style As New Utility_Style

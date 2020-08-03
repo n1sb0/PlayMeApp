@@ -53,9 +53,8 @@ Partial Class MainForm
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.ShapeContainer3 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.lblOnlineNow = New Microsoft.VisualBasic.PowerPacks.OvalShape()
-        Me.AllFriendScrollBar = New Guna.UI.WinForms.GunaVScrollBar()
+        Me.OnlineFriendScrollBar = New Guna.UI.WinForms.GunaVScrollBar()
         Me.lblFriendsOnlineNow = New System.Windows.Forms.Label()
-        Me.pnlUnderLblFriendsOnlineNow = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnHelp = New FontAwesome.Sharp.IconPictureBox()
         Me.btnAddNewFriends = New Guna.UI.WinForms.GunaButton()
@@ -83,6 +82,7 @@ Partial Class MainForm
         Me.btnHide = New FontAwesome.Sharp.IconPictureBox()
         Me.btnMaxSizeForm = New FontAwesome.Sharp.IconPictureBox()
         Me.btnExit = New FontAwesome.Sharp.IconPictureBox()
+        Me.pnlUnderTextOnlineFriends = New System.Windows.Forms.Panel()
         Me.LeftButtomPanel.SuspendLayout()
         CType(Me.UserPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnSettings, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -124,9 +124,9 @@ Partial Class MainForm
         Me.LeftButtomPanel.Controls.Add(Me.lblUserName)
         Me.LeftButtomPanel.Controls.Add(Me.btnSettings)
         Me.LeftButtomPanel.Controls.Add(Me.ShapeContainer1)
-        Me.LeftButtomPanel.Location = New System.Drawing.Point(0, -20)
+        Me.LeftButtomPanel.Location = New System.Drawing.Point(0, 20)
         Me.LeftButtomPanel.Name = "LeftButtomPanel"
-        Me.LeftButtomPanel.Size = New System.Drawing.Size(70, 720)
+        Me.LeftButtomPanel.Size = New System.Drawing.Size(70, 700)
         Me.LeftButtomPanel.TabIndex = 65
         '
         'clikedPoint
@@ -142,7 +142,7 @@ Partial Class MainForm
         Me.clikedPoint.ForeColor = System.Drawing.Color.White
         Me.clikedPoint.Image = Nothing
         Me.clikedPoint.ImageSize = New System.Drawing.Size(20, 20)
-        Me.clikedPoint.Location = New System.Drawing.Point(-15, 44)
+        Me.clikedPoint.Location = New System.Drawing.Point(-15, 36)
         Me.clikedPoint.Name = "clikedPoint"
         Me.clikedPoint.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.clikedPoint.OnHoverBorderColor = System.Drawing.Color.Black
@@ -156,7 +156,7 @@ Partial Class MainForm
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.Panel1.Location = New System.Drawing.Point(15, 100)
+        Me.Panel1.Location = New System.Drawing.Point(15, 92)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(40, 1)
         Me.Panel1.TabIndex = 66
@@ -174,7 +174,7 @@ Partial Class MainForm
         Me.selectedPoint.ForeColor = System.Drawing.Color.White
         Me.selectedPoint.Image = Nothing
         Me.selectedPoint.ImageSize = New System.Drawing.Size(20, 20)
-        Me.selectedPoint.Location = New System.Drawing.Point(-15, 50)
+        Me.selectedPoint.Location = New System.Drawing.Point(-15, 42)
         Me.selectedPoint.Name = "selectedPoint"
         Me.selectedPoint.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.selectedPoint.OnHoverBorderColor = System.Drawing.Color.Black
@@ -201,7 +201,7 @@ Partial Class MainForm
         Me.btnGames.Image = Global.PlayME.My.Resources.Resources.icon_Game
         Me.btnGames.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.btnGames.ImageSize = New System.Drawing.Size(25, 25)
-        Me.btnGames.Location = New System.Drawing.Point(10, 310)
+        Me.btnGames.Location = New System.Drawing.Point(10, 302)
         Me.btnGames.Name = "btnGames"
         Me.btnGames.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.btnGames.OnHoverBorderColor = System.Drawing.Color.Black
@@ -228,7 +228,7 @@ Partial Class MainForm
         Me.btnMusic.Image = Global.PlayME.My.Resources.Resources.icon_Music
         Me.btnMusic.ImageOffsetX = 2
         Me.btnMusic.ImageSize = New System.Drawing.Size(25, 25)
-        Me.btnMusic.Location = New System.Drawing.Point(10, 245)
+        Me.btnMusic.Location = New System.Drawing.Point(10, 237)
         Me.btnMusic.Name = "btnMusic"
         Me.btnMusic.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.btnMusic.OnHoverBorderColor = System.Drawing.Color.Black
@@ -255,7 +255,7 @@ Partial Class MainForm
         Me.btnVideo.Image = Global.PlayME.My.Resources.Resources.icons8_play_52
         Me.btnVideo.ImageOffsetX = 1
         Me.btnVideo.ImageSize = New System.Drawing.Size(35, 35)
-        Me.btnVideo.Location = New System.Drawing.Point(10, 180)
+        Me.btnVideo.Location = New System.Drawing.Point(10, 172)
         Me.btnVideo.Name = "btnVideo"
         Me.btnVideo.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.btnVideo.OnHoverBorderColor = System.Drawing.Color.Black
@@ -281,7 +281,7 @@ Partial Class MainForm
         Me.btnPersonalBlog.ForeColor = System.Drawing.Color.White
         Me.btnPersonalBlog.Image = Global.PlayME.My.Resources.Resources.icons8_list_48
         Me.btnPersonalBlog.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnPersonalBlog.Location = New System.Drawing.Point(10, 115)
+        Me.btnPersonalBlog.Location = New System.Drawing.Point(10, 107)
         Me.btnPersonalBlog.Name = "btnPersonalBlog"
         Me.btnPersonalBlog.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.btnPersonalBlog.OnHoverBorderColor = System.Drawing.Color.Black
@@ -308,7 +308,7 @@ Partial Class MainForm
         Me.btnHomeChat.Image = Global.PlayME.My.Resources.Resources.icons8_chat_50__1_
         Me.btnHomeChat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.btnHomeChat.ImageSize = New System.Drawing.Size(25, 25)
-        Me.btnHomeChat.Location = New System.Drawing.Point(10, 35)
+        Me.btnHomeChat.Location = New System.Drawing.Point(10, 27)
         Me.btnHomeChat.Name = "btnHomeChat"
         Me.btnHomeChat.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.btnHomeChat.OnHoverBorderColor = System.Drawing.Color.Black
@@ -324,7 +324,7 @@ Partial Class MainForm
         Me.UserPicture.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.UserPicture.BaseColor = System.Drawing.Color.White
         Me.UserPicture.Image = Global.PlayME.My.Resources.Resources.t9f6bjjt7br31
-        Me.UserPicture.Location = New System.Drawing.Point(10, 599)
+        Me.UserPicture.Location = New System.Drawing.Point(10, 579)
         Me.UserPicture.Name = "UserPicture"
         Me.UserPicture.Size = New System.Drawing.Size(50, 50)
         Me.UserPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -337,7 +337,7 @@ Partial Class MainForm
         Me.lblUserName.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblUserName.Font = New System.Drawing.Font("Microsoft YaHei", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.lblUserName.ForeColor = System.Drawing.Color.Transparent
-        Me.lblUserName.Location = New System.Drawing.Point(0, 661)
+        Me.lblUserName.Location = New System.Drawing.Point(0, 641)
         Me.lblUserName.Name = "lblUserName"
         Me.lblUserName.Size = New System.Drawing.Size(70, 22)
         Me.lblUserName.TabIndex = 2
@@ -353,7 +353,7 @@ Partial Class MainForm
         Me.btnSettings.IconChar = FontAwesome.Sharp.IconChar.Cog
         Me.btnSettings.IconColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnSettings.IconSize = 20
-        Me.btnSettings.Location = New System.Drawing.Point(25, 688)
+        Me.btnSettings.Location = New System.Drawing.Point(25, 668)
         Me.btnSettings.Name = "btnSettings"
         Me.btnSettings.Size = New System.Drawing.Size(20, 20)
         Me.btnSettings.TabIndex = 1
@@ -365,7 +365,7 @@ Partial Class MainForm
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
         Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.pointOnline})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(70, 720)
+        Me.ShapeContainer1.Size = New System.Drawing.Size(70, 700)
         Me.ShapeContainer1.TabIndex = 0
         Me.ShapeContainer1.TabStop = False
         '
@@ -378,7 +378,7 @@ Partial Class MainForm
         Me.pointOnline.Cursor = System.Windows.Forms.Cursors.Hand
         Me.pointOnline.FillColor = System.Drawing.Color.Lime
         Me.pointOnline.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
-        Me.pointOnline.Location = New System.Drawing.Point(45, 636)
+        Me.pointOnline.Location = New System.Drawing.Point(45, 616)
         Me.pointOnline.Name = "pointOnline"
         Me.pointOnline.SelectionColor = System.Drawing.Color.Transparent
         Me.pointOnline.Size = New System.Drawing.Size(13, 13)
@@ -411,8 +411,8 @@ Partial Class MainForm
         Me.MainPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.MainPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(37, Byte), Integer))
         Me.MainPanel.Controls.Add(Me.PlayGroundPanel)
-        Me.MainPanel.Controls.Add(Me.LeftButtomPanel)
         Me.MainPanel.Location = New System.Drawing.Point(0, 20)
         Me.MainPanel.Name = "MainPanel"
         Me.MainPanel.Size = New System.Drawing.Size(1280, 700)
@@ -447,10 +447,11 @@ Partial Class MainForm
         Me.FriendsPanelChild.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FriendsPanelChild.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.FriendsPanelChild.Controls.Add(Me.pnlUnderTextOnlineFriends)
         Me.FriendsPanelChild.Controls.Add(Me.pnlFriendsOnlineNow)
-        Me.FriendsPanelChild.Controls.Add(Me.AllFriendScrollBar)
+        Me.FriendsPanelChild.Controls.Add(Me.OnlineFriendScrollBar)
         Me.FriendsPanelChild.Controls.Add(Me.lblFriendsOnlineNow)
-        Me.FriendsPanelChild.Controls.Add(Me.pnlUnderLblFriendsOnlineNow)
         Me.FriendsPanelChild.Location = New System.Drawing.Point(0, 52)
         Me.FriendsPanelChild.Name = "FriendsPanelChild"
         Me.FriendsPanelChild.Size = New System.Drawing.Size(950, 650)
@@ -481,7 +482,7 @@ Partial Class MainForm
         Me.pnlOfFriendOnlineNow.Controls.Add(Me.ShapeContainer3)
         Me.pnlOfFriendOnlineNow.Location = New System.Drawing.Point(0, 0)
         Me.pnlOfFriendOnlineNow.Name = "pnlOfFriendOnlineNow"
-        Me.pnlOfFriendOnlineNow.Size = New System.Drawing.Size(900, 62)
+        Me.pnlOfFriendOnlineNow.Size = New System.Drawing.Size(900, 60)
         Me.pnlOfFriendOnlineNow.TabIndex = 0
         '
         'btnMenuOnlineFriend
@@ -590,7 +591,7 @@ Partial Class MainForm
         Me.ShapeContainer3.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer3.Name = "ShapeContainer3"
         Me.ShapeContainer3.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.lblOnlineNow})
-        Me.ShapeContainer3.Size = New System.Drawing.Size(900, 62)
+        Me.ShapeContainer3.Size = New System.Drawing.Size(900, 60)
         Me.ShapeContainer3.TabIndex = 101
         Me.ShapeContainer3.TabStop = False
         '
@@ -605,22 +606,22 @@ Partial Class MainForm
         Me.lblOnlineNow.SelectionColor = System.Drawing.Color.Transparent
         Me.lblOnlineNow.Size = New System.Drawing.Size(12, 12)
         '
-        'AllFriendScrollBar
+        'OnlineFriendScrollBar
         '
-        Me.AllFriendScrollBar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.OnlineFriendScrollBar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AllFriendScrollBar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.AllFriendScrollBar.LargeChange = 10
-        Me.AllFriendScrollBar.Location = New System.Drawing.Point(930, 50)
-        Me.AllFriendScrollBar.Maximum = 5000
-        Me.AllFriendScrollBar.MouseWheelBarPartitions = 2
-        Me.AllFriendScrollBar.Name = "AllFriendScrollBar"
-        Me.AllFriendScrollBar.ScrollIdleColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
-        Me.AllFriendScrollBar.Size = New System.Drawing.Size(10, 595)
-        Me.AllFriendScrollBar.TabIndex = 87
-        Me.AllFriendScrollBar.ThumbColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.AllFriendScrollBar.ThumbHoverColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.AllFriendScrollBar.ThumbPressedColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.OnlineFriendScrollBar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.OnlineFriendScrollBar.LargeChange = 10
+        Me.OnlineFriendScrollBar.Location = New System.Drawing.Point(921, 49)
+        Me.OnlineFriendScrollBar.Maximum = 5000
+        Me.OnlineFriendScrollBar.MouseWheelBarPartitions = 2
+        Me.OnlineFriendScrollBar.Name = "OnlineFriendScrollBar"
+        Me.OnlineFriendScrollBar.ScrollIdleColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
+        Me.OnlineFriendScrollBar.Size = New System.Drawing.Size(10, 595)
+        Me.OnlineFriendScrollBar.TabIndex = 87
+        Me.OnlineFriendScrollBar.ThumbColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.OnlineFriendScrollBar.ThumbHoverColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.OnlineFriendScrollBar.ThumbPressedColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         '
         'lblFriendsOnlineNow
         '
@@ -628,25 +629,17 @@ Partial Class MainForm
         Me.lblFriendsOnlineNow.BackColor = System.Drawing.Color.Transparent
         Me.lblFriendsOnlineNow.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.lblFriendsOnlineNow.ForeColor = System.Drawing.Color.Silver
-        Me.lblFriendsOnlineNow.Location = New System.Drawing.Point(30, 5)
+        Me.lblFriendsOnlineNow.Location = New System.Drawing.Point(30, 15)
         Me.lblFriendsOnlineNow.Name = "lblFriendsOnlineNow"
-        Me.lblFriendsOnlineNow.Size = New System.Drawing.Size(58, 17)
+        Me.lblFriendsOnlineNow.Size = New System.Drawing.Size(65, 17)
         Me.lblFriendsOnlineNow.TabIndex = 86
-        Me.lblFriendsOnlineNow.Text = "Online -"
-        '
-        'pnlUnderLblFriendsOnlineNow
-        '
-        Me.pnlUnderLblFriendsOnlineNow.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pnlUnderLblFriendsOnlineNow.Location = New System.Drawing.Point(15, 30)
-        Me.pnlUnderLblFriendsOnlineNow.Name = "pnlUnderLblFriendsOnlineNow"
-        Me.pnlUnderLblFriendsOnlineNow.Size = New System.Drawing.Size(900, 2)
-        Me.pnlUnderLblFriendsOnlineNow.TabIndex = 85
+        Me.lblFriendsOnlineNow.Text = "ONLINE -"
         '
         'Panel2
         '
         Me.Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.Panel2.Controls.Add(Me.btnHelp)
         Me.Panel2.Controls.Add(Me.btnAddNewFriends)
         Me.Panel2.Controls.Add(Me.btnBlockedFriends)
@@ -1067,6 +1060,16 @@ Partial Class MainForm
         Me.btnExit.TabIndex = 70
         Me.btnExit.TabStop = False
         '
+        'pnlUnderTextOnlineFriends
+        '
+        Me.pnlUnderTextOnlineFriends.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pnlUnderTextOnlineFriends.BackColor = System.Drawing.Color.Gray
+        Me.pnlUnderTextOnlineFriends.Location = New System.Drawing.Point(25, 49)
+        Me.pnlUnderTextOnlineFriends.Name = "pnlUnderTextOnlineFriends"
+        Me.pnlUnderTextOnlineFriends.Size = New System.Drawing.Size(865, 1)
+        Me.pnlUnderTextOnlineFriends.TabIndex = 79
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1075,6 +1078,7 @@ Partial Class MainForm
         Me.ClientSize = New System.Drawing.Size(1280, 720)
         Me.ControlBox = False
         Me.Controls.Add(Me.btnHide)
+        Me.Controls.Add(Me.LeftButtomPanel)
         Me.Controls.Add(Me.MainPanel)
         Me.Controls.Add(Me.LogoName)
         Me.Controls.Add(Me.btnMaxSizeForm)
@@ -1083,7 +1087,7 @@ Partial Class MainForm
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MinimumSize = New System.Drawing.Size(1000, 700)
+        Me.MinimumSize = New System.Drawing.Size(900, 550)
         Me.Name = "MainForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Home Page"
@@ -1170,8 +1174,8 @@ Partial Class MainForm
     Friend WithEvents Panel7 As Panel
     Friend WithEvents ShapeContainer3 As PowerPacks.ShapeContainer
     Friend WithEvents lblOnlineNow As PowerPacks.OvalShape
-    Friend WithEvents AllFriendScrollBar As Guna.UI.WinForms.GunaVScrollBar
+    Friend WithEvents OnlineFriendScrollBar As Guna.UI.WinForms.GunaVScrollBar
     Friend WithEvents lblFriendsOnlineNow As Label
-    Friend WithEvents pnlUnderLblFriendsOnlineNow As Panel
     Friend WithEvents btnHelp As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents pnlUnderTextOnlineFriends As Panel
 End Class

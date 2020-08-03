@@ -6,6 +6,7 @@ Imports System.Windows.Forms
 Imports System.Threading
 
 Public Class MainForm
+
     Private _UserName As String
     Private MoveForm As Boolean
     Private lastGenericButton As New GunaButton
@@ -25,7 +26,8 @@ Public Class MainForm
     Private _Utility_Secure As New Utility_Secure
     Public _ControlChildForm As New ControlChildForm
 
-    Public _ListOfUserFriendsPanel As New List(Of FriendsPanel)
+    Public _ListOfUserFriendsPanel As New List(Of FriendsChatPanel)
+    Public _ListOfUserFriendsOnline As New List(Of FriendsPanel)
 
     Private _RedColor As String = _Utility_Style.RedColor
     Private _OrngColor As String = _Utility_Style.OrngColor
@@ -76,17 +78,23 @@ Public Class MainForm
     Private Sub SetStyle_For_Components()
         Form_style()
         Create_ListOfFriends()
+        Create_ListOfFriendsOnline()
     End Sub
 
     Public Sub Form_style()
-
         vScrollHelper = New Guna.UI.Lib.ScrollBar.PanelScrollHelper(PanelListOfFriends, FriendScrollBar, True)
         vScrollHelper.UpdateScrollBar()
+
+        vScrollHelper = New Guna.UI.Lib.ScrollBar.PanelScrollHelper(pnlFriendsOnlineNow, OnlineFriendScrollBar, True)
+        vScrollHelper.UpdateScrollBar()
+
         FriendScrollBar.BringToFront()
+        LeftButtomPanel.Visible = True
 
         UserPicture.SendToBack()
         ButtonWasSelected = btnHomeChat
 
+        FormBorderStyle = FormBorderStyle.Sizable
         Me.ControlBox = False
         Me.Text = String.Empty
         Me.DoubleBuffered = True
@@ -112,33 +120,51 @@ Public Class MainForm
                         Dim locationOfFriendPanel As Point = New Point(x, y)
                         Dim pnl As New Panel
 
-                        Dim friendPanel As New FriendsPanel(Me, locationOfFriendPanel, FriendScrollBar, (count).ToString _
+                        Dim friendPanel As New FriendsChatPanel(Me, locationOfFriendPanel, FriendScrollBar, (count).ToString _
                                                             , ListOfsbjFriends.Item(i).FRIENDS_PICTURE, ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
                                                             , ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE)
                         y += 60
                         count += 1
 
                         _ListOfUserFriendsPanel.Add(friendPanel)
-                        PanelListOfFriends.Controls.Add(friendPanel._FriendsPanel)
+                        PanelListOfFriends.Controls.Add(friendPanel._UserPanel)
                     End If
                 Next
             End If
         End If
     End Sub
 
-    Private Function Create_FriendPanel() As Panel
-        Dim width = 260, hight = 60
+    Private Sub Create_ListOfFriendsOnline()
 
-        Dim _FriendsPanel As New Panel
-        Dim size As Size = New Size(width, hight)
+        If Not String.IsNullOrEmpty(_Subject.SUBJECT_USERNAME) Then
+            pnlOfFriendOnlineNow.Dispose()
 
-        _FriendsPanel.Cursor = Cursors.Hand
-        '_FriendsPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
-        _FriendsPanel.BackColor = Color.White
-        _FriendsPanel.Size = size
+            Dim x = 0, y = 0, count = 1
 
-        Return _FriendsPanel
-    End Function
+            Dim ListOfsbjFriends As List(Of Subject_Friends) = Subject_Friends.Get_SubjectFriends_ByID(_Subject.SUBJECT_ID)
+
+            If ListOfsbjFriends IsNot Nothing Then
+                For i As Integer = 0 To ListOfsbjFriends.Count - 1
+
+                    If ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE.Equals("Online") Then
+                        Dim locationOfFriendPanel As Point = New Point(x, y)
+                        Dim pnl As New Panel
+
+                        Dim friendsPanelOnline As New FriendsPanel(Me, locationOfFriendPanel, FriendScrollBar, (count).ToString _
+                                                            , ListOfsbjFriends.Item(i).FRIENDS_PICTURE, ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
+                                                            , ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE)
+                        y += 62
+                        count += 1
+
+                        _ListOfUserFriendsOnline.Add(friendsPanelOnline)
+                        pnlFriendsOnlineNow.Controls.Add(friendsPanelOnline._UserPanel)
+                    End If
+                Next
+            End If
+        End If
+
+        lblFriendsOnlineNow.Text += " " + (_ListOfUserFriendsOnline.Count()).ToString
+    End Sub
 
     Private Sub HomeForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Application.OpenForms().OfType(Of LoginForm).Any Then
@@ -207,12 +233,12 @@ Public Class MainForm
     Private Sub myMoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles TopPanel.MouseMove
         If MoveForm Then
             MoveForm = False
-            FormBorderStyle = FormBorderStyle.Sizable
+            ' FormBorderStyle = FormBorderStyle.Sizable
             Me.Cursor = Cursors.SizeAll
 
             ReleaseCapture()
             SendMessage(Me.Handle, &H112&, &HF012&, 0)
-            FormBorderStyle = FormBorderStyle.None
+            'FormBorderStyle = FormBorderStyle.None
             Me.Cursor = Cursors.Default
         End If
     End Sub
@@ -225,8 +251,10 @@ Public Class MainForm
 
     Private Sub MainForm_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         If WindowState = FormWindowState.Maximized Then
+            FormBorderStyle = FormBorderStyle.None
             btnMaxSizeForm.IconChar = FontAwesome.Sharp.IconChar.WindowRestore
         Else
+            FormBorderStyle = FormBorderStyle.Sizable
             btnMaxSizeForm.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize
         End If
     End Sub
@@ -234,6 +262,7 @@ Public Class MainForm
 
     '*****///// BUTTON OPEN SETTINGS FORM
     Private Sub btnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
+        LeftButtomPanel.Visible = False
         Dim settingsForm As New SettingsForm(lblUserName.Text)
         _ControlChildForm.OpenChildForm(settingsForm, MainPanel, currentChildForm)
     End Sub
@@ -377,10 +406,10 @@ Public Class MainForm
 
             For Each pnl In _ListOfUserFriendsPanel
                 If Not String.IsNullOrEmpty(txtString) Then
-                    If pnl._FriendsUserName.Text.Contains(txtString) Then
-                        pnl._FriendsPanel.Visible = True
+                    If pnl._UserNameLbl.Text.Contains(txtString) Then
+                        pnl._UserPanel.Visible = True
                     Else
-                        pnl._FriendsPanel.Visible = False
+                        pnl._UserPanel.Visible = False
                     End If
                 Else
                     pnlVisible(True)
@@ -393,8 +422,7 @@ Public Class MainForm
 
     Private Sub pnlVisible(state As Boolean)
         For Each pnl In _ListOfUserFriendsPanel
-            pnl._FriendsPanel.Visible = True
+            pnl._UserPanel.Visible = state
         Next
     End Sub
-
 End Class
