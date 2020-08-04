@@ -43,6 +43,7 @@ Partial Class MainForm
         Me.PlayGroundPanel = New System.Windows.Forms.Panel()
         Me.MainChatAndFriendPanel = New System.Windows.Forms.Panel()
         Me.FriendsPanelChild = New System.Windows.Forms.Panel()
+        Me.pnlUnderTextOnlineFriends = New System.Windows.Forms.Panel()
         Me.pnlFriendsOnlineNow = New Guna.UI.WinForms.GunaPanel()
         Me.pnlOfFriendOnlineNow = New System.Windows.Forms.Panel()
         Me.btnMenuOnlineFriend = New Guna.UI.WinForms.GunaButton()
@@ -60,7 +61,7 @@ Partial Class MainForm
         Me.btnAddNewFriends = New Guna.UI.WinForms.GunaButton()
         Me.btnBlockedFriends = New Guna.UI.WinForms.GunaButton()
         Me.btnAllFrineds = New Guna.UI.WinForms.GunaButton()
-        Me.btnFriendsOnile = New Guna.UI.WinForms.GunaButton()
+        Me.btnFriendsOnline = New Guna.UI.WinForms.GunaButton()
         Me.picFriend = New System.Windows.Forms.PictureBox()
         Me.lblFriends = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
@@ -82,7 +83,7 @@ Partial Class MainForm
         Me.btnHide = New FontAwesome.Sharp.IconPictureBox()
         Me.btnMaxSizeForm = New FontAwesome.Sharp.IconPictureBox()
         Me.btnExit = New FontAwesome.Sharp.IconPictureBox()
-        Me.pnlUnderTextOnlineFriends = New System.Windows.Forms.Panel()
+        Me.pnlOnlineUsers = New System.Windows.Forms.Panel()
         Me.LeftButtomPanel.SuspendLayout()
         CType(Me.UserPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnSettings, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -105,6 +106,7 @@ Partial Class MainForm
         CType(Me.btnHide, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnMaxSizeForm, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnExit, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlOnlineUsers.SuspendLayout()
         Me.SuspendLayout()
         '
         'LeftButtomPanel
@@ -448,14 +450,21 @@ Partial Class MainForm
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FriendsPanelChild.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.FriendsPanelChild.Controls.Add(Me.pnlUnderTextOnlineFriends)
-        Me.FriendsPanelChild.Controls.Add(Me.pnlFriendsOnlineNow)
-        Me.FriendsPanelChild.Controls.Add(Me.OnlineFriendScrollBar)
-        Me.FriendsPanelChild.Controls.Add(Me.lblFriendsOnlineNow)
+        Me.FriendsPanelChild.Controls.Add(Me.pnlOnlineUsers)
         Me.FriendsPanelChild.Location = New System.Drawing.Point(0, 52)
         Me.FriendsPanelChild.Name = "FriendsPanelChild"
         Me.FriendsPanelChild.Size = New System.Drawing.Size(950, 650)
         Me.FriendsPanelChild.TabIndex = 2
+        '
+        'pnlUnderTextOnlineFriends
+        '
+        Me.pnlUnderTextOnlineFriends.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pnlUnderTextOnlineFriends.BackColor = System.Drawing.Color.Gray
+        Me.pnlUnderTextOnlineFriends.Location = New System.Drawing.Point(19, 49)
+        Me.pnlUnderTextOnlineFriends.Name = "pnlUnderTextOnlineFriends"
+        Me.pnlUnderTextOnlineFriends.Size = New System.Drawing.Size(865, 1)
+        Me.pnlUnderTextOnlineFriends.TabIndex = 79
         '
         'pnlFriendsOnlineNow
         '
@@ -464,7 +473,7 @@ Partial Class MainForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlFriendsOnlineNow.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.pnlFriendsOnlineNow.Controls.Add(Me.pnlOfFriendOnlineNow)
-        Me.pnlFriendsOnlineNow.Location = New System.Drawing.Point(15, 50)
+        Me.pnlFriendsOnlineNow.Location = New System.Drawing.Point(9, 50)
         Me.pnlFriendsOnlineNow.Name = "pnlFriendsOnlineNow"
         Me.pnlFriendsOnlineNow.Size = New System.Drawing.Size(900, 600)
         Me.pnlFriendsOnlineNow.TabIndex = 88
@@ -612,7 +621,7 @@ Partial Class MainForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.OnlineFriendScrollBar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.OnlineFriendScrollBar.LargeChange = 10
-        Me.OnlineFriendScrollBar.Location = New System.Drawing.Point(921, 49)
+        Me.OnlineFriendScrollBar.Location = New System.Drawing.Point(915, 49)
         Me.OnlineFriendScrollBar.Maximum = 5000
         Me.OnlineFriendScrollBar.MouseWheelBarPartitions = 2
         Me.OnlineFriendScrollBar.Name = "OnlineFriendScrollBar"
@@ -629,7 +638,7 @@ Partial Class MainForm
         Me.lblFriendsOnlineNow.BackColor = System.Drawing.Color.Transparent
         Me.lblFriendsOnlineNow.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.lblFriendsOnlineNow.ForeColor = System.Drawing.Color.Silver
-        Me.lblFriendsOnlineNow.Location = New System.Drawing.Point(30, 15)
+        Me.lblFriendsOnlineNow.Location = New System.Drawing.Point(24, 15)
         Me.lblFriendsOnlineNow.Name = "lblFriendsOnlineNow"
         Me.lblFriendsOnlineNow.Size = New System.Drawing.Size(65, 17)
         Me.lblFriendsOnlineNow.TabIndex = 86
@@ -644,7 +653,7 @@ Partial Class MainForm
         Me.Panel2.Controls.Add(Me.btnAddNewFriends)
         Me.Panel2.Controls.Add(Me.btnBlockedFriends)
         Me.Panel2.Controls.Add(Me.btnAllFrineds)
-        Me.Panel2.Controls.Add(Me.btnFriendsOnile)
+        Me.Panel2.Controls.Add(Me.btnFriendsOnline)
         Me.Panel2.Controls.Add(Me.picFriend)
         Me.Panel2.Controls.Add(Me.lblFriends)
         Me.Panel2.Controls.Add(Me.Panel5)
@@ -749,32 +758,32 @@ Partial Class MainForm
         Me.btnAllFrineds.TabIndex = 91
         Me.btnAllFrineds.Text = "All"
         '
-        'btnFriendsOnile
+        'btnFriendsOnline
         '
-        Me.btnFriendsOnile.Animated = True
-        Me.btnFriendsOnile.AnimationHoverSpeed = 0.07!
-        Me.btnFriendsOnile.AnimationSpeed = 0.03!
-        Me.btnFriendsOnile.BackColor = System.Drawing.Color.Transparent
-        Me.btnFriendsOnile.BaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.btnFriendsOnile.BorderColor = System.Drawing.Color.Black
-        Me.btnFriendsOnile.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnFriendsOnile.DialogResult = System.Windows.Forms.DialogResult.None
-        Me.btnFriendsOnile.FocusedColor = System.Drawing.Color.Empty
-        Me.btnFriendsOnile.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.btnFriendsOnile.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.btnFriendsOnile.Image = Nothing
-        Me.btnFriendsOnile.ImageSize = New System.Drawing.Size(20, 20)
-        Me.btnFriendsOnile.Location = New System.Drawing.Point(138, 10)
-        Me.btnFriendsOnile.Name = "btnFriendsOnile"
-        Me.btnFriendsOnile.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.btnFriendsOnile.OnHoverBorderColor = System.Drawing.Color.Black
-        Me.btnFriendsOnile.OnHoverForeColor = System.Drawing.Color.White
-        Me.btnFriendsOnile.OnHoverImage = Nothing
-        Me.btnFriendsOnile.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.btnFriendsOnile.Radius = 7
-        Me.btnFriendsOnile.Size = New System.Drawing.Size(66, 30)
-        Me.btnFriendsOnile.TabIndex = 90
-        Me.btnFriendsOnile.Text = "Online"
+        Me.btnFriendsOnline.Animated = True
+        Me.btnFriendsOnline.AnimationHoverSpeed = 0.07!
+        Me.btnFriendsOnline.AnimationSpeed = 0.03!
+        Me.btnFriendsOnline.BackColor = System.Drawing.Color.Transparent
+        Me.btnFriendsOnline.BaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.btnFriendsOnline.BorderColor = System.Drawing.Color.Black
+        Me.btnFriendsOnline.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnFriendsOnline.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnFriendsOnline.FocusedColor = System.Drawing.Color.Empty
+        Me.btnFriendsOnline.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.btnFriendsOnline.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.btnFriendsOnline.Image = Nothing
+        Me.btnFriendsOnline.ImageSize = New System.Drawing.Size(20, 20)
+        Me.btnFriendsOnline.Location = New System.Drawing.Point(138, 10)
+        Me.btnFriendsOnline.Name = "btnFriendsOnline"
+        Me.btnFriendsOnline.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.btnFriendsOnline.OnHoverBorderColor = System.Drawing.Color.Black
+        Me.btnFriendsOnline.OnHoverForeColor = System.Drawing.Color.White
+        Me.btnFriendsOnline.OnHoverImage = Nothing
+        Me.btnFriendsOnline.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.btnFriendsOnline.Radius = 7
+        Me.btnFriendsOnline.Size = New System.Drawing.Size(66, 30)
+        Me.btnFriendsOnline.TabIndex = 90
+        Me.btnFriendsOnline.Text = "Online"
         '
         'picFriend
         '
@@ -1060,15 +1069,16 @@ Partial Class MainForm
         Me.btnExit.TabIndex = 70
         Me.btnExit.TabStop = False
         '
-        'pnlUnderTextOnlineFriends
+        'pnlOnlineUsers
         '
-        Me.pnlUnderTextOnlineFriends.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pnlUnderTextOnlineFriends.BackColor = System.Drawing.Color.Gray
-        Me.pnlUnderTextOnlineFriends.Location = New System.Drawing.Point(25, 49)
-        Me.pnlUnderTextOnlineFriends.Name = "pnlUnderTextOnlineFriends"
-        Me.pnlUnderTextOnlineFriends.Size = New System.Drawing.Size(865, 1)
-        Me.pnlUnderTextOnlineFriends.TabIndex = 79
+        Me.pnlOnlineUsers.Controls.Add(Me.pnlUnderTextOnlineFriends)
+        Me.pnlOnlineUsers.Controls.Add(Me.lblFriendsOnlineNow)
+        Me.pnlOnlineUsers.Controls.Add(Me.pnlFriendsOnlineNow)
+        Me.pnlOnlineUsers.Controls.Add(Me.OnlineFriendScrollBar)
+        Me.pnlOnlineUsers.Location = New System.Drawing.Point(6, 0)
+        Me.pnlOnlineUsers.Name = "pnlOnlineUsers"
+        Me.pnlOnlineUsers.Size = New System.Drawing.Size(932, 650)
+        Me.pnlOnlineUsers.TabIndex = 89
         '
         'MainForm
         '
@@ -1098,7 +1108,6 @@ Partial Class MainForm
         Me.PlayGroundPanel.ResumeLayout(False)
         Me.MainChatAndFriendPanel.ResumeLayout(False)
         Me.FriendsPanelChild.ResumeLayout(False)
-        Me.FriendsPanelChild.PerformLayout()
         Me.pnlFriendsOnlineNow.ResumeLayout(False)
         Me.pnlOfFriendOnlineNow.ResumeLayout(False)
         Me.pnlOfFriendOnlineNow.PerformLayout()
@@ -1115,6 +1124,8 @@ Partial Class MainForm
         CType(Me.btnHide, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnMaxSizeForm, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnExit, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlOnlineUsers.ResumeLayout(False)
+        Me.pnlOnlineUsers.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1151,7 +1162,7 @@ Partial Class MainForm
     Friend WithEvents lblFriends As Label
     Friend WithEvents Panel5 As Panel
     Friend WithEvents picFriend As PictureBox
-    Friend WithEvents btnFriendsOnile As Guna.UI.WinForms.GunaButton
+    Friend WithEvents btnFriendsOnline As Guna.UI.WinForms.GunaButton
     Friend WithEvents btnAddNewFriends As Guna.UI.WinForms.GunaButton
     Friend WithEvents btnBlockedFriends As Guna.UI.WinForms.GunaButton
     Friend WithEvents btnAllFrineds As Guna.UI.WinForms.GunaButton
@@ -1178,4 +1189,5 @@ Partial Class MainForm
     Friend WithEvents lblFriendsOnlineNow As Label
     Friend WithEvents btnHelp As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents pnlUnderTextOnlineFriends As Panel
+    Friend WithEvents pnlOnlineUsers As Panel
 End Class

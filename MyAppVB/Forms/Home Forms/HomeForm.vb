@@ -106,62 +106,18 @@ Public Class MainForm
     End Sub
 
     Private Sub Create_ListOfFriends()
-        If Not String.IsNullOrEmpty(_Subject.SUBJECT_USERNAME) Then
-            pnlFriend.Dispose()
 
-            Dim x = 0, y = 0, count = 1
+        Dim createListOfPanels As New Create_ListOf_Panels(_Subject, FriendScrollBar, Me, 60, "Chat", _ListOfUserFriendsPanel, PanelListOfFriends)
 
-            Dim ListOfsbjFriends As List(Of Subject_Friends) = Subject_Friends.Get_SubjectFriends_ByID(_Subject.SUBJECT_ID)
+        createListOfPanels.Create_ListOfPanels(pnlFriend)
 
-            If ListOfsbjFriends IsNot Nothing Then
-                For i As Integer = 0 To ListOfsbjFriends.Count - 1
-
-                    If ListOfsbjFriends.Item(i).HAVE_CHAT.Equals("Yes") Then
-                        Dim locationOfFriendPanel As Point = New Point(x, y)
-                        Dim pnl As New Panel
-
-                        Dim friendPanel As New FriendsChatPanel(Me, locationOfFriendPanel, FriendScrollBar, (count).ToString _
-                                                            , ListOfsbjFriends.Item(i).FRIENDS_PICTURE, ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
-                                                            , ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE)
-                        y += 60
-                        count += 1
-
-                        _ListOfUserFriendsPanel.Add(friendPanel)
-                        PanelListOfFriends.Controls.Add(friendPanel._UserPanel)
-                    End If
-                Next
-            End If
-        End If
     End Sub
 
     Private Sub Create_ListOfFriendsOnline()
 
-        If Not String.IsNullOrEmpty(_Subject.SUBJECT_USERNAME) Then
-            pnlOfFriendOnlineNow.Dispose()
+        Dim createListOfPanels As New Create_ListOf_Panels(_Subject, OnlineFriendScrollBar, Me, 62, "Online", _ListOfUserFriendsOnline, pnlFriendsOnlineNow)
 
-            Dim x = 0, y = 0, count = 1
-
-            Dim ListOfsbjFriends As List(Of Subject_Friends) = Subject_Friends.Get_SubjectFriends_ByID(_Subject.SUBJECT_ID)
-
-            If ListOfsbjFriends IsNot Nothing Then
-                For i As Integer = 0 To ListOfsbjFriends.Count - 1
-
-                    If ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE.Equals("Online") Then
-                        Dim locationOfFriendPanel As Point = New Point(x, y)
-                        Dim pnl As New Panel
-
-                        Dim friendsPanelOnline As New FriendsPanel(Me, locationOfFriendPanel, FriendScrollBar, (count).ToString _
-                                                            , ListOfsbjFriends.Item(i).FRIENDS_PICTURE, ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
-                                                            , ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE)
-                        y += 62
-                        count += 1
-
-                        _ListOfUserFriendsOnline.Add(friendsPanelOnline)
-                        pnlFriendsOnlineNow.Controls.Add(friendsPanelOnline._UserPanel)
-                    End If
-                Next
-            End If
-        End If
+        createListOfPanels.Create_ListOfPanels(pnlOfFriendOnlineNow)
 
         lblFriendsOnlineNow.Text += " " + (_ListOfUserFriendsOnline.Count()).ToString
     End Sub
@@ -279,6 +235,8 @@ Public Class MainForm
     End Sub
 
     Private Sub btnFriends_Click(sender As Object, e As EventArgs) Handles btnFriends.Click
+        pnlOnlineUsers.Visible = True
+
         If currentChildForm IsNot Nothing Then
             currentChildForm.Close()
         End If
@@ -327,7 +285,7 @@ Public Class MainForm
 
     '*****///// FUNCTION TO OPEN OTHER FORMS ON LEFT MAIN PANEL
     Private Sub On_Click_UpperPanel_FriendPanel_Button(sender As System.Object, e As System.EventArgs) _
-      Handles btnFriendsOnile.Click, btnAllFrineds.Click, btnBlockedFriends.Click, btnAddNewFriends.Click
+      Handles btnFriendsOnline.Click, btnAllFrineds.Click, btnBlockedFriends.Click, btnAddNewFriends.Click
 
         If Not lastGenericButton.Name.Equals("btnAddNewFriends") Then
             Change_lastGenericButton()
@@ -338,14 +296,13 @@ Public Class MainForm
         If firstClick Then
             lastGenericButton = GenericButton
         Else
-            lastGenericButton = btnFriendsOnile
+            lastGenericButton = btnFriendsOnline
 
             Change_lastGenericButton()
 
             lastGenericButton = GenericButton
             firstClick = True
         End If
-
 
         If Not lastGenericButton.Name.Equals("btnAddNewFriends") Then
             GenericButton.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
@@ -361,6 +318,8 @@ Public Class MainForm
     End Sub
 
     Private Sub Onclick_OpenChildForm_FriendPanels(buttonName As String)
+        pnlOnlineUsers.Visible = False
+
         Select Case buttonName
             Case "btnAllFrineds"
                 Dim allFriendsForm As New AllFriendsForm
@@ -374,7 +333,8 @@ Public Class MainForm
                 Dim addNewFriendsForm As New AddFriendForm
                 _ControlChildForm.OpenChildForm(addNewFriendsForm, FriendsPanelChild, currentChildForm)
 
-            Case "btnFriendsOnile"
+            Case "btnFriendsOnline"
+                pnlOnlineUsers.Visible = True
                 If currentChildForm IsNot Nothing Then
                     currentChildForm.Close()
                 End If

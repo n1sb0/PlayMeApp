@@ -119,6 +119,8 @@ Public Class FriendsChatPanel
 
         chatform.lblStateOnlineOfFriend.Location = New Point(positionOflblOnline)
 
+        _MainForm.pnlOnlineUsers.Visible = False
+
         _ControlChildForm.OpenChildForm(chatform, _MainForm.MainChatAndFriendPanel, _MainForm.currentChildForm)
     End Sub
 

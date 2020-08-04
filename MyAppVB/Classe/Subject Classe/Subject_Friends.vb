@@ -8,12 +8,14 @@
     Property FRIENDS_PICTURE As Byte()
     Property FRIENDS_USERNAME As String
     Property FRIENDS_STATE_ONLINE As String
+    Property FRIENDS_BLOCKED As String
 
     Public Sub Clean()
         USER_ID = 0
         FRIEND_ID = 0
         HAVE_CHAT = Nothing
         FRIENDS_PICTURE = Nothing
+        FRIENDS_BLOCKED = Nothing
         FRIENDS_USERNAME = Nothing
         FRIENDS_STATE_ONLINE = Nothing
     End Sub
@@ -70,6 +72,7 @@
             .USER_ID = ReadValue(reader("USER_ID"))
             .FRIEND_ID = ReadValue(reader("FRIEND_ID"))
             .HAVE_CHAT = ReadValue(reader("HAVE_CHAT"))
+            .FRIENDS_BLOCKED = ReadValue(reader("BLOCKED"))
             .FRIENDS_PICTURE = ReadValue(reader("SUBJECT_PICTURE"))
             .FRIENDS_USERNAME = ReadValue(reader("SUBJECT_USERNAME"))
             .FRIENDS_STATE_ONLINE = ReadValue(reader("SUBJECT_STATE_ONLINE"))

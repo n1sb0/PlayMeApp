@@ -234,6 +234,7 @@
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Classe\Components\BlockedFriendsPanel.vb" />
+    <Compile Include="Classe\Components\Create_ListOf_Panels.vb" />
     <Compile Include="Classe\Components\FriendsPanel.vb" />
     <Compile Include="Classe\Subject Classe\Subject_Friends.vb" />
     <Compile Include="Classe\Utility Classe\ControlChildForm.vb" />
