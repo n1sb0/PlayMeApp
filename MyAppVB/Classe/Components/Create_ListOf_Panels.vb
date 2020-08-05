@@ -16,7 +16,7 @@ Public Class Create_ListOf_Panels
     Private _ListOfUserPanel
     Private friendPanel
     Private _ListOfsbjFriends As List(Of Subject_Friends)
-    Private _X = 0, _Y = 0, _Count = 1
+    Private _X = 10, _Y = 0, _Count = 1
     Private locationOfFriendPanel As Point
 
     Sub New()
@@ -38,6 +38,7 @@ Public Class Create_ListOf_Panels
     Sub New(ByRef subject As Subject, ByRef scrollBar As GunaVScrollBar, ByRef mForm As MainForm, iy As Integer, controlBy As String,
             ByRef listOfUserPanel As List(Of FriendsChatPanel), ByRef mainPanlG As GunaPanel)
 
+        _X = 0
         _Iy = iy
         _MForm = mForm
         _Subject = subject
@@ -109,7 +110,7 @@ Public Class Create_ListOf_Panels
                         End If
                     Case "Online"
                         If _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE.Equals("Online") Then
-                            friendPanel = New FriendsOnlineAndAllPanel(_MForm, locationOfFriendPanel, _ScrollBar, (_Count).ToString _
+                            friendPanel = New FriendsOnlineAndAllPanel(_OForm, locationOfFriendPanel, _ScrollBar, (_Count).ToString _
                                             , _ListOfsbjFriends.Item(i).FRIENDS_PICTURE, _ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
                                             , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE)
 
@@ -135,7 +136,13 @@ Public Class Create_ListOf_Panels
         _ListOfUserPanel.Add(friendPanel)
 
         If _MainPanel IsNot Nothing Then
+            friendPanel._BackGRadLeft.Location = New Point(locationOfFriendPanel.X - 7, locationOfFriendPanel.Y)
+            friendPanel._BackGRadRight.Location = New Point(locationOfFriendPanel.X + 809, locationOfFriendPanel.Y + 12)
+
             _MainPanel.Controls.Add(friendPanel._UserPanel)
+            _MainPanel.Controls.Add(friendPanel._BackGRadLeft)
+            _MainPanel.Controls.Add(friendPanel._BackGRadRight)
+
         Else
             _MainPanelG.Controls.Add(friendPanel._UserPanel)
         End If

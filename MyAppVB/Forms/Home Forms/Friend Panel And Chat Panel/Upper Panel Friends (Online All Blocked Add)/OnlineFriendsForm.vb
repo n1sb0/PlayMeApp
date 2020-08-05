@@ -13,7 +13,7 @@
     End Sub
 
     Private Sub Create_AllFriends()
-        Dim createListOfPanels As New Create_ListOf_Panels(_Subject, OnlineFriendScrollBar, Me, 62, "Online", _ListOfUserFriendsOnline, pnlFriendsOnlineNow)
+        Dim createListOfPanels As New Create_ListOf_Panels(_Subject, OnlineFriendScrollBar, Me, 61, "Online", _ListOfUserFriendsOnline, pnlFriendsOnlineNow)
 
         createListOfPanels.Create_ListOfPanels(pnlOfFriendOnlineNow)
 

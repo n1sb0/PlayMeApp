@@ -38,6 +38,7 @@ Public Class BlockedFriendsPanel
         _UserPanel.Anchor = AnchorStyles.Right Or AnchorStyles.Left Or AnchorStyles.Top
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
         _UserStateOnline_Label.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_RedColor))
+        _UnBlockBtn.OnHoverBaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_RedColor))
     End Sub
 
     Private Sub Set_Name()
@@ -55,7 +56,7 @@ Public Class BlockedFriendsPanel
         Dim locationOfUserName As Point = New Point(55, 15)
         Dim locationOnlineLabel As Point = New Point(39, 37)
         Dim locationUserStateOnlineLabel As Point = New Point(55, 35)
-        Dim locationOfUnBlockBtn As Point = New Point(840, 12)
+        Dim locationOfUnBlockBtn As Point = New Point(820, 12)
         Dim locationUserLine As Point = New Point(10, 60)
 
         _UserPanel.Location = _LocationOfPanel

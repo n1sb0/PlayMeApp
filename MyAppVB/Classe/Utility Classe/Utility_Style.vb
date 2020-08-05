@@ -9,7 +9,7 @@ Public Class Utility_Style
     Property MainColor As String = "#2ecc71"
     Property GrayColor As String = "#ecf0f1"
     Property OrngColor As String = "#e67e22"
-    Property LightBlue As String = "#292b2f"
+    Property LightBlue As String = "#3a3e44"
     Property GreenColor As String = "#2ecc71"
     Property BorderColor As String = "#282828"
     Property BtnHoverColor As String = "#27ae60"

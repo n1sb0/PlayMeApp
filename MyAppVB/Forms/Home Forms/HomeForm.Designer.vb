@@ -63,7 +63,7 @@ Partial Class MainForm
         Me.ShapeContainer2 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.lblFriendOnline = New Microsoft.VisualBasic.PowerPacks.OvalShape()
         Me.btnNewDirect = New FontAwesome.Sharp.IconPictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblDirectMessages = New System.Windows.Forms.Label()
         Me.btnFriends = New Guna.UI.WinForms.GunaButton()
         Me.txtFindFriends = New Guna.UI.WinForms.GunaTextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -625,7 +625,7 @@ Partial Class MainForm
         Me.pnlMsgFriends.Controls.Add(Me.FriendsChatScrollBar)
         Me.pnlMsgFriends.Controls.Add(Me.PanelListOfChatFriends)
         Me.pnlMsgFriends.Controls.Add(Me.btnNewDirect)
-        Me.pnlMsgFriends.Controls.Add(Me.Label1)
+        Me.pnlMsgFriends.Controls.Add(Me.lblDirectMessages)
         Me.pnlMsgFriends.Controls.Add(Me.btnFriends)
         Me.pnlMsgFriends.Controls.Add(Me.txtFindFriends)
         Me.pnlMsgFriends.Controls.Add(Me.Panel3)
@@ -748,17 +748,17 @@ Partial Class MainForm
         Me.btnNewDirect.TabIndex = 76
         Me.btnNewDirect.TabStop = False
         '
-        'Label1
+        'lblDirectMessages
         '
-        Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Gray
-        Me.Label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label1.Location = New System.Drawing.Point(15, 105)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(192, 22)
-        Me.Label1.TabIndex = 74
-        Me.Label1.Text = "DIRECT MESSAGES"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblDirectMessages.Font = New System.Drawing.Font("Microsoft YaHei", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.lblDirectMessages.ForeColor = System.Drawing.Color.Gray
+        Me.lblDirectMessages.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblDirectMessages.Location = New System.Drawing.Point(15, 105)
+        Me.lblDirectMessages.Name = "lblDirectMessages"
+        Me.lblDirectMessages.Size = New System.Drawing.Size(192, 22)
+        Me.lblDirectMessages.TabIndex = 74
+        Me.lblDirectMessages.Text = "DIRECT MESSAGES"
+        Me.lblDirectMessages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnFriends
         '
@@ -930,7 +930,7 @@ Partial Class MainForm
     Friend WithEvents Panel3 As Panel
     Friend WithEvents txtFindFriends As Guna.UI.WinForms.GunaTextBox
     Friend WithEvents FriendsPicture As Guna.UI.WinForms.GunaCirclePictureBox
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblDirectMessages As Label
     Friend WithEvents btnFriends As Guna.UI.WinForms.GunaButton
     Friend WithEvents btnNewDirect As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents lblFriends As Label

@@ -14,8 +14,7 @@
     End Sub
 
     Private Sub Create_AllFriends()
-        ' Dim createListOfPanels As New Create_ListOf_Panels(_Subject, BlockedFriendScrollBar, Me, 62, "Blocked", _ListOfUserBlockedFriendsPanel, BlockedFriendsPanel)
-        Dim createListOfPanels As New Create_ListOf_Panels(_Subject, BlockedFriendScrollBar, Me, 62, "Blocked", _ListOfUserBlockedFriendsPanel, BlockedFriendsPanel)
+        Dim createListOfPanels As New Create_ListOf_Panels(_Subject, BlockedFriendScrollBar, Me, 61, "Blocked", _ListOfUserBlockedFriendsPanel, BlockedFriendsPanel)
 
         createListOfPanels.Create_ListOfPanels(pnlBlocekdFriend)
 

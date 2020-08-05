@@ -8,6 +8,8 @@ Imports System.EventArgs
 
 Public Class FriendsChatPanel
     Inherits GenericPanel
+    Public _Sender As New System.Object
+    Public _E As New System.EventArgs
 
     Sub New(ByRef mainForm As MainForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar, panelname As String, userPicture As Byte(), userName As String, userStateOnline As String)
         _MainForm = mainForm
@@ -105,10 +107,12 @@ Public Class FriendsChatPanel
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
     End Sub
 
-    Private Sub On_MouseClickFriendList(sender As System.Object, e As System.EventArgs)
+    Public Sub On_MouseClickFriendList(sender As System.Object, e As System.EventArgs)
+        _Sender = sender
+        _E = e
         Dim chatform As New ChatFriendForm
 
-        _MainForm._OpenedChat = _NumberOfPanel
+        _MainForm._OpenedChat = _NumberOfPanel - 1
 
         _MainForm.txtFindFriends_Leave(sender, e)
 
@@ -128,10 +132,10 @@ Public Class FriendsChatPanel
 
         Dim s As String = btn.Name.Substring(btn.Name.IndexOf("Btn") + 3)
 
-        Dim index = _MainForm._ListOfUserFriendsPanel.FindIndex(Function(panel) panel._UserPanel.Name = "pnl" + s)
+        Dim index = _MainForm._ListOfUserFriendsChatPanel.FindIndex(Function(panel) panel._UserPanel.Name = "pnl" + s)
 
         _MainForm.PanelListOfChatFriends.Controls.Remove(_UserPanel)
-        _MainForm._ListOfUserFriendsPanel.RemoveAt(index)
+        _MainForm._ListOfUserFriendsChatPanel.RemoveAt(index)
 
         On_DirectWasDeleted(index)
 
@@ -143,8 +147,8 @@ Public Class FriendsChatPanel
     End Sub
 
     Private Sub On_DirectWasDeleted(index As Integer)
-        For i As Integer = index To _MainForm._ListOfUserFriendsPanel.Count - 1
-            _MainForm._ListOfUserFriendsPanel.Item(i)._UserPanel.Location = New Point(0, _MainForm._ListOfUserFriendsPanel.Item(i)._UserPanel.Location.Y - 60)
+        For i As Integer = index To _MainForm._ListOfUserFriendsChatPanel.Count - 1
+            _MainForm._ListOfUserFriendsChatPanel.Item(i)._UserPanel.Location = New Point(0, _MainForm._ListOfUserFriendsChatPanel.Item(i)._UserPanel.Location.Y - 60)
         Next
     End Sub
 

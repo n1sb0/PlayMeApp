@@ -3,8 +3,8 @@
 Public Class FriendsOnlineAndAllPanel
     Inherits GenericPanel
 
-    Sub New(ByRef mainForm As MainForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar, panelname As String, userPicture As Byte(), userName As String, userStateOnline As String)
-        _MainForm = mainForm
+    Sub New(ByRef oForm As OnlineFriendsForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar, panelname As String, userPicture As Byte(), userName As String, userStateOnline As String)
+        _OnlineForm = oForm
         _UserName = userName
         _NumberOfPanel = panelname
         _UserPicture = userPicture
@@ -28,7 +28,9 @@ Public Class FriendsOnlineAndAllPanel
     End Sub
 
     Private Sub Create_FriendsPanelOnline()
-        Create_Panel(900, 62)
+        Create_Panel(865, 62)
+        Create_RadiusBackGround_Left()
+        Create_RadiusBackGround_Right()
         Create_UserName()
         Create_UserStateOnline_Label()
         Create_OnlineButton()
@@ -39,7 +41,7 @@ Public Class FriendsOnlineAndAllPanel
 
         UpdateComponents()
 
-        'AddEventRef()
+        AddEventRef()
 
         Set_Name()
 
@@ -51,6 +53,21 @@ Public Class FriendsOnlineAndAllPanel
     Private Sub UpdateComponents()
         _UserPanel.Anchor = AnchorStyles.Right Or AnchorStyles.Left Or AnchorStyles.Top
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
+        _UserNameLbl.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GrayColor))
+    End Sub
+
+    Public Sub AddEventRef()
+        AddHandler _MenuBtn.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Hover
+        AddHandler _UserPanel.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Hover
+        AddHandler _OvalOnline.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Hover
+        AddHandler _UserNameLbl.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Hover
+        AddHandler _UserPictureBox.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Hover
+        AddHandler _SendMessageBtn.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Hover
+        AddHandler _UserStateOnline_Label.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Hover
+        AddHandler _BackGRadLeft.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Hover
+        AddHandler _BackGRadRight.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Hover
+
+        AddHandler _UserPanel.MouseLeave, AddressOf On_FriendsOnlineAndAllPanel_Leave
     End Sub
 
     Private Sub Set_Name()
@@ -62,6 +79,8 @@ Public Class FriendsOnlineAndAllPanel
         _SendMessageBtn.Name = "pnlMsgbtn" + _NumberOfPanel
         _MenuBtn.Name = "pnlMenubtn" + _NumberOfPanel
         _UserLine.Name = "pnlLine" + _NumberOfPanel
+        _BackGRadLeft.Name = "pnlBackLeft" + _NumberOfPanel
+        _BackGRadRight.Name = "pnlBackRight" + _NumberOfPanel
     End Sub
 
     Private Sub Set_Location()
@@ -69,9 +88,9 @@ Public Class FriendsOnlineAndAllPanel
         Dim locationOfUserName As Point = New Point(55, 15)
         Dim locationOnlineLabel As Point = New Point(39, 37)
         Dim locationUserStateOnlineLabel As Point = New Point(55, 35)
-        Dim locationMessageBtn As Point = New Point(790, 12)
-        Dim locationMenuBtn As Point = New Point(840, 12)
-        Dim locationUserLine As Point = New Point(10, 60)
+        Dim locationMessageBtn As Point = New Point(775, 12)
+        Dim locationMenuBtn As Point = New Point(820, 12)
+        Dim locationUserLine As Point = New Point(0, 61)
 
         _UserPanel.Location = _LocationOfPanel
         _UserNameLbl.Location = locationOfUserName
@@ -91,5 +110,49 @@ Public Class FriendsOnlineAndAllPanel
         _UserPanel.Controls.Add(_SendMessageBtn)
         _UserPanel.Controls.Add(_MenuBtn)
         _UserPanel.Controls.Add(_UserLine)
+
+    End Sub
+
+    Private Sub On_FriendsOnlineAndAllPanel_Hover()
+        _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
+        _UserLine.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
+
+        UnderLine_SelectedUser(_PanelsColorLightDarkBlue)
+
+        _BackGRadRight.Visible = True
+        _BackGRadLeft.Visible = True
+        _SendMessageBtn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_DarkBlue))
+        _MenuBtn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_DarkBlue))
+    End Sub
+
+    Private Sub On_FriendsOnlineAndAllPanel_Leave()
+        _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
+        _UserLine.BackColor = Color.Gray
+
+        UnderLine_SelectedUser(Color.Gray.ToArgb)
+
+        _BackGRadRight.Visible = False
+        _BackGRadLeft.Visible = False
+        _SendMessageBtn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
+        _MenuBtn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
+    End Sub
+
+    Private Sub UnderLine_SelectedUser(ccolor As String)
+
+        If Application.OpenForms().OfType(Of OnlineFriendsForm).Any Then
+            Dim index As Integer = _OnlineForm._ListOfUserFriendsOnline.IndexOf(Me)
+            If index > 0 Then
+                _OnlineForm._ListOfUserFriendsOnline.Item(index - 1)._UserLine.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(ccolor))
+            Else
+                _OnlineForm.pnlUnderTextOnlineFriends.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(ccolor))
+            End If
+        ElseIf Application.OpenForms().OfType(Of AllFriendsForm).Any Then
+            Dim index As Integer = _AllFrForm._ListOfUserFriendsAllPanel.IndexOf(Me)
+            If index > 0 Then
+                _AllFrForm._ListOfUserFriendsAllPanel.Item(index - 1)._UserLine.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(ccolor))
+            Else
+                _AllFrForm.pnlUnderlblAllFriends.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(ccolor))
+            End If
+        End If
     End Sub
 End Class

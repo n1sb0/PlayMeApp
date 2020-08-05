@@ -45,7 +45,7 @@ Partial Class AllFriendsForm
         Me.pnlUnderlblAllFriends.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlUnderlblAllFriends.BackColor = System.Drawing.Color.Gray
-        Me.pnlUnderlblAllFriends.Location = New System.Drawing.Point(25, 49)
+        Me.pnlUnderlblAllFriends.Location = New System.Drawing.Point(10, 1)
         Me.pnlUnderlblAllFriends.Name = "pnlUnderlblAllFriends"
         Me.pnlUnderlblAllFriends.Size = New System.Drawing.Size(865, 1)
         Me.pnlUnderlblAllFriends.TabIndex = 77
@@ -86,6 +86,7 @@ Partial Class AllFriendsForm
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.AllFriendsPanel.Controls.Add(Me.pnlAllFriends)
+        Me.AllFriendsPanel.Controls.Add(Me.pnlUnderlblAllFriends)
         Me.AllFriendsPanel.Location = New System.Drawing.Point(15, 50)
         Me.AllFriendsPanel.Name = "AllFriendsPanel"
         Me.AllFriendsPanel.Size = New System.Drawing.Size(900, 600)
@@ -102,7 +103,7 @@ Partial Class AllFriendsForm
         Me.pnlAllFriends.Controls.Add(Me.FriendsPicture)
         Me.pnlAllFriends.Controls.Add(Me.Panel3)
         Me.pnlAllFriends.Controls.Add(Me.ShapeContainer1)
-        Me.pnlAllFriends.Location = New System.Drawing.Point(0, 0)
+        Me.pnlAllFriends.Location = New System.Drawing.Point(0, 1)
         Me.pnlAllFriends.Name = "pnlAllFriends"
         Me.pnlAllFriends.Size = New System.Drawing.Size(900, 62)
         Me.pnlAllFriends.TabIndex = 0
@@ -235,7 +236,6 @@ Partial Class AllFriendsForm
         Me.Controls.Add(Me.AllFriendsPanel)
         Me.Controls.Add(Me.AllFriendScrollBar)
         Me.Controls.Add(Me.lblAllFriends)
-        Me.Controls.Add(Me.pnlUnderlblAllFriends)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "AllFriendsForm"
         Me.Text = "AllFriendsForm"

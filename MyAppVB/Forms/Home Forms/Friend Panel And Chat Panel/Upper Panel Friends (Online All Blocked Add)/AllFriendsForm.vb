@@ -14,7 +14,7 @@
     End Sub
 
     Private Sub Create_AllFriends()
-        Dim createListOfPanels As New Create_ListOf_Panels(_Subject, AllFriendScrollBar, Me, 62, "All", _ListOfUserFriendsAllPanel, AllFriendsPanel)
+        Dim createListOfPanels As New Create_ListOf_Panels(_Subject, AllFriendScrollBar, Me, 61, "All", _ListOfUserFriendsAllPanel, AllFriendsPanel)
 
         createListOfPanels.Create_ListOfPanels(pnlAllFriends)
 

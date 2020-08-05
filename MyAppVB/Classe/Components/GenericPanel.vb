@@ -19,6 +19,9 @@ Public Class GenericPanel
     Property _SendMessageBtn As New GunaButton
     Property _MenuBtn As New GunaButton
     Property _UnBlockBtn As New GunaButton
+    Property _BackGRadLeft As New GunaButton
+    Property _BackGRadRight As New GunaButton
+
 
 
     Public _LocationOfPanel As New Point
@@ -33,18 +36,24 @@ Public Class GenericPanel
 
     Public _NumberOfPanel As String
     Public _MainForm As MainForm
+    Public _OnlineForm As OnlineFriendsForm
     Public _BlockedForm As BlockedFriendsForm
     Public _AllFrForm As AllFriendsForm
 
     Public _RedColor As String = _Utility_Style.RedColor
     Public _GrayColor As String = _Utility_Style.GrayColor
     Public _BackGColor As String = _Utility_Style.BackGroundColor
+    Public _DarkBlue As String = _Utility_Style.DarkBlue
     Public _PanelsColorLightDarkBlue As String = _Utility_Style.LightDarkBlue
+    Public _LightBlue As String = _Utility_Style.LightBlue
+
+
 
     Public Sub Create_Panel(width As Integer, hight As Integer)
 
         Dim size As Size = New Size(width, hight)
 
+        _UserPanel.BringToFront()
         _UserPanel.Size = size
         _UserPanel.Cursor = Cursors.Hand
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
@@ -155,6 +164,31 @@ Public Class GenericPanel
         btn.Radius = 14
         btn.ImageAlign = HorizontalAlignment.Center
         btn.Anchor = AnchorStyles.Right
+        btn.OnHoverBaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_DarkBlue))
+    End Sub
+
+
+    Public Sub Create_RadiusBackGround_Left()
+        Default_BackRadius_Settings(_BackGRadLeft)
+
+    End Sub
+
+    Public Sub Create_RadiusBackGround_Right()
+        Default_BackRadius_Settings(_BackGRadRight)
+        _BackGRadRight.Anchor = AnchorStyles.Right
+    End Sub
+
+    Private Sub Default_BackRadius_Settings(btn As GunaButton)
+        btn.Size = New Size(62, 62)
+        btn.Radius = 12
+        btn.Visible = False
+        btn.SendToBack()
+
+        btn.Image = Nothing
+
+        btn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
+        btn.OnHoverBaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
+        btn.OnPressedColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
     End Sub
 
 End Class
