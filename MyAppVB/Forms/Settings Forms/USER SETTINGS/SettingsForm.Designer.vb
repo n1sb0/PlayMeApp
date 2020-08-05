@@ -106,7 +106,7 @@ Partial Class SettingsForm
         Me.btnLinkedin.IconChar = FontAwesome.Sharp.IconChar.Linkedin
         Me.btnLinkedin.IconColor = System.Drawing.Color.DarkGray
         Me.btnLinkedin.IconSize = 25
-        Me.btnLinkedin.Location = New System.Drawing.Point(283, 327)
+        Me.btnLinkedin.Location = New System.Drawing.Point(298, 323)
         Me.btnLinkedin.Name = "btnLinkedin"
         Me.btnLinkedin.Size = New System.Drawing.Size(25, 25)
         Me.btnLinkedin.TabIndex = 94
@@ -128,7 +128,7 @@ Partial Class SettingsForm
         Me.btnLogOut.ForeColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.btnLogOut.Image = Nothing
         Me.btnLogOut.ImageSize = New System.Drawing.Size(20, 20)
-        Me.btnLogOut.Location = New System.Drawing.Point(189, 280)
+        Me.btnLogOut.Location = New System.Drawing.Point(204, 280)
         Me.btnLogOut.Name = "btnLogOut"
         Me.btnLogOut.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.btnLogOut.OnHoverBorderColor = System.Drawing.Color.Black
@@ -156,7 +156,7 @@ Partial Class SettingsForm
         Me.btnVoiceAndVideo.ForeColor = System.Drawing.Color.DarkGray
         Me.btnVoiceAndVideo.Image = Nothing
         Me.btnVoiceAndVideo.ImageSize = New System.Drawing.Size(20, 20)
-        Me.btnVoiceAndVideo.Location = New System.Drawing.Point(189, 235)
+        Me.btnVoiceAndVideo.Location = New System.Drawing.Point(204, 235)
         Me.btnVoiceAndVideo.Name = "btnVoiceAndVideo"
         Me.btnVoiceAndVideo.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.btnVoiceAndVideo.OnHoverBorderColor = System.Drawing.Color.Black
@@ -184,7 +184,7 @@ Partial Class SettingsForm
         Me.btnLanguage.ForeColor = System.Drawing.Color.DarkGray
         Me.btnLanguage.Image = Nothing
         Me.btnLanguage.ImageSize = New System.Drawing.Size(20, 20)
-        Me.btnLanguage.Location = New System.Drawing.Point(189, 199)
+        Me.btnLanguage.Location = New System.Drawing.Point(204, 199)
         Me.btnLanguage.Name = "btnLanguage"
         Me.btnLanguage.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.btnLanguage.OnHoverBorderColor = System.Drawing.Color.Black
@@ -212,7 +212,7 @@ Partial Class SettingsForm
         Me.btnPrivacyAndSefty.ForeColor = System.Drawing.Color.DarkGray
         Me.btnPrivacyAndSefty.Image = Nothing
         Me.btnPrivacyAndSefty.ImageSize = New System.Drawing.Size(20, 20)
-        Me.btnPrivacyAndSefty.Location = New System.Drawing.Point(189, 134)
+        Me.btnPrivacyAndSefty.Location = New System.Drawing.Point(204, 134)
         Me.btnPrivacyAndSefty.Name = "btnPrivacyAndSefty"
         Me.btnPrivacyAndSefty.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.btnPrivacyAndSefty.OnHoverBorderColor = System.Drawing.Color.Black
@@ -240,7 +240,7 @@ Partial Class SettingsForm
         Me.btnMyAccount.ForeColor = System.Drawing.Color.DarkGray
         Me.btnMyAccount.Image = Nothing
         Me.btnMyAccount.ImageSize = New System.Drawing.Size(20, 20)
-        Me.btnMyAccount.Location = New System.Drawing.Point(189, 103)
+        Me.btnMyAccount.Location = New System.Drawing.Point(204, 103)
         Me.btnMyAccount.Name = "btnMyAccount"
         Me.btnMyAccount.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.btnMyAccount.OnHoverBorderColor = System.Drawing.Color.Black
@@ -261,7 +261,7 @@ Partial Class SettingsForm
         Me.btnFaceBook.IconChar = FontAwesome.Sharp.IconChar.Facebook
         Me.btnFaceBook.IconColor = System.Drawing.Color.DarkGray
         Me.btnFaceBook.IconSize = 25
-        Me.btnFaceBook.Location = New System.Drawing.Point(252, 327)
+        Me.btnFaceBook.Location = New System.Drawing.Point(267, 323)
         Me.btnFaceBook.Name = "btnFaceBook"
         Me.btnFaceBook.Size = New System.Drawing.Size(25, 25)
         Me.btnFaceBook.TabIndex = 88
@@ -276,7 +276,7 @@ Partial Class SettingsForm
         Me.btnInstagram.IconChar = FontAwesome.Sharp.IconChar.Instagram
         Me.btnInstagram.IconColor = System.Drawing.Color.DarkGray
         Me.btnInstagram.IconSize = 25
-        Me.btnInstagram.Location = New System.Drawing.Point(221, 327)
+        Me.btnInstagram.Location = New System.Drawing.Point(236, 323)
         Me.btnInstagram.Name = "btnInstagram"
         Me.btnInstagram.Size = New System.Drawing.Size(25, 25)
         Me.btnInstagram.TabIndex = 87
@@ -291,7 +291,7 @@ Partial Class SettingsForm
         Me.btnVk.IconChar = FontAwesome.Sharp.IconChar.Vk
         Me.btnVk.IconColor = System.Drawing.Color.DarkGray
         Me.btnVk.IconSize = 25
-        Me.btnVk.Location = New System.Drawing.Point(190, 327)
+        Me.btnVk.Location = New System.Drawing.Point(205, 323)
         Me.btnVk.Name = "btnVk"
         Me.btnVk.Size = New System.Drawing.Size(25, 25)
         Me.btnVk.TabIndex = 86
@@ -301,7 +301,7 @@ Partial Class SettingsForm
         '
         Me.Panel4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel4.BackColor = System.Drawing.Color.Gray
-        Me.Panel4.Location = New System.Drawing.Point(190, 320)
+        Me.Panel4.Location = New System.Drawing.Point(205, 315)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(140, 1)
         Me.Panel4.TabIndex = 85
@@ -310,7 +310,7 @@ Partial Class SettingsForm
         '
         Me.Panel3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel3.BackColor = System.Drawing.Color.Gray
-        Me.Panel3.Location = New System.Drawing.Point(190, 173)
+        Me.Panel3.Location = New System.Drawing.Point(205, 173)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(140, 1)
         Me.Panel3.TabIndex = 84
@@ -319,7 +319,7 @@ Partial Class SettingsForm
         '
         Me.Panel2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel2.BackColor = System.Drawing.Color.Gray
-        Me.Panel2.Location = New System.Drawing.Point(190, 273)
+        Me.Panel2.Location = New System.Drawing.Point(205, 273)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(140, 1)
         Me.Panel2.TabIndex = 83
@@ -331,7 +331,7 @@ Partial Class SettingsForm
         Me.lblAppSettings.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblAppSettings.Font = New System.Drawing.Font("Microsoft YaHei", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.lblAppSettings.ForeColor = System.Drawing.Color.Gray
-        Me.lblAppSettings.Location = New System.Drawing.Point(196, 180)
+        Me.lblAppSettings.Location = New System.Drawing.Point(211, 180)
         Me.lblAppSettings.Name = "lblAppSettings"
         Me.lblAppSettings.Size = New System.Drawing.Size(103, 20)
         Me.lblAppSettings.TabIndex = 79
@@ -345,7 +345,7 @@ Partial Class SettingsForm
         Me.lblUserSettings.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblUserSettings.Font = New System.Drawing.Font("Microsoft YaHei", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.lblUserSettings.ForeColor = System.Drawing.Color.Gray
-        Me.lblUserSettings.Location = New System.Drawing.Point(196, 80)
+        Me.lblUserSettings.Location = New System.Drawing.Point(211, 80)
         Me.lblUserSettings.Name = "lblUserSettings"
         Me.lblUserSettings.Size = New System.Drawing.Size(103, 20)
         Me.lblUserSettings.TabIndex = 78
@@ -727,7 +727,7 @@ Partial Class SettingsForm
         Me.btnClose.IconChar = FontAwesome.Sharp.IconChar.TimesCircle
         Me.btnClose.IconColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnClose.IconSize = 35
-        Me.btnClose.Location = New System.Drawing.Point(1060, 85)
+        Me.btnClose.Location = New System.Drawing.Point(1050, 85)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(35, 35)
         Me.btnClose.TabIndex = 0

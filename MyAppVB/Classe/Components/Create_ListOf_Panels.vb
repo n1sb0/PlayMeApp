@@ -72,11 +72,8 @@ Public Class Create_ListOf_Panels
         _ListOfUserPanel = listOfUserPanel
     End Sub
 
-    Public Sub Create_ListOfPanels(pnlToDelete As Panel)
-
+    Public Sub Create_ListOfPanels()
         If Not String.IsNullOrEmpty(_Subject.SUBJECT_USERNAME) Then
-            pnlToDelete.Dispose()
-
             Control_By()
         End If
     End Sub

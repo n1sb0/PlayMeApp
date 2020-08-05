@@ -107,7 +107,7 @@ Public Class MainForm
 
         Dim createListOfPanels As New Create_ListOf_Panels(_Subject, FriendsChatScrollBar, Me, 60, "Chat", _ListOfUserFriendsChatPanel, PanelListOfChatFriends)
 
-        createListOfPanels.Create_ListOfPanels(pnlChatFriend)
+        createListOfPanels.Create_ListOfPanels()
 
     End Sub
 

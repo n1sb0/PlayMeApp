@@ -15,7 +15,7 @@
     Private Sub Create_AllFriends()
         Dim createListOfPanels As New Create_ListOf_Panels(_Subject, OnlineFriendScrollBar, Me, 61, "Online", _ListOfUserFriendsOnline, pnlFriendsOnlineNow)
 
-        createListOfPanels.Create_ListOfPanels(pnlOfFriendOnlineNow)
+        createListOfPanels.Create_ListOfPanels()
 
         lblFriendsOnlineNow.Text += " " + (_ListOfUserFriendsOnline.Count()).ToString
     End Sub

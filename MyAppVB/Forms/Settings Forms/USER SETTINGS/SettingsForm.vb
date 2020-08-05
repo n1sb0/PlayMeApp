@@ -5,7 +5,7 @@ Imports Guna.UI.WinForms
 Public Class SettingsForm
     Private _btnSaveCliked As Boolean = False
     Private sizeOfCenterForm As Integer = 660
-    Private distanceRightLeftPnlToCenterForm As Integer = 25
+    Private distanceRightLeftPnlToCenterForm As Integer = 10
 
     Private currentChildForm As Form
     Private _passPic As New PictureBox

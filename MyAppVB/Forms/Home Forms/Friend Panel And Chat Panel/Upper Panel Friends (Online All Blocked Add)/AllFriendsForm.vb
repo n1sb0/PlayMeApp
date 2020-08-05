@@ -15,7 +15,7 @@
     Private Sub Create_AllFriends()
         Dim createListOfPanels As New Create_ListOf_Panels(_Subject, AllFriendScrollBar, Me, 61, "All", _ListOfUserFriendsAllPanel, AllFriendsPanel)
 
-        createListOfPanels.Create_ListOfPanels(pnlAllFriends)
+        createListOfPanels.Create_ListOfPanels()
 
         lblAllFriends.Text += " " + (_ListOfUserFriendsAllPanel.Count()).ToString
     End Sub

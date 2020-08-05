@@ -22,42 +22,71 @@ Partial Class AddFriendForm
     'Non modificarla mediante l'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.LogoName = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblAddFriend = New System.Windows.Forms.Label()
+        Me.lblMsgAddFriend = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.FindFriendPanel = New System.Windows.Forms.Panel()
+        Me.lblEnterUserName = New System.Windows.Forms.Label()
         Me.txtFindFriend = New System.Windows.Forms.TextBox()
         Me.btnSendFriendRequest = New Guna.UI.WinForms.GunaButton()
+        Me.GunaButton1 = New Guna.UI.WinForms.GunaButton()
+        Me.btnHomeChat = New Guna.UI.WinForms.GunaButton()
+        Me.iconPicUsers = New FontAwesome.Sharp.IconPictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.iconPicGlobeAfrica = New FontAwesome.Sharp.IconPictureBox()
+        Me.IconPicAmerica = New FontAwesome.Sharp.IconPictureBox()
+        Me.iconPicGlobAsia = New FontAwesome.Sharp.IconPictureBox()
+        Me.iconPicGlobEu = New FontAwesome.Sharp.IconPictureBox()
+        Me.iconPicFly = New FontAwesome.Sharp.IconPictureBox()
+        Me.IconPictureBox1 = New FontAwesome.Sharp.IconPictureBox()
+        Me.iconPicCloud = New FontAwesome.Sharp.IconPictureBox()
+        Me.IconPictureBox2 = New FontAwesome.Sharp.IconPictureBox()
+        Me.IconPictureBox3 = New FontAwesome.Sharp.IconPictureBox()
+        Me.IconPictureBox4 = New FontAwesome.Sharp.IconPictureBox()
+        Me.pnlImgAddFriends = New System.Windows.Forms.Panel()
         Me.FindFriendPanel.SuspendLayout()
+        CType(Me.iconPicUsers, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.iconPicGlobeAfrica, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IconPicAmerica, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.iconPicGlobAsia, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.iconPicGlobEu, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.iconPicFly, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IconPictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.iconPicCloud, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IconPictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IconPictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IconPictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlImgAddFriends.SuspendLayout()
         Me.SuspendLayout()
         '
-        'LogoName
+        'lblAddFriend
         '
-        Me.LogoName.BackColor = System.Drawing.Color.Transparent
-        Me.LogoName.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.LogoName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.LogoName.Location = New System.Drawing.Point(40, 30)
-        Me.LogoName.Name = "LogoName"
-        Me.LogoName.Size = New System.Drawing.Size(110, 20)
-        Me.LogoName.TabIndex = 74
-        Me.LogoName.Text = "ADD FRIEND"
+        Me.lblAddFriend.BackColor = System.Drawing.Color.Transparent
+        Me.lblAddFriend.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.lblAddFriend.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.lblAddFriend.Location = New System.Drawing.Point(40, 30)
+        Me.lblAddFriend.Name = "lblAddFriend"
+        Me.lblAddFriend.Size = New System.Drawing.Size(110, 20)
+        Me.lblAddFriend.TabIndex = 74
+        Me.lblAddFriend.Text = "ADD FRIEND"
         '
-        'Label1
+        'lblMsgAddFriend
         '
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Silver
-        Me.Label1.Location = New System.Drawing.Point(40, 60)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(510, 20)
-        Me.Label1.TabIndex = 75
-        Me.Label1.Text = "You can add a friend with thair Name. Be careful to write the Name in right way!"
+        Me.lblMsgAddFriend.BackColor = System.Drawing.Color.Transparent
+        Me.lblMsgAddFriend.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.lblMsgAddFriend.ForeColor = System.Drawing.Color.Silver
+        Me.lblMsgAddFriend.Location = New System.Drawing.Point(40, 60)
+        Me.lblMsgAddFriend.Name = "lblMsgAddFriend"
+        Me.lblMsgAddFriend.Size = New System.Drawing.Size(510, 20)
+        Me.lblMsgAddFriend.TabIndex = 75
+        Me.lblMsgAddFriend.Text = "You can add a friend with thair Name. Be careful to write the Name in right way!"
         '
         'Panel1
         '
         Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel1.Location = New System.Drawing.Point(0, 160)
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.Panel1.Location = New System.Drawing.Point(0, 170)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(950, 2)
         Me.Panel1.TabIndex = 76
@@ -67,6 +96,7 @@ Partial Class AddFriendForm
         Me.FindFriendPanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FindFriendPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.FindFriendPanel.Controls.Add(Me.lblEnterUserName)
         Me.FindFriendPanel.Controls.Add(Me.txtFindFriend)
         Me.FindFriendPanel.Controls.Add(Me.btnSendFriendRequest)
         Me.FindFriendPanel.Location = New System.Drawing.Point(40, 90)
@@ -74,24 +104,37 @@ Partial Class AddFriendForm
         Me.FindFriendPanel.Size = New System.Drawing.Size(870, 50)
         Me.FindFriendPanel.TabIndex = 77
         '
+        'lblEnterUserName
+        '
+        Me.lblEnterUserName.BackColor = System.Drawing.Color.Transparent
+        Me.lblEnterUserName.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.lblEnterUserName.Enabled = False
+        Me.lblEnterUserName.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.lblEnterUserName.ForeColor = System.Drawing.Color.Gray
+        Me.lblEnterUserName.Location = New System.Drawing.Point(18, 15)
+        Me.lblEnterUserName.Name = "lblEnterUserName"
+        Me.lblEnterUserName.Size = New System.Drawing.Size(146, 20)
+        Me.lblEnterUserName.TabIndex = 80
+        Me.lblEnterUserName.Text = "Enter a Username"
+        '
         'txtFindFriend
         '
         Me.txtFindFriend.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtFindFriend.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.txtFindFriend.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtFindFriend.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.txtFindFriend.ForeColor = System.Drawing.Color.Gray
+        Me.txtFindFriend.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.txtFindFriend.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.txtFindFriend.Location = New System.Drawing.Point(15, 15)
         Me.txtFindFriend.Multiline = True
         Me.txtFindFriend.Name = "txtFindFriend"
         Me.txtFindFriend.Size = New System.Drawing.Size(650, 25)
         Me.txtFindFriend.TabIndex = 95
-        Me.txtFindFriend.Text = "Enter a Username"
         '
         'btnSendFriendRequest
         '
         Me.btnSendFriendRequest.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSendFriendRequest.Animated = True
         Me.btnSendFriendRequest.AnimationHoverSpeed = 0.07!
         Me.btnSendFriendRequest.AnimationSpeed = 0.03!
         Me.btnSendFriendRequest.BackColor = System.Drawing.Color.Transparent
@@ -109,7 +152,7 @@ Partial Class AddFriendForm
         Me.btnSendFriendRequest.Name = "btnSendFriendRequest"
         Me.btnSendFriendRequest.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(101, Byte), Integer), CType(CType(124, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.btnSendFriendRequest.OnHoverBorderColor = System.Drawing.Color.Black
-        Me.btnSendFriendRequest.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.btnSendFriendRequest.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
         Me.btnSendFriendRequest.OnHoverImage = Nothing
         Me.btnSendFriendRequest.OnPressedColor = System.Drawing.Color.Black
         Me.btnSendFriendRequest.Radius = 7
@@ -117,29 +160,287 @@ Partial Class AddFriendForm
         Me.btnSendFriendRequest.TabIndex = 94
         Me.btnSendFriendRequest.Text = "Send Friend Request"
         '
+        'GunaButton1
+        '
+        Me.GunaButton1.AnimationHoverSpeed = 0.07!
+        Me.GunaButton1.AnimationSpeed = 0.03!
+        Me.GunaButton1.BackColor = System.Drawing.Color.Transparent
+        Me.GunaButton1.BaseColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.GunaButton1.BorderColor = System.Drawing.Color.Black
+        Me.GunaButton1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.GunaButton1.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.GunaButton1.FocusedColor = System.Drawing.Color.Empty
+        Me.GunaButton1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.GunaButton1.ForeColor = System.Drawing.Color.White
+        Me.GunaButton1.Image = Nothing
+        Me.GunaButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.GunaButton1.ImageSize = New System.Drawing.Size(25, 25)
+        Me.GunaButton1.Location = New System.Drawing.Point(870, 90)
+        Me.GunaButton1.Name = "GunaButton1"
+        Me.GunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.GunaButton1.OnHoverBorderColor = System.Drawing.Color.Black
+        Me.GunaButton1.OnHoverForeColor = System.Drawing.Color.White
+        Me.GunaButton1.OnHoverImage = Nothing
+        Me.GunaButton1.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.GunaButton1.Radius = 10
+        Me.GunaButton1.Size = New System.Drawing.Size(50, 50)
+        Me.GunaButton1.TabIndex = 79
+        '
+        'btnHomeChat
+        '
+        Me.btnHomeChat.AnimationHoverSpeed = 0.07!
+        Me.btnHomeChat.AnimationSpeed = 0.03!
+        Me.btnHomeChat.BackColor = System.Drawing.Color.Transparent
+        Me.btnHomeChat.BaseColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.btnHomeChat.BorderColor = System.Drawing.Color.Black
+        Me.btnHomeChat.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btnHomeChat.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnHomeChat.FocusedColor = System.Drawing.Color.Empty
+        Me.btnHomeChat.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnHomeChat.ForeColor = System.Drawing.Color.White
+        Me.btnHomeChat.Image = Nothing
+        Me.btnHomeChat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.btnHomeChat.ImageSize = New System.Drawing.Size(25, 25)
+        Me.btnHomeChat.Location = New System.Drawing.Point(30, 90)
+        Me.btnHomeChat.Name = "btnHomeChat"
+        Me.btnHomeChat.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.btnHomeChat.OnHoverBorderColor = System.Drawing.Color.Black
+        Me.btnHomeChat.OnHoverForeColor = System.Drawing.Color.White
+        Me.btnHomeChat.OnHoverImage = Nothing
+        Me.btnHomeChat.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.btnHomeChat.Radius = 10
+        Me.btnHomeChat.Size = New System.Drawing.Size(50, 50)
+        Me.btnHomeChat.TabIndex = 78
+        '
+        'iconPicUsers
+        '
+        Me.iconPicUsers.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.iconPicUsers.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
+        Me.iconPicUsers.IconChar = FontAwesome.Sharp.IconChar.Users
+        Me.iconPicUsers.IconColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
+        Me.iconPicUsers.IconSize = 250
+        Me.iconPicUsers.Location = New System.Drawing.Point(87, -13)
+        Me.iconPicUsers.Name = "iconPicUsers"
+        Me.iconPicUsers.Size = New System.Drawing.Size(250, 250)
+        Me.iconPicUsers.TabIndex = 99
+        Me.iconPicUsers.TabStop = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.DarkGray
+        Me.Label1.Location = New System.Drawing.Point(127, 167)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(170, 22)
+        Me.Label1.TabIndex = 98
+        Me.Label1.Text = "Find your friends! :)"
+        '
+        'iconPicGlobeAfrica
+        '
+        Me.iconPicGlobeAfrica.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.iconPicGlobeAfrica.ForeColor = System.Drawing.Color.Gray
+        Me.iconPicGlobeAfrica.IconChar = FontAwesome.Sharp.IconChar.GlobeAfrica
+        Me.iconPicGlobeAfrica.IconColor = System.Drawing.Color.Gray
+        Me.iconPicGlobeAfrica.IconSize = 46
+        Me.iconPicGlobeAfrica.Location = New System.Drawing.Point(59, 88)
+        Me.iconPicGlobeAfrica.Name = "iconPicGlobeAfrica"
+        Me.iconPicGlobeAfrica.Size = New System.Drawing.Size(46, 51)
+        Me.iconPicGlobeAfrica.TabIndex = 106
+        Me.iconPicGlobeAfrica.TabStop = False
+        '
+        'IconPicAmerica
+        '
+        Me.IconPicAmerica.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.IconPicAmerica.ForeColor = System.Drawing.Color.Gray
+        Me.IconPicAmerica.IconChar = FontAwesome.Sharp.IconChar.GlobeAmericas
+        Me.IconPicAmerica.IconColor = System.Drawing.Color.Gray
+        Me.IconPicAmerica.IconSize = 46
+        Me.IconPicAmerica.Location = New System.Drawing.Point(315, 88)
+        Me.IconPicAmerica.Name = "IconPicAmerica"
+        Me.IconPicAmerica.Size = New System.Drawing.Size(46, 51)
+        Me.IconPicAmerica.TabIndex = 107
+        Me.IconPicAmerica.TabStop = False
+        '
+        'iconPicGlobAsia
+        '
+        Me.iconPicGlobAsia.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.iconPicGlobAsia.ForeColor = System.Drawing.Color.Gray
+        Me.iconPicGlobAsia.IconChar = FontAwesome.Sharp.IconChar.GlobeAsia
+        Me.iconPicGlobAsia.IconColor = System.Drawing.Color.Gray
+        Me.iconPicGlobAsia.IconSize = 46
+        Me.iconPicGlobAsia.Location = New System.Drawing.Point(367, 88)
+        Me.iconPicGlobAsia.Name = "iconPicGlobAsia"
+        Me.iconPicGlobAsia.Size = New System.Drawing.Size(46, 51)
+        Me.iconPicGlobAsia.TabIndex = 108
+        Me.iconPicGlobAsia.TabStop = False
+        '
+        'iconPicGlobEu
+        '
+        Me.iconPicGlobEu.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.iconPicGlobEu.ForeColor = System.Drawing.Color.Gray
+        Me.iconPicGlobEu.IconChar = FontAwesome.Sharp.IconChar.GlobeEurope
+        Me.iconPicGlobEu.IconColor = System.Drawing.Color.Gray
+        Me.iconPicGlobEu.IconSize = 46
+        Me.iconPicGlobEu.Location = New System.Drawing.Point(7, 88)
+        Me.iconPicGlobEu.Name = "iconPicGlobEu"
+        Me.iconPicGlobEu.Size = New System.Drawing.Size(46, 51)
+        Me.iconPicGlobEu.TabIndex = 109
+        Me.iconPicGlobEu.TabStop = False
+        '
+        'iconPicFly
+        '
+        Me.iconPicFly.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.iconPicFly.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.iconPicFly.IconChar = FontAwesome.Sharp.IconChar.TelegramPlane
+        Me.iconPicFly.IconColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.iconPicFly.IconSize = 23
+        Me.iconPicFly.Location = New System.Drawing.Point(42, 131)
+        Me.iconPicFly.Name = "iconPicFly"
+        Me.iconPicFly.Size = New System.Drawing.Size(23, 23)
+        Me.iconPicFly.TabIndex = 110
+        Me.iconPicFly.TabStop = False
+        '
+        'IconPictureBox1
+        '
+        Me.IconPictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.IconPictureBox1.ForeColor = System.Drawing.Color.Gray
+        Me.IconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.TelegramPlane
+        Me.IconPictureBox1.IconColor = System.Drawing.Color.Gray
+        Me.IconPictureBox1.IconSize = 22
+        Me.IconPictureBox1.Location = New System.Drawing.Point(352, 72)
+        Me.IconPictureBox1.Name = "IconPictureBox1"
+        Me.IconPictureBox1.Size = New System.Drawing.Size(23, 22)
+        Me.IconPictureBox1.TabIndex = 111
+        Me.IconPictureBox1.TabStop = False
+        '
+        'iconPicCloud
+        '
+        Me.iconPicCloud.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.iconPicCloud.ForeColor = System.Drawing.Color.Gray
+        Me.iconPicCloud.IconChar = FontAwesome.Sharp.IconChar.CloudSun
+        Me.iconPicCloud.IconColor = System.Drawing.Color.Gray
+        Me.iconPicCloud.IconSize = 31
+        Me.iconPicCloud.Location = New System.Drawing.Point(146, 14)
+        Me.iconPicCloud.Name = "iconPicCloud"
+        Me.iconPicCloud.Size = New System.Drawing.Size(31, 31)
+        Me.iconPicCloud.TabIndex = 112
+        Me.iconPicCloud.TabStop = False
+        '
+        'IconPictureBox2
+        '
+        Me.IconPictureBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.IconPictureBox2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.IconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Cloud
+        Me.IconPictureBox2.IconColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.IconPictureBox2.IconSize = 18
+        Me.IconPictureBox2.Location = New System.Drawing.Point(245, 27)
+        Me.IconPictureBox2.Name = "IconPictureBox2"
+        Me.IconPictureBox2.Size = New System.Drawing.Size(23, 18)
+        Me.IconPictureBox2.TabIndex = 113
+        Me.IconPictureBox2.TabStop = False
+        '
+        'IconPictureBox3
+        '
+        Me.IconPictureBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.IconPictureBox3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.IconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.Cloud
+        Me.IconPictureBox3.IconColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.IconPictureBox3.IconSize = 38
+        Me.IconPictureBox3.Location = New System.Drawing.Point(303, 167)
+        Me.IconPictureBox3.Name = "IconPictureBox3"
+        Me.IconPictureBox3.Size = New System.Drawing.Size(44, 38)
+        Me.IconPictureBox3.TabIndex = 114
+        Me.IconPictureBox3.TabStop = False
+        '
+        'IconPictureBox4
+        '
+        Me.IconPictureBox4.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.IconPictureBox4.ForeColor = System.Drawing.Color.Gray
+        Me.IconPictureBox4.IconChar = FontAwesome.Sharp.IconChar.Cloud
+        Me.IconPictureBox4.IconColor = System.Drawing.Color.Gray
+        Me.IconPictureBox4.IconSize = 53
+        Me.IconPictureBox4.Location = New System.Drawing.Point(77, 184)
+        Me.IconPictureBox4.Name = "IconPictureBox4"
+        Me.IconPictureBox4.Size = New System.Drawing.Size(54, 53)
+        Me.IconPictureBox4.TabIndex = 115
+        Me.IconPictureBox4.TabStop = False
+        '
+        'pnlImgAddFriends
+        '
+        Me.pnlImgAddFriends.Controls.Add(Me.iconPicFly)
+        Me.pnlImgAddFriends.Controls.Add(Me.IconPictureBox4)
+        Me.pnlImgAddFriends.Controls.Add(Me.Label1)
+        Me.pnlImgAddFriends.Controls.Add(Me.IconPictureBox3)
+        Me.pnlImgAddFriends.Controls.Add(Me.iconPicGlobeAfrica)
+        Me.pnlImgAddFriends.Controls.Add(Me.IconPictureBox2)
+        Me.pnlImgAddFriends.Controls.Add(Me.IconPicAmerica)
+        Me.pnlImgAddFriends.Controls.Add(Me.iconPicCloud)
+        Me.pnlImgAddFriends.Controls.Add(Me.iconPicGlobAsia)
+        Me.pnlImgAddFriends.Controls.Add(Me.IconPictureBox1)
+        Me.pnlImgAddFriends.Controls.Add(Me.iconPicGlobEu)
+        Me.pnlImgAddFriends.Controls.Add(Me.iconPicUsers)
+        Me.pnlImgAddFriends.Location = New System.Drawing.Point(265, 285)
+        Me.pnlImgAddFriends.Name = "pnlImgAddFriends"
+        Me.pnlImgAddFriends.Size = New System.Drawing.Size(420, 240)
+        Me.pnlImgAddFriends.TabIndex = 116
+        '
         'AddFriendForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(950, 650)
+        Me.Controls.Add(Me.pnlImgAddFriends)
         Me.Controls.Add(Me.FindFriendPanel)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.LogoName)
+        Me.Controls.Add(Me.lblMsgAddFriend)
+        Me.Controls.Add(Me.lblAddFriend)
+        Me.Controls.Add(Me.btnHomeChat)
+        Me.Controls.Add(Me.GunaButton1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "AddFriendForm"
         Me.Text = "AddFriendForm"
         Me.FindFriendPanel.ResumeLayout(False)
         Me.FindFriendPanel.PerformLayout()
+        CType(Me.iconPicUsers, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.iconPicGlobeAfrica, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IconPicAmerica, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.iconPicGlobAsia, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.iconPicGlobEu, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.iconPicFly, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IconPictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.iconPicCloud, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IconPictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IconPictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IconPictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlImgAddFriends.ResumeLayout(False)
+        Me.pnlImgAddFriends.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents LogoName As Label
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblAddFriend As Label
+    Friend WithEvents lblMsgAddFriend As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents FindFriendPanel As Panel
     Friend WithEvents btnSendFriendRequest As Guna.UI.WinForms.GunaButton
     Friend WithEvents txtFindFriend As TextBox
+    Friend WithEvents GunaButton1 As Guna.UI.WinForms.GunaButton
+    Friend WithEvents btnHomeChat As Guna.UI.WinForms.GunaButton
+    Friend WithEvents lblEnterUserName As Label
+    Friend WithEvents iconPicUsers As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents iconPicGlobeAfrica As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents IconPicAmerica As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents iconPicGlobAsia As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents iconPicGlobEu As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents iconPicFly As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents IconPictureBox1 As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents iconPicCloud As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents IconPictureBox2 As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents IconPictureBox3 As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents IconPictureBox4 As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents pnlImgAddFriends As Panel
 End Class

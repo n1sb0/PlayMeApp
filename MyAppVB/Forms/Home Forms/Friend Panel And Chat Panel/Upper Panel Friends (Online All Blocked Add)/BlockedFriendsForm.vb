@@ -16,7 +16,7 @@
     Private Sub Create_AllFriends()
         Dim createListOfPanels As New Create_ListOf_Panels(_Subject, BlockedFriendScrollBar, Me, 61, "Blocked", _ListOfUserBlockedFriendsPanel, BlockedFriendsPanel)
 
-        createListOfPanels.Create_ListOfPanels(pnlBlocekdFriend)
+        createListOfPanels.Create_ListOfPanels()
 
         lblBlocekdFriends.Text += " " + (_ListOfUserBlockedFriendsPanel.Count()).ToString
     End Sub
@@ -26,8 +26,5 @@
         vScrollHelper.UpdateScrollBar()
     End Sub
 
-    Private Sub OnlineFriendsForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        pnlBlocekdFriend.Visible = True
-    End Sub
 
 End Class

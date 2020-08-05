@@ -11,6 +11,4 @@
         _Subject = subject
     End Sub
 
-
-
 End Class
