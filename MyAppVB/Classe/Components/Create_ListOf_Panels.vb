@@ -5,6 +5,9 @@ Public Class Create_ListOf_Panels
 
     Private _Iy As Integer
     Private _MForm As MainForm
+    Private _AForm As AllFriendsForm
+    Private _BForm As BlockedFriendsForm
+    Private _OForm As OnlineFriendsForm
     Private _MainPanel As Panel
     Private _Subject As Subject
     Private _ControlBy As String
@@ -15,6 +18,22 @@ Public Class Create_ListOf_Panels
     Private _ListOfsbjFriends As List(Of Subject_Friends)
     Private _X = 0, _Y = 0, _Count = 1
     Private locationOfFriendPanel As Point
+
+    Sub New()
+
+    End Sub
+
+    Sub New(ByRef subject As Subject, ByRef scrollBar As GunaVScrollBar, ByRef bForm As BlockedFriendsForm, iy As Integer, controlBy As String,
+            ByRef listOfUserPanel As List(Of BlockedFriendsPanel), ByRef mainPanl As Panel)
+
+        _Iy = iy
+        _BForm = bForm
+        _Subject = subject
+        _ControlBy = controlBy
+        _MainPanel = mainPanl
+        _ScrollBar = scrollBar
+        _ListOfUserPanel = listOfUserPanel
+    End Sub
 
     Sub New(ByRef subject As Subject, ByRef scrollBar As GunaVScrollBar, ByRef mForm As MainForm, iy As Integer, controlBy As String,
             ByRef listOfUserPanel As List(Of FriendsChatPanel), ByRef mainPanlG As GunaPanel)
@@ -28,11 +47,23 @@ Public Class Create_ListOf_Panels
         _ListOfUserPanel = listOfUserPanel
     End Sub
 
-    Sub New(ByRef subject As Subject, ByRef scrollBar As GunaVScrollBar, ByRef mForm As MainForm, iy As Integer, controlBy As String,
-            ByRef listOfUserPanel As List(Of FriendsPanel), ByRef mainPanl As Panel)
+    Sub New(ByRef subject As Subject, ByRef scrollBar As GunaVScrollBar, ByRef oForm As OnlineFriendsForm, iy As Integer, controlBy As String,
+            ByRef listOfUserPanel As List(Of FriendsOnlineAndAllPanel), ByRef mainPanl As Panel)
 
         _Iy = iy
-        _MForm = mForm
+        _OForm = oForm
+        _Subject = subject
+        _ControlBy = controlBy
+        _MainPanel = mainPanl
+        _ScrollBar = scrollBar
+        _ListOfUserPanel = listOfUserPanel
+    End Sub
+
+    Sub New(ByRef subject As Subject, ByRef scrollBar As GunaVScrollBar, ByRef aForm As AllFriendsForm, iy As Integer, controlBy As String,
+            ByRef listOfUserPanel As List(Of FriendsOnlineAndAllPanel), ByRef mainPanl As Panel)
+
+        _Iy = iy
+        _AForm = aForm
         _Subject = subject
         _ControlBy = controlBy
         _MainPanel = mainPanl
@@ -60,7 +91,12 @@ Public Class Create_ListOf_Panels
                 Select Case _ControlBy
                     Case "All"
                         If _ListOfsbjFriends.Item(i).FRIENDS_BLOCKED.Equals("NO") Then
-                            Create_Panel(i, friendPanel)
+                            friendPanel = New FriendsOnlineAndAllPanel(_AForm, locationOfFriendPanel, _ScrollBar, (_Count).ToString _
+                                            , _ListOfsbjFriends.Item(i).FRIENDS_PICTURE, _ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
+                                            , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE)
+
+
+                            Create_Panel(friendPanel)
                         End If
 
                     Case "Chat"
@@ -69,28 +105,29 @@ Public Class Create_ListOf_Panels
                                             , _ListOfsbjFriends.Item(i).FRIENDS_PICTURE, _ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
                                             , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE)
 
-                            Create_Panel(i, friendPanel)
+                            Create_Panel(friendPanel)
                         End If
                     Case "Online"
                         If _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE.Equals("Online") Then
-                            friendPanel = New FriendsPanel(_MForm, locationOfFriendPanel, _ScrollBar, (_Count).ToString _
+                            friendPanel = New FriendsOnlineAndAllPanel(_MForm, locationOfFriendPanel, _ScrollBar, (_Count).ToString _
                                             , _ListOfsbjFriends.Item(i).FRIENDS_PICTURE, _ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
                                             , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE)
 
-                            Create_Panel(i, friendPanel)
+                            Create_Panel(friendPanel)
                         End If
                     Case "Blocked"
                         If _ListOfsbjFriends.Item(i).FRIENDS_BLOCKED.Equals("Yes") Then
-                            Create_Panel(i, friendPanel)
+                            friendPanel = New BlockedFriendsPanel(_BForm, locationOfFriendPanel, _ScrollBar, (_Count).ToString _
+                                            , _ListOfsbjFriends.Item(i).FRIENDS_PICTURE, _ListOfsbjFriends.Item(i).FRIENDS_USERNAME)
+
+                            Create_Panel(friendPanel)
                         End If
                 End Select
             Next
         End If
     End Sub
 
-    Private Sub Create_Panel(i As Integer, friendPanel As Object)
-
-        Dim pnl As New Panel
+    Private Sub Create_Panel(ByRef friendPanel As Object)
 
         _Y += _Iy
         _Count += 1

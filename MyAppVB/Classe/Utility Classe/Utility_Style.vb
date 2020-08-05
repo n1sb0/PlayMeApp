@@ -186,7 +186,7 @@ Public Class Utility_Style
         Select Case userStateOnline
             Case "Online"
                 ovalOnline.FillColor = Color.FromArgb(255, ColorTranslator.FromHtml("#2ecc71"))
-            Case "Offline"
+            Case "Offline", "Blocked"
                 ovalOnline.FillColor = Color.Silver
         End Select
 

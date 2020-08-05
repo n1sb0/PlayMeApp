@@ -89,7 +89,7 @@ Public Class FriendsChatPanel
     End Sub
 
     Private Sub On_FriendsPanel_Leave(sender As Object, e As EventArgs)
-        If _MainForm.PanelListOfFriends.GetChildAtPoint(_MainForm.PanelListOfFriends.PointToClient(Cursor.Position)) Is _MainForm.FriendScrollBar OrElse _UserPanel.GetChildAtPoint(_UserPanel.PointToClient(Cursor.Position)) Is Nothing Then
+        If _MainForm.PanelListOfChatFriends.GetChildAtPoint(_MainForm.PanelListOfChatFriends.PointToClient(Cursor.Position)) Is _MainForm.FriendsChatScrollBar OrElse _UserPanel.GetChildAtPoint(_UserPanel.PointToClient(Cursor.Position)) Is Nothing Then
             Leave_ListOfFriend()
         End If
     End Sub
@@ -119,8 +119,6 @@ Public Class FriendsChatPanel
 
         chatform.lblStateOnlineOfFriend.Location = New Point(positionOflblOnline)
 
-        _MainForm.pnlOnlineUsers.Visible = False
-
         _ControlChildForm.OpenChildForm(chatform, _MainForm.MainChatAndFriendPanel, _MainForm.currentChildForm)
     End Sub
 
@@ -132,7 +130,7 @@ Public Class FriendsChatPanel
 
         Dim index = _MainForm._ListOfUserFriendsPanel.FindIndex(Function(panel) panel._UserPanel.Name = "pnl" + s)
 
-        _MainForm.PanelListOfFriends.Controls.Remove(_UserPanel)
+        _MainForm.PanelListOfChatFriends.Controls.Remove(_UserPanel)
         _MainForm._ListOfUserFriendsPanel.RemoveAt(index)
 
         On_DirectWasDeleted(index)

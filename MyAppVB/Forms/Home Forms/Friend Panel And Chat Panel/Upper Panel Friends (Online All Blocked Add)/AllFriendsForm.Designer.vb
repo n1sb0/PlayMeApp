@@ -22,11 +22,11 @@ Partial Class AllFriendsForm
     'Non modificarla mediante l'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.pnlUnderlblAllFriends = New System.Windows.Forms.Panel()
+        Me.lblAllFriends = New System.Windows.Forms.Label()
         Me.AllFriendScrollBar = New Guna.UI.WinForms.GunaVScrollBar()
         Me.AllFriendsPanel = New Guna.UI.WinForms.GunaPanel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.pnlAllFriends = New System.Windows.Forms.Panel()
         Me.GunaButton2 = New Guna.UI.WinForms.GunaButton()
         Me.GunaButton1 = New Guna.UI.WinForms.GunaButton()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -36,29 +36,31 @@ Partial Class AllFriendsForm
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.lblFriendOnline = New Microsoft.VisualBasic.PowerPacks.OvalShape()
         Me.AllFriendsPanel.SuspendLayout()
-        Me.Panel2.SuspendLayout()
+        Me.pnlAllFriends.SuspendLayout()
         CType(Me.FriendsPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Panel1
+        'pnlUnderlblAllFriends
         '
-        Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.pnlUnderlblAllFriends.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel1.Location = New System.Drawing.Point(15, 30)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(900, 2)
-        Me.Panel1.TabIndex = 77
+        Me.pnlUnderlblAllFriends.BackColor = System.Drawing.Color.Gray
+        Me.pnlUnderlblAllFriends.Location = New System.Drawing.Point(25, 49)
+        Me.pnlUnderlblAllFriends.Name = "pnlUnderlblAllFriends"
+        Me.pnlUnderlblAllFriends.Size = New System.Drawing.Size(865, 1)
+        Me.pnlUnderlblAllFriends.TabIndex = 77
         '
-        'Label1
+        'lblAllFriends
         '
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Silver
-        Me.Label1.Location = New System.Drawing.Point(30, 5)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(136, 20)
-        Me.Label1.TabIndex = 78
-        Me.Label1.Text = "All Friends - "
+        Me.lblAllFriends.AutoSize = True
+        Me.lblAllFriends.BackColor = System.Drawing.Color.Transparent
+        Me.lblAllFriends.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.lblAllFriends.ForeColor = System.Drawing.Color.Silver
+        Me.lblAllFriends.Location = New System.Drawing.Point(30, 15)
+        Me.lblAllFriends.Name = "lblAllFriends"
+        Me.lblAllFriends.Size = New System.Drawing.Size(97, 17)
+        Me.lblAllFriends.TabIndex = 78
+        Me.lblAllFriends.Text = "ALL FRIENDS -"
         '
         'AllFriendScrollBar
         '
@@ -66,7 +68,7 @@ Partial Class AllFriendsForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.AllFriendScrollBar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.AllFriendScrollBar.LargeChange = 10
-        Me.AllFriendScrollBar.Location = New System.Drawing.Point(930, 50)
+        Me.AllFriendScrollBar.Location = New System.Drawing.Point(920, 50)
         Me.AllFriendScrollBar.Maximum = 5000
         Me.AllFriendScrollBar.MouseWheelBarPartitions = 2
         Me.AllFriendScrollBar.Name = "AllFriendScrollBar"
@@ -76,33 +78,34 @@ Partial Class AllFriendsForm
         Me.AllFriendScrollBar.ThumbColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.AllFriendScrollBar.ThumbHoverColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.AllFriendScrollBar.ThumbPressedColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.AllFriendScrollBar.Visible = False
         '
         'AllFriendsPanel
         '
         Me.AllFriendsPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AllFriendsPanel.Controls.Add(Me.Panel2)
+        Me.AllFriendsPanel.Controls.Add(Me.pnlAllFriends)
         Me.AllFriendsPanel.Location = New System.Drawing.Point(15, 50)
         Me.AllFriendsPanel.Name = "AllFriendsPanel"
         Me.AllFriendsPanel.Size = New System.Drawing.Size(900, 600)
         Me.AllFriendsPanel.TabIndex = 80
         '
-        'Panel2
+        'pnlAllFriends
         '
-        Me.Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.pnlAllFriends.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel2.Controls.Add(Me.GunaButton2)
-        Me.Panel2.Controls.Add(Me.GunaButton1)
-        Me.Panel2.Controls.Add(Me.Label2)
-        Me.Panel2.Controls.Add(Me.lblFriendName)
-        Me.Panel2.Controls.Add(Me.FriendsPicture)
-        Me.Panel2.Controls.Add(Me.Panel3)
-        Me.Panel2.Controls.Add(Me.ShapeContainer1)
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(900, 62)
-        Me.Panel2.TabIndex = 0
+        Me.pnlAllFriends.Controls.Add(Me.GunaButton2)
+        Me.pnlAllFriends.Controls.Add(Me.GunaButton1)
+        Me.pnlAllFriends.Controls.Add(Me.Label2)
+        Me.pnlAllFriends.Controls.Add(Me.lblFriendName)
+        Me.pnlAllFriends.Controls.Add(Me.FriendsPicture)
+        Me.pnlAllFriends.Controls.Add(Me.Panel3)
+        Me.pnlAllFriends.Controls.Add(Me.ShapeContainer1)
+        Me.pnlAllFriends.Location = New System.Drawing.Point(0, 0)
+        Me.pnlAllFriends.Name = "pnlAllFriends"
+        Me.pnlAllFriends.Size = New System.Drawing.Size(900, 62)
+        Me.pnlAllFriends.TabIndex = 0
         '
         'GunaButton2
         '
@@ -231,23 +234,24 @@ Partial Class AllFriendsForm
         Me.ClientSize = New System.Drawing.Size(950, 650)
         Me.Controls.Add(Me.AllFriendsPanel)
         Me.Controls.Add(Me.AllFriendScrollBar)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.lblAllFriends)
+        Me.Controls.Add(Me.pnlUnderlblAllFriends)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "AllFriendsForm"
         Me.Text = "AllFriendsForm"
         Me.AllFriendsPanel.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
+        Me.pnlAllFriends.ResumeLayout(False)
         CType(Me.FriendsPicture, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Label1 As Label
+    Friend WithEvents pnlUnderlblAllFriends As Panel
+    Friend WithEvents lblAllFriends As Label
     Friend WithEvents AllFriendScrollBar As Guna.UI.WinForms.GunaVScrollBar
     Friend WithEvents AllFriendsPanel As Guna.UI.WinForms.GunaPanel
-    Friend WithEvents Panel2 As Panel
+    Friend WithEvents pnlAllFriends As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents lblFriendName As Label
     Friend WithEvents FriendsPicture As Guna.UI.WinForms.GunaCirclePictureBox

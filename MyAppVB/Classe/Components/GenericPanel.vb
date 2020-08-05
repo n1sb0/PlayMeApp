@@ -18,6 +18,7 @@ Public Class GenericPanel
     Property _OvalOnline As OvalShape = New OvalShape(Ctr)
     Property _SendMessageBtn As New GunaButton
     Property _MenuBtn As New GunaButton
+    Property _UnBlockBtn As New GunaButton
 
 
     Public _LocationOfPanel As New Point
@@ -32,7 +33,10 @@ Public Class GenericPanel
 
     Public _NumberOfPanel As String
     Public _MainForm As MainForm
+    Public _BlockedForm As BlockedFriendsForm
+    Public _AllFrForm As AllFriendsForm
 
+    Public _RedColor As String = _Utility_Style.RedColor
     Public _GrayColor As String = _Utility_Style.GrayColor
     Public _BackGColor As String = _Utility_Style.BackGroundColor
     Public _PanelsColorLightDarkBlue As String = _Utility_Style.LightDarkBlue
@@ -134,6 +138,14 @@ Public Class GenericPanel
         _MenuBtn.Image = My.Resources.VerticleMenuDots
 
         _MenuBtn.ImageSize = New Size(25, 25)
+
+    End Sub
+
+    Public Sub Create_UnBlockButton()
+        Default_Button_Settings(_UnBlockBtn)
+        _UnBlockBtn.Image = My.Resources.BlockedUser
+
+        _UnBlockBtn.ImageSize = New Size(25, 25)
 
     End Sub
 

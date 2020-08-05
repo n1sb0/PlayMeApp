@@ -49,8 +49,6 @@
 
                     ReadFromDataReader(sbjFriend, reader)
 
-                    Debug.WriteLine(sbjFriend.FRIENDS_USERNAME)
-
                     listOfUserFriends.Add(sbjFriend)
                 End While
 
