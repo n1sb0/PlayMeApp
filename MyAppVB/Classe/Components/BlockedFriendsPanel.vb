@@ -15,8 +15,10 @@ Public Class BlockedFriendsPanel
     End Sub
 
     Private Sub Create_FriendsPanelOnline()
-        Create_Panel(900, 62)
+        Create_Panel(865, 62)
         Create_UserName()
+        Create_RadiusBackGround_Left()
+        Create_RadiusBackGround_Right()
         Create_UserStateOnline_Label()
         Create_OnlineButton()
         Create_UserPictureBox()
@@ -25,7 +27,7 @@ Public Class BlockedFriendsPanel
 
         UpdateComponents()
 
-        'AddEventRef()
+        AddEventRef()
 
         Set_Name()
 
@@ -34,6 +36,19 @@ Public Class BlockedFriendsPanel
         AddComponents()
     End Sub
 
+    Public Sub AddEventRef()
+        AddHandler _UserPanel.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Hover
+        AddHandler _OvalOnline.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Hover
+        AddHandler _UserNameLbl.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Hover
+        AddHandler _UserPictureBox.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Hover
+        AddHandler _UserStateOnline_Label.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Hover
+        AddHandler _BackGRadLeft.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Hover
+        AddHandler _BackGRadRight.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Hover
+        AddHandler _UnBlockBtn.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Hover
+
+
+        AddHandler _UserPanel.MouseLeave, AddressOf On_FriendsOnlineAndAllPanel_Leave
+    End Sub
     Private Sub UpdateComponents()
         _UserPanel.Anchor = AnchorStyles.Right Or AnchorStyles.Left Or AnchorStyles.Top
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
@@ -49,6 +64,8 @@ Public Class BlockedFriendsPanel
         _UserStateOnline_Label.Name = "pnlOnlineLbl" + _NumberOfPanel
         _UnBlockBtn.Name = "pnlUnBlockBtn" + _NumberOfPanel
         _UserLine.Name = "pnlLine" + _NumberOfPanel
+        _BackGRadLeft.Name = "pnlBackLeft" + _NumberOfPanel
+        _BackGRadRight.Name = "pnlBackRight" + _NumberOfPanel
     End Sub
 
     Private Sub Set_Location()
@@ -57,7 +74,7 @@ Public Class BlockedFriendsPanel
         Dim locationOnlineLabel As Point = New Point(39, 37)
         Dim locationUserStateOnlineLabel As Point = New Point(55, 35)
         Dim locationOfUnBlockBtn As Point = New Point(820, 12)
-        Dim locationUserLine As Point = New Point(10, 60)
+        Dim locationUserLine As Point = New Point(0, 61)
 
         _UserPanel.Location = _LocationOfPanel
         _UserNameLbl.Location = locationOfUserName
@@ -75,6 +92,40 @@ Public Class BlockedFriendsPanel
         _UserPanel.Controls.Add(_UserStateOnline_Label)
         _UserPanel.Controls.Add(_UnBlockBtn)
         _UserPanel.Controls.Add(_UserLine)
+    End Sub
+
+    Private Sub On_FriendsOnlineAndAllPanel_Hover()
+        _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
+        _UserLine.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
+        _UnBlockBtn.OnHoverBaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_RedColor))
+
+        UnderLine_SelectedUser(_PanelsColorLightDarkBlue)
+
+        _BackGRadRight.Visible = True
+        _BackGRadLeft.Visible = True
+        _UnBlockBtn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_DarkBlue))
+    End Sub
+
+    Private Sub On_FriendsOnlineAndAllPanel_Leave()
+        _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
+        _UserLine.BackColor = Color.Gray
+
+        UnderLine_SelectedUser(Color.Gray.ToArgb)
+
+        _BackGRadRight.Visible = False
+        _BackGRadLeft.Visible = False
+        _UnBlockBtn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
+    End Sub
+
+    Private Sub UnderLine_SelectedUser(ccolor As String)
+
+        Dim index As Integer = _BlockedForm._ListOfUserBlockedFriendsPanel.IndexOf(Me)
+        If index > 0 Then
+            _BlockedForm._ListOfUserBlockedFriendsPanel.Item(index - 1)._UserLine.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(ccolor))
+        Else
+            _BlockedForm.pnlUnderText.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(ccolor))
+        End If
+
     End Sub
 
 End Class

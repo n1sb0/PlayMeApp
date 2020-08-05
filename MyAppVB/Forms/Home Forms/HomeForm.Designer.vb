@@ -44,6 +44,7 @@ Partial Class MainForm
         Me.MainChatAndFriendPanel = New System.Windows.Forms.Panel()
         Me.FriendsPanelChild = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnPending = New Guna.UI.WinForms.GunaButton()
         Me.btnHelp = New FontAwesome.Sharp.IconPictureBox()
         Me.btnAddNewFriends = New Guna.UI.WinForms.GunaButton()
         Me.btnBlockedFriends = New Guna.UI.WinForms.GunaButton()
@@ -441,6 +442,7 @@ Partial Class MainForm
         Me.Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.btnPending)
         Me.Panel2.Controls.Add(Me.btnHelp)
         Me.Panel2.Controls.Add(Me.btnAddNewFriends)
         Me.Panel2.Controls.Add(Me.btnBlockedFriends)
@@ -454,6 +456,33 @@ Partial Class MainForm
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(950, 52)
         Me.Panel2.TabIndex = 1
+        '
+        'btnPending
+        '
+        Me.btnPending.Animated = True
+        Me.btnPending.AnimationHoverSpeed = 0.07!
+        Me.btnPending.AnimationSpeed = 0.03!
+        Me.btnPending.BackColor = System.Drawing.Color.Transparent
+        Me.btnPending.BaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnPending.BorderColor = System.Drawing.Color.Black
+        Me.btnPending.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnPending.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnPending.FocusedColor = System.Drawing.Color.Empty
+        Me.btnPending.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.btnPending.ForeColor = System.Drawing.Color.DarkGray
+        Me.btnPending.Image = Nothing
+        Me.btnPending.ImageSize = New System.Drawing.Size(20, 20)
+        Me.btnPending.Location = New System.Drawing.Point(271, 10)
+        Me.btnPending.Name = "btnPending"
+        Me.btnPending.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.btnPending.OnHoverBorderColor = System.Drawing.Color.Black
+        Me.btnPending.OnHoverForeColor = System.Drawing.Color.White
+        Me.btnPending.OnHoverImage = Nothing
+        Me.btnPending.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.btnPending.Radius = 7
+        Me.btnPending.Size = New System.Drawing.Size(80, 30)
+        Me.btnPending.TabIndex = 95
+        Me.btnPending.Text = "Pending"
         '
         'btnHelp
         '
@@ -484,7 +513,7 @@ Partial Class MainForm
         Me.btnAddNewFriends.ForeColor = System.Drawing.Color.White
         Me.btnAddNewFriends.Image = Nothing
         Me.btnAddNewFriends.ImageSize = New System.Drawing.Size(20, 20)
-        Me.btnAddNewFriends.Location = New System.Drawing.Point(343, 10)
+        Me.btnAddNewFriends.Location = New System.Drawing.Point(449, 10)
         Me.btnAddNewFriends.Name = "btnAddNewFriends"
         Me.btnAddNewFriends.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
         Me.btnAddNewFriends.OnHoverBorderColor = System.Drawing.Color.Black
@@ -511,7 +540,7 @@ Partial Class MainForm
         Me.btnBlockedFriends.ForeColor = System.Drawing.Color.DarkGray
         Me.btnBlockedFriends.Image = Nothing
         Me.btnBlockedFriends.ImageSize = New System.Drawing.Size(20, 20)
-        Me.btnBlockedFriends.Location = New System.Drawing.Point(257, 10)
+        Me.btnBlockedFriends.Location = New System.Drawing.Point(357, 10)
         Me.btnBlockedFriends.Name = "btnBlockedFriends"
         Me.btnBlockedFriends.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.btnBlockedFriends.OnHoverBorderColor = System.Drawing.Color.Black
@@ -538,7 +567,7 @@ Partial Class MainForm
         Me.btnAllFrineds.ForeColor = System.Drawing.Color.DarkGray
         Me.btnAllFrineds.Image = Nothing
         Me.btnAllFrineds.ImageSize = New System.Drawing.Size(20, 20)
-        Me.btnAllFrineds.Location = New System.Drawing.Point(210, 10)
+        Me.btnAllFrineds.Location = New System.Drawing.Point(224, 10)
         Me.btnAllFrineds.Name = "btnAllFrineds"
         Me.btnAllFrineds.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.btnAllFrineds.OnHoverBorderColor = System.Drawing.Color.Black
@@ -565,7 +594,7 @@ Partial Class MainForm
         Me.btnFriendsOnline.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnFriendsOnline.Image = Nothing
         Me.btnFriendsOnline.ImageSize = New System.Drawing.Size(20, 20)
-        Me.btnFriendsOnline.Location = New System.Drawing.Point(138, 10)
+        Me.btnFriendsOnline.Location = New System.Drawing.Point(150, 10)
         Me.btnFriendsOnline.Name = "btnFriendsOnline"
         Me.btnFriendsOnline.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.btnFriendsOnline.OnHoverBorderColor = System.Drawing.Color.Black
@@ -950,4 +979,5 @@ Partial Class MainForm
     Friend WithEvents PanelListOfChatFriends As Guna.UI.WinForms.GunaPanel
     Friend WithEvents btnHelp As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents FriendsPanelChild As Panel
+    Friend WithEvents btnPending As Guna.UI.WinForms.GunaButton
 End Class

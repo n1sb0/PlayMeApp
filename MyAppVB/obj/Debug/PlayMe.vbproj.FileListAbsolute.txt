@@ -98,3 +98,4 @@ A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.AllFriendsForm.resource
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.BlockedFriendsForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayMe.vbprojAssemblyReference.cache
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.OnlineFriendsForm.resources
+A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.PendingForm.resources

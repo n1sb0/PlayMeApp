@@ -1,5 +1,4 @@
 ﻿Public Class AllFriendsForm
-
     Private vScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
 
     Private _Subject As Subject

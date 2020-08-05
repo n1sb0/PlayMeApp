@@ -293,18 +293,16 @@ Public Class MainForm
         Debug.WriteLine(secondChildForm.Name)
 
         Select Case secondChildForm.Name
-            Case "AddFriendForm", "AllFriendsForm", "BlockedFriendsForm", "OnlineFriendsForm"
+            Case "AddFriendForm", "AllFriendsForm", "BlockedFriendsForm", "OnlineFriendsForm", "PendingForm"
                 Onclick_OpenChildForm_FriendPanels(secondChildForm.Name)
             Case "ChatFriendForm"
-
                 _ListOfUserFriendsChatPanel.Item(_OpenedChat).On_MouseClickFriendList(_ListOfUserFriendsChatPanel.Item(_OpenedChat)._Sender, _ListOfUserFriendsChatPanel.Item(_OpenedChat)._E)
         End Select
-
     End Sub
 
     '*****///// FUNCTION TO OPEN OTHER FORMS ON LEFT MAIN PANEL
     Private Sub On_Click_UpperPanel_FriendPanel_Button(sender As System.Object, e As System.EventArgs) _
-      Handles btnFriendsOnline.Click, btnAllFrineds.Click, btnBlockedFriends.Click, btnAddNewFriends.Click
+      Handles btnFriendsOnline.Click, btnAllFrineds.Click, btnBlockedFriends.Click, btnAddNewFriends.Click, btnPending.Click
 
         Change_lastGenericButton()
 
@@ -361,6 +359,11 @@ Public Class MainForm
             Case "btnFriendsOnline", "OnlineFriendsForm"
                 Dim onlineFriendsForm As New OnlineFriendsForm(_Subject)
                 _ControlChildForm.OpenChildForm(onlineFriendsForm, FriendsPanelChild, currentChildForm)
+
+            Case "btnPending", "PendingForm"
+                Dim pandingForm As New PendingForm(_Subject)
+                _ControlChildForm.OpenChildForm(pandingForm, FriendsPanelChild, currentChildForm)
+
         End Select
     End Sub
     '*****///// END FUNCTION TO OPEN OTHER FORMS ON LEFT MAIN PANEL

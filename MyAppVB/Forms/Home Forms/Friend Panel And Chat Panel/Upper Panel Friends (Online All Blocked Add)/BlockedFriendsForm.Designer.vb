@@ -32,7 +32,7 @@ Partial Class BlockedFriendsForm
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.lblFriendOnline = New Microsoft.VisualBasic.PowerPacks.OvalShape()
         Me.lblBlocekdFriends = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.pnlUnderText = New System.Windows.Forms.Panel()
         Me.BlockedFriendScrollBar = New Guna.UI.WinForms.GunaVScrollBar()
         Me.BlockedFriendsPanel.SuspendLayout()
         Me.pnlBlocekdFriend.SuspendLayout()
@@ -45,6 +45,7 @@ Partial Class BlockedFriendsForm
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BlockedFriendsPanel.Controls.Add(Me.pnlBlocekdFriend)
+        Me.BlockedFriendsPanel.Controls.Add(Me.pnlUnderText)
         Me.BlockedFriendsPanel.Location = New System.Drawing.Point(15, 50)
         Me.BlockedFriendsPanel.Name = "BlockedFriendsPanel"
         Me.BlockedFriendsPanel.Size = New System.Drawing.Size(900, 600)
@@ -169,15 +170,15 @@ Partial Class BlockedFriendsForm
         Me.lblBlocekdFriends.TabIndex = 82
         Me.lblBlocekdFriends.Text = "BLOCKED -"
         '
-        'Panel1
+        'pnlUnderText
         '
-        Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.pnlUnderText.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel1.BackColor = System.Drawing.Color.Gray
-        Me.Panel1.Location = New System.Drawing.Point(25, 49)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(865, 1)
-        Me.Panel1.TabIndex = 81
+        Me.pnlUnderText.BackColor = System.Drawing.Color.Gray
+        Me.pnlUnderText.Location = New System.Drawing.Point(10, 1)
+        Me.pnlUnderText.Name = "pnlUnderText"
+        Me.pnlUnderText.Size = New System.Drawing.Size(865, 1)
+        Me.pnlUnderText.TabIndex = 81
         '
         'BlockedFriendScrollBar
         '
@@ -206,7 +207,6 @@ Partial Class BlockedFriendsForm
         Me.Controls.Add(Me.BlockedFriendScrollBar)
         Me.Controls.Add(Me.BlockedFriendsPanel)
         Me.Controls.Add(Me.lblBlocekdFriends)
-        Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "BlockedFriendsForm"
         Me.Text = "BlockedFriendsForm"
@@ -228,6 +228,6 @@ Partial Class BlockedFriendsForm
     Friend WithEvents ShapeContainer1 As PowerPacks.ShapeContainer
     Friend WithEvents lblFriendOnline As PowerPacks.OvalShape
     Friend WithEvents lblBlocekdFriends As Label
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents pnlUnderText As Panel
     Friend WithEvents BlockedFriendScrollBar As Guna.UI.WinForms.GunaVScrollBar
 End Class
