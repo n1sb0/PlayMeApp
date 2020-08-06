@@ -7,6 +7,7 @@ Public Class Create_ListOf_Panels
     Private _MForm As MainForm
     Private _AForm As AllFriendsForm
     Private _BForm As BlockedFriendsForm
+    Private _CForm As CreateDMForm
     Private _OForm As OnlineFriendsForm
     Private _MainPanel As Panel
     Private _Subject As Subject
@@ -21,6 +22,18 @@ Public Class Create_ListOf_Panels
 
     Sub New()
 
+    End Sub
+
+    Sub New(ByRef subject As Subject, ByRef scrollBar As GunaVScrollBar, ByRef cForm As CreateDMForm, iy As Integer, controlBy As String,
+            ByRef listOfUserPanel As List(Of DmFriendsPanel), ByRef mainPanl As GunaPanel)
+
+        _Iy = iy
+        _CForm = cForm
+        _Subject = subject
+        _ControlBy = controlBy
+        _MainPanelG = mainPanl
+        _ScrollBar = scrollBar
+        _ListOfUserPanel = listOfUserPanel
     End Sub
 
     Sub New(ByRef subject As Subject, ByRef scrollBar As GunaVScrollBar, ByRef bForm As BlockedFriendsForm, iy As Integer, controlBy As String,
@@ -93,7 +106,6 @@ Public Class Create_ListOf_Panels
                                             , _ListOfsbjFriends.Item(i).FRIENDS_PICTURE, _ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
                                             , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE)
 
-
                             Create_Panel(friendPanel)
                         End If
 
@@ -105,6 +117,7 @@ Public Class Create_ListOf_Panels
 
                             Create_Panel(friendPanel)
                         End If
+
                     Case "Online"
                         If _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE.Equals("Online") Then
                             friendPanel = New FriendsOnlineAndAllPanel(_OForm, locationOfFriendPanel, _ScrollBar, (_Count).ToString _
@@ -113,6 +126,7 @@ Public Class Create_ListOf_Panels
 
                             Create_Panel(friendPanel)
                         End If
+
                     Case "Blocked"
                         If _ListOfsbjFriends.Item(i).FRIENDS_BLOCKED.Equals("Yes") Then
                             friendPanel = New BlockedFriendsPanel(_BForm, locationOfFriendPanel, _ScrollBar, (_Count).ToString _
@@ -120,6 +134,16 @@ Public Class Create_ListOf_Panels
 
                             Create_Panel(friendPanel)
                         End If
+
+                    Case "DM"
+                        If _ListOfsbjFriends.Item(i).FRIENDS_BLOCKED.Equals("NO") Then
+                            friendPanel = New DmFriendsPanel(_CForm, locationOfFriendPanel, _ScrollBar, (_Count).ToString _
+                                            , _ListOfsbjFriends.Item(i).FRIENDS_PICTURE, _ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
+                                            , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE)
+
+                            Create_Panel(friendPanel)
+                        End If
+
                 End Select
             Next
         End If
@@ -139,7 +163,6 @@ Public Class Create_ListOf_Panels
             _MainPanel.Controls.Add(friendPanel._UserPanel)
             _MainPanel.Controls.Add(friendPanel._BackGRadLeft)
             _MainPanel.Controls.Add(friendPanel._BackGRadRight)
-
         Else
             _MainPanelG.Controls.Add(friendPanel._UserPanel)
         End If

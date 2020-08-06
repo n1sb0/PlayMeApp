@@ -55,9 +55,9 @@ Partial Class MainForm
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnHelp = New FontAwesome.Sharp.IconPictureBox()
         Me.pnlMsgFriends = New System.Windows.Forms.Panel()
+        Me.btnNewDirect = New FontAwesome.Sharp.IconPictureBox()
         Me.FriendsChatScrollBar = New Guna.UI.WinForms.GunaVScrollBar()
         Me.PanelListOfChatFriends = New Guna.UI.WinForms.GunaPanel()
-        Me.btnNewDirect = New FontAwesome.Sharp.IconPictureBox()
         Me.lblDirectMessages = New System.Windows.Forms.Label()
         Me.btnFriends = New Guna.UI.WinForms.GunaButton()
         Me.txtFindFriends = New Guna.UI.WinForms.GunaTextBox()
@@ -642,9 +642,9 @@ Partial Class MainForm
         Me.pnlMsgFriends.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.pnlMsgFriends.BackColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.pnlMsgFriends.Controls.Add(Me.btnNewDirect)
         Me.pnlMsgFriends.Controls.Add(Me.FriendsChatScrollBar)
         Me.pnlMsgFriends.Controls.Add(Me.PanelListOfChatFriends)
-        Me.pnlMsgFriends.Controls.Add(Me.btnNewDirect)
         Me.pnlMsgFriends.Controls.Add(Me.lblDirectMessages)
         Me.pnlMsgFriends.Controls.Add(Me.btnFriends)
         Me.pnlMsgFriends.Controls.Add(Me.txtFindFriends)
@@ -653,6 +653,21 @@ Partial Class MainForm
         Me.pnlMsgFriends.Name = "pnlMsgFriends"
         Me.pnlMsgFriends.Size = New System.Drawing.Size(260, 700)
         Me.pnlMsgFriends.TabIndex = 0
+        '
+        'btnNewDirect
+        '
+        Me.btnNewDirect.BackColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.btnNewDirect.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnNewDirect.ForeColor = System.Drawing.Color.Silver
+        Me.btnNewDirect.IconChar = FontAwesome.Sharp.IconChar.Plus
+        Me.btnNewDirect.IconColor = System.Drawing.Color.Silver
+        Me.btnNewDirect.IconSize = 20
+        Me.btnNewDirect.ImageLocation = ""
+        Me.btnNewDirect.Location = New System.Drawing.Point(215, 108)
+        Me.btnNewDirect.Name = "btnNewDirect"
+        Me.btnNewDirect.Size = New System.Drawing.Size(20, 20)
+        Me.btnNewDirect.TabIndex = 77
+        Me.btnNewDirect.TabStop = False
         '
         'FriendsChatScrollBar
         '
@@ -679,20 +694,6 @@ Partial Class MainForm
         Me.PanelListOfChatFriends.Name = "PanelListOfChatFriends"
         Me.PanelListOfChatFriends.Size = New System.Drawing.Size(260, 577)
         Me.PanelListOfChatFriends.TabIndex = 3
-        '
-        'btnNewDirect
-        '
-        Me.btnNewDirect.BackColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.btnNewDirect.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnNewDirect.ForeColor = System.Drawing.Color.Silver
-        Me.btnNewDirect.IconChar = FontAwesome.Sharp.IconChar.Plus
-        Me.btnNewDirect.IconColor = System.Drawing.Color.Silver
-        Me.btnNewDirect.IconSize = 20
-        Me.btnNewDirect.Location = New System.Drawing.Point(215, 108)
-        Me.btnNewDirect.Name = "btnNewDirect"
-        Me.btnNewDirect.Size = New System.Drawing.Size(20, 20)
-        Me.btnNewDirect.TabIndex = 76
-        Me.btnNewDirect.TabStop = False
         '
         'lblDirectMessages
         '
@@ -873,7 +874,6 @@ Partial Class MainForm
     Friend WithEvents txtFindFriends As Guna.UI.WinForms.GunaTextBox
     Friend WithEvents lblDirectMessages As Label
     Friend WithEvents btnFriends As Guna.UI.WinForms.GunaButton
-    Friend WithEvents btnNewDirect As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents lblFriends As Label
     Friend WithEvents Panel5 As Panel
     Friend WithEvents picFriend As PictureBox
@@ -887,4 +887,5 @@ Partial Class MainForm
     Friend WithEvents btnHelp As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents FriendsPanelChild As Panel
     Friend WithEvents btnPending As Guna.UI.WinForms.GunaButton
+    Friend WithEvents btnNewDirect As FontAwesome.Sharp.IconPictureBox
 End Class

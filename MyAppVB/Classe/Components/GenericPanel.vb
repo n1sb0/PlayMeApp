@@ -15,6 +15,7 @@ Public Class GenericPanel
     Property Ctr As ShapeContainer = New ShapeContainer()
     Property _UserPictureBox As New GunaCirclePictureBox
     Property _DeleteChatWithUserBtn As New IconPictureBox
+    Property _CheckBoxBtn As New IconPictureBox
     Property _OvalOnline As OvalShape = New OvalShape(Ctr)
     Property _SendMessageBtn As New GunaButton
     Property _MenuBtn As New GunaButton
@@ -38,7 +39,8 @@ Public Class GenericPanel
     Public _MainForm As MainForm
     Public _OnlineForm As OnlineFriendsForm
     Public _BlockedForm As BlockedFriendsForm
-    Public _AllFrForm As AllFriendsForm
+    Property _AllFrForm As AllFriendsForm
+    Public _DmForm As CreateDMForm
 
     Public _RedColor As String = _Utility_Style.RedColor
     Public _GrayColor As String = _Utility_Style.GrayColor
@@ -189,6 +191,13 @@ Public Class GenericPanel
         btn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
         btn.OnHoverBaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
         btn.OnPressedColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
+    End Sub
+
+    Public Sub Create_CheckBox()
+        _CheckBoxBtn.Size = New Size(30, 30)
+        _CheckBoxBtn.IconChar = FontAwesome.Sharp.IconChar.Square
+        _CheckBoxBtn.IconColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GrayColor))
+        _CheckBoxBtn.BackColor = Color.Transparent
     End Sub
 
 End Class

@@ -23,7 +23,7 @@ Partial Class BlockedFriendsForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.BlockedFriendsPanel = New Guna.UI.WinForms.GunaPanel()
-        Me.pnlImgPendingReq = New System.Windows.Forms.Panel()
+        Me.pnlImgBlockedFirends = New System.Windows.Forms.Panel()
         Me.IconPictureBox8 = New FontAwesome.Sharp.IconPictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.IconPictureBox3 = New FontAwesome.Sharp.IconPictureBox()
@@ -38,7 +38,7 @@ Partial Class BlockedFriendsForm
         Me.lblBlocekdFriends = New System.Windows.Forms.Label()
         Me.BlockedFriendScrollBar = New Guna.UI.WinForms.GunaVScrollBar()
         Me.BlockedFriendsPanel.SuspendLayout()
-        Me.pnlImgPendingReq.SuspendLayout()
+        Me.pnlImgBlockedFirends.SuspendLayout()
         CType(Me.IconPictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IconPictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IconPictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,30 +55,30 @@ Partial Class BlockedFriendsForm
         Me.BlockedFriendsPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BlockedFriendsPanel.Controls.Add(Me.pnlImgPendingReq)
+        Me.BlockedFriendsPanel.Controls.Add(Me.pnlImgBlockedFirends)
         Me.BlockedFriendsPanel.Controls.Add(Me.pnlUnderText)
         Me.BlockedFriendsPanel.Location = New System.Drawing.Point(15, 50)
         Me.BlockedFriendsPanel.Name = "BlockedFriendsPanel"
         Me.BlockedFriendsPanel.Size = New System.Drawing.Size(900, 600)
         Me.BlockedFriendsPanel.TabIndex = 84
         '
-        'pnlImgPendingReq
+        'pnlImgBlockedFirends
         '
-        Me.pnlImgPendingReq.Controls.Add(Me.IconPictureBox8)
-        Me.pnlImgPendingReq.Controls.Add(Me.Label1)
-        Me.pnlImgPendingReq.Controls.Add(Me.IconPictureBox3)
-        Me.pnlImgPendingReq.Controls.Add(Me.IconPictureBox2)
-        Me.pnlImgPendingReq.Controls.Add(Me.IconPictureBox7)
-        Me.pnlImgPendingReq.Controls.Add(Me.iconPicFly)
-        Me.pnlImgPendingReq.Controls.Add(Me.IconPictureBox6)
-        Me.pnlImgPendingReq.Controls.Add(Me.IconPictureBox4)
-        Me.pnlImgPendingReq.Controls.Add(Me.IconPictureBox5)
-        Me.pnlImgPendingReq.Controls.Add(Me.iconPicUsers)
-        Me.pnlImgPendingReq.Location = New System.Drawing.Point(300, 115)
-        Me.pnlImgPendingReq.Name = "pnlImgPendingReq"
-        Me.pnlImgPendingReq.Size = New System.Drawing.Size(350, 320)
-        Me.pnlImgPendingReq.TabIndex = 109
-        Me.pnlImgPendingReq.Visible = False
+        Me.pnlImgBlockedFirends.Controls.Add(Me.IconPictureBox8)
+        Me.pnlImgBlockedFirends.Controls.Add(Me.Label1)
+        Me.pnlImgBlockedFirends.Controls.Add(Me.IconPictureBox3)
+        Me.pnlImgBlockedFirends.Controls.Add(Me.IconPictureBox2)
+        Me.pnlImgBlockedFirends.Controls.Add(Me.IconPictureBox7)
+        Me.pnlImgBlockedFirends.Controls.Add(Me.iconPicFly)
+        Me.pnlImgBlockedFirends.Controls.Add(Me.IconPictureBox6)
+        Me.pnlImgBlockedFirends.Controls.Add(Me.IconPictureBox4)
+        Me.pnlImgBlockedFirends.Controls.Add(Me.IconPictureBox5)
+        Me.pnlImgBlockedFirends.Controls.Add(Me.iconPicUsers)
+        Me.pnlImgBlockedFirends.Location = New System.Drawing.Point(300, 115)
+        Me.pnlImgBlockedFirends.Name = "pnlImgBlockedFirends"
+        Me.pnlImgBlockedFirends.Size = New System.Drawing.Size(350, 320)
+        Me.pnlImgBlockedFirends.TabIndex = 109
+        Me.pnlImgBlockedFirends.Visible = False
         '
         'IconPictureBox8
         '
@@ -112,7 +112,7 @@ Partial Class BlockedFriendsForm
         Me.IconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.TelegramPlane
         Me.IconPictureBox3.IconColor = System.Drawing.Color.Gray
         Me.IconPictureBox3.IconSize = 40
-        Me.IconPictureBox3.Location = New System.Drawing.Point(59, 85)
+        Me.IconPictureBox3.Location = New System.Drawing.Point(46, 82)
         Me.IconPictureBox3.Name = "IconPictureBox3"
         Me.IconPictureBox3.Size = New System.Drawing.Size(40, 40)
         Me.IconPictureBox3.TabIndex = 106
@@ -200,10 +200,10 @@ Partial Class BlockedFriendsForm
         '
         Me.iconPicUsers.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.iconPicUsers.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
-        Me.iconPicUsers.IconChar = FontAwesome.Sharp.IconChar.UserSlash
+        Me.iconPicUsers.IconChar = FontAwesome.Sharp.IconChar.UsersSlash
         Me.iconPicUsers.IconColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.iconPicUsers.IconSize = 250
-        Me.iconPicUsers.Location = New System.Drawing.Point(50, 16)
+        Me.iconPicUsers.Location = New System.Drawing.Point(31, 16)
         Me.iconPicUsers.Name = "iconPicUsers"
         Me.iconPicUsers.Size = New System.Drawing.Size(250, 250)
         Me.iconPicUsers.TabIndex = 97
@@ -218,6 +218,7 @@ Partial Class BlockedFriendsForm
         Me.pnlUnderText.Name = "pnlUnderText"
         Me.pnlUnderText.Size = New System.Drawing.Size(865, 1)
         Me.pnlUnderText.TabIndex = 81
+        Me.pnlUnderText.Visible = False
         '
         'lblBlocekdFriends
         '
@@ -230,6 +231,7 @@ Partial Class BlockedFriendsForm
         Me.lblBlocekdFriends.Size = New System.Drawing.Size(75, 17)
         Me.lblBlocekdFriends.TabIndex = 82
         Me.lblBlocekdFriends.Text = "BLOCKED -"
+        Me.lblBlocekdFriends.Visible = False
         '
         'BlockedFriendScrollBar
         '
@@ -262,8 +264,8 @@ Partial Class BlockedFriendsForm
         Me.Name = "BlockedFriendsForm"
         Me.Text = "BlockedFriendsForm"
         Me.BlockedFriendsPanel.ResumeLayout(False)
-        Me.pnlImgPendingReq.ResumeLayout(False)
-        Me.pnlImgPendingReq.PerformLayout()
+        Me.pnlImgBlockedFirends.ResumeLayout(False)
+        Me.pnlImgBlockedFirends.PerformLayout()
         CType(Me.IconPictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IconPictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IconPictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -282,7 +284,7 @@ Partial Class BlockedFriendsForm
     Friend WithEvents lblBlocekdFriends As Label
     Friend WithEvents pnlUnderText As Panel
     Friend WithEvents BlockedFriendScrollBar As Guna.UI.WinForms.GunaVScrollBar
-    Friend WithEvents pnlImgPendingReq As Panel
+    Friend WithEvents pnlImgBlockedFirends As Panel
     Friend WithEvents IconPictureBox8 As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents IconPictureBox3 As FontAwesome.Sharp.IconPictureBox

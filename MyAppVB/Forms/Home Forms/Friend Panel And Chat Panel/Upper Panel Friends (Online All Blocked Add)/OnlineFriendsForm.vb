@@ -23,6 +23,14 @@
     Private Sub AllFriendsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         vScrollHelper = New Guna.UI.Lib.ScrollBar.PanelScrollHelper(pnlFriendsOnlineNow, OnlineFriendScrollBar, True)
         vScrollHelper.UpdateScrollBar()
+
+        If _ListOfUserFriendsOnline.Count = 0 Then
+            pnlImgOnlineFriends.Visible = True
+        Else
+            pnlImgOnlineFriends.Visible = False
+            pnlUnderTextOnlineFriends.Visible = True
+            lblFriendsOnlineNow.Visible = True
+        End If
     End Sub
 
     Private Sub OnlineFriendsForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown

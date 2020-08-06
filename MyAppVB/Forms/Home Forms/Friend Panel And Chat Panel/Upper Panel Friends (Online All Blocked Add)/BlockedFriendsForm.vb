@@ -24,7 +24,13 @@
     Private Sub AllFriendsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         vScrollHelper = New Guna.UI.Lib.ScrollBar.PanelScrollHelper(BlockedFriendsPanel, BlockedFriendScrollBar, True)
         vScrollHelper.UpdateScrollBar()
+
+        If _ListOfUserBlockedFriendsPanel.Count = 0 Then
+            pnlImgBlockedFirends.Visible = True
+        Else
+            pnlImgBlockedFirends.Visible = False
+            pnlUnderText.Visible = True
+            lblBlocekdFriends.Visible = True
+        End If
     End Sub
-
-
 End Class

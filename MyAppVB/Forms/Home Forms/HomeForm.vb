@@ -17,12 +17,13 @@ Public Class MainForm
     Private GenericButton As GunaButton
     Private ButtonWasSelected As GunaButton
     Private MoveForm_MousePosition As Point
-    Private lastOpenedFriendsPanel As GunaButton = btnFriendsOnline
+    Public lastOpenedFriendsPanel As GunaButton = btnFriendsOnline
 
     Public _OpenedChat As Integer
 
     Private vScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
 
+    Private _CreateDm As CreateDMForm
     Private _Subject As New Subject
     Private _Utility_Style As New Utility_Style
     Private _Utility_Secure As New Utility_Secure
@@ -44,6 +45,7 @@ Public Class MainForm
         InitializeComponent()
 
         ' Aggiungere le eventuali istruzioni di inizializzazione dopo la chiamata a InitializeComponent().
+        Save_UserName("n1sb0")
         SetStyle_For_Components()
     End Sub
 
@@ -329,7 +331,7 @@ Public Class MainForm
 
     End Sub
 
-    Private Sub Change_lastGenericButton()
+    Public Sub Change_lastGenericButton()
         If Not lastGenericButton.Name.Equals("btnAddNewFriends") Then
             lastGenericButton.BaseColor = Color.Transparent
             lastGenericButton.ForeColor = Color.DarkGray
@@ -341,11 +343,11 @@ Public Class MainForm
         genBtn.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GrayColor))
     End Sub
 
-    Private Sub Onclick_OpenChildForm_FriendPanels(buttonName As String)
+    Public Sub Onclick_OpenChildForm_FriendPanels(buttonName As String)
 
         Select Case buttonName
             Case "btnAllFrineds", "AllFriendsForm"
-                Dim allFriendsForm As New AllFriendsForm(_Subject)
+                Dim allFriendsForm As New AllFriendsForm(_Subject, Me)
                 _ControlChildForm.OpenChildForm(allFriendsForm, FriendsPanelChild, currentChildForm)
 
             Case "btnBlockedFriends", "BlockedFriendsForm"
@@ -417,4 +419,31 @@ Public Class MainForm
         Onclick_OpenChildForm_FriendPanels(btnFriendsOnline.Name)
         lastOpenedFriendsPanel = btnFriendsOnline
     End Sub
+
+    Private Sub btnNewDirect_Click(sender As Object, e As EventArgs) Handles btnNewDirect.Click
+        If Not Application.OpenForms().OfType(Of CreateDMForm).Any Then
+            _CreateDm = New CreateDMForm(Me, _Subject)
+        End If
+
+        If btnNewDirect.Rotation = 0 Then
+            btnNewDirect.Rotation = 45
+
+            _CreateDm.TopLevel = False
+            _CreateDm.Parent = Me
+
+            _CreateDm.SetBounds(290, 150, 400, 350)
+            _CreateDm.BringToFront()
+            _CreateDm.Show()
+
+            btnNewDirect.IconColor = Color.White
+        Else
+            btnNewDirect.IconColor = Color.Silver
+            btnNewDirect.Rotation = 0
+
+            _CreateDm.Close()
+            _CreateDm.Dispose()
+        End If
+    End Sub
+
+
 End Class

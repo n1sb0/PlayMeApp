@@ -152,7 +152,7 @@ Partial Class AddFriendForm
         Me.btnSendFriendRequest.Name = "btnSendFriendRequest"
         Me.btnSendFriendRequest.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(101, Byte), Integer), CType(CType(124, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.btnSendFriendRequest.OnHoverBorderColor = System.Drawing.Color.Black
-        Me.btnSendFriendRequest.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
+        Me.btnSendFriendRequest.OnHoverForeColor = System.Drawing.Color.White
         Me.btnSendFriendRequest.OnHoverImage = Nothing
         Me.btnSendFriendRequest.OnPressedColor = System.Drawing.Color.Black
         Me.btnSendFriendRequest.Radius = 7
@@ -219,7 +219,7 @@ Partial Class AddFriendForm
         Me.iconPicUsers.IconChar = FontAwesome.Sharp.IconChar.Users
         Me.iconPicUsers.IconColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.iconPicUsers.IconSize = 250
-        Me.iconPicUsers.Location = New System.Drawing.Point(87, -13)
+        Me.iconPicUsers.Location = New System.Drawing.Point(60, -13)
         Me.iconPicUsers.Name = "iconPicUsers"
         Me.iconPicUsers.Size = New System.Drawing.Size(250, 250)
         Me.iconPicUsers.TabIndex = 99

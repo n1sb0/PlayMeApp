@@ -1,6 +1,8 @@
 ﻿Public Class MyConnection
     Public Shared Function Get_Connection() As String
-        Dim ConnQuery As String = "*****"
+        Dim connQuery As String = "*****"
+
+        Return connQuery
     End Function
 
     Public Shared Function Get_Insert_Query_SubjectData() As String

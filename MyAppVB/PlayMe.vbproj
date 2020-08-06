@@ -95,8 +95,8 @@
     <Reference Include="EO.WebEngine, Version=20.1.88.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
       <HintPath>..\packages\EO.WebBrowser.20.1.88\lib\EO.WebEngine.dll</HintPath>
     </Reference>
-    <Reference Include="FontAwesome.Sharp, Version=5.13.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FontAwesome.Sharp.5.13.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    <Reference Include="FontAwesome.Sharp, Version=5.14.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.14.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI">
       <HintPath>C:\Users\syvak\OneDrive\Рабочий стол\[FTUApps.com] - Guna UI Framework Ultimate v2.0.0.1 + Keygen\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
@@ -235,6 +235,7 @@
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Classe\Components\BlockedFriendsPanel.vb" />
     <Compile Include="Classe\Components\Create_ListOf_Panels.vb" />
+    <Compile Include="Classe\Components\DmFriendsPanel.vb" />
     <Compile Include="Classe\Components\FriendsOnlineAndAllPanel.vb" />
     <Compile Include="Classe\Subject Classe\Subject_Friends.vb" />
     <Compile Include="Classe\Utility Classe\ControlChildForm.vb" />
@@ -256,6 +257,12 @@
       <DependentUpon>ChatFriendForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\ChatFriendForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\CreateDMForm.Designer.vb">
+      <DependentUpon>CreateDMForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\CreateDMForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\OnlineFriendsForm.Designer.vb">
@@ -381,6 +388,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\ChatFriendForm.resx">
       <DependentUpon>ChatFriendForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\CreateDMForm.resx">
+      <DependentUpon>CreateDMForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\AddFriendForm.resx">
       <DependentUpon>AddFriendForm.vb</DependentUpon>
