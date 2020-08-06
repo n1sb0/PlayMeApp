@@ -88,6 +88,7 @@ Partial Class OnlineFriendsForm
         '
         'pnlImgOnlineFriends
         '
+        Me.pnlImgOnlineFriends.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.pnlImgOnlineFriends.Controls.Add(Me.Label1)
         Me.pnlImgOnlineFriends.Controls.Add(Me.IconPictureBox3)
         Me.pnlImgOnlineFriends.Controls.Add(Me.IconPictureBox2)

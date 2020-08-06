@@ -106,6 +106,7 @@ Partial Class AllFriendsForm
         '
         'pnlImgAllFriends
         '
+        Me.pnlImgAllFriends.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.pnlImgAllFriends.Controls.Add(Me.IconPictureBox1)
         Me.pnlImgAllFriends.Controls.Add(Me.btnAddNewFriends)
         Me.pnlImgAllFriends.Controls.Add(Me.Label1)

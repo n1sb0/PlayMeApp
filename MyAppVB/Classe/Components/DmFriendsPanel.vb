@@ -40,6 +40,10 @@ Public Class DmFriendsPanel
     Private Sub UpdateComponents()
         _UserPanel.BackColor = Color.Transparent
         _UserNameLbl.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GrayColor))
+
+        _BackGRadLeft.Size = New Size(50, 50)
+        _BackGRadRight.Size = New Size(50, 50)
+
     End Sub
 
     Public Sub AddEventRef()
@@ -77,10 +81,14 @@ Public Class DmFriendsPanel
     End Sub
 
     Private Sub On_UserDmPanel_Hover()
+        BorderOfPanel_Visible(True)
+
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
     End Sub
 
     Private Sub On_UserDmPanel_Leave()
+        BorderOfPanel_Visible(False)
+
         _UserPanel.BackColor = Color.Transparent
     End Sub
 
@@ -100,10 +108,10 @@ Public Class DmFriendsPanel
     End Sub
 
     Private Sub Set_Location()
-        Dim locationOfPicture As Point = New Point(10, 5)
-        Dim locationOfUserName As Point = New Point(55, 17)
-        Dim locationOnlineLabel As Point = New Point(39, 32)
-        Dim locationCheckBox As Point = New Point(300, 12)
+        Dim locationOfPicture As Point = New Point(5, 5)
+        Dim locationOfUserName As Point = New Point(50, 17)
+        Dim locationOnlineLabel As Point = New Point(34, 32)
+        Dim locationCheckBox As Point = New Point(315, 12)
 
         _UserPanel.Location = _LocationOfPanel
         _UserNameLbl.Location = locationOfUserName

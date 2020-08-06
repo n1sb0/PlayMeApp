@@ -27,6 +27,7 @@ Public Class Create_ListOf_Panels
     Sub New(ByRef subject As Subject, ByRef scrollBar As GunaVScrollBar, ByRef cForm As CreateDMForm, iy As Integer, controlBy As String,
             ByRef listOfUserPanel As List(Of DmFriendsPanel), ByRef mainPanl As GunaPanel)
 
+        _X = 16
         _Iy = iy
         _CForm = cForm
         _Subject = subject
@@ -157,14 +158,26 @@ Public Class Create_ListOf_Panels
         _ListOfUserPanel.Add(friendPanel)
 
         If _MainPanel IsNot Nothing Then
+
             friendPanel._BackGRadLeft.Location = New Point(locationOfFriendPanel.X - 7, locationOfFriendPanel.Y)
             friendPanel._BackGRadRight.Location = New Point(locationOfFriendPanel.X + 809, locationOfFriendPanel.Y + 12)
+
+
 
             _MainPanel.Controls.Add(friendPanel._UserPanel)
             _MainPanel.Controls.Add(friendPanel._BackGRadLeft)
             _MainPanel.Controls.Add(friendPanel._BackGRadRight)
         Else
             _MainPanelG.Controls.Add(friendPanel._UserPanel)
+
+            If _ControlBy.Equals("DM") Then
+                friendPanel._BackGRadLeft.Location = New Point(locationOfFriendPanel.X - 10, locationOfFriendPanel.Y)
+                friendPanel._BackGRadRight.Location = New Point(locationOfFriendPanel.X + 330, locationOfFriendPanel.Y - 15)
+
+                _MainPanelG.Controls.Add(friendPanel._BackGRadLeft)
+                _MainPanelG.Controls.Add(friendPanel._BackGRadRight)
+            End If
+
         End If
     End Sub
 

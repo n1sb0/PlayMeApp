@@ -49,8 +49,6 @@ Public Class GenericPanel
     Public _PanelsColorLightDarkBlue As String = _Utility_Style.LightDarkBlue
     Public _LightBlue As String = _Utility_Style.LightBlue
 
-
-
     Public Sub Create_Panel(width As Integer, hight As Integer)
 
         Dim size As Size = New Size(width, hight)
@@ -200,4 +198,8 @@ Public Class GenericPanel
         _CheckBoxBtn.BackColor = Color.Transparent
     End Sub
 
+    Public Sub BorderOfPanel_Visible(state As Boolean)
+        _BackGRadRight.Visible = state
+        _BackGRadLeft.Visible = state
+    End Sub
 End Class

@@ -99,7 +99,7 @@ Partial Class AddFriendForm
         Me.FindFriendPanel.Controls.Add(Me.lblEnterUserName)
         Me.FindFriendPanel.Controls.Add(Me.txtFindFriend)
         Me.FindFriendPanel.Controls.Add(Me.btnSendFriendRequest)
-        Me.FindFriendPanel.Location = New System.Drawing.Point(40, 90)
+        Me.FindFriendPanel.Location = New System.Drawing.Point(52, 90)
         Me.FindFriendPanel.Name = "FindFriendPanel"
         Me.FindFriendPanel.Size = New System.Drawing.Size(870, 50)
         Me.FindFriendPanel.TabIndex = 77
@@ -162,6 +162,7 @@ Partial Class AddFriendForm
         '
         'GunaButton1
         '
+        Me.GunaButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GunaButton1.AnimationHoverSpeed = 0.07!
         Me.GunaButton1.AnimationSpeed = 0.03!
         Me.GunaButton1.BackColor = System.Drawing.Color.Transparent
@@ -175,7 +176,7 @@ Partial Class AddFriendForm
         Me.GunaButton1.Image = Nothing
         Me.GunaButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.GunaButton1.ImageSize = New System.Drawing.Size(25, 25)
-        Me.GunaButton1.Location = New System.Drawing.Point(870, 90)
+        Me.GunaButton1.Location = New System.Drawing.Point(882, 90)
         Me.GunaButton1.Name = "GunaButton1"
         Me.GunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.GunaButton1.OnHoverBorderColor = System.Drawing.Color.Black
@@ -201,7 +202,7 @@ Partial Class AddFriendForm
         Me.btnHomeChat.Image = Nothing
         Me.btnHomeChat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.btnHomeChat.ImageSize = New System.Drawing.Size(25, 25)
-        Me.btnHomeChat.Location = New System.Drawing.Point(30, 90)
+        Me.btnHomeChat.Location = New System.Drawing.Point(42, 90)
         Me.btnHomeChat.Name = "btnHomeChat"
         Me.btnHomeChat.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.btnHomeChat.OnHoverBorderColor = System.Drawing.Color.Black
@@ -369,6 +370,7 @@ Partial Class AddFriendForm
         '
         'pnlImgAddFriends
         '
+        Me.pnlImgAddFriends.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.pnlImgAddFriends.Controls.Add(Me.iconPicFly)
         Me.pnlImgAddFriends.Controls.Add(Me.IconPictureBox4)
         Me.pnlImgAddFriends.Controls.Add(Me.Label1)

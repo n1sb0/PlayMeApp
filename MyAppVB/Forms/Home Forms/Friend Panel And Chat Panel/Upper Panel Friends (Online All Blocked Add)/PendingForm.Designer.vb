@@ -78,6 +78,7 @@ Partial Class PendingForm
         '
         'pnlImgPendingReq
         '
+        Me.pnlImgPendingReq.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.pnlImgPendingReq.Controls.Add(Me.IconPictureBox8)
         Me.pnlImgPendingReq.Controls.Add(Me.Label1)
         Me.pnlImgPendingReq.Controls.Add(Me.IconPictureBox3)

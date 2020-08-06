@@ -304,6 +304,10 @@ Public Class SettingsForm
 
         pnlEditAccount.Visible = False
 
+        If Not buttonName.Equals("btnMyAccount") Then
+            Change_EditState(False)
+        End If
+
         Select Case buttonName
             Case "btnPrivacyAndSefty"
                 Dim privacyandSeftyForm As New PrivacyAndSeftyForm

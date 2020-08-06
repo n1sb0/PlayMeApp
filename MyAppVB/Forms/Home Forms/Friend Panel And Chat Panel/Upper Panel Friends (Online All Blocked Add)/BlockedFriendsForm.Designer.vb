@@ -64,6 +64,7 @@ Partial Class BlockedFriendsForm
         '
         'pnlImgBlockedFirends
         '
+        Me.pnlImgBlockedFirends.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.pnlImgBlockedFirends.Controls.Add(Me.IconPictureBox8)
         Me.pnlImgBlockedFirends.Controls.Add(Me.Label1)
         Me.pnlImgBlockedFirends.Controls.Add(Me.IconPictureBox3)

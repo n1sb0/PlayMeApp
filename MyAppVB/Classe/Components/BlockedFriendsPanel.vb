@@ -101,8 +101,7 @@ Public Class BlockedFriendsPanel
 
         UnderLine_SelectedUser(_PanelsColorLightDarkBlue)
 
-        _BackGRadRight.Visible = True
-        _BackGRadLeft.Visible = True
+        BorderOfPanel_Visible(True)
         _UnBlockBtn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_DarkBlue))
     End Sub
 
@@ -112,8 +111,7 @@ Public Class BlockedFriendsPanel
 
         UnderLine_SelectedUser(Color.Gray.ToArgb)
 
-        _BackGRadRight.Visible = False
-        _BackGRadLeft.Visible = False
+        BorderOfPanel_Visible(False)
         _UnBlockBtn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
     End Sub
 
