@@ -1,15 +1,17 @@
 ﻿Public Class RegisterForm
+    '*****///// VARS
     Private _ris_ComoBox As Boolean
+    Private _StrPassword = "PASSWORD"
+    Private _StrUserName = "USERNAME"
+    Private _StrEmail = "EMAIL ADDRESS"
+    Private _StrConfPassword = "CONFIRM PASSWORD"
 
+    '*****///// CLASSES
     Private _NewSubj As New Subject
     Private _Utility_Style As New Utility_Style
     Private _Utility_Secure As New Utility_Secure
 
-    Private _strPassword = "PASSWORD"
-    Private _strUserName = "USERNAME"
-    Private _strEmail = "EMAIL ADDRESS"
-    Private _strConfPassword = "CONFIRM PASSWORD"
-
+    '*****///// COLORS
     Private _RedColor As String = _Utility_Style.RedColor
     Private _MainColor As String = _Utility_Style.MainColor
     Private _GrayColor As String = _Utility_Style.GrayColor
@@ -73,16 +75,16 @@
 
     '*****///// EVENTS MOUSE CLICK AND LEAVE FOR TEXT BOXES
     Private Sub txtEmail_MouseClick(sender As Object, e As MouseEventArgs) Handles txtEmail.MouseClick
-        _Utility_Style.On_Mouse_Click_Change_TextBox(txtEmail, lblEmail, pnlEmail, _strEmail)
+        _Utility_Style.On_Mouse_Click_Change_TextBox(txtEmail, lblEmail, pnlEmail, _StrEmail)
 
         lblMsgEmail.Visible = True
     End Sub
 
     Private Sub txtEmail_Leave(sender As Object, e As EventArgs) Handles txtEmail.Leave
-        _Utility_Style.Mouse_Leave_TextBox(txtEmail, lblEmail, pnlEmail, _strEmail)
+        _Utility_Style.Mouse_Leave_TextBox(txtEmail, lblEmail, pnlEmail, _StrEmail)
     End Sub
     Private Sub txtPassword_MouseClick(sender As Object, e As MouseEventArgs) Handles txtPassword.MouseClick
-        _Utility_Style.On_Mouse_Click_Change_TextBox(txtPassword, lblPass, pnlPass, _strPassword)
+        _Utility_Style.On_Mouse_Click_Change_TextBox(txtPassword, lblPass, pnlPass, _StrPassword)
 
         If Not confPass.Text.Equals("✔") Then
             lblMsgPass.Visible = True
@@ -93,29 +95,29 @@
     End Sub
 
     Private Sub txtPassword_Leave(sender As Object, e As EventArgs) Handles txtPassword.Leave
-        _Utility_Style.Mouse_Leave_TextBox(txtPassword, lblPass, pnlPass, _strPassword)
+        _Utility_Style.Mouse_Leave_TextBox(txtPassword, lblPass, pnlPass, _StrPassword)
 
-        _Utility_Style.On_Empty_TextBox(txtPassword, _strPassword, confPass, lblMsgPass)
+        _Utility_Style.On_Empty_TextBox(txtPassword, _StrPassword, confPass, lblMsgPass)
     End Sub
 
     Private Sub txtConfPassword_MouseClick(sender As Object, e As MouseEventArgs) Handles txtConfPassword.MouseClick
-        _Utility_Style.On_Mouse_Click_Change_TextBox(txtConfPassword, lblConfPass, pnlConfPass, _strConfPassword)
+        _Utility_Style.On_Mouse_Click_Change_TextBox(txtConfPassword, lblConfPass, pnlConfPass, _StrConfPassword)
 
         txtConfPassword.PasswordChar = "*"
     End Sub
 
     Private Sub txtConfPassword_Leave(sender As Object, e As EventArgs) Handles txtConfPassword.Leave
-        _Utility_Style.Mouse_Leave_TextBox(txtConfPassword, lblConfPass, pnlConfPass, _strConfPassword)
+        _Utility_Style.Mouse_Leave_TextBox(txtConfPassword, lblConfPass, pnlConfPass, _StrConfPassword)
 
-        _Utility_Style.On_Empty_TextBox(txtConfPassword, _strConfPassword, confConfPass, lblMsgConfPass)
+        _Utility_Style.On_Empty_TextBox(txtConfPassword, _StrConfPassword, confConfPass, lblMsgConfPass)
     End Sub
 
     Private Sub txtUserName_MouseClick(sender As Object, e As MouseEventArgs) Handles txtUserName.MouseClick
-        _Utility_Style.On_Mouse_Click_Change_TextBox(txtUserName, lblUserName, pnlUserName, _strUserName)
+        _Utility_Style.On_Mouse_Click_Change_TextBox(txtUserName, lblUserName, pnlUserName, _StrUserName)
     End Sub
 
     Private Sub txtUserName_Leave(sender As Object, e As EventArgs) Handles txtUserName.Leave
-        _Utility_Style.Mouse_Leave_TextBox(txtUserName, lblUserName, pnlUserName, _strUserName)
+        _Utility_Style.Mouse_Leave_TextBox(txtUserName, lblUserName, pnlUserName, _StrUserName)
     End Sub
     '*****///// END EVENTS MOUSE CLICK AND LEAVE FOR TEXT BOXES
 
@@ -158,7 +160,7 @@
     End Sub
 
     Private Sub btnSeePassword_MouseUp(sender As Object, e As MouseEventArgs) Handles btnSeePassword.MouseUp
-        _Utility_Style.Mouse_Up_To_Hide_Password(txtPassword, _strPassword, btnSeePassword)
+        _Utility_Style.Mouse_Up_To_Hide_Password(txtPassword, _StrPassword, btnSeePassword)
     End Sub
 
     Private Sub btnSeeConfPassword_MouseDown(sender As Object, e As MouseEventArgs) Handles btnSeeConfPassword.MouseDown
@@ -166,7 +168,7 @@
     End Sub
 
     Private Sub btnSeeConfPassword_MouseUp(sender As Object, e As MouseEventArgs) Handles btnSeeConfPassword.MouseUp
-        _Utility_Style.Mouse_Up_To_Hide_Password(txtConfPassword, _strConfPassword, btnSeeConfPassword)
+        _Utility_Style.Mouse_Up_To_Hide_Password(txtConfPassword, _StrConfPassword, btnSeeConfPassword)
     End Sub
 
     '*****///// END SHOW PASSWORD ON CLICK
@@ -180,24 +182,24 @@
     '*****///// CHECK ALL PARAMETERS FOR EMAIL
     Private Sub txtEmail_TextChanged(sender As Object, e As EventArgs) Handles txtEmail.TextChanged
         If Not lblEmail.Visible Then
-            _Utility_Style.On_Mouse_Click_Change_TextBox(txtEmail, lblEmail, pnlEmail, _strEmail)
+            _Utility_Style.On_Mouse_Click_Change_TextBox(txtEmail, lblEmail, pnlEmail, _StrEmail)
         End If
 
         lblMsgEmail.Visible = False
 
-        _Utility_Secure.Email_Control(txtEmail, confEmail, lblMsgEmail)
+        _Utility_Secure.Control_Email(txtEmail, confEmail, lblMsgEmail)
     End Sub
     '*****///// END CHECK ALL PARAMETERS FOR EMAIL
 
     '*****///// CONFIRM PASSWORD 
     Private Sub txtConfPassword_TextChanged(sender As Object, e As EventArgs) Handles txtConfPassword.TextChanged
         If Not lblConfPass.Visible Then
-            _Utility_Style.On_Mouse_Click_Change_TextBox(txtConfPassword, lblConfPass, pnlConfPass, _strConfPassword)
+            _Utility_Style.On_Mouse_Click_Change_TextBox(txtConfPassword, lblConfPass, pnlConfPass, _StrConfPassword)
         End If
 
-        _Utility_Style.Hide_Password_Text(txtConfPassword, _strConfPassword)
+        _Utility_Style.Hide_Password_Text(txtConfPassword, _StrConfPassword)
 
-        _Utility_Secure.Confront_Passwords(txtConfPassword, txtPassword, confConfPass, lblMsgConfPass, _strConfPassword)
+        _Utility_Secure.Confront_Passwords(txtConfPassword, txtPassword, confConfPass, lblMsgConfPass, _StrConfPassword)
     End Sub
     '*****///// END CONFIRM PASSWORD 
 
@@ -209,7 +211,7 @@
         End If
 
         If Not lblUserName.Visible Then
-            _Utility_Style.On_Mouse_Click_Change_TextBox(txtUserName, lblUserName, pnlUserName, _strUserName)
+            _Utility_Style.On_Mouse_Click_Change_TextBox(txtUserName, lblUserName, pnlUserName, _StrUserName)
         End If
 
         If _Utility_Secure.ContainsSpecialChars(txtUserName.Text) Then
@@ -250,10 +252,10 @@
         Risult_CmbBox()
         Risult_CheckBox()
 
-        If txtUserName.Text.Equals(_strUserName) OrElse DR_Subject.Get_Subject_By("username", txtUserName.Text) Then
+        If txtUserName.Text.Equals(_StrUserName) OrElse DR_Subject.Get_Subject_By("username", txtUserName.Text) Then
             _Utility_Style.Change_Msg_Warning_To(confUserName, "✖")
 
-            If Not txtUserName.Text.Equals(_strUserName) Then
+            If Not txtUserName.Text.Equals(_StrUserName) Then
                 lblMsgUserName.Visible = True
             End If
         Else
@@ -262,10 +264,10 @@
         End If
         confUserName.Visible = True
 
-        If txtEmail.Text.Equals(_strEmail) OrElse DR_Subject.Get_Subject_By("email", txtEmail.Text) Then
+        If txtEmail.Text.Equals(_StrEmail) OrElse DR_Subject.Get_Subject_By("email", txtEmail.Text) Then
             _Utility_Style.Change_Msg_Warning_To(confEmail, "✖")
 
-            If Not txtEmail.Text.Equals(_strEmail) Then
+            If Not txtEmail.Text.Equals(_StrEmail) Then
                 Dim ris As MsgBoxResult = MessageBox.Show("This Email Address is already Registered!" + vbCrLf + "If you want to recovery your Account click Yes.", "Attention!", MessageBoxButtons.YesNo)
 
                 _Utility_Secure.Close_LoginForm(Me, ris)
@@ -277,9 +279,9 @@
         confEmail.Visible = True
 
 
-        _Utility_Style.Check_If_TextBox_Is_Empty(txtPassword, _strPassword, confPass)
+        _Utility_Style.Check_If_TextBox_Is_Empty(txtPassword, _StrPassword, confPass)
 
-        If txtConfPassword.Text.Equals(_strConfPassword) OrElse Not txtConfPassword.Text.Equals(txtPassword.Text) Then
+        If txtConfPassword.Text.Equals(_StrConfPassword) OrElse Not txtConfPassword.Text.Equals(txtPassword.Text) Then
             _Utility_Style.Show_Error_Button(confConfPass)
         End If
 

@@ -8,24 +8,21 @@ Imports System.EventArgs
 
 Public Class GenericPanel
 
-    Property _UserPanel As New Panel
+    '*****///// COMPONENTS TO USE ON THE PANEL
     Property _UserLine As New Panel
+    Property _UserPanel As New Panel
     Property _UserNameLbl As New Label
-    Property _UserStateOnline_Label As New Label
-    Property Ctr As ShapeContainer = New ShapeContainer()
-    Property _UserPictureBox As New GunaCirclePictureBox
-    Property _DeleteChatWithUserBtn As New IconPictureBox
-    Property _CheckBoxBtn As New IconPictureBox
-    Property _OvalOnline As OvalShape = New OvalShape(Ctr)
-    Property _SendMessageBtn As New GunaButton
     Property _MenuBtn As New GunaButton
     Property _UnBlockBtn As New GunaButton
-    Property _BackGRadLeft As New GunaButton
-    Property _BackGRadRight As New GunaButton
-
-
-
-    Public _LocationOfPanel As New Point
+    Property _SendMessageBtn As New GunaButton
+    Property _CheckBoxBtn As New IconPictureBox
+    Property _UserStateOnline_Label As New Label
+    Property _LeftRadiusBorderOfPanel As New GunaButton
+    Property _RightRadiusBorderOfPanel As New GunaButton
+    Property _UserPictureBox As New GunaCirclePictureBox
+    Property _DeleteChatWithUserBtn As New IconPictureBox
+    Property Ctr As ShapeContainer = New ShapeContainer()
+    Property _OvalOnline As OvalShape = New OvalShape(Ctr)
 
     Public _Utility_Style As New Utility_Style
     Public _ScrollBarOfUserChat As GunaVScrollBar
@@ -33,22 +30,26 @@ Public Class GenericPanel
 
     Public _UserName As String
     Public _UserPicture As Byte()
-    Public _UserStateOnlineStr As String
-
     Public _NumberOfPanel As String
-    Public _MainForm As MainForm
-    Public _OnlineForm As OnlineFriendsForm
-    Public _BlockedForm As BlockedFriendsForm
-    Property _AllFrForm As AllFriendsForm
-    Public _DmForm As CreateDMForm
+    Public _UserStateOnlineStr As String
+    Public _LocationOfPanel As New Point
 
+    '*****///// FORMS ON WHICH WE ADD A PANEL
+    Public _MainForm As MainForm
+    Public _DmForm As CreateDMForm
+    Public _AllFriendsForm As AllFriendsForm
+    Public _OnlineFriendsForm As OnlineFriendsForm
+    Public _BlockedFriendsForm As BlockedFriendsForm
+
+    '*****///// COLORS
+    Public _DarkBlue As String = _Utility_Style.DarkBlue
     Public _RedColor As String = _Utility_Style.RedColor
+    Public _LightBlue As String = _Utility_Style.LightBlue
     Public _GrayColor As String = _Utility_Style.GrayColor
     Public _BackGColor As String = _Utility_Style.BackGroundColor
-    Public _DarkBlue As String = _Utility_Style.DarkBlue
     Public _PanelsColorLightDarkBlue As String = _Utility_Style.LightDarkBlue
-    Public _LightBlue As String = _Utility_Style.LightBlue
 
+    '*****///// CREATE A PANEL
     Public Sub Create_Panel(width As Integer, hight As Integer)
 
         Dim size As Size = New Size(width, hight)
@@ -59,6 +60,7 @@ Public Class GenericPanel
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
     End Sub
 
+    '*****///// CREATE UNDER LINE OF PANEL
     Public Sub Create_Line(width As Integer, hight As Integer)
 
         Dim size As Size = New Size(width, hight)
@@ -69,6 +71,7 @@ Public Class GenericPanel
         _UserLine.Anchor = AnchorStyles.Right Or AnchorStyles.Left
     End Sub
 
+    '*****///// CREATE ONLINE CIRCLE BUTTON
     Public Sub Create_OnlineButton()
         Dim width = 12
         Dim hight = width
@@ -85,6 +88,7 @@ Public Class GenericPanel
         _OvalOnline.BorderColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
     End Sub
 
+    '*****///// CREATE USER PICTURE BOX 
     Public Sub Create_UserPictureBox()
         Dim width = 40, hight = 40
 
@@ -96,13 +100,8 @@ Public Class GenericPanel
         _UserPictureBox.BackColor = Color.Transparent
     End Sub
 
+    '*****///// CREATE USER NAME LABEL
     Public Sub Create_UserName()
-        'Dim width = 150, hight = 20
-
-        'Dim size As Size = New Size(width, hight)
-
-        '_FriendsUserName.Size = size
-
         _UserNameLbl.AutoSize = True
         _UserNameLbl.Text = _UserName
         _UserNameLbl.Cursor = Cursors.Hand
@@ -111,6 +110,7 @@ Public Class GenericPanel
         _UserNameLbl.Font = New Font("Microsoft YaHei", 9.75, FontStyle.Bold)
     End Sub
 
+    '*****///// CREATE USER STATE ONLINE LABEL UNDER THE NAME 
     Public Sub Create_UserStateOnline_Label()
         _UserStateOnline_Label.AutoSize = True
         _UserStateOnline_Label.Text = _UserStateOnlineStr
@@ -120,6 +120,7 @@ Public Class GenericPanel
         _UserStateOnline_Label.Font = New Font("Microsoft YaHei", 8, FontStyle.Bold)
     End Sub
 
+    '*****///// CREATE DELETE CHAT WITH FRIEND
     Public Sub Create_DeleteDirectButton()
         Dim width = 20
         Dim hight = width
@@ -134,14 +135,15 @@ Public Class GenericPanel
         _DeleteChatWithUserBtn.IconChar = FontAwesome.Sharp.IconChar.Times
     End Sub
 
+    '*****///// CREATE SEND MESSAGE TO FRIEND BUTTON
     Public Sub Create_SendMessageButton()
         Default_Button_Settings(_SendMessageBtn)
         _SendMessageBtn.Image = My.Resources.chatToFriendx1
 
         _SendMessageBtn.ImageSize = New Size(22, 22)
-
     End Sub
 
+    '*****///// CREATE MENU BUTTON (START VIDEO CALL, START VOICE CALL, REMOVE FRIEND)
     Public Sub Create_MenuButton()
         Default_Button_Settings(_MenuBtn)
         _MenuBtn.Image = My.Resources.VerticleMenuDots
@@ -150,6 +152,7 @@ Public Class GenericPanel
 
     End Sub
 
+    '*****///// CREATE UNBLOCK FRIEND BUTTON
     Public Sub Create_UnBlockButton()
         Default_Button_Settings(_UnBlockBtn)
         _UnBlockBtn.Image = My.Resources.BlockedUser
@@ -158,6 +161,7 @@ Public Class GenericPanel
 
     End Sub
 
+    '*****///// SOME DEFAULT BUTTON SETTINGS
     Private Sub Default_Button_Settings(btn As GunaButton)
         btn.Size = New Size(35, 35)
         btn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
@@ -167,17 +171,17 @@ Public Class GenericPanel
         btn.OnHoverBaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_DarkBlue))
     End Sub
 
-
+    '*****///// CREATE RADIUSE BORED TO PANEL ON LEFT AND RIGHT SIDE
     Public Sub Create_RadiusBackGround_Left()
-        Default_BackRadius_Settings(_BackGRadLeft)
-
+        Default_BackRadius_Settings(_LeftRadiusBorderOfPanel)
     End Sub
 
     Public Sub Create_RadiusBackGround_Right()
-        Default_BackRadius_Settings(_BackGRadRight)
-        _BackGRadRight.Anchor = AnchorStyles.Right
+        Default_BackRadius_Settings(_RightRadiusBorderOfPanel)
+        _RightRadiusBorderOfPanel.Anchor = AnchorStyles.Right
     End Sub
 
+    '*****///// DEFAULT SETTINGS FOR RADIUSE BORDER
     Private Sub Default_BackRadius_Settings(btn As GunaButton)
         btn.Size = New Size(62, 62)
         btn.Radius = 12
@@ -191,15 +195,16 @@ Public Class GenericPanel
         btn.OnPressedColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
     End Sub
 
+    Public Sub BorderOfPanel_Visible(state As Boolean)
+        _RightRadiusBorderOfPanel.Visible = state
+        _LeftRadiusBorderOfPanel.Visible = state
+    End Sub
+
+    '*****///// CREATE CHECK BOX FOR ADD A FRIENDS TO GROUP CHAT
     Public Sub Create_CheckBox()
         _CheckBoxBtn.Size = New Size(30, 30)
         _CheckBoxBtn.IconChar = FontAwesome.Sharp.IconChar.Square
         _CheckBoxBtn.IconColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GrayColor))
         _CheckBoxBtn.BackColor = Color.Transparent
-    End Sub
-
-    Public Sub BorderOfPanel_Visible(state As Boolean)
-        _BackGRadRight.Visible = state
-        _BackGRadLeft.Visible = state
     End Sub
 End Class

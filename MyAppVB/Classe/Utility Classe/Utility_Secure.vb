@@ -1,12 +1,14 @@
 ﻿Public Class Utility_Secure
-    Private _Utility_Style As New Utility_Style
-
+    '*****///// VARS
     Private _MinLength As Boolean = False
     Private _SomeNumbers As Boolean = False
     Private _UpperLetter As Boolean = False
     Private _SpecialChars As Boolean = False
 
-    Public Sub Email_Control(ByRef txtEmail As TextBox, ByRef confEmail As Label, ByRef lblMsgEmail As Label)
+    '*****///// CLASSES
+    Private _Utility_Style As New Utility_Style
+
+    Public Sub Control_Email(ByRef txtEmail As TextBox, ByRef confEmail As Label, ByRef lblMsgEmail As Label)
         Dim numOfC As Integer = CountCharacter(txtEmail.Text, "@")
 
         If Not txtEmail.Text.Equals("EMAIL ADDRESS") Then
@@ -162,5 +164,4 @@
             If thisForm.Name <> NotCloseForm Then thisForm.Close()
         Next
     End Sub
-
 End Class

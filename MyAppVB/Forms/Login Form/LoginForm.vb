@@ -1,10 +1,16 @@
 ﻿Public Class LoginForm
-    Private MoveForm As Boolean
-    Private GenericLabel As Label
-    Private MoveForm_MousePosition As Point
+    '*****///// VARS
+    Private _MoveForm As Boolean
+    Private _MoveForm_MousePosition As Point
+
+    '*****///// COMPONENTS
+    Private _GenericLabel As Label
+
+    '*****///// CLASSES
     Private _Utility_Style As New Utility_Style
     Private _Utility_Secure As New Utility_Secure
 
+    '*****///// COLORS
     Private _RedColor As String = _Utility_Style.RedColor
     Private _MainColor As String = _Utility_Style.MainColor
     Private _GrayColor As String = _Utility_Style.GrayColor
@@ -102,35 +108,35 @@
     Private Sub Mouse_Hover_Text(sender As System.Object, e As System.EventArgs) _
       Handles lblCreaAcc.MouseHover, lblResetAcc.MouseHover
 
-        GenericLabel = DirectCast(sender, Label)
-        GenericLabel.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
+        _GenericLabel = DirectCast(sender, Label)
+        _GenericLabel.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
     End Sub
 
     Private Sub Mouse_Leave_Text(sender As System.Object, e As System.EventArgs) _
       Handles lblCreaAcc.MouseLeave, lblResetAcc.MouseLeave
 
-        GenericLabel = DirectCast(sender, Label)
-        GenericLabel.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GrayColor))
+        _GenericLabel = DirectCast(sender, Label)
+        _GenericLabel.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GrayColor))
     End Sub
     '*****///// END MOUSE HOVER LABEL STYLE
 
     ''*****///// MOVE FORM 
     Private Sub myMoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles myMoveForm.MouseMove
-        If MoveForm Then
-            Me.Location = Me.Location + (e.Location - MoveForm_MousePosition)
+        If _MoveForm Then
+            Me.Location = Me.Location + (e.Location - _MoveForm_MousePosition)
         End If
     End Sub
 
     Private Sub myMoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles myMoveForm.MouseDown
         If e.Button = MouseButtons.Left Then
-            MoveForm = True
-            MoveForm_MousePosition = e.Location
+            _MoveForm = True
+            _MoveForm_MousePosition = e.Location
         End If
     End Sub
 
     Private Sub myMoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles myMoveForm.MouseUp
         If e.Button = MouseButtons.Left Then
-            MoveForm = False
+            _MoveForm = False
         End If
     End Sub
     '*****/////

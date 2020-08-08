@@ -17,14 +17,15 @@ Public Class DmFriendsPanel
         Create_DmPanel()
     End Sub
 
+    '*****///// CREATE A PANEL WITH ALL COMPONENTS
     Private Sub Create_DmPanel()
-        Create_Panel(350, 50)
-        Create_RadiusBackGround_Left()
-        Create_RadiusBackGround_Right()
         Create_UserName()
+        Create_CheckBox()
+        Create_Panel(350, 50)
         Create_OnlineButton()
         Create_UserPictureBox()
-        Create_CheckBox()
+        Create_RadiusBackGround_Left()
+        Create_RadiusBackGround_Right()
 
         UpdateComponents()
 
@@ -37,31 +38,67 @@ Public Class DmFriendsPanel
         AddComponents()
     End Sub
 
+    '*****///// CHANGE SOMETHING INSIDE A PANEL
     Private Sub UpdateComponents()
         _UserPanel.BackColor = Color.Transparent
         _UserNameLbl.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GrayColor))
 
-        _BackGRadLeft.Size = New Size(50, 50)
-        _BackGRadRight.Size = New Size(50, 50)
-
+        _LeftRadiusBorderOfPanel.Size = New Size(50, 50)
+        _RightRadiusBorderOfPanel.Size = New Size(50, 50)
     End Sub
 
+    '*****///// ADD EVENT REFERENCE TO ELEMENTS
     Public Sub AddEventRef()
-        AddHandler _UserPanel.MouseEnter, AddressOf On_UserDmPanel_Hover
-        AddHandler _OvalOnline.MouseEnter, AddressOf On_UserDmPanel_Hover
-        AddHandler _UserNameLbl.MouseEnter, AddressOf On_UserDmPanel_Hover
-        AddHandler _UserPictureBox.MouseEnter, AddressOf On_UserDmPanel_Hover
-        AddHandler _CheckBoxBtn.MouseEnter, AddressOf On_UserDmPanel_Hover
+        '*****///// ON MOUSE ENTER HOVER THE PANEL EVENT
+        AddHandler _UserPanel.MouseEnter, AddressOf On_UserDmPanel_Enter
+        AddHandler _OvalOnline.MouseEnter, AddressOf On_UserDmPanel_Enter
+        AddHandler _CheckBoxBtn.MouseEnter, AddressOf On_UserDmPanel_Enter
+        AddHandler _UserNameLbl.MouseEnter, AddressOf On_UserDmPanel_Enter
+        AddHandler _UserPictureBox.MouseEnter, AddressOf On_UserDmPanel_Enter
 
+        '*****///// ON MOUSE CLICK EVENT
         AddHandler _UserPanel.MouseClick, AddressOf On_Panel_Click
         AddHandler _OvalOnline.MouseClick, AddressOf On_Panel_Click
         AddHandler _UserNameLbl.MouseClick, AddressOf On_Panel_Click
-        AddHandler _UserPictureBox.MouseClick, AddressOf On_Panel_Click
         AddHandler _CheckBoxBtn.MouseClick, AddressOf On_Panel_Click
+        AddHandler _UserPictureBox.MouseClick, AddressOf On_Panel_Click
 
+        '*****///// ON MOUSE LEAVE THE PANEL
         AddHandler _UserPanel.MouseLeave, AddressOf On_UserDmPanel_Leave
     End Sub
 
+    '*****///// SET NAME OF WHICH ELEMENT INSIDE OF PANEL
+    Private Sub Set_Name()
+        _UserPanel.Name = "pnl" + _NumberOfPanel
+        _UserNameLbl.Name = "pnlName" + _NumberOfPanel
+        _OvalOnline.Name = "pnlOnline" + _NumberOfPanel
+        _UserPictureBox.Name = "pnlPic" + _NumberOfPanel
+        _CheckBoxBtn.Name = "pnlCheckBox" + _NumberOfPanel
+    End Sub
+
+    '*****///// SET LOCATION OF WHICH ELEMENT INSIDE OF PANEL
+    Private Sub Set_Location()
+        Dim locationOfPicture As Point = New Point(5, 5)
+        Dim locationCheckBox As Point = New Point(315, 12)
+        Dim locationOfUserName As Point = New Point(50, 17)
+        Dim locationOnlineLabel As Point = New Point(34, 32)
+
+        _UserPanel.Location = _LocationOfPanel
+        _CheckBoxBtn.Location = locationCheckBox
+        _UserNameLbl.Location = locationOfUserName
+        _OvalOnline.Location = locationOnlineLabel
+        _UserPictureBox.Location = locationOfPicture
+    End Sub
+
+    '*****///// ADD ALL ELEMENTS ON THE PANEL
+    Private Sub AddComponents()
+        _UserPanel.Controls.Add(Ctr)
+        _UserPanel.Controls.Add(_CheckBoxBtn)
+        _UserPanel.Controls.Add(_UserNameLbl)
+        _UserPanel.Controls.Add(_UserPictureBox)
+    End Sub
+
+    '*****///// ON PANEL CLICK EVENT
     Private Sub On_Panel_Click()
         If _Cheked = 0 Then
             _CheckBoxBtn.IconChar = FontAwesome.Sharp.IconChar.CheckSquare
@@ -80,44 +117,18 @@ Public Class DmFriendsPanel
         _DmForm.lblMsg.Text = "You can add " + (numOfPersoneInGroup).ToString + " more friends."
     End Sub
 
-    Private Sub On_UserDmPanel_Hover()
+    '*****///// ON PANEL MOUSE HOVER EVENT
+    Private Sub On_UserDmPanel_Enter()
         BorderOfPanel_Visible(True)
 
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
     End Sub
 
+    '*****///// ON MOUSE LEAVE EVENT
     Private Sub On_UserDmPanel_Leave()
         BorderOfPanel_Visible(False)
 
         _UserPanel.BackColor = Color.Transparent
-    End Sub
-
-    Private Sub Set_Name()
-        _UserPanel.Name = "pnl" + _NumberOfPanel
-        _UserNameLbl.Name = "pnlName" + _NumberOfPanel
-        _UserPictureBox.Name = "pnlPic" + _NumberOfPanel
-        _OvalOnline.Name = "pnlOnline" + _NumberOfPanel
-        _CheckBoxBtn.Name = "pnlCheckBox" + _NumberOfPanel
-    End Sub
-
-    Private Sub AddComponents()
-        _UserPanel.Controls.Add(Ctr)
-        _UserPanel.Controls.Add(_UserNameLbl)
-        _UserPanel.Controls.Add(_UserPictureBox)
-        _UserPanel.Controls.Add(_CheckBoxBtn)
-    End Sub
-
-    Private Sub Set_Location()
-        Dim locationOfPicture As Point = New Point(5, 5)
-        Dim locationOfUserName As Point = New Point(50, 17)
-        Dim locationOnlineLabel As Point = New Point(34, 32)
-        Dim locationCheckBox As Point = New Point(315, 12)
-
-        _UserPanel.Location = _LocationOfPanel
-        _UserNameLbl.Location = locationOfUserName
-        _UserPictureBox.Location = locationOfPicture
-        _OvalOnline.Location = locationOnlineLabel
-        _CheckBoxBtn.Location = locationCheckBox
     End Sub
 
 End Class

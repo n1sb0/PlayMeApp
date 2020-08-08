@@ -2,12 +2,14 @@
 Imports System.Net.Mail
 
 Public Class PassRecForm
+    '*****///// VARS
+    Private _RandomCode As String
 
-    Private _randomCode As String
-
+    '*****///// CLASSES
     Private _Utility_Style As New Utility_Style
     Private _Utility_Secure As New Utility_Secure
 
+    '*****///// COLORS
     Private _RedColor As String = _Utility_Style.RedColor
     Private _OrngColor As String = _Utility_Style.OrngColor
     Private _MainColor As String = _Utility_Style.MainColor
@@ -17,8 +19,6 @@ Public Class PassRecForm
     Sub New()
         ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
-
-        ' Aggiungere le eventuali istruzioni di inizializzazione dopo la chiamata a InitializeComponent().
     End Sub
 
     Private Sub PassRecForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -37,21 +37,21 @@ Public Class PassRecForm
     End Sub
 
     Private Sub Txt_Style()
-        txtEmail.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
         txtCode.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
+        txtEmail.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
         txtNewPassword.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
         txtConfPassword.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
     End Sub
 
     Private Sub Lbl_Style()
-        lblEmail.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
         lblCode.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
-        lblConfPassword.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
-        lblNewPassword.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
-        lblMsgNewPassword.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_RedColor))
-        lblMsgConfPassword.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_RedColor))
+        lblEmail.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
         lblMsgEmail.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_OrngColor))
         lblMsgComfCode.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_RedColor))
+        lblNewPassword.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
+        lblConfPassword.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
+        lblMsgNewPassword.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_RedColor))
+        lblMsgConfPassword.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_RedColor))
     End Sub
     '*****///// END STYLE COMPONENTS
 
@@ -80,7 +80,7 @@ Public Class PassRecForm
     '*****///// GET RANDOM NUMBER FUNCTION
     Private Sub Get_RandNum()
         Dim rand As Random = New Random()
-        _randomCode = (rand.Next(99999)).ToString()
+        _RandomCode = (rand.Next(99999)).ToString()
     End Sub
 
     '*****///// BUTTON SUBMIT TO GET EMAIL CODE TO RECOVERY PASSWORD
@@ -99,7 +99,7 @@ Public Class PassRecForm
                 message.From = New MailAddress("nsb.app0@gmail.com")
                 message.To.Add(txtEmail.Text)
                 message.Subject = "Your recovery code."
-                message.Body = "Your recovery code is: " + _randomCode
+                message.Body = "Your recovery code is: " + _RandomCode
 
                 Dim smtp As New SmtpClient("smtp.gmail.com")
                 smtp.Port = 587
@@ -134,7 +134,7 @@ Public Class PassRecForm
 
     '*****///// BUTTON VERIFY RANDON CODE 
     Private Sub btnVerifyCode_Click(sender As Object, e As EventArgs) Handles btnVerifyCode.Click
-        If (_randomCode = txtCode.Text) Then
+        If (_RandomCode = txtCode.Text) Then
             Me.Width = 1000
             Me.CenterToScreen()
             btnVerifyCode.Enabled = False
@@ -178,7 +178,7 @@ Public Class PassRecForm
             lblMsgEmail.Visible = False
         End If
 
-        _Utility_Secure.Email_Control(txtEmail, confEmail, lblMsgEmail)
+        _Utility_Secure.Control_Email(txtEmail, confEmail, lblMsgEmail)
     End Sub
 
 

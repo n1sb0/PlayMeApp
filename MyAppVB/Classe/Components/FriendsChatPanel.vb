@@ -1,15 +1,11 @@
-﻿Imports System
-Imports System.Windows.Forms
-Imports Guna.UI.WinForms
+﻿Imports Guna.UI.WinForms
 Imports FontAwesome.Sharp
-Imports Microsoft.VisualBasic.PowerPacks
-Imports System.Object
-Imports System.EventArgs
 
 Public Class FriendsChatPanel
     Inherits GenericPanel
-    Public _Sender As New System.Object
+
     Public _E As New System.EventArgs
+    Public _Sender As New System.Object
 
     Sub New(ByRef mainForm As MainForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar, panelname As String, userPicture As Byte(), userName As String, userStateOnline As String)
         _MainForm = mainForm
@@ -20,12 +16,13 @@ Public Class FriendsChatPanel
         _ScrollBarOfUserChat = friendScrollBar
         _UserStateOnlineStr = userStateOnline
 
-        Create_FriendsPanel()
+        Create_ChatPanel()
     End Sub
 
-    Private Sub Create_FriendsPanel()
-        Create_Panel(260, 60)
+    '*****///// CREATE A PANEL WITH ALL COMPONENTS
+    Private Sub Create_ChatPanel()
         Create_UserName()
+        Create_Panel(260, 60)
         Create_OnlineButton()
         Create_UserPictureBox()
         Create_DeleteDirectButton()
@@ -39,38 +36,38 @@ Public Class FriendsChatPanel
         AddComponents()
     End Sub
 
+    '*****///// ADD EVENT REFERENCE TO ELEMENTS
     Public Sub AddEventRef()
-        AddHandler _UserPanel.MouseEnter, AddressOf On_FriendsPanel_Hover
-        AddHandler _UserNameLbl.MouseEnter, AddressOf On_FriendsPanel_Hover
-        AddHandler _OvalOnline.MouseEnter, AddressOf On_FriendsPanel_Hover
-        AddHandler _UserPictureBox.MouseEnter, AddressOf On_FriendsPanel_Hover
+        '*****///// ON MOUSE ENTER HOVER THE PANEL EVENT
+        AddHandler _UserPanel.MouseEnter, AddressOf On_ChatPanel_Enter
+        AddHandler _OvalOnline.MouseEnter, AddressOf On_ChatPanel_Enter
+        AddHandler _UserNameLbl.MouseEnter, AddressOf On_ChatPanel_Enter
+        AddHandler _UserPictureBox.MouseEnter, AddressOf On_ChatPanel_Enter
 
-        AddHandler _UserPanel.Click, AddressOf On_MouseClickFriendList
-        AddHandler _UserNameLbl.Click, AddressOf On_MouseClickFriendList
-        AddHandler _OvalOnline.Click, AddressOf On_MouseClickFriendList
-        AddHandler _UserPictureBox.Click, AddressOf On_MouseClickFriendList
+        AddHandler _ScrollBarOfUserChat.MouseEnter, AddressOf On_ScrollBar_Enter
 
+        '*****///// ON MOUSE CLICK EVENT
+        AddHandler _UserPanel.Click, AddressOf On_ChatPanel_Click
+        AddHandler _OvalOnline.Click, AddressOf On_ChatPanel_Click
+        AddHandler _UserNameLbl.Click, AddressOf On_ChatPanel_Click
+        AddHandler _UserPictureBox.Click, AddressOf On_ChatPanel_Click
 
-        AddHandler _UserPanel.MouseLeave, AddressOf On_FriendsPanel_Leave
-        AddHandler _ScrollBarOfUserChat.MouseEnter, AddressOf On_ScrollBar_Hover
-        AddHandler _DeleteChatWithUserBtn.Click, AddressOf btnDeleteMessages_Click
+        AddHandler _DeleteChatWithUserBtn.Click, AddressOf On_DeleteChatButton_Click
+
+        '*****///// ON MOUSE LEAVE THE PANEL
+        AddHandler _UserPanel.MouseLeave, AddressOf On_ChatPanel_Leave
     End Sub
 
+    '*****///// SET NAME OF WHICH ELEMENT INSIDE OF PANEL
     Private Sub Set_Name()
         _UserPanel.Name = "pnl" + _NumberOfPanel
         _UserNameLbl.Name = "pnlName" + _NumberOfPanel
-        _UserPictureBox.Name = "pnlPic" + _NumberOfPanel
         _OvalOnline.Name = "pnlOnline" + _NumberOfPanel
+        _UserPictureBox.Name = "pnlPic" + _NumberOfPanel
         _DeleteChatWithUserBtn.Name = "pnlBtn" + _NumberOfPanel
     End Sub
 
-    Private Sub AddComponents()
-        _UserPanel.Controls.Add(Ctr)
-        _UserPanel.Controls.Add(_UserNameLbl)
-        _UserPanel.Controls.Add(_UserPictureBox)
-        _UserPanel.Controls.Add(_DeleteChatWithUserBtn)
-    End Sub
-
+    '*****///// SET LOCATION OF WHICH ELEMENT INSIDE OF PANEL
     Private Sub Set_Location()
         Dim locationOfPicture As Point = New Point(10, 9)
         Dim locationOfUserName As Point = New Point(55, 20)
@@ -79,35 +76,48 @@ Public Class FriendsChatPanel
 
         _UserPanel.Location = _LocationOfPanel
         _UserNameLbl.Location = locationOfUserName
-        _UserPictureBox.Location = locationOfPicture
         _OvalOnline.Location = locationOnlineLabel
+        _UserPictureBox.Location = locationOfPicture
         _DeleteChatWithUserBtn.Location = locationOfDeleteButton
     End Sub
 
-    Private Sub On_FriendsPanel_Hover(sender As Object, e As EventArgs)
+    '*****///// ADD ALL ELEMENTS ON THE PANEL
+    Private Sub AddComponents()
+        _UserPanel.Controls.Add(Ctr)
+        _UserPanel.Controls.Add(_UserNameLbl)
+        _UserPanel.Controls.Add(_UserPictureBox)
+        _UserPanel.Controls.Add(_DeleteChatWithUserBtn)
+    End Sub
+
+    '*****///// ON PANEL MOUSE HOVER EVENT
+    Private Sub On_ChatPanel_Enter(sender As Object, e As EventArgs)
         _DeleteChatWithUserBtn.Visible = True
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
         _UserNameLbl.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GrayColor))
     End Sub
 
-    Private Sub On_FriendsPanel_Leave(sender As Object, e As EventArgs)
+    '*****///// ON MOUSE LEAVE EVENT
+    Private Sub On_ChatPanel_Leave(sender As Object, e As EventArgs)
         If _MainForm.PanelListOfChatFriends.GetChildAtPoint(_MainForm.PanelListOfChatFriends.PointToClient(Cursor.Position)) Is _MainForm.FriendsChatScrollBar OrElse _UserPanel.GetChildAtPoint(_UserPanel.PointToClient(Cursor.Position)) Is Nothing Then
-            Leave_ListOfFriend()
+            Leave_ListOfChatPanels()
         End If
     End Sub
 
-    Private Sub On_ScrollBar_Hover()
-        Leave_ListOfFriend()
+    '*****///// ON SCROLLBAR MOUSE HOVER
+    Private Sub On_ScrollBar_Enter()
+        Leave_ListOfChatPanels()
     End Sub
 
-    Public Sub Leave_ListOfFriend()
+    '*****///// ON LEAVE LIST OF PANELS
+    Public Sub Leave_ListOfChatPanels()
         _DeleteChatWithUserBtn.Visible = False
 
         _UserNameLbl.ForeColor = Color.Gray
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
     End Sub
 
-    Public Sub On_MouseClickFriendList(sender As System.Object, e As System.EventArgs)
+    '*****///// ON CHAT PANEL MOUSE CLICK EVENT
+    Public Sub On_ChatPanel_Click(sender As System.Object, e As System.EventArgs)
         _Sender = sender
         _E = e
         Dim chatform As New ChatFriendForm
@@ -123,10 +133,11 @@ Public Class FriendsChatPanel
 
         chatform.lblStateOnlineOfFriend.Location = New Point(positionOflblOnline)
 
-        _ControlChildForm.OpenChildForm(chatform, _MainForm.MainChatAndFriendPanel, _MainForm.currentChildForm)
+        _ControlChildForm.OpenChildForm(chatform, _MainForm.MainChatAndFriendPanel, _MainForm._CurrentChildForm)
     End Sub
 
-    Private Sub btnDeleteMessages_Click(sender As Object, e As EventArgs)
+    '*****///// ON DELETE CHAT BUTTON MOUSE CLICK EVENT
+    Private Sub On_DeleteChatButton_Click(sender As Object, e As EventArgs)
 
         Dim btn = DirectCast(sender, IconPictureBox)
 
@@ -140,12 +151,13 @@ Public Class FriendsChatPanel
         On_DirectWasDeleted(index)
 
         If MainForm._OpenedChat = _NumberOfPanel Then
-            If _MainForm.currentChildForm IsNot Nothing Then
-                _MainForm.currentChildForm.Close()
+            If _MainForm._CurrentChildForm IsNot Nothing Then
+                _MainForm._CurrentChildForm.Close()
             End If
         End If
     End Sub
 
+    '*****///// WHEN CHAT WAS DELETED TO RELOCATE ALL PANELS
     Private Sub On_DirectWasDeleted(index As Integer)
         For i As Integer = index To _MainForm._ListOfUserFriendsChatPanel.Count - 1
             _MainForm._ListOfUserFriendsChatPanel.Item(i)._UserPanel.Location = New Point(0, _MainForm._ListOfUserFriendsChatPanel.Item(i)._UserPanel.Location.Y - 60)

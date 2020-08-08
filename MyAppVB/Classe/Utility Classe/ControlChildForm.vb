@@ -15,5 +15,4 @@
         childForm.BringToFront()
         childForm.Show()
     End Sub
-
 End Class

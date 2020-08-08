@@ -44,6 +44,8 @@ Partial Class MainForm
         Me.MainChatAndFriendPanel = New System.Windows.Forms.Panel()
         Me.FriendsPanelChild = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnCreateChat = New FontAwesome.Sharp.IconPictureBox()
+        Me.pnBCH = New System.Windows.Forms.Panel()
         Me.btnPending = New Guna.UI.WinForms.GunaButton()
         Me.btnAddNewFriends = New Guna.UI.WinForms.GunaButton()
         Me.btnBlockedFriends = New Guna.UI.WinForms.GunaButton()
@@ -51,7 +53,7 @@ Partial Class MainForm
         Me.btnFriendsOnline = New Guna.UI.WinForms.GunaButton()
         Me.picFriend = New System.Windows.Forms.PictureBox()
         Me.lblFriends = New System.Windows.Forms.Label()
-        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.pnlBFA = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnHelp = New FontAwesome.Sharp.IconPictureBox()
         Me.pnlMsgFriends = New System.Windows.Forms.Panel()
@@ -72,6 +74,7 @@ Partial Class MainForm
         Me.PlayGroundPanel.SuspendLayout()
         Me.MainChatAndFriendPanel.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.btnCreateChat, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picFriend, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMsgFriends.SuspendLayout()
@@ -439,13 +442,39 @@ Partial Class MainForm
         Me.Panel2.Controls.Add(Me.btnFriendsOnline)
         Me.Panel2.Controls.Add(Me.picFriend)
         Me.Panel2.Controls.Add(Me.lblFriends)
-        Me.Panel2.Controls.Add(Me.Panel5)
+        Me.Panel2.Controls.Add(Me.pnlBFA)
         Me.Panel2.Controls.Add(Me.Panel4)
         Me.Panel2.Controls.Add(Me.btnHelp)
+        Me.Panel2.Controls.Add(Me.btnCreateChat)
+        Me.Panel2.Controls.Add(Me.pnBCH)
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(950, 52)
         Me.Panel2.TabIndex = 1
+        '
+        'btnCreateChat
+        '
+        Me.btnCreateChat.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCreateChat.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnCreateChat.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnCreateChat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.btnCreateChat.IconChar = FontAwesome.Sharp.IconChar.CommentMedical
+        Me.btnCreateChat.IconColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.btnCreateChat.IconSize = 30
+        Me.btnCreateChat.Location = New System.Drawing.Point(838, 12)
+        Me.btnCreateChat.Name = "btnCreateChat"
+        Me.btnCreateChat.Size = New System.Drawing.Size(30, 30)
+        Me.btnCreateChat.TabIndex = 96
+        Me.btnCreateChat.TabStop = False
+        '
+        'pnBCH
+        '
+        Me.pnBCH.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pnBCH.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.pnBCH.Location = New System.Drawing.Point(890, 10)
+        Me.pnBCH.Name = "pnBCH"
+        Me.pnBCH.Size = New System.Drawing.Size(1, 30)
+        Me.pnBCH.TabIndex = 68
         '
         'btnPending
         '
@@ -604,13 +633,13 @@ Partial Class MainForm
         Me.lblFriends.TabIndex = 76
         Me.lblFriends.Text = "Friends"
         '
-        'Panel5
+        'pnlBFA
         '
-        Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.Panel5.Location = New System.Drawing.Point(131, 10)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(1, 30)
-        Me.Panel5.TabIndex = 67
+        Me.pnlBFA.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.pnlBFA.Location = New System.Drawing.Point(131, 10)
+        Me.pnlBFA.Name = "pnlBFA"
+        Me.pnlBFA.Size = New System.Drawing.Size(1, 30)
+        Me.pnlBFA.TabIndex = 67
         '
         'Panel4
         '
@@ -836,6 +865,7 @@ Partial Class MainForm
         Me.PlayGroundPanel.ResumeLayout(False)
         Me.MainChatAndFriendPanel.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
+        CType(Me.btnCreateChat, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picFriend, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMsgFriends.ResumeLayout(False)
@@ -875,7 +905,7 @@ Partial Class MainForm
     Friend WithEvents lblDirectMessages As Label
     Friend WithEvents btnFriends As Guna.UI.WinForms.GunaButton
     Friend WithEvents lblFriends As Label
-    Friend WithEvents Panel5 As Panel
+    Friend WithEvents pnlBFA As Panel
     Friend WithEvents picFriend As PictureBox
     Friend WithEvents btnFriendsOnline As Guna.UI.WinForms.GunaButton
     Friend WithEvents btnAddNewFriends As Guna.UI.WinForms.GunaButton
@@ -888,4 +918,6 @@ Partial Class MainForm
     Friend WithEvents FriendsPanelChild As Panel
     Friend WithEvents btnPending As Guna.UI.WinForms.GunaButton
     Friend WithEvents btnNewDirect As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents pnBCH As Panel
+    Friend WithEvents btnCreateChat As FontAwesome.Sharp.IconPictureBox
 End Class

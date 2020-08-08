@@ -1,37 +1,35 @@
-﻿Imports FontAwesome.Sharp
-Imports Guna.UI.WinForms
+﻿Imports Guna.UI.WinForms
 Imports System.Runtime.InteropServices
-Imports System
-Imports System.Windows.Forms
-Imports System.Threading
 
 Public Class MainForm
 
+    '*****///// VARS
     Private _UserName As String
-    Private MoveForm As Boolean
-    Private lastGenericButton As New GunaButton
-    Private firstClick As Boolean = False
-
-    Public currentChildForm As Form
-    Public secondChildForm As Form
-    Private GenericButton As GunaButton
-    Private ButtonWasSelected As GunaButton
-    Private MoveForm_MousePosition As Point
-    Public lastOpenedFriendsPanel As GunaButton = btnFriendsOnline
-
+    Private _MoveForm As Boolean
     Public _OpenedChat As Integer
+    Private _FirstClick As Boolean = False
+    Private _MoveForm_MousePosition As Point
+    Public _ListOfUserFriendsChatPanel As New List(Of FriendsChatPanel)
 
-    Private vScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
+    '*****///// FORMS
+    Public _SecondChildForm As Form
+    Public _CurrentChildForm As Form
+    Private _CreateDmForm As CreateDMForm
 
-    Private _CreateDm As CreateDMForm
+    '*****///// COMPONENTS
+    Private _GenericButton As GunaButton
+    Private _ButtonWasSelected As GunaButton
+    Private _LastGenericButton As New GunaButton
+    Public _LastOpenedFriendsPanel As GunaButton = btnFriendsOnline
+    Private _vScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
+
+    '*****///// CLASSES
     Private _Subject As New Subject
     Private _Utility_Style As New Utility_Style
     Private _Utility_Secure As New Utility_Secure
     Public _ControlChildForm As New ControlChildForm
 
-    Public _ListOfUserFriendsChatPanel As New List(Of FriendsChatPanel)
-    Public _ListOfUserFriendsOnline As New List(Of FriendsOnlineAndAllPanel)
-
+    '*****///// COLORS
     Private _RedColor As String = _Utility_Style.RedColor
     Private _OrngColor As String = _Utility_Style.OrngColor
     Private _MainColor As String = _Utility_Style.MainColor
@@ -85,19 +83,19 @@ Public Class MainForm
     End Sub
 
     Public Sub Form_style()
-        vScrollHelper = New Guna.UI.Lib.ScrollBar.PanelScrollHelper(PanelListOfChatFriends, FriendsChatScrollBar, True)
-        vScrollHelper.UpdateScrollBar()
+        _vScrollHelper = New Guna.UI.Lib.ScrollBar.PanelScrollHelper(PanelListOfChatFriends, FriendsChatScrollBar, True)
+        _vScrollHelper.UpdateScrollBar()
 
         FriendsChatScrollBar.BringToFront()
         LeftButtomPanel.Visible = True
 
         UserPicture.SendToBack()
-        ButtonWasSelected = btnHomeChat
+        _ButtonWasSelected = btnHomeChat
 
-        FormBorderStyle = FormBorderStyle.Sizable
         Me.ControlBox = False
         Me.Text = String.Empty
         Me.DoubleBuffered = True
+        FormBorderStyle = FormBorderStyle.Sizable
         Me.MaximizedBounds = Screen.PrimaryScreen.WorkingArea
 
         Me.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
@@ -106,11 +104,9 @@ Public Class MainForm
     End Sub
 
     Private Sub Create_ListOfFriends()
-
         Dim createListOfPanels As New Create_ListOf_Panels(_Subject, FriendsChatScrollBar, Me, 60, "Chat", _ListOfUserFriendsChatPanel, PanelListOfChatFriends)
 
         createListOfPanels.Create_ListOfPanels()
-
     End Sub
 
     Private Sub HomeForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -165,7 +161,7 @@ Public Class MainForm
     End Sub
 
     Private Sub myMoveForm_MouseDown(sender As Object, e As MouseEventArgs) Handles TopPanel.MouseDown
-        MoveForm = True
+        _MoveForm = True
     End Sub
 
     Private Sub myMoveForm_DoubleClick(sender As Object, e As EventArgs) Handles TopPanel.DoubleClick
@@ -178,8 +174,8 @@ Public Class MainForm
     End Sub
 
     Private Sub myMoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles TopPanel.MouseMove
-        If MoveForm Then
-            MoveForm = False
+        If _MoveForm Then
+            _MoveForm = False
             ' FormBorderStyle = FormBorderStyle.Sizable
             Me.Cursor = Cursors.SizeAll
 
@@ -192,7 +188,7 @@ Public Class MainForm
 
     Private Sub myMoveForm_MouseUp(sender As Object, e As MouseEventArgs) Handles TopPanel.MouseUp
         If e.Button = MouseButtons.Left Then
-            MoveForm = False
+            _MoveForm = False
         End If
     End Sub
 
@@ -211,7 +207,7 @@ Public Class MainForm
     Private Sub btnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
         LeftButtomPanel.Visible = False
         Dim settingsForm As New SettingsForm(lblUserName.Text)
-        _ControlChildForm.OpenChildForm(settingsForm, MainPanel, currentChildForm)
+        _ControlChildForm.OpenChildForm(settingsForm, MainPanel, _CurrentChildForm)
     End Sub
 
     '*****///// END BUTTON OPEN SETTINGS FORM
@@ -220,33 +216,33 @@ Public Class MainForm
     Private Sub Mouse_Hover_Buttons(sender As System.Object, e As System.EventArgs) _
       Handles btnHomeChat.MouseEnter, btnPersonalBlog.MouseEnter, btnVideo.MouseEnter, btnMusic.MouseEnter, btnGames.MouseEnter
 
-        GenericButton = DirectCast(sender, GunaButton)
+        _GenericButton = DirectCast(sender, GunaButton)
 
-        _Utility_Style.Select_Btn_UI(selectedPoint, New Point(selectedPoint.Location.X, GenericButton.Location.Y + 18))
+        _Utility_Style.Select_Btn_UI(selectedPoint, New Point(selectedPoint.Location.X, _GenericButton.Location.Y + 18))
     End Sub
 
     Private Sub btnFriends_Click(sender As Object, e As EventArgs) Handles btnFriends.Click
 
-        If currentChildForm IsNot Nothing Then
-            currentChildForm.Close()
+        If _CurrentChildForm IsNot Nothing Then
+            _CurrentChildForm.Close()
         End If
 
-        Onclick_OpenChildForm_FriendPanels(lastOpenedFriendsPanel.Name)
+        Onclick_OpenChildForm_FriendPanels(_LastOpenedFriendsPanel.Name)
     End Sub
     '*****///// END MOUSE HOVER AND CLICK ON BUTTONS UI
 
     '*****///// FUNCTION TO OPEN OTHER FORMS ON LEFT MAIN PANEL
     Private Sub On_Click_LeftPanel_Buttons(sender As System.Object, e As System.EventArgs) _
       Handles btnHomeChat.Click, btnPersonalBlog.Click, btnVideo.Click, btnMusic.Click, btnGames.Click
-        ButtonWasSelected.Radius = 25
+        _ButtonWasSelected.Radius = 25
 
-        GenericButton = DirectCast(sender, GunaButton)
+        _GenericButton = DirectCast(sender, GunaButton)
 
-        Onclick_OpenChildForm_LeftPanel(GenericButton.Name)
+        Onclick_OpenChildForm_LeftPanel(_GenericButton.Name)
 
-        _Utility_Style.Select_Btn_UI(selectedPoint, New Point(selectedPoint.Location.X, GenericButton.Location.Y + 18))
-        _Utility_Style.Selected_Btn_Cliked_UI(clikedPoint, GenericButton)
-        ButtonWasSelected = GenericButton
+        _Utility_Style.Select_Btn_UI(selectedPoint, New Point(selectedPoint.Location.X, _GenericButton.Location.Y + 18))
+        _Utility_Style.Selected_Btn_Cliked_UI(clikedPoint, _GenericButton)
+        _ButtonWasSelected = _GenericButton
     End Sub
 
     Private Sub Onclick_OpenChildForm_LeftPanel(buttonName As String)
@@ -254,51 +250,50 @@ Public Class MainForm
         If Not buttonName.Equals("btnHomeChat") Then
             Change_lastGenericButton()
             pnlMsgFriends.Visible = False
-            secondChildForm = currentChildForm
+            _SecondChildForm = _CurrentChildForm
         End If
 
         Select Case buttonName
             Case "btnPersonalBlog"
                 Dim persinalBlogForm As New PersonalBlogForm
-                _ControlChildForm.OpenChildForm(persinalBlogForm, PlayGroundPanel, currentChildForm)
+                _ControlChildForm.OpenChildForm(persinalBlogForm, PlayGroundPanel, _CurrentChildForm)
 
             Case "btnGames"
                 Dim gameForm As New GameForm
-                _ControlChildForm.OpenChildForm(gameForm, PlayGroundPanel, currentChildForm)
+                _ControlChildForm.OpenChildForm(gameForm, PlayGroundPanel, _CurrentChildForm)
 
             Case "btnMusic"
                 Dim musicForm As New MusicForm
-                _ControlChildForm.OpenChildForm(musicForm, PlayGroundPanel, currentChildForm)
+                _ControlChildForm.OpenChildForm(musicForm, PlayGroundPanel, _CurrentChildForm)
 
             Case "btnVideo"
                 Dim videoForm As New VideoForm
-                _ControlChildForm.OpenChildForm(videoForm, PlayGroundPanel, currentChildForm)
+                _ControlChildForm.OpenChildForm(videoForm, PlayGroundPanel, _CurrentChildForm)
 
             Case "btnHomeChat"
 
                 pnlMsgFriends.Visible = True
-                If currentChildForm IsNot Nothing Then
-                    currentChildForm.Close()
+                If _CurrentChildForm IsNot Nothing Then
+                    _CurrentChildForm.Close()
                 End If
 
                 Open_SavedChildForm()
 
-                If Not lastOpenedFriendsPanel.Name.Equals("btnAddNewFriends") Then
-                    OnClick_GenericButton(lastOpenedFriendsPanel)
+                If Not _LastOpenedFriendsPanel.Name.Equals("btnAddNewFriends") Then
+                    OnClick_GenericButton(_LastOpenedFriendsPanel)
                 End If
-
         End Select
     End Sub
     '*****///// END FUNCTION TO OPEN OTHER FORMS ON LEFT MAIN PANEL
 
     Private Sub Open_SavedChildForm()
-        Debug.WriteLine(secondChildForm.Name)
+        Debug.WriteLine(_SecondChildForm.Name)
 
-        Select Case secondChildForm.Name
+        Select Case _SecondChildForm.Name
             Case "AddFriendForm", "AllFriendsForm", "BlockedFriendsForm", "OnlineFriendsForm", "PendingForm"
-                Onclick_OpenChildForm_FriendPanels(secondChildForm.Name)
+                Onclick_OpenChildForm_FriendPanels(_SecondChildForm.Name)
             Case "ChatFriendForm"
-                _ListOfUserFriendsChatPanel.Item(_OpenedChat).On_MouseClickFriendList(_ListOfUserFriendsChatPanel.Item(_OpenedChat)._Sender, _ListOfUserFriendsChatPanel.Item(_OpenedChat)._E)
+                _ListOfUserFriendsChatPanel.Item(_OpenedChat).On_ChatPanel_Click(_ListOfUserFriendsChatPanel.Item(_OpenedChat)._Sender, _ListOfUserFriendsChatPanel.Item(_OpenedChat)._E)
         End Select
     End Sub
 
@@ -308,33 +303,33 @@ Public Class MainForm
 
         Change_lastGenericButton()
 
-        GenericButton = DirectCast(sender, GunaButton)
+        _GenericButton = DirectCast(sender, GunaButton)
 
-        If firstClick Then
-            lastGenericButton = GenericButton
+        If _FirstClick Then
+            _LastGenericButton = _GenericButton
         Else
-            lastGenericButton = btnFriendsOnline
+            _LastGenericButton = btnFriendsOnline
 
             Change_lastGenericButton()
 
-            lastGenericButton = GenericButton
-            firstClick = True
+            _LastGenericButton = _GenericButton
+            _FirstClick = True
         End If
 
-        If Not lastGenericButton.Name.Equals("btnAddNewFriends") Then
-            OnClick_GenericButton(GenericButton)
+        If Not _LastGenericButton.Name.Equals("btnAddNewFriends") Then
+            OnClick_GenericButton(_GenericButton)
         End If
 
-        lastOpenedFriendsPanel = GenericButton
+        _LastOpenedFriendsPanel = _GenericButton
 
-        Onclick_OpenChildForm_FriendPanels(GenericButton.Name)
+        Onclick_OpenChildForm_FriendPanels(_GenericButton.Name)
 
     End Sub
 
     Public Sub Change_lastGenericButton()
-        If Not lastGenericButton.Name.Equals("btnAddNewFriends") Then
-            lastGenericButton.BaseColor = Color.Transparent
-            lastGenericButton.ForeColor = Color.DarkGray
+        If Not _LastGenericButton.Name.Equals("btnAddNewFriends") Then
+            _LastGenericButton.BaseColor = Color.Transparent
+            _LastGenericButton.ForeColor = Color.DarkGray
         End If
     End Sub
 
@@ -348,23 +343,23 @@ Public Class MainForm
         Select Case buttonName
             Case "btnAllFrineds", "AllFriendsForm"
                 Dim allFriendsForm As New AllFriendsForm(_Subject, Me)
-                _ControlChildForm.OpenChildForm(allFriendsForm, FriendsPanelChild, currentChildForm)
+                _ControlChildForm.OpenChildForm(allFriendsForm, FriendsPanelChild, _CurrentChildForm)
 
             Case "btnBlockedFriends", "BlockedFriendsForm"
                 Dim blockedFriendsForm As New BlockedFriendsForm(_Subject)
-                _ControlChildForm.OpenChildForm(blockedFriendsForm, FriendsPanelChild, currentChildForm)
+                _ControlChildForm.OpenChildForm(blockedFriendsForm, FriendsPanelChild, _CurrentChildForm)
 
             Case "btnAddNewFriends", "AddFriendForm"
                 Dim addNewFriendsForm As New AddFriendForm
-                _ControlChildForm.OpenChildForm(addNewFriendsForm, FriendsPanelChild, currentChildForm)
+                _ControlChildForm.OpenChildForm(addNewFriendsForm, FriendsPanelChild, _CurrentChildForm)
 
             Case "btnFriendsOnline", "OnlineFriendsForm"
                 Dim onlineFriendsForm As New OnlineFriendsForm(_Subject)
-                _ControlChildForm.OpenChildForm(onlineFriendsForm, FriendsPanelChild, currentChildForm)
+                _ControlChildForm.OpenChildForm(onlineFriendsForm, FriendsPanelChild, _CurrentChildForm)
 
             Case "btnPending", "PendingForm"
                 Dim pandingForm As New PendingForm(_Subject)
-                _ControlChildForm.OpenChildForm(pandingForm, FriendsPanelChild, currentChildForm)
+                _ControlChildForm.OpenChildForm(pandingForm, FriendsPanelChild, _CurrentChildForm)
 
         End Select
     End Sub
@@ -373,7 +368,7 @@ Public Class MainForm
     '*****///// ON SCROLL FRIENDSLIST TO NOT SEE MILTIPLE SELECTED FIRENDS
     Private Sub FriendScrollBar_Scroll(sender As Object, e As ScrollEventArgs) Handles FriendsChatScrollBar.Scroll
         For i As Integer = 0 To _ListOfUserFriendsChatPanel.Count - 1
-            _ListOfUserFriendsChatPanel.Item(i).Leave_ListOfFriend()
+            _ListOfUserFriendsChatPanel.Item(i).Leave_ListOfChatPanels()
         Next
     End Sub
 
@@ -417,33 +412,39 @@ Public Class MainForm
 
     Private Sub HomeForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         Onclick_OpenChildForm_FriendPanels(btnFriendsOnline.Name)
-        lastOpenedFriendsPanel = btnFriendsOnline
+        _LastOpenedFriendsPanel = btnFriendsOnline
     End Sub
 
     Private Sub btnNewDirect_Click(sender As Object, e As EventArgs) Handles btnNewDirect.Click
-        If Not Application.OpenForms().OfType(Of CreateDMForm).Any Then
-            _CreateDm = New CreateDMForm(Me, _Subject)
-        End If
-
         If btnNewDirect.Rotation = 0 Then
+
             btnNewDirect.Rotation = 45
-
-            _CreateDm.TopLevel = False
-            _CreateDm.Parent = Me
-
-            _CreateDm.SetBounds(290, 150, 400, 350)
-            _CreateDm.BringToFront()
-            _CreateDm.Show()
-
             btnNewDirect.IconColor = Color.White
+
         Else
             btnNewDirect.IconColor = Color.Silver
             btnNewDirect.Rotation = 0
-
-            _CreateDm.Close()
-            _CreateDm.Dispose()
         End If
+
+        Open_CreateChatForm(290, 150)
     End Sub
 
+    Private Sub btnCreateChat_Click(sender As Object, e As EventArgs) Handles btnCreateChat.Click
+        Open_CreateChatForm(820, 65)
+    End Sub
 
+    Private Sub Open_CreateChatForm(x As Integer, y As Integer)
+        If Not Application.OpenForms().OfType(Of CreateDMForm).Any Then
+            _CreateDmForm = New CreateDMForm(Me, _Subject)
+
+            _CreateDmForm.TopLevel = False
+            _CreateDmForm.Parent = Me
+
+            _CreateDmForm.SetBounds(x, y, 400, 350)
+            _CreateDmForm.BringToFront()
+            _CreateDmForm.Show()
+        Else
+            _CreateDmForm.Close()
+        End If
+    End Sub
 End Class

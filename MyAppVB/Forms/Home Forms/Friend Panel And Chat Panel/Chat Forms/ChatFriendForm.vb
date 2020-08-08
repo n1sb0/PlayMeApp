@@ -1,10 +1,12 @@
 ﻿Public Class ChatFriendForm
-
+    '*****///// VARS
     Public _MsgToUser As String
     Public _StateOnline As String
 
+    '*****///// CLASSES
     Private _Utility_Style As New Utility_Style
 
+    '*****///// COLORS
     Private _GreenColor As String = "#2ecc71"
 
     Private Sub ChatFriendForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load

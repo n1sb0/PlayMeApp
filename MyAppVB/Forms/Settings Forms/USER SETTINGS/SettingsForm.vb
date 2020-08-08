@@ -3,22 +3,29 @@ Imports FontAwesome.Sharp
 Imports Guna.UI.WinForms
 
 Public Class SettingsForm
-    Private _btnSaveCliked As Boolean = False
-    Private sizeOfCenterForm As Integer = 660
-    Private distanceRightLeftPnlToCenterForm As Integer = 10
 
-    Private currentChildForm As Form
-    Private _passPic As New PictureBox
-    Private GenericButton As GunaButton
-    Private _memoryStream As New MemoryStream
+    '*****///// VARS
+    Private _UserName As String
+    Private _BtnSaveCliked As Boolean = False
+    Private _SizeOfCenterForm As Integer = 660
+    Private _DistanceRightLeftPnlToCenterForm As Integer = 10
 
+    '*****///// FORMS
+    Private _CurrentChildForm As Form
+
+    '*****///// COMPONENTS
+    Private _PassPic As New PictureBox
+    Private _GenericButton As GunaButton
+    Private _MemoryStream As New MemoryStream
+
+    '*****///// CLASSES
     Private _Subject As New Subject
     Private _ResizeImage As New ResizeImage
     Private _Utility_Style As New Utility_Style
     Private _Utility_Secure As New Utility_Secure
     Private _ControlChildForm As New ControlChildForm
 
-    Private _userName As String
+    '*****///// COLORS
     Private _DarkBlue As String = _Utility_Style.DarkBlue
     Private _RedColor As String = _Utility_Style.RedColor
     Private _OrngColor As String = _Utility_Style.OrngColor
@@ -34,7 +41,7 @@ Public Class SettingsForm
         InitializeComponent()
 
         ' Aggiungere le eventuali istruzioni di inizializzazione dopo la chiamata a InitializeComponent().
-        _userName = userName
+        _UserName = userName
         Put_Subject_Data()
         SetStyle_For_Components()
     End Sub
@@ -54,7 +61,7 @@ Public Class SettingsForm
 
     '*****///// UPDATE USER DATA ON UI
     Private Sub Put_Subject_Data()
-        _Subject = Subject.Get_Subject_Data(_userName)
+        _Subject = Subject.Get_Subject_Data(_UserName)
 
         If Not String.IsNullOrEmpty(_Subject.SUBJECT_USERNAME) Then
             txtUserEmail.Text = _Subject.SUBJECT_EMAIL
@@ -107,11 +114,11 @@ Public Class SettingsForm
             lblChangePassword.Text = "Change Password?"
 
             If Not String.IsNullOrEmpty(_Subject.SUBJECT_USERNAME) Then
-                If Not txtUserName.Text.Equals(_Subject.SUBJECT_USERNAME) AndAlso Not _btnSaveCliked Then
+                If Not txtUserName.Text.Equals(_Subject.SUBJECT_USERNAME) AndAlso Not _BtnSaveCliked Then
                     txtUserName.Text = _Subject.SUBJECT_USERNAME
                 End If
 
-                If Not txtUserEmail.Text.Equals(_Subject.SUBJECT_EMAIL) AndAlso Not _btnSaveCliked Then
+                If Not txtUserEmail.Text.Equals(_Subject.SUBJECT_EMAIL) AndAlso Not _BtnSaveCliked Then
                     txtUserEmail.Text = _Subject.SUBJECT_EMAIL
                 End If
             End If
@@ -182,8 +189,8 @@ Public Class SettingsForm
 
     '*****///// ON RESIZE SETTINGS FORM TO MAKE RESPONSIVE UI FORM
     Private Sub SettingsForm_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
-        LeftPanel.Width = Convert.ToInt32(centerPanel.Location.X) - distanceRightLeftPnlToCenterForm
-        btnClose.Left = Convert.ToInt32(centerPanel.Location.X) + sizeOfCenterForm + distanceRightLeftPnlToCenterForm
+        LeftPanel.Width = Convert.ToInt32(centerPanel.Location.X) - _DistanceRightLeftPnlToCenterForm
+        btnClose.Left = Convert.ToInt32(centerPanel.Location.X) + _SizeOfCenterForm + _DistanceRightLeftPnlToCenterForm
         btnClose.Width = Screen.PrimaryScreen.Bounds.Width - Convert.ToInt32(btnClose.Location.X)
     End Sub
     '*****///// END ON RESIZE SETTINGS FORM TO MAKE RESPONSIVE UI FORM
@@ -201,11 +208,11 @@ Public Class SettingsForm
         openFile.FileName = ""
         openFile.Filter = "png|*.png|jpegs|*.jpg|gifs|*.gif|Bitmaps|*.bmp"
         If openFile.ShowDialog = Windows.Forms.DialogResult.OK Then
-            _passPic.Image = Image.FromFile(openFile.FileName)
+            _PassPic.Image = Image.FromFile(openFile.FileName)
 
-            _passPic.Image = ResizeImage.ResizeImage(_passPic.Image, 300, 300)
+            _PassPic.Image = ResizeImage.ResizeImage(_PassPic.Image, 300, 300)
 
-            userPictureBox.Image = _passPic.Image
+            userPictureBox.Image = _PassPic.Image
 
             _Subject.SUBJECT_USER_PICTURE = _ResizeImage.ConvertImage(userPictureBox.Image)
         End If
@@ -216,7 +223,7 @@ Public Class SettingsForm
 
     '*****///// WHEN DATA WERE CHANGED ON ON CLICK BUTTON SAVE GO TO UPDATE ALL DATA IN DATA BASE
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        _btnSaveCliked = True
+        _BtnSaveCliked = True
         Dim setQuery As String
 
         Dim userPassword As String = txtCurrentPassword.Text
@@ -249,7 +256,7 @@ Public Class SettingsForm
             lblWrongPassword.Visible = True
         End If
 
-        _btnSaveCliked = False
+        _BtnSaveCliked = False
     End Sub
 
     Private Sub Save_Subject_Data()
@@ -294,9 +301,9 @@ Public Class SettingsForm
     Private Sub On_Click_Buttons(sender As System.Object, e As System.EventArgs) _
       Handles btnMyAccount.Click, btnPrivacyAndSefty.Click, btnVoiceAndVideo.Click, btnLanguage.Click
 
-        GenericButton = DirectCast(sender, GunaButton)
+        _GenericButton = DirectCast(sender, GunaButton)
 
-        Onclick_OpenForm(GenericButton.Name)
+        Onclick_OpenForm(_GenericButton.Name)
     End Sub
 
 
@@ -311,19 +318,19 @@ Public Class SettingsForm
         Select Case buttonName
             Case "btnPrivacyAndSefty"
                 Dim privacyandSeftyForm As New PrivacyAndSeftyForm
-                _ControlChildForm.OpenChildForm(privacyandSeftyForm, centerPanel, currentChildForm)
+                _ControlChildForm.OpenChildForm(privacyandSeftyForm, centerPanel, _CurrentChildForm)
 
             Case "btnLanguage"
                 Dim languageForm As New LanguageForm
-                _ControlChildForm.OpenChildForm(languageForm, centerPanel, currentChildForm)
+                _ControlChildForm.OpenChildForm(languageForm, centerPanel, _CurrentChildForm)
 
             Case "btnVoiceAndVideo"
                 Dim voiceAndVideoForm As New VoiceAndVideoForm
-                _ControlChildForm.OpenChildForm(voiceAndVideoForm, centerPanel, currentChildForm)
+                _ControlChildForm.OpenChildForm(voiceAndVideoForm, centerPanel, _CurrentChildForm)
 
             Case "btnMyAccount"
-                If currentChildForm IsNot Nothing Then
-                    currentChildForm.Close()
+                If _CurrentChildForm IsNot Nothing Then
+                    _CurrentChildForm.Close()
                 End If
                 pnlEditAccount.Visible = True
         End Select

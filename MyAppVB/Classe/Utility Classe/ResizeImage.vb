@@ -1,5 +1,4 @@
-﻿
-Imports System.Drawing.Drawing2D
+﻿Imports System.Drawing.Drawing2D
 Imports System.IO
 
 Public Class ResizeImage
@@ -26,7 +25,6 @@ Public Class ResizeImage
     Public Shared Function ResizeImage(bmp As Bitmap, size As Size) As Image
         Return ResizeImage(DirectCast(bmp, Image), size.Width, size.Height)
     End Function
-
 
     Public Function ConvertImage(ByVal myImage As Image) As Byte()
 
