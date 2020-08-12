@@ -24,8 +24,6 @@ Public Class DmFriendsPanel
         Create_Panel(350, 50)
         Create_OnlineButton()
         Create_UserPictureBox()
-        Create_RadiusBackGround_Left()
-        Create_RadiusBackGround_Right()
 
         UpdateComponents()
 
@@ -42,9 +40,6 @@ Public Class DmFriendsPanel
     Private Sub UpdateComponents()
         _UserPanel.BackColor = Color.Transparent
         _UserNameLbl.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GrayColor))
-
-        _LeftRadiusBorderOfPanel.Size = New Size(50, 50)
-        _RightRadiusBorderOfPanel.Size = New Size(50, 50)
     End Sub
 
     '*****///// ADD EVENT REFERENCE TO ELEMENTS
@@ -119,15 +114,11 @@ Public Class DmFriendsPanel
 
     '*****///// ON PANEL MOUSE HOVER EVENT
     Private Sub On_UserDmPanel_Enter()
-        BorderOfPanel_Visible(True)
-
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
     End Sub
 
     '*****///// ON MOUSE LEAVE EVENT
     Private Sub On_UserDmPanel_Leave()
-        BorderOfPanel_Visible(False)
-
         _UserPanel.BackColor = Color.Transparent
     End Sub
 

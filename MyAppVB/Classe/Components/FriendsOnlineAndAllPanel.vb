@@ -40,9 +40,7 @@ Public Class FriendsOnlineAndAllPanel
         Create_OnlineButton()
         Create_UserPictureBox()
         Create_SendMessageButton()
-        Create_RadiusBackGround_Left()
         Create_UserStateOnline_Label()
-        Create_RadiusBackGround_Right()
 
         UpdateComponents()
 
@@ -72,8 +70,6 @@ Public Class FriendsOnlineAndAllPanel
         AddHandler _UserPictureBox.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Enter
         AddHandler _SendMessageBtn.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Enter
         AddHandler _UserStateOnline_Label.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Enter
-        AddHandler _LeftRadiusBorderOfPanel.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Enter
-        AddHandler _RightRadiusBorderOfPanel.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Enter
 
         '*****///// ON MOUSE LEAVE THE PANEL
         AddHandler _UserPanel.MouseLeave, AddressOf On_FriendsOnlineAndAllPanel_Leave
@@ -89,8 +85,6 @@ Public Class FriendsOnlineAndAllPanel
         _OvalOnline.Name = "pnlOnlineOval" + _NumberOfPanel
         _SendMessageBtn.Name = "pnlMsgbtn" + _NumberOfPanel
         _UserStateOnline_Label.Name = "pnlOnlineLbl" + _NumberOfPanel
-        _LeftRadiusBorderOfPanel.Name = "pnlBackLeft" + _NumberOfPanel
-        _RightRadiusBorderOfPanel.Name = "pnlBackRight" + _NumberOfPanel
     End Sub
 
     '*****///// SET LOCATION OF WHICH ELEMENT INSIDE OF PANEL
@@ -127,11 +121,9 @@ Public Class FriendsOnlineAndAllPanel
     '*****///// ON PANEL MOUSE HOVER EVENT
     Private Sub On_FriendsOnlineAndAllPanel_Enter()
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
-        _UserLine.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
+        _UserLine.Visible = False
 
-        UnderLine_SelectedUser(_PanelsColorLightDarkBlue)
-
-        BorderOfPanel_Visible(True)
+        UnderLine_SelectedUser(False)
 
         _SendMessageBtn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_DarkBlue))
         _MenuBtn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_DarkBlue))
@@ -140,32 +132,32 @@ Public Class FriendsOnlineAndAllPanel
     '*****///// ON MOUSE LEAVE EVENT
     Private Sub On_FriendsOnlineAndAllPanel_Leave()
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
-        _UserLine.BackColor = Color.Gray
+        _UserLine.Visible = True
 
-        UnderLine_SelectedUser(Color.Gray.ToArgb)
-
-        BorderOfPanel_Visible(False)
+        UnderLine_SelectedUser(True)
 
         _SendMessageBtn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
         _MenuBtn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
     End Sub
 
     '*****///// UNDER LINE USER PANEL
-    Private Sub UnderLine_SelectedUser(ccolor As String)
+    Private Sub UnderLine_SelectedUser(state As Boolean)
 
         If Application.OpenForms().OfType(Of OnlineFriendsForm).Any Then
             Dim index As Integer = _OnlineFriendsForm._ListOfUserFriendsOnline.IndexOf(Me)
+
             If index > 0 Then
-                _OnlineFriendsForm._ListOfUserFriendsOnline.Item(index - 1)._UserLine.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(ccolor))
+                _OnlineFriendsForm._ListOfUserFriendsOnline.Item(index - 1)._UserLine.Visible = state
             Else
-                _OnlineFriendsForm.pnlUnderTextOnlineFriends.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(ccolor))
+                _OnlineFriendsForm.pnlUnderTextOnlineFriends.Visible = state
             End If
+
         ElseIf Application.OpenForms().OfType(Of AllFriendsForm).Any Then
             Dim index As Integer = _AllFriendsForm._ListOfUserFriendsAllPanel.IndexOf(Me)
             If index > 0 Then
-                _AllFriendsForm._ListOfUserFriendsAllPanel.Item(index - 1)._UserLine.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(ccolor))
+                _AllFriendsForm._ListOfUserFriendsAllPanel.Item(index - 1)._UserLine.Visible = state
             Else
-                _AllFriendsForm.pnlUnderlblAllFriends.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(ccolor))
+                _AllFriendsForm.pnlUnderlblAllFriends.Visible = state
             End If
         End If
     End Sub

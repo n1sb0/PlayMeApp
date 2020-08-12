@@ -17,8 +17,6 @@ Public Class GenericPanel
     Property _SendMessageBtn As New GunaButton
     Property _CheckBoxBtn As New IconPictureBox
     Property _UserStateOnline_Label As New Label
-    Property _LeftRadiusBorderOfPanel As New GunaButton
-    Property _RightRadiusBorderOfPanel As New GunaButton
     Property _UserPictureBox As New GunaCirclePictureBox
     Property _DeleteChatWithUserBtn As New IconPictureBox
     Property Ctr As ShapeContainer = New ShapeContainer()
@@ -58,6 +56,33 @@ Public Class GenericPanel
         _UserPanel.Size = size
         _UserPanel.Cursor = Cursors.Hand
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
+
+        If _MainForm Is Nothing Then
+            AddHandler _UserPanel.Paint, AddressOf On_Panel_Paint
+        End If
+
+    End Sub
+
+    Private Sub On_Panel_Paint(sender As Object, e As PaintEventArgs)
+        e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias
+        e.Graphics.Clear(_UserPanel.Parent.BackColor)
+        Dim control As Control = _UserPanel
+        Dim radius As Integer = 30
+
+        Using path As System.Drawing.Drawing2D.GraphicsPath = New System.Drawing.Drawing2D.GraphicsPath()
+            path.AddLine(radius, 0, control.Width - radius, 0)
+            path.AddArc(control.Width - radius, 0, radius, radius, 270, 90)
+            path.AddLine(control.Width, radius, control.Width, control.Height - radius)
+            path.AddArc(control.Width - radius, control.Height - radius, radius, radius, 0, 90)
+            path.AddLine(control.Width - radius, control.Height, radius, control.Height)
+            path.AddArc(0, control.Height - radius, radius, radius, 90, 90)
+            path.AddLine(0, control.Height - radius, 0, radius)
+            path.AddArc(0, 0, radius, radius, 180, 90)
+
+            Using brush As SolidBrush = New SolidBrush(control.BackColor)
+                e.Graphics.FillPath(brush, path)
+            End Using
+        End Using
     End Sub
 
     '*****///// CREATE UNDER LINE OF PANEL
@@ -171,16 +196,6 @@ Public Class GenericPanel
         btn.OnHoverBaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_DarkBlue))
     End Sub
 
-    '*****///// CREATE RADIUSE BORED TO PANEL ON LEFT AND RIGHT SIDE
-    Public Sub Create_RadiusBackGround_Left()
-        Default_BackRadius_Settings(_LeftRadiusBorderOfPanel)
-    End Sub
-
-    Public Sub Create_RadiusBackGround_Right()
-        Default_BackRadius_Settings(_RightRadiusBorderOfPanel)
-        _RightRadiusBorderOfPanel.Anchor = AnchorStyles.Right
-    End Sub
-
     '*****///// DEFAULT SETTINGS FOR RADIUSE BORDER
     Private Sub Default_BackRadius_Settings(btn As GunaButton)
         btn.Size = New Size(62, 62)
@@ -195,11 +210,6 @@ Public Class GenericPanel
         btn.OnPressedColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
     End Sub
 
-    Public Sub BorderOfPanel_Visible(state As Boolean)
-        _RightRadiusBorderOfPanel.Visible = state
-        _LeftRadiusBorderOfPanel.Visible = state
-    End Sub
-
     '*****///// CREATE CHECK BOX FOR ADD A FRIENDS TO GROUP CHAT
     Public Sub Create_CheckBox()
         _CheckBoxBtn.Size = New Size(30, 30)
@@ -208,3 +218,5 @@ Public Class GenericPanel
         _CheckBoxBtn.BackColor = Color.Transparent
     End Sub
 End Class
+
+

@@ -44,8 +44,6 @@ Partial Class MainForm
         Me.MainChatAndFriendPanel = New System.Windows.Forms.Panel()
         Me.FriendsPanelChild = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.btnCreateChat = New FontAwesome.Sharp.IconPictureBox()
-        Me.pnBCH = New System.Windows.Forms.Panel()
         Me.btnPending = New Guna.UI.WinForms.GunaButton()
         Me.btnAddNewFriends = New Guna.UI.WinForms.GunaButton()
         Me.btnBlockedFriends = New Guna.UI.WinForms.GunaButton()
@@ -56,6 +54,8 @@ Partial Class MainForm
         Me.pnlBFA = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnHelp = New FontAwesome.Sharp.IconPictureBox()
+        Me.btnCreateChat = New FontAwesome.Sharp.IconPictureBox()
+        Me.pnBCH = New System.Windows.Forms.Panel()
         Me.pnlMsgFriends = New System.Windows.Forms.Panel()
         Me.btnNewDirect = New FontAwesome.Sharp.IconPictureBox()
         Me.FriendsChatScrollBar = New Guna.UI.WinForms.GunaVScrollBar()
@@ -67,6 +67,7 @@ Partial Class MainForm
         Me.btnHide = New FontAwesome.Sharp.IconPictureBox()
         Me.btnMaxSizeForm = New FontAwesome.Sharp.IconPictureBox()
         Me.btnExit = New FontAwesome.Sharp.IconPictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.LeftButtomPanel.SuspendLayout()
         CType(Me.UserPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnSettings, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,9 +75,9 @@ Partial Class MainForm
         Me.PlayGroundPanel.SuspendLayout()
         Me.MainChatAndFriendPanel.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        CType(Me.btnCreateChat, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picFriend, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnCreateChat, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMsgFriends.SuspendLayout()
         CType(Me.btnNewDirect, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnHide, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -300,7 +301,7 @@ Partial Class MainForm
         '
         Me.UserPicture.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.UserPicture.BaseColor = System.Drawing.Color.White
-        Me.UserPicture.Image = Global.PlayME.My.Resources.Resources.t9f6bjjt7br31
+        Me.UserPicture.Image = Global.PlayME.My.Resources.Resources._123123c12321
         Me.UserPicture.Location = New System.Drawing.Point(10, 579)
         Me.UserPicture.Name = "UserPicture"
         Me.UserPicture.Size = New System.Drawing.Size(50, 50)
@@ -313,7 +314,7 @@ Partial Class MainForm
         '
         Me.lblUserName.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblUserName.Font = New System.Drawing.Font("Microsoft YaHei", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.lblUserName.ForeColor = System.Drawing.Color.Transparent
+        Me.lblUserName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.lblUserName.Location = New System.Drawing.Point(0, 641)
         Me.lblUserName.Name = "lblUserName"
         Me.lblUserName.Size = New System.Drawing.Size(70, 22)
@@ -377,11 +378,14 @@ Partial Class MainForm
         Me.LogoName.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.LogoName.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.LogoName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.LogoName.Location = New System.Drawing.Point(10, 0)
+        Me.LogoName.Location = New System.Drawing.Point(6, -1)
         Me.LogoName.Name = "LogoName"
-        Me.LogoName.Size = New System.Drawing.Size(55, 20)
+        Me.LogoName.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
+        Me.LogoName.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.LogoName.Size = New System.Drawing.Size(35, 20)
         Me.LogoName.TabIndex = 73
-        Me.LogoName.Text = "PlayMe"
+        Me.LogoName.Text = "Play"
+        Me.LogoName.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'MainPanel
         '
@@ -451,30 +455,6 @@ Partial Class MainForm
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(950, 52)
         Me.Panel2.TabIndex = 1
-        '
-        'btnCreateChat
-        '
-        Me.btnCreateChat.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCreateChat.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnCreateChat.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnCreateChat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.btnCreateChat.IconChar = FontAwesome.Sharp.IconChar.CommentMedical
-        Me.btnCreateChat.IconColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.btnCreateChat.IconSize = 30
-        Me.btnCreateChat.Location = New System.Drawing.Point(838, 12)
-        Me.btnCreateChat.Name = "btnCreateChat"
-        Me.btnCreateChat.Size = New System.Drawing.Size(30, 30)
-        Me.btnCreateChat.TabIndex = 96
-        Me.btnCreateChat.TabStop = False
-        '
-        'pnBCH
-        '
-        Me.pnBCH.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pnBCH.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.pnBCH.Location = New System.Drawing.Point(890, 10)
-        Me.pnBCH.Name = "pnBCH"
-        Me.pnBCH.Size = New System.Drawing.Size(1, 30)
-        Me.pnBCH.TabIndex = 68
         '
         'btnPending
         '
@@ -666,6 +646,30 @@ Partial Class MainForm
         Me.btnHelp.TabIndex = 94
         Me.btnHelp.TabStop = False
         '
+        'btnCreateChat
+        '
+        Me.btnCreateChat.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCreateChat.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnCreateChat.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnCreateChat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.btnCreateChat.IconChar = FontAwesome.Sharp.IconChar.CommentMedical
+        Me.btnCreateChat.IconColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.btnCreateChat.IconSize = 30
+        Me.btnCreateChat.Location = New System.Drawing.Point(838, 12)
+        Me.btnCreateChat.Name = "btnCreateChat"
+        Me.btnCreateChat.Size = New System.Drawing.Size(30, 30)
+        Me.btnCreateChat.TabIndex = 96
+        Me.btnCreateChat.TabStop = False
+        '
+        'pnBCH
+        '
+        Me.pnBCH.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pnBCH.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.pnBCH.Location = New System.Drawing.Point(890, 10)
+        Me.pnBCH.Name = "pnBCH"
+        Me.pnBCH.Size = New System.Drawing.Size(1, 30)
+        Me.pnBCH.TabIndex = 68
+        '
         'pnlMsgFriends
         '
         Me.pnlMsgFriends.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -837,6 +841,18 @@ Partial Class MainForm
         Me.btnExit.TabIndex = 70
         Me.btnExit.TabStop = False
         '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(37, 1)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(34, 17)
+        Me.Label1.TabIndex = 76
+        Me.Label1.Text = "Me"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -844,10 +860,11 @@ Partial Class MainForm
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1280, 720)
         Me.ControlBox = False
+        Me.Controls.Add(Me.LogoName)
         Me.Controls.Add(Me.btnHide)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.LeftButtomPanel)
         Me.Controls.Add(Me.MainPanel)
-        Me.Controls.Add(Me.LogoName)
         Me.Controls.Add(Me.btnMaxSizeForm)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.TopPanel)
@@ -865,9 +882,9 @@ Partial Class MainForm
         Me.PlayGroundPanel.ResumeLayout(False)
         Me.MainChatAndFriendPanel.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
-        CType(Me.btnCreateChat, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picFriend, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnCreateChat, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMsgFriends.ResumeLayout(False)
         CType(Me.btnNewDirect, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnHide, System.ComponentModel.ISupportInitialize).EndInit()
@@ -920,4 +937,5 @@ Partial Class MainForm
     Friend WithEvents btnNewDirect As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents pnBCH As Panel
     Friend WithEvents btnCreateChat As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents Label1 As Label
 End Class

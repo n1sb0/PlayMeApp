@@ -4,6 +4,7 @@ Imports System.Runtime.InteropServices
 Public Class MainForm
 
     '*****///// VARS
+    Private _SaveSecondChildForm As Boolean
     Private _UserName As String
     Private _MoveForm As Boolean
     Public _OpenedChat As Integer
@@ -95,7 +96,7 @@ Public Class MainForm
         Me.ControlBox = False
         Me.Text = String.Empty
         Me.DoubleBuffered = True
-        FormBorderStyle = FormBorderStyle.Sizable
+        'FormBorderStyle = FormBorderStyle.Sizable
         Me.MaximizedBounds = Screen.PrimaryScreen.WorkingArea
 
         Me.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
@@ -194,10 +195,10 @@ Public Class MainForm
 
     Private Sub MainForm_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         If WindowState = FormWindowState.Maximized Then
-            FormBorderStyle = FormBorderStyle.None
+            'FormBorderStyle = FormBorderStyle.None
             btnMaxSizeForm.IconChar = FontAwesome.Sharp.IconChar.WindowRestore
         Else
-            FormBorderStyle = FormBorderStyle.Sizable
+            'FormBorderStyle = FormBorderStyle.Sizable
             btnMaxSizeForm.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize
         End If
     End Sub
@@ -247,10 +248,11 @@ Public Class MainForm
 
     Private Sub Onclick_OpenChildForm_LeftPanel(buttonName As String)
 
-        If Not buttonName.Equals("btnHomeChat") Then
+        If Not _SaveSecondChildForm Then
             Change_lastGenericButton()
             pnlMsgFriends.Visible = False
             _SecondChildForm = _CurrentChildForm
+            _SaveSecondChildForm = True
         End If
 
         Select Case buttonName
@@ -271,6 +273,7 @@ Public Class MainForm
                 _ControlChildForm.OpenChildForm(videoForm, PlayGroundPanel, _CurrentChildForm)
 
             Case "btnHomeChat"
+                _SaveSecondChildForm = False
 
                 pnlMsgFriends.Visible = True
                 If _CurrentChildForm IsNot Nothing Then
@@ -420,7 +423,6 @@ Public Class MainForm
 
             btnNewDirect.Rotation = 45
             btnNewDirect.IconColor = Color.White
-
         Else
             btnNewDirect.IconColor = Color.Silver
             btnNewDirect.Rotation = 0

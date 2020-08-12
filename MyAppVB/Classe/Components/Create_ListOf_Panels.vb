@@ -3,27 +3,31 @@ Imports System.Runtime.InteropServices
 Imports System.Reflection
 Public Class Create_ListOf_Panels
 
-    '*****///// 'dynamic' vars 
+    '*****///// 'dynamic' VARS
     Private _UserPanel_Class
     Private _ListOfUserPanels
 
+    '*****///// VARS
     Private _Iy As Integer
     Private _ControlBy As String
     Private _X = 10, _Y = 0, _Count = 1
+    Private _ListOfsbjFriends As List(Of Subject_Friends)
 
+    '*****///// FORMS
     Private _MainForm As MainForm
     Private _DmForm As CreateDMForm
     Private _AllFriendsForm As AllFriendsForm
     Private _OnlineFriendsForm As OnlineFriendsForm
     Private _BlockedFriendsForm As BlockedFriendsForm
 
+    '*****///// CLASSES
     Private _Subject As Subject
+
+    '*****///// COMPONENTS
     Private _MainPanel As Panel
     Private _MainPanelG As GunaPanel
     Private _ScrollBar As GunaVScrollBar
     Private _LocationOfUserPanel As Point
-
-    Private _ListOfsbjFriends As List(Of Subject_Friends)
 
     Sub New()
     End Sub
@@ -173,23 +177,9 @@ Public Class Create_ListOf_Panels
         _ListOfUserPanels.Add(userPanel_Class)
 
         If _MainPanel IsNot Nothing Then
-
-            userPanel_Class._BackGRadLeft.Location = New Point(_LocationOfUserPanel.X - 7, _LocationOfUserPanel.Y)
-            userPanel_Class._BackGRadRight.Location = New Point(_LocationOfUserPanel.X + 809, _LocationOfUserPanel.Y + 12)
-
             _MainPanel.Controls.Add(userPanel_Class._UserPanel)
-            _MainPanel.Controls.Add(userPanel_Class._BackGRadLeft)
-            _MainPanel.Controls.Add(userPanel_Class._BackGRadRight)
         Else
             _MainPanelG.Controls.Add(userPanel_Class._UserPanel)
-
-            If _ControlBy.Equals("DM") Then
-                userPanel_Class._BackGRadLeft.Location = New Point(_LocationOfUserPanel.X - 10, _LocationOfUserPanel.Y)
-                userPanel_Class._BackGRadRight.Location = New Point(_LocationOfUserPanel.X + 330, _LocationOfUserPanel.Y - 15)
-
-                _MainPanelG.Controls.Add(userPanel_Class._BackGRadLeft)
-                _MainPanelG.Controls.Add(userPanel_Class._BackGRadRight)
-            End If
         End If
     End Sub
 End Class

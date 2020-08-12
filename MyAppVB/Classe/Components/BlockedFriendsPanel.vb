@@ -23,9 +23,6 @@ Public Class BlockedFriendsPanel
         Create_UnBlockButton()
         Create_UserPictureBox()
         Create_UserStateOnline_Label()
-        Create_RadiusBackGround_Left()
-        Create_RadiusBackGround_Right()
-
         UpdateComponents()
 
         AddEventRef()
@@ -53,8 +50,6 @@ Public Class BlockedFriendsPanel
         AddHandler _UnBlockBtn.MouseEnter, AddressOf On_BlockedFriendPanel_Enter
         AddHandler _OvalOnline.MouseEnter, AddressOf On_BlockedFriendPanel_Enter
         AddHandler _UserNameLbl.MouseEnter, AddressOf On_BlockedFriendPanel_Enter
-        AddHandler _LeftRadiusBorderOfPanel.MouseEnter, AddressOf On_BlockedFriendPanel_Enter
-        AddHandler _RightRadiusBorderOfPanel.MouseEnter, AddressOf On_BlockedFriendPanel_Enter
         AddHandler _UserPictureBox.MouseEnter, AddressOf On_BlockedFriendPanel_Enter
         AddHandler _UserStateOnline_Label.MouseEnter, AddressOf On_BlockedFriendPanel_Enter
 
@@ -70,8 +65,6 @@ Public Class BlockedFriendsPanel
         _UserPictureBox.Name = "pnlPic" + _NumberOfPanel
         _OvalOnline.Name = "pnlOnlineOval" + _NumberOfPanel
         _UnBlockBtn.Name = "pnlUnBlockBtn" + _NumberOfPanel
-        _LeftRadiusBorderOfPanel.Name = "pnlBackLeft" + _NumberOfPanel
-        _RightRadiusBorderOfPanel.Name = "pnlBackRight" + _NumberOfPanel
         _UserStateOnline_Label.Name = "pnlOnlineLbl" + _NumberOfPanel
     End Sub
 
@@ -105,35 +98,33 @@ Public Class BlockedFriendsPanel
 
     '*****///// ON MOUSE HOVER EVENT
     Private Sub On_BlockedFriendPanel_Enter()
+        _UserLine.Visible = False
         _UnBlockBtn.OnHoverBaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_RedColor))
-        _UserLine.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
 
-        UnderLine_SelectedUser(_PanelsColorLightDarkBlue)
+        UnderLine_SelectedUser(False)
 
-        BorderOfPanel_Visible(True)
         _UnBlockBtn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_DarkBlue))
     End Sub
 
     '*****///// ON MOUSE LEAVE EVENT
     Private Sub On_BlockedFriendPanel_Leave()
-        _UserLine.BackColor = Color.Gray
+        _UserLine.Visible = True
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
 
-        UnderLine_SelectedUser(Color.Gray.ToArgb)
+        UnderLine_SelectedUser(True)
 
-        BorderOfPanel_Visible(False)
         _UnBlockBtn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
     End Sub
 
     '*****///// UNDERLINE SELECTED USER
-    Private Sub UnderLine_SelectedUser(ccolor As String)
+    Private Sub UnderLine_SelectedUser(state As Boolean)
         Dim index As Integer = _BlockedFriendsForm._ListOfUserBlockedFriendsPanel.IndexOf(Me)
 
         If index > 0 Then
-            _BlockedFriendsForm._ListOfUserBlockedFriendsPanel.Item(index - 1)._UserLine.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(ccolor))
+            _BlockedFriendsForm._ListOfUserBlockedFriendsPanel.Item(index - 1)._UserLine.Visible = state
         Else
-            _BlockedFriendsForm.pnlUnderText.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(ccolor))
+            _BlockedFriendsForm.pnlUnderText.Visible = state
         End If
     End Sub
 End Class

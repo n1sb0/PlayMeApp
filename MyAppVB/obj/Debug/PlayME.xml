@@ -22,6 +22,11 @@ PlayME
   ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
 </summary>
 </member>
+<member name="P:PlayME.My.Resources.Resources._123123c12321">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:PlayME.My.Resources.Resources._87227_skyline_tower_block_city_daytime_tokyo_1920x1080">
 <summary>
   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.

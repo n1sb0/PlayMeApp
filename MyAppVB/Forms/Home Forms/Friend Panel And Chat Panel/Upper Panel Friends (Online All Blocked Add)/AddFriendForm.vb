@@ -12,4 +12,13 @@
         btnSendFriendRequest.Enabled = Not state
     End Sub
 
+    Private Sub btnSendFriendRequest_Click(sender As Object, e As EventArgs) Handles btnSendFriendRequest.Click
+
+        If txtFindFriend.Text.Length > 4 Then
+
+        Else
+
+        End If
+
+    End Sub
 End Class

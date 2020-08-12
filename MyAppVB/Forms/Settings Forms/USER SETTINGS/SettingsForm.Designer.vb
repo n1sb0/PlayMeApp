@@ -514,7 +514,7 @@ Partial Class SettingsForm
         'userPictureBox
         '
         Me.userPictureBox.BaseColor = System.Drawing.Color.White
-        Me.userPictureBox.Image = Global.PlayME.My.Resources.Resources.t9f6bjjt7br31
+        Me.userPictureBox.Image = Global.PlayME.My.Resources.Resources._123123c12321
         Me.userPictureBox.Location = New System.Drawing.Point(40, 20)
         Me.userPictureBox.Name = "userPictureBox"
         Me.userPictureBox.Size = New System.Drawing.Size(125, 125)

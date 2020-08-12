@@ -524,6 +524,7 @@
     <None Include="Resources\chatToFriend.png" />
     <None Include="Resources\chatToFriendx1.png" />
     <None Include="Resources\BlockedUser.png" />
+    <None Include="Resources\123123c12321.png" />
     <Content Include="Resources\Logo.png" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
