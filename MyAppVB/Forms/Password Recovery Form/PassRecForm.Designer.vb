@@ -194,7 +194,7 @@ Partial Class PassRecForm
         '
         Me.lblMsgComfCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.lblMsgComfCode.ForeColor = System.Drawing.Color.White
-        Me.lblMsgComfCode.Location = New System.Drawing.Point(16, 73)
+        Me.lblMsgComfCode.Location = New System.Drawing.Point(16, 75)
         Me.lblMsgComfCode.Name = "lblMsgComfCode"
         Me.lblMsgComfCode.Size = New System.Drawing.Size(154, 15)
         Me.lblMsgComfCode.TabIndex = 84
@@ -205,7 +205,7 @@ Partial Class PassRecForm
         '
         Me.lblMsgEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.lblMsgEmail.ForeColor = System.Drawing.Color.White
-        Me.lblMsgEmail.Location = New System.Drawing.Point(16, 274)
+        Me.lblMsgEmail.Location = New System.Drawing.Point(16, 275)
         Me.lblMsgEmail.Name = "lblMsgEmail"
         Me.lblMsgEmail.Size = New System.Drawing.Size(257, 15)
         Me.lblMsgEmail.TabIndex = 85
@@ -375,7 +375,7 @@ Partial Class PassRecForm
         Me.btnVerifyCode.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
         Me.btnVerifyCode.Image = Nothing
         Me.btnVerifyCode.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnVerifyCode.Location = New System.Drawing.Point(66, 139)
+        Me.btnVerifyCode.Location = New System.Drawing.Point(66, 130)
         Me.btnVerifyCode.Name = "btnVerifyCode"
         Me.btnVerifyCode.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
         Me.btnVerifyCode.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))

@@ -137,10 +137,7 @@
 
     '*****///// BTN EXIT
     Private Sub btnComeBack_Click(sender As Object, e As EventArgs) Handles btnComeBack.Click
-        If Not Application.OpenForms().OfType(Of LoginForm).Any Then
-            LoginForm.Show()
-        End If
-        Me.Close()
+
     End Sub
     '*****///// END BTN EXIT 
 

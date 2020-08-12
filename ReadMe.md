@@ -13,3 +13,20 @@ This is not yet ready, I am developing it to create a comfortable UI (User Inter
 The application is a mixture of social media and the place where you could watch your friends' videos or share them, listen to music and play games.
 
 The reason why I want to develop this application is, above all, to compare myself with new techniques and functions and to learn how to manage them and put them into practice.
+
+----------
+
+![](img/LoginForm.png)
+![](img/RegisterForm.png)
+![](img/PasswordRecoveryForm-1.png)
+![](img/PasswordRecoveryForm-2.png)
+![](img/PasswordRecoveryForm-3.png)
+![](img/MainForm-OnlineFriends.png)
+![](img/MainForm-AllFriends.png)
+![](img/MainForm-PendingReq.png)
+![](img/MainForm-BlockedFriends.png)
+![](img/MainForm-AddFriends.png)
+![](img/MainForm-DMWithUser.png)
+![](img/MainForm-UserBlog.png)
+![](img/SettingsForm.png)
+![](img/SettingsForm-EditAcc.png)

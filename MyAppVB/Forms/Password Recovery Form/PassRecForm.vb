@@ -108,7 +108,7 @@ Public Class PassRecForm
                 smtp.Send(message)
 
                 Me.Height = 650
-                txtEmail.ReadOnly = True
+                txtEmail.Enabled = False
                 btnSubmit.Enabled = False
                 pnlVirCode.Visible = True
                 Me.CenterToScreen()
