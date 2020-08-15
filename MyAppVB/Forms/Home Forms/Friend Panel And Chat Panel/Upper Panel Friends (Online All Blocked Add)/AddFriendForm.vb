@@ -1,4 +1,5 @@
 ﻿Public Class AddFriendForm
+
     Private Sub txtFindFriend_TextChanged(sender As Object, e As EventArgs) Handles txtFindFriend.TextChanged
         If String.IsNullOrEmpty(txtFindFriend.Text) Then
             Active_DisActive_TextBox(True)
@@ -20,5 +21,11 @@
 
         End If
 
+    End Sub
+
+    Private Sub FindFriendPanel_Paint(sender As Object, e As PaintEventArgs) Handles FindFriendPanel.Paint
+        Dim rbp As New RadiusBorderPanel
+
+        rbp.On_Panel_Paint(sender, e, FindFriendPanel)
     End Sub
 End Class

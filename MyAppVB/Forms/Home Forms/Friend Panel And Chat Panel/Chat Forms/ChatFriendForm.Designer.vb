@@ -205,7 +205,7 @@ Partial Class ChatFriendForm
         Me.btnAddSmile.IconChar = FontAwesome.Sharp.IconChar.SmileWink
         Me.btnAddSmile.IconColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnAddSmile.IconSize = 25
-        Me.btnAddSmile.Location = New System.Drawing.Point(890, 10)
+        Me.btnAddSmile.Location = New System.Drawing.Point(880, 8)
         Me.btnAddSmile.Name = "btnAddSmile"
         Me.btnAddSmile.Size = New System.Drawing.Size(25, 25)
         Me.btnAddSmile.TabIndex = 24
@@ -218,7 +218,7 @@ Partial Class ChatFriendForm
         Me.btnAddFiles.IconChar = FontAwesome.Sharp.IconChar.PlusCircle
         Me.btnAddFiles.IconColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnAddFiles.IconSize = 25
-        Me.btnAddFiles.Location = New System.Drawing.Point(10, 10)
+        Me.btnAddFiles.Location = New System.Drawing.Point(10, 8)
         Me.btnAddFiles.Name = "btnAddFiles"
         Me.btnAddFiles.Size = New System.Drawing.Size(25, 25)
         Me.btnAddFiles.TabIndex = 23

@@ -166,7 +166,7 @@
         End If
     End Sub
 
-    Private Sub btnExit_MouseHover(sender As Object, e As EventArgs) Handles btnExit.MouseHover
+    Private Sub btnExit_MouseHover(sender As Object, e As EventArgs) Handles btnExit.MouseEnter
         btnExit.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_RedColor))
     End Sub
 

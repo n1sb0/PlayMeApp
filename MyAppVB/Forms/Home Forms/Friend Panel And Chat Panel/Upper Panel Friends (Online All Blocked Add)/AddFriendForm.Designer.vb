@@ -29,8 +29,6 @@ Partial Class AddFriendForm
         Me.lblEnterUserName = New System.Windows.Forms.Label()
         Me.txtFindFriend = New System.Windows.Forms.TextBox()
         Me.btnSendFriendRequest = New Guna.UI.WinForms.GunaButton()
-        Me.GunaButton1 = New Guna.UI.WinForms.GunaButton()
-        Me.btnHomeChat = New Guna.UI.WinForms.GunaButton()
         Me.iconPicUsers = New FontAwesome.Sharp.IconPictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.iconPicGlobeAfrica = New FontAwesome.Sharp.IconPictureBox()
@@ -99,7 +97,7 @@ Partial Class AddFriendForm
         Me.FindFriendPanel.Controls.Add(Me.lblEnterUserName)
         Me.FindFriendPanel.Controls.Add(Me.txtFindFriend)
         Me.FindFriendPanel.Controls.Add(Me.btnSendFriendRequest)
-        Me.FindFriendPanel.Location = New System.Drawing.Point(52, 90)
+        Me.FindFriendPanel.Location = New System.Drawing.Point(40, 90)
         Me.FindFriendPanel.Name = "FindFriendPanel"
         Me.FindFriendPanel.Size = New System.Drawing.Size(870, 50)
         Me.FindFriendPanel.TabIndex = 77
@@ -159,59 +157,6 @@ Partial Class AddFriendForm
         Me.btnSendFriendRequest.Size = New System.Drawing.Size(175, 30)
         Me.btnSendFriendRequest.TabIndex = 94
         Me.btnSendFriendRequest.Text = "Send Friend Request"
-        '
-        'GunaButton1
-        '
-        Me.GunaButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GunaButton1.AnimationHoverSpeed = 0.07!
-        Me.GunaButton1.AnimationSpeed = 0.03!
-        Me.GunaButton1.BackColor = System.Drawing.Color.Transparent
-        Me.GunaButton1.BaseColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.GunaButton1.BorderColor = System.Drawing.Color.Black
-        Me.GunaButton1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.GunaButton1.DialogResult = System.Windows.Forms.DialogResult.None
-        Me.GunaButton1.FocusedColor = System.Drawing.Color.Empty
-        Me.GunaButton1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.GunaButton1.ForeColor = System.Drawing.Color.White
-        Me.GunaButton1.Image = Nothing
-        Me.GunaButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.GunaButton1.ImageSize = New System.Drawing.Size(25, 25)
-        Me.GunaButton1.Location = New System.Drawing.Point(882, 90)
-        Me.GunaButton1.Name = "GunaButton1"
-        Me.GunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.GunaButton1.OnHoverBorderColor = System.Drawing.Color.Black
-        Me.GunaButton1.OnHoverForeColor = System.Drawing.Color.White
-        Me.GunaButton1.OnHoverImage = Nothing
-        Me.GunaButton1.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.GunaButton1.Radius = 10
-        Me.GunaButton1.Size = New System.Drawing.Size(50, 50)
-        Me.GunaButton1.TabIndex = 79
-        '
-        'btnHomeChat
-        '
-        Me.btnHomeChat.AnimationHoverSpeed = 0.07!
-        Me.btnHomeChat.AnimationSpeed = 0.03!
-        Me.btnHomeChat.BackColor = System.Drawing.Color.Transparent
-        Me.btnHomeChat.BaseColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.btnHomeChat.BorderColor = System.Drawing.Color.Black
-        Me.btnHomeChat.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btnHomeChat.DialogResult = System.Windows.Forms.DialogResult.None
-        Me.btnHomeChat.FocusedColor = System.Drawing.Color.Empty
-        Me.btnHomeChat.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnHomeChat.ForeColor = System.Drawing.Color.White
-        Me.btnHomeChat.Image = Nothing
-        Me.btnHomeChat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.btnHomeChat.ImageSize = New System.Drawing.Size(25, 25)
-        Me.btnHomeChat.Location = New System.Drawing.Point(42, 90)
-        Me.btnHomeChat.Name = "btnHomeChat"
-        Me.btnHomeChat.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.btnHomeChat.OnHoverBorderColor = System.Drawing.Color.Black
-        Me.btnHomeChat.OnHoverForeColor = System.Drawing.Color.White
-        Me.btnHomeChat.OnHoverImage = Nothing
-        Me.btnHomeChat.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.btnHomeChat.Radius = 10
-        Me.btnHomeChat.Size = New System.Drawing.Size(50, 50)
-        Me.btnHomeChat.TabIndex = 78
         '
         'iconPicUsers
         '
@@ -399,8 +344,6 @@ Partial Class AddFriendForm
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblMsgAddFriend)
         Me.Controls.Add(Me.lblAddFriend)
-        Me.Controls.Add(Me.btnHomeChat)
-        Me.Controls.Add(Me.GunaButton1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "AddFriendForm"
         Me.Text = "AddFriendForm"
@@ -429,8 +372,6 @@ Partial Class AddFriendForm
     Friend WithEvents FindFriendPanel As Panel
     Friend WithEvents btnSendFriendRequest As Guna.UI.WinForms.GunaButton
     Friend WithEvents txtFindFriend As TextBox
-    Friend WithEvents GunaButton1 As Guna.UI.WinForms.GunaButton
-    Friend WithEvents btnHomeChat As Guna.UI.WinForms.GunaButton
     Friend WithEvents lblEnterUserName As Label
     Friend WithEvents iconPicUsers As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents Label1 As Label

@@ -377,4 +377,5 @@ Public Class SettingsForm
             _Utility_Style.Mouse_Leave_TextBox(txtUserEmail, lblEmail, pnlUserEmail, "left")
         End If
     End Sub
+
 End Class

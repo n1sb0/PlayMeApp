@@ -137,7 +137,7 @@
 
     '*****///// BTN EXIT
     Private Sub btnComeBack_Click(sender As Object, e As EventArgs) Handles btnComeBack.Click
-
+        Me.Close()
     End Sub
     '*****///// END BTN EXIT 
 
@@ -318,7 +318,7 @@
     '*****///// END SAVE ALL SUBJECT DATA
 
     '*****///// UI CHANGE COLOR OF COMEBACK BUTTON
-    Private Sub btnComeBack_MouseHover(sender As Object, e As EventArgs) Handles btnComeBack.MouseHover
+    Private Sub btnComeBack_MouseHover(sender As Object, e As EventArgs) Handles btnComeBack.MouseEnter
         btnComeBack.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
     End Sub
 

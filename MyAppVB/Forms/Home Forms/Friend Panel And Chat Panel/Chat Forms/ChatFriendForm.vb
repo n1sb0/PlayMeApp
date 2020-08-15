@@ -23,4 +23,10 @@
         _Utility_Style.Set_UserStateOnline(lblStateOnlineOfFriend, _StateOnline)
 
     End Sub
+
+    Private Sub pnlMessage_Paint(sender As Object, e As PaintEventArgs) Handles pnlMessage.Paint
+        Dim rbp As New RadiusBorderPanel
+
+        rbp.On_Panel_Paint(sender, e, pnlMessage, 20)
+    End Sub
 End Class

@@ -89,7 +89,7 @@ Partial Class MainForm
         '
         Me.LeftButtomPanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.LeftButtomPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.LeftButtomPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(37, Byte), Integer))
         Me.LeftButtomPanel.Controls.Add(Me.clikedPoint)
         Me.LeftButtomPanel.Controls.Add(Me.Panel1)
         Me.LeftButtomPanel.Controls.Add(Me.selectedPoint)
@@ -169,7 +169,7 @@ Partial Class MainForm
         Me.btnGames.AnimationHoverSpeed = 0.07!
         Me.btnGames.AnimationSpeed = 0.03!
         Me.btnGames.BackColor = System.Drawing.Color.Transparent
-        Me.btnGames.BaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnGames.BaseColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.btnGames.BorderColor = System.Drawing.Color.Black
         Me.btnGames.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnGames.DialogResult = System.Windows.Forms.DialogResult.None
@@ -196,7 +196,7 @@ Partial Class MainForm
         Me.btnMusic.AnimationHoverSpeed = 0.07!
         Me.btnMusic.AnimationSpeed = 0.03!
         Me.btnMusic.BackColor = System.Drawing.Color.Transparent
-        Me.btnMusic.BaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnMusic.BaseColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.btnMusic.BorderColor = System.Drawing.Color.Black
         Me.btnMusic.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnMusic.DialogResult = System.Windows.Forms.DialogResult.None
@@ -223,7 +223,7 @@ Partial Class MainForm
         Me.btnVideo.AnimationHoverSpeed = 0.07!
         Me.btnVideo.AnimationSpeed = 0.03!
         Me.btnVideo.BackColor = System.Drawing.Color.Transparent
-        Me.btnVideo.BaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnVideo.BaseColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.btnVideo.BorderColor = System.Drawing.Color.Black
         Me.btnVideo.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnVideo.DialogResult = System.Windows.Forms.DialogResult.None
@@ -250,7 +250,7 @@ Partial Class MainForm
         Me.btnPersonalBlog.AnimationHoverSpeed = 0.07!
         Me.btnPersonalBlog.AnimationSpeed = 0.03!
         Me.btnPersonalBlog.BackColor = System.Drawing.Color.Transparent
-        Me.btnPersonalBlog.BaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnPersonalBlog.BaseColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.btnPersonalBlog.BorderColor = System.Drawing.Color.Black
         Me.btnPersonalBlog.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnPersonalBlog.DialogResult = System.Windows.Forms.DialogResult.None
@@ -292,7 +292,7 @@ Partial Class MainForm
         Me.btnHomeChat.OnHoverBorderColor = System.Drawing.Color.Black
         Me.btnHomeChat.OnHoverForeColor = System.Drawing.Color.White
         Me.btnHomeChat.OnHoverImage = Nothing
-        Me.btnHomeChat.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
+        Me.btnHomeChat.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(120, Byte), Integer))
         Me.btnHomeChat.Radius = 10
         Me.btnHomeChat.Size = New System.Drawing.Size(50, 50)
         Me.btnHomeChat.TabIndex = 66
@@ -325,7 +325,7 @@ Partial Class MainForm
         'btnSettings
         '
         Me.btnSettings.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnSettings.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.btnSettings.BackColor = System.Drawing.Color.Transparent
         Me.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnSettings.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnSettings.IconChar = FontAwesome.Sharp.IconChar.Cog
@@ -365,7 +365,7 @@ Partial Class MainForm
         '
         Me.TopPanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TopPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.TopPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(37, Byte), Integer))
         Me.TopPanel.Cursor = System.Windows.Forms.Cursors.Default
         Me.TopPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
         Me.TopPanel.Location = New System.Drawing.Point(0, 0)
@@ -375,7 +375,7 @@ Partial Class MainForm
         '
         'LogoName
         '
-        Me.LogoName.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.LogoName.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(37, Byte), Integer))
         Me.LogoName.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.LogoName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.LogoName.Location = New System.Drawing.Point(6, -1)
@@ -799,7 +799,7 @@ Partial Class MainForm
         'btnHide
         '
         Me.btnHide.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnHide.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.btnHide.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(37, Byte), Integer))
         Me.btnHide.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnHide.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnHide.IconChar = FontAwesome.Sharp.IconChar.Minus
@@ -814,7 +814,7 @@ Partial Class MainForm
         'btnMaxSizeForm
         '
         Me.btnMaxSizeForm.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMaxSizeForm.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.btnMaxSizeForm.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(37, Byte), Integer))
         Me.btnMaxSizeForm.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnMaxSizeForm.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnMaxSizeForm.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize
@@ -829,7 +829,7 @@ Partial Class MainForm
         'btnExit
         '
         Me.btnExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(37, Byte), Integer))
         Me.btnExit.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnExit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnExit.IconChar = FontAwesome.Sharp.IconChar.Times
@@ -843,7 +843,7 @@ Partial Class MainForm
         '
         'Label1
         '
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(37, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(37, 1)

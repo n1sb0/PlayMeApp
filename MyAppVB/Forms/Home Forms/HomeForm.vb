@@ -4,11 +4,13 @@ Imports System.Runtime.InteropServices
 Public Class MainForm
 
     '*****///// VARS
-    Private _SaveSecondChildForm As Boolean
     Private _UserName As String
     Private _MoveForm As Boolean
     Public _OpenedChat As Integer
+    Private _LocX, _LocY As Integer
+    Private _DmFormWidth As Integer = 400
     Private _FirstClick As Boolean = False
+    Private _SaveSecondChildForm As Boolean
     Private _MoveForm_MousePosition As Point
     Public _ListOfUserFriendsChatPanel As New List(Of FriendsChatPanel)
 
@@ -16,6 +18,8 @@ Public Class MainForm
     Public _SecondChildForm As Form
     Public _CurrentChildForm As Form
     Private _CreateDmForm As CreateDMForm
+    Private _MenuMoreForm As MenuMoreForm
+    Private _DeleteFriendForm As DeleteFriendForm
 
     '*****///// COMPONENTS
     Private _GenericButton As GunaButton
@@ -43,7 +47,6 @@ Public Class MainForm
         ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
 
-        ' Aggiungere le eventuali istruzioni di inizializzazione dopo la chiamata a InitializeComponent().
         Save_UserName("n1sb0")
         SetStyle_For_Components()
     End Sub
@@ -53,7 +56,6 @@ Public Class MainForm
         ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
 
-        ' Aggiungere le eventuali istruzioni di inizializzazione dopo la chiamata a InitializeComponent().
         'Take UserName
         Save_UserName(userName)
         SetStyle_For_Components()
@@ -96,12 +98,10 @@ Public Class MainForm
         Me.ControlBox = False
         Me.Text = String.Empty
         Me.DoubleBuffered = True
-        'FormBorderStyle = FormBorderStyle.Sizable
+        FormBorderStyle = FormBorderStyle.Sizable
         Me.MaximizedBounds = Screen.PrimaryScreen.WorkingArea
 
         Me.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
-        TopPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColor))
-        LeftButtomPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColor))
     End Sub
 
     Private Sub Create_ListOfFriends()
@@ -144,7 +144,7 @@ Public Class MainForm
         Application.Exit()
     End Sub
 
-    Private Sub btnExit_MouseHover(sender As Object, e As EventArgs) Handles btnExit.MouseHover
+    Private Sub btnExit_MouseHover(sender As Object, e As EventArgs) Handles btnExit.MouseEnter
         btnExit.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_RedColor))
     End Sub
 
@@ -195,11 +195,23 @@ Public Class MainForm
 
     Private Sub MainForm_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         If WindowState = FormWindowState.Maximized Then
-            'FormBorderStyle = FormBorderStyle.None
+            FormBorderStyle = FormBorderStyle.None
             btnMaxSizeForm.IconChar = FontAwesome.Sharp.IconChar.WindowRestore
         Else
-            'FormBorderStyle = FormBorderStyle.Sizable
+            FormBorderStyle = FormBorderStyle.Sizable
             btnMaxSizeForm.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize
+        End If
+
+        If Application.OpenForms().OfType(Of CreateDMForm).Any Then
+            _CreateDmForm.Close()
+        End If
+
+        If Application.OpenForms().OfType(Of MenuMoreForm).Any Then
+            _MenuMoreForm.Close()
+        End If
+
+        If Application.OpenForms().OfType(Of DeleteFriendForm).Any Then
+            _DeleteFriendForm.Close()
         End If
     End Sub
     '*****///// END MOVE RESIZE FORM
@@ -236,8 +248,12 @@ Public Class MainForm
     Private Sub On_Click_LeftPanel_Buttons(sender As System.Object, e As System.EventArgs) _
       Handles btnHomeChat.Click, btnPersonalBlog.Click, btnVideo.Click, btnMusic.Click, btnGames.Click
         _ButtonWasSelected.Radius = 25
+        _ButtonWasSelected.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColor))
+
 
         _GenericButton = DirectCast(sender, GunaButton)
+
+        _GenericButton.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
 
         Onclick_OpenChildForm_LeftPanel(_GenericButton.Name)
 
@@ -419,30 +435,37 @@ Public Class MainForm
     End Sub
 
     Private Sub btnNewDirect_Click(sender As Object, e As EventArgs) Handles btnNewDirect.Click
+        _LocX = btnNewDirect.Location.X + 70
+        _LocY = btnNewDirect.Location.Y + 40
+
+        Open_CreateChatForm(_LocX, _LocY)
+
         If btnNewDirect.Rotation = 0 Then
 
             btnNewDirect.Rotation = 45
-            btnNewDirect.IconColor = Color.White
+            btnNewDirect.IconColor = Color.FromArgb(255, ColorTranslator.FromHtml(_RedColor))
         Else
             btnNewDirect.IconColor = Color.Silver
             btnNewDirect.Rotation = 0
         End If
-
-        Open_CreateChatForm(290, 150)
     End Sub
 
     Private Sub btnCreateChat_Click(sender As Object, e As EventArgs) Handles btnCreateChat.Click
-        Open_CreateChatForm(820, 65)
+        _LocX = (btnCreateChat.Location.X + 330) - (_DmFormWidth - 30)
+        _LocY = btnCreateChat.Location.Y + 50
+
+        Open_CreateChatForm(_LocX, _LocY)
     End Sub
 
     Private Sub Open_CreateChatForm(x As Integer, y As Integer)
+
         If Not Application.OpenForms().OfType(Of CreateDMForm).Any Then
             _CreateDmForm = New CreateDMForm(Me, _Subject)
 
             _CreateDmForm.TopLevel = False
             _CreateDmForm.Parent = Me
 
-            _CreateDmForm.SetBounds(x, y, 400, 350)
+            _CreateDmForm.SetBounds(x, y, _DmFormWidth, _DmFormWidth - 50)
             _CreateDmForm.BringToFront()
             _CreateDmForm.Show()
         Else

@@ -4,7 +4,6 @@
     Private _Subject As Subject
     Public _ListOfUserDmFriendsPanel As New List(Of DmFriendsPanel)
 
-
     Sub New(ByRef mForm As MainForm, ByRef subject As Subject)
 
         ' La chiamata è richiesta dalla finestra di progettazione.
@@ -14,6 +13,11 @@
         _MainForm = mForm
         _Subject = subject
         Create_All_DM_Friends()
+
+        Style_Form()
+    End Sub
+
+    Private Sub Style_Form()
     End Sub
 
     Private Sub Create_All_DM_Friends()

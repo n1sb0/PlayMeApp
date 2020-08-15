@@ -263,13 +263,10 @@ Public Class PassRecForm
 
     '*****///// BUTTON COME BACK
     Private Sub btnComeBack_Click(sender As Object, e As EventArgs) Handles btnComeBack.Click
-        If Not Application.OpenForms().OfType(Of LoginForm).Any Then
-            LoginForm.Show()
-        End If
         Me.Close()
     End Sub
 
-    Private Sub btnComeBack_MouseHover(sender As Object, e As EventArgs) Handles btnComeBack.MouseHover
+    Private Sub btnComeBack_MouseHover(sender As Object, e As EventArgs) Handles btnComeBack.MouseEnter
         btnComeBack.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
     End Sub
 

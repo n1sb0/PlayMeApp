@@ -36,6 +36,8 @@ Partial Class PersonalBlogForm
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnMenuPost = New FontAwesome.Sharp.IconPictureBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -64,12 +66,11 @@ Partial Class PersonalBlogForm
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.FeedScrollBar = New Guna.UI.WinForms.GunaVScrollBar()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.FeedPanel.SuspendLayout()
         Me.Panel7.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnMenuPost, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GunaCirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FindFriendPanel.SuspendLayout()
@@ -77,7 +78,6 @@ Partial Class PersonalBlogForm
         CType(Me.btnAddSmile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UserProfilePanel.SuspendLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'FeedPanel
@@ -276,6 +276,28 @@ Partial Class PersonalBlogForm
         Me.Panel3.Size = New System.Drawing.Size(815, 346)
         Me.Panel3.TabIndex = 104
         '
+        'Label7
+        '
+        Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Label7.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.Label7.Location = New System.Drawing.Point(30, 70)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(728, 17)
+        Me.Label7.TabIndex = 101
+        Me.Label7.Text = "UserName"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.PlayME.My.Resources.Resources._123123c12321
+        Me.PictureBox1.Location = New System.Drawing.Point(30, 92)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(250, 250)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 96
+        Me.PictureBox1.TabStop = False
+        '
         'btnMenuPost
         '
         Me.btnMenuPost.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -283,7 +305,7 @@ Partial Class PersonalBlogForm
         Me.btnMenuPost.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnMenuPost.IconChar = FontAwesome.Sharp.IconChar.AngleDown
         Me.btnMenuPost.IconColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.btnMenuPost.IconSize = 27
+        Me.btnMenuPost.IconSize = 25
         Me.btnMenuPost.Location = New System.Drawing.Point(760, 15)
         Me.btnMenuPost.Name = "btnMenuPost"
         Me.btnMenuPost.Size = New System.Drawing.Size(31, 25)
@@ -679,28 +701,6 @@ Partial Class PersonalBlogForm
         Me.FeedScrollBar.ThumbHoverColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.FeedScrollBar.ThumbPressedColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.PlayME.My.Resources.Resources._123123c12321
-        Me.PictureBox1.Location = New System.Drawing.Point(30, 92)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(250, 250)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 96
-        Me.PictureBox1.TabStop = False
-        '
-        'Label7
-        '
-        Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Label7.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(30, 70)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(728, 17)
-        Me.Label7.TabIndex = 101
-        Me.Label7.Text = "UserName"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
         'PersonalBlogForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -718,6 +718,7 @@ Partial Class PersonalBlogForm
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnMenuPost, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GunaCirclePictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FindFriendPanel.ResumeLayout(False)
@@ -727,7 +728,6 @@ Partial Class PersonalBlogForm
         Me.UserProfilePanel.ResumeLayout(False)
         Me.UserProfilePanel.PerformLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
