@@ -13,6 +13,7 @@ Public Class DmFriendsPanel
         _LocationOfPanel = locationOfPanel
         _ScrollBarOfUserChat = friendScrollBar
         _UserStateOnlineStr = userStateOnline
+        _RadiusBnum = 20
 
         Create_DmPanel()
     End Sub
@@ -21,7 +22,7 @@ Public Class DmFriendsPanel
     Private Sub Create_DmPanel()
         Create_UserName()
         Create_CheckBox()
-        Create_Panel(350, 50)
+        Create_Panel(370, 50)
         Create_OnlineButton()
         Create_UserPictureBox()
 
@@ -73,10 +74,10 @@ Public Class DmFriendsPanel
 
     '*****///// SET LOCATION OF WHICH ELEMENT INSIDE OF PANEL
     Private Sub Set_Location()
-        Dim locationOfPicture As Point = New Point(5, 5)
-        Dim locationCheckBox As Point = New Point(315, 12)
-        Dim locationOfUserName As Point = New Point(50, 17)
-        Dim locationOnlineLabel As Point = New Point(34, 32)
+        Dim locationOfPicture As Point = New Point(10, 5)
+        Dim locationCheckBox As Point = New Point(325, 12)
+        Dim locationOfUserName As Point = New Point(55, 17)
+        Dim locationOnlineLabel As Point = New Point(40, 32)
 
         _UserPanel.Location = _LocationOfPanel
         _CheckBoxBtn.Location = locationCheckBox

@@ -1,7 +1,7 @@
 ﻿Imports Guna.UI.WinForms
 Imports System.Runtime.InteropServices
 
-Public Class MainForm
+Public Class HomeForm
 
     '*****///// VARS
     Private _UserName As String
@@ -12,6 +12,9 @@ Public Class MainForm
     Private _FirstClick As Boolean = False
     Private _SaveSecondChildForm As Boolean
     Private _MoveForm_MousePosition As Point
+    Private _StillSerching As Boolean = False
+    Private _IsFirstTimeSerchChatPnl As Boolean = True
+    Public _SerchListOfChatPanels As New List(Of FriendsChatPanel)
     Public _ListOfUserFriendsChatPanel As New List(Of FriendsChatPanel)
 
     '*****///// FORMS
@@ -23,6 +26,7 @@ Public Class MainForm
 
     '*****///// COMPONENTS
     Private _GenericButton As GunaButton
+    Private _TransBackGroud As New Panel
     Private _ButtonWasSelected As GunaButton
     Private _LastGenericButton As New GunaButton
     Public _LastOpenedFriendsPanel As GunaButton = btnFriendsOnline
@@ -43,6 +47,7 @@ Public Class MainForm
     Private _BackGColor As String = _Utility_Style.BackGroundColor
     Private _PanelsColorLightDarkBlue As String = _Utility_Style.LightDarkBlue
 
+    '*****///// SUB NEW FOR TESTS
     Sub New()
         ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
@@ -51,7 +56,7 @@ Public Class MainForm
         SetStyle_For_Components()
     End Sub
 
-
+    '*****///// SUB NEW
     Sub New(userName As String)
         ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
@@ -77,7 +82,6 @@ Public Class MainForm
             _Utility_Style.Set_UserPicture(UserPicture, _Subject.SUBJECT_USER_PICTURE)
         End If
     End Sub
-    '*****///// END SAVE USER DATA AND UPDATE USER DATA ON UI
 
     '*****///// STYLE FORM
     Private Sub SetStyle_For_Components()
@@ -119,7 +123,6 @@ Public Class MainForm
             Update_UserData()
         End If
     End Sub
-    '*****///// END STYLE FORM
 
     '*****///// UPPER PANEL CLOSE HIDE RESIZE BUTTONS
     Private Sub btnMaxSizeForm_Click(sender As Object, e As EventArgs) Handles btnMaxSizeForm.Click
@@ -151,7 +154,6 @@ Public Class MainForm
     Private Sub btnExit_MouseLeave(sender As Object, e As EventArgs) Handles btnExit.MouseLeave
         btnExit.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GrayColor))
     End Sub
-    '*****///// END UPPER PANEL CLOSE HIDE RESIZE BUTTONS
 
     '*****///// MOVE RESIZE FORM
     <DllImport("user32.DLL", EntryPoint:="ReleaseCapture")>
@@ -214,7 +216,6 @@ Public Class MainForm
             _DeleteFriendForm.Close()
         End If
     End Sub
-    '*****///// END MOVE RESIZE FORM
 
     '*****///// BUTTON OPEN SETTINGS FORM
     Private Sub btnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
@@ -222,8 +223,6 @@ Public Class MainForm
         Dim settingsForm As New SettingsForm(lblUserName.Text)
         _ControlChildForm.OpenChildForm(settingsForm, MainPanel, _CurrentChildForm)
     End Sub
-
-    '*****///// END BUTTON OPEN SETTINGS FORM
 
     '*****///// MOUSE HOVER AND CLICK ON BUTTONS UI
     Private Sub Mouse_Hover_Buttons(sender As System.Object, e As System.EventArgs) _
@@ -242,7 +241,6 @@ Public Class MainForm
 
         Onclick_OpenChildForm_FriendPanels(_LastOpenedFriendsPanel.Name)
     End Sub
-    '*****///// END MOUSE HOVER AND CLICK ON BUTTONS UI
 
     '*****///// FUNCTION TO OPEN OTHER FORMS ON LEFT MAIN PANEL
     Private Sub On_Click_LeftPanel_Buttons(sender As System.Object, e As System.EventArgs) _
@@ -303,7 +301,6 @@ Public Class MainForm
                 End If
         End Select
     End Sub
-    '*****///// END FUNCTION TO OPEN OTHER FORMS ON LEFT MAIN PANEL
 
     Private Sub Open_SavedChildForm()
         Debug.WriteLine(_SecondChildForm.Name)
@@ -382,7 +379,6 @@ Public Class MainForm
 
         End Select
     End Sub
-    '*****///// END FUNCTION TO OPEN OTHER FORMS ON LEFT MAIN PANEL
 
     '*****///// ON SCROLL FRIENDSLIST TO NOT SEE MILTIPLE SELECTED FIRENDS
     Private Sub FriendScrollBar_Scroll(sender As Object, e As ScrollEventArgs) Handles FriendsChatScrollBar.Scroll
@@ -401,33 +397,63 @@ Public Class MainForm
             txtFindFriends.Text = ""
         End If
     End Sub
-    '*****///// END ON SCROLL FRIENDSLIST TO NOT SEE MILTIPLE SELECTED FIRENDS
 
+    '*****///// SEARCh CHAT WITH FRIEND
     Private Sub txtFindFriends_TextChanged(sender As Object, e As EventArgs) Handles txtFindFriends.TextChanged
-        If Not txtFindFriends.Text.Equals("Find Your Friends") Then
-            Dim txtString As String = txtFindFriends.Text
+
+        If Not txtFindFriends.Text.Equals("Find Your Friends") AndAlso Not String.IsNullOrEmpty(txtFindFriends.Text) Then
+
+            Dim y As String = 0
+            _StillSerching = True
+            Dim txtString As String = (txtFindFriends.Text).ToLower()
+            Dim maxNum As Integer = _ListOfUserFriendsChatPanel.Count - 1
+
+            Clear_ChatPanel(_SerchListOfChatPanels, True)
+            Clear_ChatPanel(_ListOfUserFriendsChatPanel, True)
+
+            Create_ListOfFriends()
 
             For Each pnl In _ListOfUserFriendsChatPanel
-                If Not String.IsNullOrEmpty(txtString) Then
-                    If pnl._UserNameLbl.Text.Contains(txtString) Then
-                        pnl._UserPanel.Visible = True
-                    Else
-                        pnl._UserPanel.Visible = False
-                    End If
-                Else
-                    pnlVisible(True)
+                If pnl._UserName.ToLower().Contains(txtString) Then
+                    _SerchListOfChatPanels.Add(pnl)
                 End If
             Next
+
+            Clear_ChatPanel(_ListOfUserFriendsChatPanel, True)
+
+            For j As Integer = 0 To _SerchListOfChatPanels.Count - 1
+                _ListOfUserFriendsChatPanel.Add(_SerchListOfChatPanels.Item(j))
+            Next
+
+            For i As Integer = 0 To _ListOfUserFriendsChatPanel.Count - 1
+                _ListOfUserFriendsChatPanel.Item(i)._UserPanel.Location = New Point(0, y)
+                y += 60
+
+                PanelListOfChatFriends.Controls.Add(_ListOfUserFriendsChatPanel.Item(i)._UserPanel)
+            Next
         Else
-            pnlVisible(True)
+            _StillSerching = False
+        End If
+
+        If Not _StillSerching Then
+            Clear_ChatPanel(_ListOfUserFriendsChatPanel, True)
+            Create_ListOfFriends()
         End If
     End Sub
 
-    Private Sub pnlVisible(state As Boolean)
-        For Each pnl In _ListOfUserFriendsChatPanel
-            pnl._UserPanel.Visible = state
-        Next
+    Private Sub Clear_ChatPanel(ByRef listOfChatPnl As List(Of FriendsChatPanel), clearList As Boolean)
+
+        If Not listOfChatPnl Is Nothing Then
+            For i As Integer = 0 To listOfChatPnl.Count - 1
+                PanelListOfChatFriends.Controls.Remove(listOfChatPnl.Item(i)._UserPanel)
+            Next
+
+            If clearList Then
+                listOfChatPnl.Clear()
+            End If
+        End If
     End Sub
+
 
     Private Sub HomeForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         Onclick_OpenChildForm_FriendPanels(btnFriendsOnline.Name)
@@ -435,6 +461,18 @@ Public Class MainForm
     End Sub
 
     Private Sub btnNewDirect_Click(sender As Object, e As EventArgs) Handles btnNewDirect.Click
+
+        '_TransBackGroud = New Panel
+
+        '_TransBackGroud.Size = MainPanel.Size
+        '_TransBackGroud.BackColor = Color.FromArgb(100, 88, 44, 55)
+
+        'MainPanel.Controls.Add(_TransBackGroud)
+
+        '_TransBackGroud.BringToFront()
+
+        'AddHandler Panel1.MouseClick, AddressOf On_BackGround_Click
+
         _LocX = btnNewDirect.Location.X + 70
         _LocY = btnNewDirect.Location.Y + 40
 
@@ -448,6 +486,13 @@ Public Class MainForm
             btnNewDirect.IconColor = Color.Silver
             btnNewDirect.Rotation = 0
         End If
+    End Sub
+
+    Private Sub On_BackGround_Click()
+
+        _TransBackGroud.Visible = False
+
+        _CreateDmForm.Close()
     End Sub
 
     Private Sub btnCreateChat_Click(sender As Object, e As EventArgs) Handles btnCreateChat.Click
@@ -465,6 +510,8 @@ Public Class MainForm
             _CreateDmForm.TopLevel = False
             _CreateDmForm.Parent = Me
 
+            _CreateDmForm.BackColor = Color.White
+            _CreateDmForm.TransparencyKey = BackColor
             _CreateDmForm.SetBounds(x, y, _DmFormWidth, _DmFormWidth - 50)
             _CreateDmForm.BringToFront()
             _CreateDmForm.Show()

@@ -1,10 +1,15 @@
 ﻿Public Class CreateDMForm
     Private vScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
-    Private _MainForm As New MainForm
+    Private _MainForm As New HomeForm
     Private _Subject As Subject
     Public _ListOfUserDmFriendsPanel As New List(Of DmFriendsPanel)
 
-    Sub New(ByRef mForm As MainForm, ByRef subject As Subject)
+    Sub New()
+        ' La chiamata è richiesta dalla finestra di progettazione.
+        InitializeComponent()
+    End Sub
+
+    Sub New(ByRef mForm As HomeForm, ByRef subject As Subject)
 
         ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
@@ -15,6 +20,7 @@
         Create_All_DM_Friends()
 
         Style_Form()
+
     End Sub
 
     Private Sub Style_Form()
@@ -37,5 +43,9 @@
     Private Sub CreateDM_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         vScrollHelper = New Guna.UI.Lib.ScrollBar.PanelScrollHelper(pnlOfFriends, dmFriendScrollBar, True)
         vScrollHelper.UpdateScrollBar()
+    End Sub
+
+    Private Sub CreateDMForm_MouseClick(sender As Object, e As MouseEventArgs) Handles MyBase.MouseClick
+        Me.Close()
     End Sub
 End Class

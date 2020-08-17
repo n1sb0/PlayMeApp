@@ -14,7 +14,7 @@ Public Class Create_ListOf_Panels
     Private _ListOfsbjFriends As List(Of Subject_Friends)
 
     '*****///// FORMS
-    Private _MainForm As MainForm
+    Private _MainForm As HomeForm
     Private _DmForm As CreateDMForm
     Private _AllFriendsForm As AllFriendsForm
     Private _OnlineFriendsForm As OnlineFriendsForm
@@ -38,7 +38,6 @@ Public Class Create_ListOf_Panels
     Sub New(ByRef subject As Subject, ByRef scrollBar As GunaVScrollBar, ByRef cForm As CreateDMForm, iy As Integer, controlBy As String,
             ByRef listOfUserPanel As List(Of DmFriendsPanel), ByRef mainPanl As GunaPanel)
 
-        _X = 16
         _Iy = iy
         _DmForm = cForm
         _Subject = subject
@@ -62,7 +61,7 @@ Public Class Create_ListOf_Panels
     End Sub
 
     '*****///// CHAT PANEL
-    Sub New(ByRef subject As Subject, ByRef scrollBar As GunaVScrollBar, ByRef mForm As MainForm, iy As Integer, controlBy As String,
+    Sub New(ByRef subject As Subject, ByRef scrollBar As GunaVScrollBar, ByRef mForm As HomeForm, iy As Integer, controlBy As String,
             ByRef listOfUserPanel As List(Of FriendsChatPanel), ByRef mainPanlG As GunaPanel)
 
         _X = 0

@@ -189,9 +189,9 @@
         End If
 
         If ris Then
-            Dim homeform As New MainForm(txtLogin.Text)
+            Dim homeform As New HomeForm(txtLogin.Text)
             homeform.Show()
-            _Utility_Secure.Close_AllOpenedFormAndLeftOnlyOne("MainForm")
+            _Utility_Secure.Close_AllOpenedFormAndLeftOnlyOne("HomeForm")
         Else
             lblErroreMsg.Visible = True
 

@@ -2,9 +2,9 @@
     Private vScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
 
     Private _Subject As Subject
-    Private _MainForm As MainForm
+    Private _MainForm As HomeForm
     Public _ListOfUserFriendsAllPanel As New List(Of FriendsOnlineAndAllPanel)
-    Sub New(ByRef subject As Subject, ByRef mForm As MainForm)
+    Sub New(ByRef subject As Subject, ByRef mForm As HomeForm)
         ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
 

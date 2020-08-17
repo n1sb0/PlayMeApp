@@ -28,6 +28,7 @@ Public Class GenericPanel
     Public _RadiusBorderPanel As New RadiusBorderPanel
 
     '*****///// VARS
+    Public _RadiusBnum As Integer = 35
     Public _UserName As String
     Public _UserPicture As Byte()
     Public _NumberOfPanel As String
@@ -36,7 +37,7 @@ Public Class GenericPanel
     Public _ScrollBarOfUserChat As GunaVScrollBar
 
     '*****///// FORMS ON WHICH WE ADD A PANEL
-    Public _MainForm As MainForm
+    Public _MainForm As HomeForm
     Public _DmForm As CreateDMForm
     Public _AllFriendsForm As AllFriendsForm
     Public _OnlineFriendsForm As OnlineFriendsForm
@@ -68,7 +69,7 @@ Public Class GenericPanel
 
     '*****///// CREATE RADIUS BORDER FOR THE PANEL
     Public Sub On_Panel_Paint(sender As Object, e As PaintEventArgs)
-        _RadiusBorderPanel.On_Panel_Paint(sender, e, _UserPanel, 35)
+        _RadiusBorderPanel.On_Panel_Paint(sender, e, _UserPanel, _RadiusBnum)
     End Sub
 
     '*****///// CREATE UNDER LINE OF PANEL

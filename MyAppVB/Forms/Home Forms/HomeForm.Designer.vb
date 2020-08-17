@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class MainForm
+Partial Class HomeForm
     Inherits System.Windows.Forms.Form
 
     'Form esegue l'override del metodo Dispose per pulire l'elenco dei componenti.
@@ -22,7 +22,7 @@ Partial Class MainForm
     'Non modificarla mediante l'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(HomeForm))
         Me.LeftButtomPanel = New System.Windows.Forms.Panel()
         Me.clikedPoint = New Guna.UI.WinForms.GunaButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -102,7 +102,7 @@ Partial Class MainForm
         Me.LeftButtomPanel.Controls.Add(Me.lblUserName)
         Me.LeftButtomPanel.Controls.Add(Me.btnSettings)
         Me.LeftButtomPanel.Controls.Add(Me.ShapeContainer1)
-        Me.LeftButtomPanel.Location = New System.Drawing.Point(0, 20)
+        Me.LeftButtomPanel.Location = New System.Drawing.Point(0, 0)
         Me.LeftButtomPanel.Name = "LeftButtomPanel"
         Me.LeftButtomPanel.Size = New System.Drawing.Size(70, 700)
         Me.LeftButtomPanel.TabIndex = 65
@@ -394,6 +394,7 @@ Partial Class MainForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MainPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(37, Byte), Integer))
         Me.MainPanel.Controls.Add(Me.PlayGroundPanel)
+        Me.MainPanel.Controls.Add(Me.LeftButtomPanel)
         Me.MainPanel.Location = New System.Drawing.Point(0, 20)
         Me.MainPanel.Name = "MainPanel"
         Me.MainPanel.Size = New System.Drawing.Size(1280, 700)
@@ -853,7 +854,7 @@ Partial Class MainForm
         Me.Label1.Text = "Me"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'MainForm
+        'HomeForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -863,7 +864,6 @@ Partial Class MainForm
         Me.Controls.Add(Me.LogoName)
         Me.Controls.Add(Me.btnHide)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.LeftButtomPanel)
         Me.Controls.Add(Me.MainPanel)
         Me.Controls.Add(Me.btnMaxSizeForm)
         Me.Controls.Add(Me.btnExit)
@@ -872,7 +872,7 @@ Partial Class MainForm
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(910, 550)
-        Me.Name = "MainForm"
+        Me.Name = "HomeForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Home Page"
         Me.LeftButtomPanel.ResumeLayout(False)

@@ -7,7 +7,7 @@ Public Class FriendsChatPanel
     Public _E As New System.EventArgs
     Public _Sender As New System.Object
 
-    Sub New(ByRef mainForm As MainForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar, panelname As String, userPicture As Byte(), userName As String, userStateOnline As String)
+    Sub New(ByRef mainForm As HomeForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar, panelname As String, userPicture As Byte(), userName As String, userStateOnline As String)
         _MainForm = mainForm
         _UserName = userName
         _NumberOfPanel = panelname
@@ -138,19 +138,12 @@ Public Class FriendsChatPanel
 
     '*****///// ON DELETE CHAT BUTTON MOUSE CLICK EVENT
     Private Sub On_DeleteChatButton_Click(sender As Object, e As EventArgs)
-
-        Dim btn = DirectCast(sender, IconPictureBox)
-
-        Dim s As String = btn.Name.Substring(btn.Name.IndexOf("Btn") + 3)
-
-        Dim index = _MainForm._ListOfUserFriendsChatPanel.FindIndex(Function(panel) panel._UserPanel.Name = "pnl" + s)
-
         _MainForm.PanelListOfChatFriends.Controls.Remove(_UserPanel)
-        _MainForm._ListOfUserFriendsChatPanel.RemoveAt(index)
+        _MainForm._ListOfUserFriendsChatPanel.RemoveAt(_NumberOfPanel - 1)
 
-        On_DirectWasDeleted(index)
+        On_DirectWasDeleted(_NumberOfPanel - 1)
 
-        If MainForm._OpenedChat = _NumberOfPanel Then
+        If HomeForm._OpenedChat = _NumberOfPanel Then
             If _MainForm._CurrentChildForm IsNot Nothing Then
                 _MainForm._CurrentChildForm.Close()
             End If

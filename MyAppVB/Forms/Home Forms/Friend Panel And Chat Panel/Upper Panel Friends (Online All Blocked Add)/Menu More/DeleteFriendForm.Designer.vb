@@ -28,7 +28,7 @@ Partial Class DeleteFriendForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(400, 200)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "DeleteFriendForm"
         Me.Text = "DeleteFriendForm"

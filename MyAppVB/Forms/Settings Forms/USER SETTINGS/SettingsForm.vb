@@ -78,7 +78,7 @@ Public Class SettingsForm
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Change_EditState(False)
 
-        Dim homeform As New MainForm(_Subject.SUBJECT_USERNAME)
+        Dim homeform As New HomeForm(_Subject.SUBJECT_USERNAME)
         _Utility_Secure.Close_AllOpenedFormAndLeftOnlyOne("deff")
         homeform.Show()
     End Sub
