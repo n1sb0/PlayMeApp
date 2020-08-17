@@ -49,10 +49,7 @@
 
     '*****///// SELECT QUERY TO CHECK USER FRIENDS 
     Public Shared Function Get_SubjectFriends_ByIdQuery() As String
-        Dim query As String = "SELECT USER_ID, FRIEND_ID, HAVE_CHAT, BLOCKED, tblU.SUBJECT_PICTURE, tblU.SUBJECT_USERNAME, tblU.SUBJECT_STATE_ONLINE " &
-                              "FROM TBL_USER_FRIENDS AS tblF " &
-                              "LEFT JOIN  TBL_USER_DATA AS tblU ON tblU.SUBJECT_ID = FRIEND_ID " &
-                              "WHERE USER_ID = @USER_ID"
+        Dim query As String = "SELECT USER_ID, FRIEND_ID, tblU.SUBJECT_PICTURE, tblU.SUBJECT_USERNAME, tblU.SUBJECT_STATE_ONLINE "
 
         Return query
     End Function
@@ -62,5 +59,9 @@
         Dim query As String = "DELETE FROM TBL_USER_DATA WHERE SUBJECT_ID = @SUBJECT_ID"
 
         Return query
+    End Function
+
+    Public Shared Function Get_Update_HaveChatWithFrined()
+        Dim query As String = "UPDATE TBL_USER_FRIENDS"
     End Function
 End Class

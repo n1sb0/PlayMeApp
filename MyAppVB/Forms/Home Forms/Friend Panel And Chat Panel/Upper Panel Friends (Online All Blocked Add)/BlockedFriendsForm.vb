@@ -31,6 +31,21 @@
             pnlImgBlockedFirends.Visible = False
             pnlUnderText.Visible = True
             lblBlocekdFriends.Visible = True
+
+            For i As Integer = 0 To _ListOfUserBlockedFriendsPanel.Count - 1
+                BlockedFriendsPanel.Controls.Remove(_ListOfUserBlockedFriendsPanel.Item(i)._UserPanel)
+            Next
+
+            Dim yl As Integer = 1
+
+            _ListOfUserBlockedFriendsPanel.Sort(Function(x, y) x._UserName.CompareTo(y._UserName))
+
+            For i As Integer = 0 To _ListOfUserBlockedFriendsPanel.Count - 1
+                _ListOfUserBlockedFriendsPanel.Item(i)._UserPanel.Location = New Point(10, yl)
+                yl += 61
+
+                BlockedFriendsPanel.Controls.Add(_ListOfUserBlockedFriendsPanel.Item(i)._UserPanel)
+            Next
         End If
     End Sub
 End Class

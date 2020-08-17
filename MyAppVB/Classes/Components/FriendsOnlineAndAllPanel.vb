@@ -6,7 +6,10 @@ Public Class FriendsOnlineAndAllPanel
     '*****///// CONSTRUCTOR OF PANELS
 
     '*****///// ONLINE FRIENDS PANEL
-    Sub New(ByRef oForm As OnlineFriendsForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar, panelname As String, userPicture As Byte(), userName As String, userStateOnline As String)
+    Sub New(ByRef oForm As OnlineFriendsForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar,
+            panelname As String, userPicture As Byte(), userName As String, userStateOnline As String, user_id As Integer)
+
+        _User_ID = user_id
         _UserName = userName
         _OnlineFriendsForm = oForm
         _NumberOfPanel = panelname
@@ -19,7 +22,10 @@ Public Class FriendsOnlineAndAllPanel
     End Sub
 
     '*****///// ALL FRIENDS PANEL
-    Sub New(ByRef allFForm As AllFriendsForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar, panelname As String, userPicture As Byte(), userName As String, userStateOnline As String)
+    Sub New(ByRef allFForm As AllFriendsForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar,
+            panelname As String, userPicture As Byte(), userName As String, userStateOnline As String, user_id As Integer)
+
+        _User_ID = user_id
         _UserName = userName
         _AllFriendsForm = allFForm
         _NumberOfPanel = panelname

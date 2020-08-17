@@ -75,12 +75,19 @@ Public Class HomeForm
         End If
     End Sub
 
+    '*****///// UPDATE USER DATA
     Private Sub Update_UserData()
         lblUserName.Text = _Subject.SUBJECT_USERNAME
 
         If _Subject.SUBJECT_USER_PICTURE IsNot Nothing Then
             _Utility_Style.Set_UserPicture(UserPicture, _Subject.SUBJECT_USER_PICTURE)
         End If
+    End Sub
+
+    '*****///// ON HOME FORM SHOW
+    Private Sub HomeForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        Onclick_OpenChildForm_FriendPanels(btnFriendsOnline.Name)
+        _LastOpenedFriendsPanel = btnFriendsOnline
     End Sub
 
     '*****///// STYLE FORM
@@ -387,6 +394,7 @@ Public Class HomeForm
         Next
     End Sub
 
+    '*****///// SEARCH CHAT WITH FRIEND
     Public Sub txtFindFriends_Leave(sender As Object, e As EventArgs) Handles txtFindFriends.Leave
         txtFindFriends.Text = "Find Your Friends"
         Me.ActiveControl = lblDirectMessages
@@ -398,7 +406,6 @@ Public Class HomeForm
         End If
     End Sub
 
-    '*****///// SEARCh CHAT WITH FRIEND
     Private Sub txtFindFriends_TextChanged(sender As Object, e As EventArgs) Handles txtFindFriends.TextChanged
 
         If Not txtFindFriends.Text.Equals("Find Your Friends") AndAlso Not String.IsNullOrEmpty(txtFindFriends.Text) Then
@@ -454,12 +461,7 @@ Public Class HomeForm
         End If
     End Sub
 
-
-    Private Sub HomeForm_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        Onclick_OpenChildForm_FriendPanels(btnFriendsOnline.Name)
-        _LastOpenedFriendsPanel = btnFriendsOnline
-    End Sub
-
+    '*****///// OPEN NEW FORM CREAT CHAT 
     Private Sub btnNewDirect_Click(sender As Object, e As EventArgs) Handles btnNewDirect.Click
 
         '_TransBackGroud = New Panel
@@ -488,13 +490,6 @@ Public Class HomeForm
         End If
     End Sub
 
-    Private Sub On_BackGround_Click()
-
-        _TransBackGroud.Visible = False
-
-        _CreateDmForm.Close()
-    End Sub
-
     Private Sub btnCreateChat_Click(sender As Object, e As EventArgs) Handles btnCreateChat.Click
         _LocX = (btnCreateChat.Location.X + 330) - (_DmFormWidth - 30)
         _LocY = btnCreateChat.Location.Y + 50
@@ -510,8 +505,6 @@ Public Class HomeForm
             _CreateDmForm.TopLevel = False
             _CreateDmForm.Parent = Me
 
-            _CreateDmForm.BackColor = Color.White
-            _CreateDmForm.TransparencyKey = BackColor
             _CreateDmForm.SetBounds(x, y, _DmFormWidth, _DmFormWidth - 50)
             _CreateDmForm.BringToFront()
             _CreateDmForm.Show()

@@ -5,8 +5,11 @@ Public Class DmFriendsPanel
 
     Public _Cheked As Integer = 0
 
-    Sub New(ByRef dForm As CreateDMForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar, panelname As String, userPicture As Byte(), userName As String, userStateOnline As String)
+    Sub New(ByRef dForm As CreateDMForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar,
+            panelname As String, userPicture As Byte(), userName As String, userStateOnline As String, user_id As Integer)
+
         _DmForm = dForm
+        _User_ID = user_id
         _UserName = userName
         _NumberOfPanel = panelname
         _UserPicture = userPicture

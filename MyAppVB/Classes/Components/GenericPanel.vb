@@ -28,6 +28,7 @@ Public Class GenericPanel
     Public _RadiusBorderPanel As New RadiusBorderPanel
 
     '*****///// VARS
+    Public _User_ID As Integer
     Public _RadiusBnum As Integer = 35
     Public _UserName As String
     Public _UserPicture As Byte()
@@ -205,5 +206,3 @@ Public Class GenericPanel
         _CheckBoxBtn.BackColor = Color.Transparent
     End Sub
 End Class
-
-

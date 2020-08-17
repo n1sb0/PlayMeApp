@@ -32,6 +32,21 @@
             pnlImgAllFriends.Visible = False
             lblAllFriends.Visible = True
             pnlUnderlblAllFriends.Visible = True
+
+            For i As Integer = 0 To _ListOfUserFriendsAllPanel.Count - 1
+                AllFriendsPanel.Controls.Remove(_ListOfUserFriendsAllPanel.Item(i)._UserPanel)
+            Next
+
+            Dim yl As Integer = 1
+
+            _ListOfUserFriendsAllPanel.Sort(Function(x, y) x._UserName.CompareTo(y._UserName))
+
+            For i As Integer = 0 To _ListOfUserFriendsAllPanel.Count - 1
+                _ListOfUserFriendsAllPanel.Item(i)._UserPanel.Location = New Point(10, yl)
+                yl += 61
+
+                AllFriendsPanel.Controls.Add(_ListOfUserFriendsAllPanel.Item(i)._UserPanel)
+            Next
         End If
     End Sub
 

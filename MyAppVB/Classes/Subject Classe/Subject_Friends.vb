@@ -4,31 +4,26 @@
 
     Property USER_ID As Integer
     Property FRIEND_ID As Integer
-    Property HAVE_CHAT As String
     Property FRIENDS_PICTURE As Byte()
     Property FRIENDS_USERNAME As String
     Property FRIENDS_STATE_ONLINE As String
-    Property FRIENDS_BLOCKED As String
 
     Public Sub Clean()
         USER_ID = 0
         FRIEND_ID = 0
-        HAVE_CHAT = Nothing
         FRIENDS_PICTURE = Nothing
-        FRIENDS_BLOCKED = Nothing
         FRIENDS_USERNAME = Nothing
         FRIENDS_STATE_ONLINE = Nothing
     End Sub
 
-    Public Shared Function Get_SubjectFriends_ByID(userID As Integer) As List(Of Subject_Friends)
+    Public Shared Function Get_SubjectFriends_ByID(userID As Integer, controlBy As String) As List(Of Subject_Friends)
         Dim listOfUserFriends As New List(Of Subject_Friends)
-
 
         If Not String.IsNullOrEmpty(userID) Then
             Dim sbjFriend As New Subject_Friends
             Dim reader As SqlClient.SqlDataReader
             Dim command As New SqlClient.SqlCommand
-            Dim strQuery As String = MyConnection.Get_SubjectFriends_ByIdQuery()
+            Dim strQuery As String = Get_Query(controlBy)
             Dim connection As New SqlClient.SqlConnection(MyConnection.Get_Connection)
 
             Try
@@ -65,12 +60,29 @@
         Return listOfUserFriends
     End Function
 
+    Public Shared Function Get_Query(str As String)
+        Dim query As String = ""
+        Dim leftJoin As String = "LEFT JOIN TBL_USER_DATA AS tblU ON tblU.SUBJECT_ID = FRIEND_ID WHERE USER_ID = @USER_ID"
+
+        Select Case str
+            Case "DM", "All", "Online"
+                query += MyConnection.Get_SubjectFriends_ByIdQuery + "FROM TBL_USER_FRIENDS "
+
+            Case "Chat"
+                query += MyConnection.Get_SubjectFriends_ByIdQuery + "FROM TBL_HAVE_CHAT_WITH_USER "
+
+            Case "Blocked"
+                query += MyConnection.Get_SubjectFriends_ByIdQuery + "FROM TBL_BLOCKED_FRIENDS "
+
+        End Select
+
+        Return query + leftJoin
+    End Function
+
     Public Shared Sub ReadFromDataReader(ByRef rec As Subject_Friends, ByVal reader As SqlClient.SqlDataReader)
         With rec
             .USER_ID = ReadValue(reader("USER_ID"))
             .FRIEND_ID = ReadValue(reader("FRIEND_ID"))
-            .HAVE_CHAT = ReadValue(reader("HAVE_CHAT"))
-            .FRIENDS_BLOCKED = ReadValue(reader("BLOCKED"))
             .FRIENDS_PICTURE = ReadValue(reader("SUBJECT_PICTURE"))
             .FRIENDS_USERNAME = ReadValue(reader("SUBJECT_USERNAME"))
             .FRIENDS_STATE_ONLINE = ReadValue(reader("SUBJECT_STATE_ONLINE"))

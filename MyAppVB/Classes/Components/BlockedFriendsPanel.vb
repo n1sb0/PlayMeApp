@@ -2,8 +2,11 @@
 Public Class BlockedFriendsPanel
     Inherits GenericPanel
 
-    Sub New(ByRef bForm As BlockedFriendsForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar, panelname As String, userPicture As Byte(), userName As String)
+    Sub New(ByRef bForm As BlockedFriendsForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar,
+            panelname As String, userPicture As Byte(), userName As String, user_id As Integer)
+
         _UserName = userName
+        _User_ID = user_id
         _NumberOfPanel = panelname
         _UserPicture = userPicture
         _BlockedFriendsForm = bForm

@@ -7,8 +7,11 @@ Public Class FriendsChatPanel
     Public _E As New System.EventArgs
     Public _Sender As New System.Object
 
-    Sub New(ByRef mainForm As HomeForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar, panelname As String, userPicture As Byte(), userName As String, userStateOnline As String)
+    Sub New(ByRef mainForm As HomeForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar,
+            panelname As String, userPicture As Byte(), userName As String, userStateOnline As String, user_id As Integer)
+
         _MainForm = mainForm
+        _User_ID = user_id
         _UserName = userName
         _NumberOfPanel = panelname
         _UserPicture = userPicture
@@ -143,6 +146,8 @@ Public Class FriendsChatPanel
 
         On_DirectWasDeleted(_NumberOfPanel - 1)
 
+
+
         If HomeForm._OpenedChat = _NumberOfPanel Then
             If _MainForm._CurrentChildForm IsNot Nothing Then
                 _MainForm._CurrentChildForm.Close()
@@ -156,5 +161,4 @@ Public Class FriendsChatPanel
             _MainForm._ListOfUserFriendsChatPanel.Item(i)._UserPanel.Location = New Point(0, _MainForm._ListOfUserFriendsChatPanel.Item(i)._UserPanel.Location.Y - 60)
         Next
     End Sub
-
 End Class
