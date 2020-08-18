@@ -145,7 +145,6 @@
                 .Parameters.AddWithValue("@SUBJECT_USERNAME", SUBJECT_USERNAME)
                 .Parameters.AddWithValue("@SUBJECT_PASSWORD", SUBJECT_PASSWORD)
                 .Parameters.Add("@SUBJECT_PICTURE", SqlDbType.Image).Value = SUBJECT_USER_PICTURE
-
             End With
 
             command.ExecuteNonQuery()
@@ -229,6 +228,30 @@
             Throw ex
         End Try
 
+    End Sub
+
+    Public Sub Insert_Pending_Request(request_to As Integer)
+        Try
+            Dim conn As New SqlClient.SqlConnection(MyConnection.Get_Connection)
+            Dim queryS As String = MyConnection.Get_Insert_PendingReq()
+            Dim command As New SqlClient.SqlCommand
+
+            conn.Open()
+
+            With command
+                .CommandText = queryS
+                .Connection = conn
+
+                .Parameters.AddWithValue("@REQUEST_FROM", SUBJECT_ID)
+                .Parameters.AddWithValue("@REQUEST_TO", request_to)
+                .ExecuteNonQuery()
+            End With
+
+            command.Connection.Close()
+            command.Dispose()
+        Catch ex As Exception
+            Throw ex
+        End Try
     End Sub
 
     Public Shared Sub ReadFromDataReader(ByRef rec As Subject, ByVal reader As SqlClient.SqlDataReader)

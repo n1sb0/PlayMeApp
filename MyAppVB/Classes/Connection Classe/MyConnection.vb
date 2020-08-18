@@ -61,7 +61,10 @@
         Return query
     End Function
 
-    Public Shared Function Get_Update_HaveChatWithFrined()
-        Dim query As String = "UPDATE TBL_USER_FRIENDS"
+    Public Shared Function Get_Insert_PendingReq() As String
+        Dim query As String = "INSERT INTO TBL_PENDING_FRENDS_REQUEST (REQUEST_FROM, REQUEST_TO) " &
+                              "VALUES (@REQUEST_FROM,  @REQUEST_TO) "
+
+        Return query
     End Function
 End Class

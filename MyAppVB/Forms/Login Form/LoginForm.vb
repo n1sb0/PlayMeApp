@@ -13,7 +13,7 @@
     '*****///// COLORS
     Private _RedColor As String = _Utility_Style.RedColor
     Private _MainColor As String = _Utility_Style.MainColor
-    Private _GrayColor As String = _Utility_Style.GrayColor
+    Private _GrayColor As String = _Utility_Style.WhiteColor
     Private _OrgnColor As String = _Utility_Style.OrngColor
     Private _BackGColor As String = _Utility_Style.BackGroundColor
 

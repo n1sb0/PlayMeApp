@@ -42,7 +42,7 @@ Public Class HomeForm
     Private _RedColor As String = _Utility_Style.RedColor
     Private _OrngColor As String = _Utility_Style.OrngColor
     Private _MainColor As String = _Utility_Style.MainColor
-    Private _GrayColor As String = _Utility_Style.GrayColor
+    Private _GrayColor As String = _Utility_Style.WhiteColor
     Private _PanelsColor As String = _Utility_Style.DarkBlue
     Private _BackGColor As String = _Utility_Style.BackGroundColor
     Private _PanelsColorLightDarkBlue As String = _Utility_Style.LightDarkBlue
@@ -373,7 +373,7 @@ Public Class HomeForm
                 _ControlChildForm.OpenChildForm(blockedFriendsForm, FriendsPanelChild, _CurrentChildForm)
 
             Case "btnAddNewFriends", "AddFriendForm"
-                Dim addNewFriendsForm As New AddFriendForm
+                Dim addNewFriendsForm As New AddFriendForm(_Subject)
                 _ControlChildForm.OpenChildForm(addNewFriendsForm, FriendsPanelChild, _CurrentChildForm)
 
             Case "btnFriendsOnline", "OnlineFriendsForm"

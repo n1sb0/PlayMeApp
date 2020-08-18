@@ -507,7 +507,7 @@ Partial Class HomeForm
         Me.btnAddNewFriends.OnHoverImage = Nothing
         Me.btnAddNewFriends.OnPressedColor = System.Drawing.Color.Black
         Me.btnAddNewFriends.Radius = 7
-        Me.btnAddNewFriends.Size = New System.Drawing.Size(106, 30)
+        Me.btnAddNewFriends.Size = New System.Drawing.Size(105, 30)
         Me.btnAddNewFriends.TabIndex = 93
         Me.btnAddNewFriends.Text = "Add Friend"
         '

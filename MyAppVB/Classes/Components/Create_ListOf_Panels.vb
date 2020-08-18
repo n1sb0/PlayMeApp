@@ -16,6 +16,7 @@ Public Class Create_ListOf_Panels
     '*****///// FORMS
     Private _MainForm As HomeForm
     Private _DmForm As CreateDMForm
+    Private _PendingForm As PendingForm
     Private _AllFriendsForm As AllFriendsForm
     Private _OnlineFriendsForm As OnlineFriendsForm
     Private _BlockedFriendsForm As BlockedFriendsForm
@@ -99,6 +100,20 @@ Public Class Create_ListOf_Panels
         _ScrollBar = scrollBar
         _ListOfUserPanels = listOfUserPanel
     End Sub
+
+    Sub New(ByRef subject As Subject, ByRef scrollBar As GunaVScrollBar, ByRef pForm As PendingForm, iy As Integer, controlBy As String,
+            ByRef listOfUserPanel As List(Of PendingRequestPanel), ByRef mainPanl As Panel)
+
+        _Iy = iy
+        _PendingForm = pForm
+        _Subject = subject
+        _ControlBy = controlBy
+        _MainPanel = mainPanl
+        _ScrollBar = scrollBar
+        _ListOfUserPanels = listOfUserPanel
+    End Sub
+
+
     '*****///// END CONSTRUCTOR OF PANELS
 
     '*****///// CREATE LIST OF PANELS TAKING DATA FROM DB 
@@ -150,6 +165,13 @@ Public Class Create_ListOf_Panels
 
                     Case "DM"
                         _UserPanel_Class = New DmFriendsPanel(_DmForm, _LocationOfUserPanel, _ScrollBar, (_Count).ToString _
+                                            , _ListOfsbjFriends.Item(i).FRIENDS_PICTURE, _ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
+                                            , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE, _ListOfsbjFriends.Item(i).USER_ID)
+
+                        Create_Panel(_UserPanel_Class)
+
+                    Case "Request"
+                        _UserPanel_Class = New PendingRequestPanel(_PendingForm, _LocationOfUserPanel, _ScrollBar, (_Count).ToString _
                                             , _ListOfsbjFriends.Item(i).FRIENDS_PICTURE, _ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
                                             , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE, _ListOfsbjFriends.Item(i).USER_ID)
 

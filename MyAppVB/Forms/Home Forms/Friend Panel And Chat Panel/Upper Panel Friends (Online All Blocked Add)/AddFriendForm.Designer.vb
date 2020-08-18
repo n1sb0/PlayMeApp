@@ -70,12 +70,13 @@ Partial Class AddFriendForm
         '
         'lblMsgAddFriend
         '
+        Me.lblMsgAddFriend.AutoSize = True
         Me.lblMsgAddFriend.BackColor = System.Drawing.Color.Transparent
         Me.lblMsgAddFriend.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.lblMsgAddFriend.ForeColor = System.Drawing.Color.Silver
         Me.lblMsgAddFriend.Location = New System.Drawing.Point(40, 60)
         Me.lblMsgAddFriend.Name = "lblMsgAddFriend"
-        Me.lblMsgAddFriend.Size = New System.Drawing.Size(510, 20)
+        Me.lblMsgAddFriend.Size = New System.Drawing.Size(506, 17)
         Me.lblMsgAddFriend.TabIndex = 75
         Me.lblMsgAddFriend.Text = "You can add a friend with thair Name. Be careful to write the Name in right way!"
         '
@@ -363,6 +364,7 @@ Partial Class AddFriendForm
         Me.pnlImgAddFriends.ResumeLayout(False)
         Me.pnlImgAddFriends.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 

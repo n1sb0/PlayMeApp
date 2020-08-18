@@ -7,10 +7,10 @@ Public Class Utility_Style
     Property RedColor As String = "#e74c3c"
     Property DarkBlue As String = "#282828"
     Property MainColor As String = "#2ecc71"
-    Property GrayColor As String = "#ecf0f1"
+    Property WhiteColor As String = "#ecf0f1"
     Property OrngColor As String = "#e67e22"
     Property LightBlue As String = "#3a3e44"
-    Property GreenColor As String = "#2ecc71"
+    Property GreenColor As String = "#27ae60"
     Property BorderColor As String = "#282828"
     Property BtnHoverColor As String = "#27ae60"
     Property LightDarkBlue As String = "#2f3136"
@@ -33,7 +33,7 @@ Public Class Utility_Style
     End Sub
 
     Public Sub Mouse_Leave_TextBox(ByRef txtBox As TextBox, ByRef lbl As Label, ByRef pnl As Panel, myText As String)
-        pnl.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(GrayColor))
+        pnl.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(WhiteColor))
         pnl.Height = 1
 
         If String.IsNullOrEmpty(txtBox.Text) OrElse txtBox.Text.Equals(myText) Then
@@ -44,7 +44,7 @@ Public Class Utility_Style
         End If
 
         If myText.Equals("left") Then
-            lbl.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(GrayColor))
+            lbl.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(WhiteColor))
         End If
     End Sub
 
@@ -60,7 +60,7 @@ Public Class Utility_Style
         If chkBox.Checked Then
             chkBox.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(MainColor))
         Else
-            chkBox.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(GrayColor))
+            chkBox.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(WhiteColor))
         End If
     End Sub
 

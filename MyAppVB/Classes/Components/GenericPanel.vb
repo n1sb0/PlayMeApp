@@ -13,6 +13,7 @@ Public Class GenericPanel
     Property _UserPanel As New Panel
     Property _UserNameLbl As New Label
     Property _MenuBtn As New GunaButton
+    Property _AcceptBtn As New GunaButton
     Property _UnBlockBtn As New GunaButton
     Property _SendMessageBtn As New GunaButton
     Property _CheckBoxBtn As New IconPictureBox
@@ -40,6 +41,7 @@ Public Class GenericPanel
     '*****///// FORMS ON WHICH WE ADD A PANEL
     Public _MainForm As HomeForm
     Public _DmForm As CreateDMForm
+    Public _PendingForm As PendingForm
     Public _AllFriendsForm As AllFriendsForm
     Public _OnlineFriendsForm As OnlineFriendsForm
     Public _BlockedFriendsForm As BlockedFriendsForm
@@ -48,9 +50,11 @@ Public Class GenericPanel
     Public _DarkBlue As String = _Utility_Style.DarkBlue
     Public _RedColor As String = _Utility_Style.RedColor
     Public _LightBlue As String = _Utility_Style.LightBlue
-    Public _GrayColor As String = _Utility_Style.GrayColor
+    Public _GrayColor As String = _Utility_Style.WhiteColor
     Public _BackGColor As String = _Utility_Style.BackGroundColor
     Public _PanelsColorLightDarkBlue As String = _Utility_Style.LightDarkBlue
+    Public _GreenColor As String = _Utility_Style.GreenColor
+    Public _GreenHoverColor As String = _Utility_Style.BtnHoverColor
 
     '*****///// CREATE A PANEL
     Public Sub Create_Panel(width As Integer, hight As Integer)
@@ -171,7 +175,17 @@ Public Class GenericPanel
         _UnBlockBtn.Image = My.Resources.BlockedUser
 
         _UnBlockBtn.ImageSize = New Size(25, 25)
+    End Sub
 
+    '*****///// CREATE ACCEPT BUTTON
+    Public Sub Create_AcceptButton()
+        Default_Button_Settings(_AcceptBtn)
+        _AcceptBtn.Text = "ACCEPT REQUEST"
+
+        _AcceptBtn.Image = Nothing
+        _AcceptBtn.Size = New Size(120, 30)
+        _AcceptBtn.Radius = 7
+        _AcceptBtn.Font = New Font("Microsoft YaHei", 8)
     End Sub
 
     '*****///// SOME DEFAULT BUTTON SETTINGS
@@ -179,9 +193,11 @@ Public Class GenericPanel
         btn.Size = New Size(35, 35)
         btn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
         btn.Radius = 16
+        btn.ImageAlign = ContentAlignment.MiddleCenter
         btn.ImageAlign = HorizontalAlignment.Center
         btn.Anchor = AnchorStyles.Right
         btn.OnHoverBaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_DarkBlue))
+
     End Sub
 
     '*****///// DEFAULT SETTINGS FOR RADIUSE BORDER

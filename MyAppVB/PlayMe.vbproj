@@ -237,6 +237,7 @@
     <Compile Include="Classes\Components\Create_ListOf_Panels.vb" />
     <Compile Include="Classes\Components\DmFriendsPanel.vb" />
     <Compile Include="Classes\Components\FriendsOnlineAndAllPanel.vb" />
+    <Compile Include="Classes\Components\PendingRequestPanel.vb" />
     <Compile Include="Classes\Components\RadiusBorderPanel.vb" />
     <Compile Include="Classes\Subject Classe\Subject_Friends.vb" />
     <Compile Include="Classes\Utility Classe\ControlChildForm.vb" />
@@ -544,6 +545,7 @@
     <None Include="Resources\chatToFriendx1.png" />
     <None Include="Resources\BlockedUser.png" />
     <None Include="Resources\123123c12321.png" />
+    <None Include="Resources\icon-delete.png" />
     <Content Include="Resources\Logo.png" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />

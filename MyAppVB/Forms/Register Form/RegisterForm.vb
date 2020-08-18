@@ -14,7 +14,7 @@
     '*****///// COLORS
     Private _RedColor As String = _Utility_Style.RedColor
     Private _MainColor As String = _Utility_Style.MainColor
-    Private _GrayColor As String = _Utility_Style.GrayColor
+    Private _GrayColor As String = _Utility_Style.WhiteColor
     Private _OrngColor As String = _Utility_Style.OrngColor
     Private _GreenColor As String = _Utility_Style.GreenColor
     Private _BackGColor As String = _Utility_Style.BackGroundColor
@@ -211,7 +211,7 @@
             _Utility_Style.On_Mouse_Click_Change_TextBox(txtUserName, lblUserName, pnlUserName, _StrUserName)
         End If
 
-        If _Utility_Secure.ContainsSpecialChars(txtUserName.Text) Then
+        If _Utility_Secure.ContainsSpecialChars(txtUserName.Text) OrElse txtUserName.TextLength < 4 Then
             _Utility_Style.Change_Msg_Warning_To(confUserName, "✖")
             confUserName.Visible = True
         Else
@@ -249,7 +249,7 @@
         Risult_CmbBox()
         Risult_CheckBox()
 
-        If txtUserName.Text.Equals(_StrUserName) OrElse DR_Subject.Get_Subject_By("username", txtUserName.Text) Then
+        If txtUserName.Text.Equals(_StrUserName) OrElse DR_Subject.Get_Subject_By("username", txtUserName.Text) OrElse txtUserName.TextLength < 4 Then
             _Utility_Style.Change_Msg_Warning_To(confUserName, "✖")
 
             If Not txtUserName.Text.Equals(_StrUserName) Then

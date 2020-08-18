@@ -42,7 +42,16 @@
                 While reader.Read
                     sbjFriend = New Subject_Friends
 
-                    ReadFromDataReader(sbjFriend, reader)
+                    If controlBy.Equals("Request") Then
+                        sbjFriend.USER_ID = ReadValue(reader("REQUEST_FROM"))
+                        sbjFriend.FRIEND_ID = ReadValue(reader("REQUEST_TO"))
+                        ReadFromDataReader(sbjFriend, reader)
+                    Else
+                        sbjFriend.USER_ID = ReadValue(reader("USER_ID"))
+                        sbjFriend.FRIEND_ID = ReadValue(reader("FRIEND_ID"))
+                        ReadFromDataReader(sbjFriend, reader)
+                    End If
+
 
                     listOfUserFriends.Add(sbjFriend)
                 End While
@@ -74,6 +83,11 @@
             Case "Blocked"
                 query += MyConnection.Get_SubjectFriends_ByIdQuery + "FROM TBL_BLOCKED_FRIENDS "
 
+            Case "Request"
+                query += "SELECT REQUEST_FROM, REQUEST_TO, tblU.SUBJECT_PICTURE, tblU.SUBJECT_USERNAME, tblU.SUBJECT_STATE_ONLINE " &
+                "FROM TBL_PENDING_FRENDS_REQUEST "
+                leftJoin = "LEFT JOIN TBL_USER_DATA AS tblU ON tblU.SUBJECT_ID = REQUEST_FROM WHERE REQUEST_TO = @USER_ID"
+
         End Select
 
         Return query + leftJoin
@@ -81,8 +95,6 @@
 
     Public Shared Sub ReadFromDataReader(ByRef rec As Subject_Friends, ByVal reader As SqlClient.SqlDataReader)
         With rec
-            .USER_ID = ReadValue(reader("USER_ID"))
-            .FRIEND_ID = ReadValue(reader("FRIEND_ID"))
             .FRIENDS_PICTURE = ReadValue(reader("SUBJECT_PICTURE"))
             .FRIENDS_USERNAME = ReadValue(reader("SUBJECT_USERNAME"))
             .FRIENDS_STATE_ONLINE = ReadValue(reader("SUBJECT_STATE_ONLINE"))
