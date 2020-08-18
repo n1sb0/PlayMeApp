@@ -105,6 +105,7 @@ Public Class Create_ListOf_Panels
             ByRef listOfUserPanel As List(Of PendingRequestPanel), ByRef mainPanl As Panel)
 
         _Iy = iy
+        _Y = listOfUserPanel.Count * 61
         _PendingForm = pForm
         _Subject = subject
         _ControlBy = controlBy
@@ -170,10 +171,10 @@ Public Class Create_ListOf_Panels
 
                         Create_Panel(_UserPanel_Class)
 
-                    Case "Request"
-                        _UserPanel_Class = New PendingRequestPanel(_PendingForm, _LocationOfUserPanel, _ScrollBar, (_Count).ToString _
+                    Case "Friend Request", "Outgoing Friend Request"
+                        _UserPanel_Class = New PendingRequestPanel(_PendingForm, _LocationOfUserPanel, _ScrollBar, (_ListOfUserPanels.Count() + 1).ToString _
                                             , _ListOfsbjFriends.Item(i).FRIENDS_PICTURE, _ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
-                                            , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE, _ListOfsbjFriends.Item(i).USER_ID)
+                                            , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE, _ListOfsbjFriends.Item(i).USER_ID, _ControlBy)
 
                         Create_Panel(_UserPanel_Class)
                 End Select

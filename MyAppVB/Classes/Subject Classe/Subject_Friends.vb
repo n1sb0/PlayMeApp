@@ -42,16 +42,21 @@
                 While reader.Read
                     sbjFriend = New Subject_Friends
 
-                    If controlBy.Equals("Request") Then
-                        sbjFriend.USER_ID = ReadValue(reader("REQUEST_FROM"))
-                        sbjFriend.FRIEND_ID = ReadValue(reader("REQUEST_TO"))
-                        ReadFromDataReader(sbjFriend, reader)
-                    Else
-                        sbjFriend.USER_ID = ReadValue(reader("USER_ID"))
-                        sbjFriend.FRIEND_ID = ReadValue(reader("FRIEND_ID"))
-                        ReadFromDataReader(sbjFriend, reader)
-                    End If
+                    Select Case controlBy
+                        Case "Friend Request"
+                            sbjFriend.USER_ID = ReadValue(reader("REQUEST_FROM"))
+                            sbjFriend.FRIEND_ID = ReadValue(reader("REQUEST_TO"))
 
+                        Case "Outgoing Friend Request"
+                            sbjFriend.USER_ID = ReadValue(reader("REQUEST_TO"))
+                            sbjFriend.FRIEND_ID = ReadValue(reader("REQUEST_FROM"))
+
+                        Case Else
+                            sbjFriend.USER_ID = ReadValue(reader("USER_ID"))
+                            sbjFriend.FRIEND_ID = ReadValue(reader("FRIEND_ID"))
+                    End Select
+
+                    ReadFromDataReader(sbjFriend, reader)
 
                     listOfUserFriends.Add(sbjFriend)
                 End While
@@ -60,7 +65,6 @@
                 command.Dispose()
                 connection.Close()
                 connection.Dispose()
-
             Catch ex As Exception
                 Throw ex
             End Try
@@ -83,12 +87,19 @@
             Case "Blocked"
                 query += MyConnection.Get_SubjectFriends_ByIdQuery + "FROM TBL_BLOCKED_FRIENDS "
 
-            Case "Request"
+            Case "Friend Request", "Outgoing Friend Request"
                 query += "SELECT REQUEST_FROM, REQUEST_TO, tblU.SUBJECT_PICTURE, tblU.SUBJECT_USERNAME, tblU.SUBJECT_STATE_ONLINE " &
                 "FROM TBL_PENDING_FRENDS_REQUEST "
-                leftJoin = "LEFT JOIN TBL_USER_DATA AS tblU ON tblU.SUBJECT_ID = REQUEST_FROM WHERE REQUEST_TO = @USER_ID"
-
+                leftJoin = "LEFT JOIN TBL_USER_DATA AS tblU ON tblU.SUBJECT_ID = "
         End Select
+
+        If str.Equals("Friend Request") Then
+            leftJoin += "REQUEST_FROM WHERE REQUEST_TO = @USER_ID"
+
+        ElseIf str.Equals("Outgoing Friend Request") Then
+            leftJoin += "REQUEST_TO WHERE REQUEST_FROM = @USER_ID"
+
+        End If
 
         Return query + leftJoin
     End Function
@@ -99,6 +110,31 @@
             .FRIENDS_USERNAME = ReadValue(reader("SUBJECT_USERNAME"))
             .FRIENDS_STATE_ONLINE = ReadValue(reader("SUBJECT_STATE_ONLINE"))
         End With
+    End Sub
+
+
+    Public Shared Sub Delete_Pending_Request(user_1 As Integer, user_2 As Integer, strQuery As String)
+        Try
+            Dim conn As New SqlClient.SqlConnection(MyConnection.Get_Connection)
+            Dim queryS As String = strQuery
+            Dim command As New SqlClient.SqlCommand
+
+            conn.Open()
+
+            With command
+                .CommandText = queryS
+                .Connection = conn
+
+                .Parameters.AddWithValue("@USER_1", user_1)
+                .Parameters.AddWithValue("@USER_2", user_2)
+                .ExecuteNonQuery()
+            End With
+
+            command.Connection.Close()
+            command.Dispose()
+        Catch ex As Exception
+            Throw ex
+        End Try
     End Sub
 
     Private Shared Function ReadValue(value As Object) As Object

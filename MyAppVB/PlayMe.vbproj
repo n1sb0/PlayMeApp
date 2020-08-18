@@ -546,6 +546,7 @@
     <None Include="Resources\BlockedUser.png" />
     <None Include="Resources\123123c12321.png" />
     <None Include="Resources\icon-delete.png" />
+    <None Include="Resources\icon-CheckMark.png" />
     <Content Include="Resources\Logo.png" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />

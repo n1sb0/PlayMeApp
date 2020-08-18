@@ -2,6 +2,7 @@
 Public Class BlockedFriendsPanel
     Inherits GenericPanel
 
+    Private _Friend As New Subject
     Sub New(ByRef bForm As BlockedFriendsForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar,
             panelname As String, userPicture As Byte(), userName As String, user_id As Integer)
 
@@ -58,6 +59,9 @@ Public Class BlockedFriendsPanel
 
         '*****///// ON MOUSE LEAVE THE PANEL
         AddHandler _UserPanel.MouseLeave, AddressOf On_BlockedFriendPanel_Leave
+
+        '*****///// ON UNBLOCK BUTTON CLICK EVENY
+        AddHandler _UnBlockBtn.MouseClick, AddressOf On_UnBlockButton_Click
     End Sub
 
     '*****///// SET NAME OF WHICH ELEMENT INSIDE OF PANEL
@@ -97,6 +101,28 @@ Public Class BlockedFriendsPanel
         _UserPanel.Controls.Add(_UserNameLbl)
         _UserPanel.Controls.Add(_UserPictureBox)
         _UserPanel.Controls.Add(_UserStateOnline_Label)
+    End Sub
+
+    '*****///// ON UNBLOCK BUTTON CLICK
+    Private Sub On_UnBlockButton_Click()
+        _BlockedFriendsForm.BlockedFriendsPanel.Controls.Remove(_UserPanel)
+
+        Dim indexOfPanel As Integer = _BlockedFriendsForm._ListOfUserBlockedFriendsPanel.IndexOf(Me)
+
+        _BlockedFriendsForm._ListOfUserBlockedFriendsPanel.RemoveAt(indexOfPanel)
+
+        On_UnBlockFriend(indexOfPanel)
+
+        _Friend = Subject.Get_Subject_Data(_UserName)
+        Dim strQuery As String = MyConnection.Get_UnBlock_Query
+
+
+        Subject_Friends.Delete_Pending_Request(_BlockedFriendsForm._Subject.SUBJECT_ID, _Friend.SUBJECT_ID, strQuery)
+    End Sub
+    Private Sub On_UnBlockFriend(index As Integer)
+        For i As Integer = index To  _BlockedFriendsForm._ListOfUserBlockedFriendsPanel.Count - 1
+            _BlockedFriendsForm._ListOfUserBlockedFriendsPanel.Item(i)._UserPanel.Location = New Point(10, _BlockedFriendsForm._ListOfUserBlockedFriendsPanel.Item(i)._UserPanel.Location.Y - 61)
+        Next
     End Sub
 
     '*****///// ON MOUSE HOVER EVENT

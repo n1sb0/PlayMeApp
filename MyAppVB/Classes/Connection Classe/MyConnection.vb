@@ -67,4 +67,16 @@
 
         Return query
     End Function
+
+    Public Shared Function Get_Delete_Pending_Request() As String
+        Dim query As String = "DELETE FROM TBL_PENDING_FRENDS_REQUEST WHERE REQUEST_FROM = @USER_1 AND REQUEST_TO = @USER_2"
+
+        Return query
+    End Function
+
+    Public Shared Function Get_UnBlock_Query() As String
+        Dim query As String = "DELETE FROM TBL_BLOCKED_FRIENDS WHERE USER_ID = @USER_1 AND FRIEND_ID = @USER_2"
+
+        Return query
+    End Function
 End Class

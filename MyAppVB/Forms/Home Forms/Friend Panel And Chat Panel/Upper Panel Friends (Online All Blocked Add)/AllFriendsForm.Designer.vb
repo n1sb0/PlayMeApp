@@ -55,7 +55,7 @@ Partial Class AllFriendsForm
         '
         Me.pnlUnderlblAllFriends.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pnlUnderlblAllFriends.BackColor = System.Drawing.Color.Gray
+        Me.pnlUnderlblAllFriends.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         Me.pnlUnderlblAllFriends.Location = New System.Drawing.Point(10, 1)
         Me.pnlUnderlblAllFriends.Name = "pnlUnderlblAllFriends"
         Me.pnlUnderlblAllFriends.Size = New System.Drawing.Size(865, 1)

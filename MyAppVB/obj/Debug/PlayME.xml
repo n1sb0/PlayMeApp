@@ -57,6 +57,11 @@ PlayME
   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:PlayME.My.Resources.Resources.icon_CheckMark">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:PlayME.My.Resources.Resources.icon_delete">
 <summary>
   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.

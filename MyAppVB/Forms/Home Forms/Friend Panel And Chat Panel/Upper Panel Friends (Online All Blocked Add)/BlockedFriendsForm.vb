@@ -1,7 +1,7 @@
 ﻿Public Class BlockedFriendsForm
     Private vScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
 
-    Private _Subject As New Subject
+    Public _Subject As New Subject
     Public _ListOfUserBlockedFriendsPanel As New List(Of BlockedFriendsPanel)
 
     Sub New(subject As Subject)

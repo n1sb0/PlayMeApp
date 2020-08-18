@@ -228,7 +228,7 @@ Partial Class PendingForm
         '
         Me.pnlUnderTextPeddingReq.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pnlUnderTextPeddingReq.BackColor = System.Drawing.Color.Gray
+        Me.pnlUnderTextPeddingReq.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         Me.pnlUnderTextPeddingReq.Location = New System.Drawing.Point(10, 1)
         Me.pnlUnderTextPeddingReq.Name = "pnlUnderTextPeddingReq"
         Me.pnlUnderTextPeddingReq.Size = New System.Drawing.Size(865, 1)

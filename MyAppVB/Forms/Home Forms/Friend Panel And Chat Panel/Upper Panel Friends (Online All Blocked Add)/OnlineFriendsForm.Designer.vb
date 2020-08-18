@@ -52,7 +52,7 @@ Partial Class OnlineFriendsForm
         '
         Me.pnlUnderTextOnlineFriends.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pnlUnderTextOnlineFriends.BackColor = System.Drawing.Color.Gray
+        Me.pnlUnderTextOnlineFriends.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         Me.pnlUnderTextOnlineFriends.Location = New System.Drawing.Point(10, 1)
         Me.pnlUnderTextOnlineFriends.Name = "pnlUnderTextOnlineFriends"
         Me.pnlUnderTextOnlineFriends.Size = New System.Drawing.Size(865, 1)

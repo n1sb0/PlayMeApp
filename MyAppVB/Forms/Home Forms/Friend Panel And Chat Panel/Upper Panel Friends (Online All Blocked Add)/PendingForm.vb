@@ -1,6 +1,6 @@
 ﻿Public Class PendingForm
 
-    Private _Subject As Subject
+    Public _Subject As Subject
     Private vScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
     Public _ListOfUserPendingReq As New List(Of PendingRequestPanel)
 
@@ -15,9 +15,11 @@
     End Sub
 
     Private Sub Create_PendingReq()
-        Dim createListOfPanels As New Create_ListOf_Panels(_Subject, PendingReqScrollBar, Me, 61, "Request", _ListOfUserPendingReq, pnlPendingReq)
+        Dim createRequestListOfPanels As New Create_ListOf_Panels(_Subject, PendingReqScrollBar, Me, 61, "Friend Request", _ListOfUserPendingReq, pnlPendingReq)
+        createRequestListOfPanels.Create_ListOfPanels()
 
-        createListOfPanels.Create_ListOfPanels()
+        Dim createOutGoignRequestListOfPanels As New Create_ListOf_Panels(_Subject, PendingReqScrollBar, Me, 61, "Outgoing Friend Request", _ListOfUserPendingReq, pnlPendingReq)
+        createOutGoignRequestListOfPanels.Create_ListOfPanels()
 
         lblPendingReq.Text += " " + (_ListOfUserPendingReq.Count()).ToString
     End Sub

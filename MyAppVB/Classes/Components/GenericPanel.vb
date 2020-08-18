@@ -13,6 +13,7 @@ Public Class GenericPanel
     Property _UserPanel As New Panel
     Property _UserNameLbl As New Label
     Property _MenuBtn As New GunaButton
+    Property _DeleteBtn As New GunaButton
     Property _AcceptBtn As New GunaButton
     Property _UnBlockBtn As New GunaButton
     Property _SendMessageBtn As New GunaButton
@@ -84,7 +85,7 @@ Public Class GenericPanel
 
         _UserLine.Size = size
         _UserLine.Cursor = Cursors.Hand
-        _UserLine.BackColor = Color.Gray
+        _UserLine.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml("#292b2f"))
         _UserLine.Anchor = AnchorStyles.Right Or AnchorStyles.Left
     End Sub
 
@@ -132,7 +133,7 @@ Public Class GenericPanel
         _UserStateOnline_Label.AutoSize = True
         _UserStateOnline_Label.Text = _UserStateOnlineStr
         _UserStateOnline_Label.Cursor = Cursors.Hand
-        _UserStateOnline_Label.ForeColor = Color.Gray
+        _UserStateOnline_Label.ForeColor = Color.Silver
         _UserStateOnline_Label.BackColor = Color.Transparent
         _UserStateOnline_Label.Font = New Font("Microsoft YaHei", 8, FontStyle.Bold)
     End Sub
@@ -177,15 +178,20 @@ Public Class GenericPanel
         _UnBlockBtn.ImageSize = New Size(25, 25)
     End Sub
 
+    Public Sub Create_DeleteBtn()
+        Default_Button_Settings(_DeleteBtn)
+        _DeleteBtn.Image = My.Resources.BlockedUser
+
+        _DeleteBtn.ImageSize = New Size(20, 20)
+        _DeleteBtn.Image = My.Resources.icon_delete
+    End Sub
+
     '*****///// CREATE ACCEPT BUTTON
     Public Sub Create_AcceptButton()
         Default_Button_Settings(_AcceptBtn)
-        _AcceptBtn.Text = "ACCEPT REQUEST"
+        _AcceptBtn.Image = My.Resources.icon_CheckMark
 
-        _AcceptBtn.Image = Nothing
-        _AcceptBtn.Size = New Size(120, 30)
-        _AcceptBtn.Radius = 7
-        _AcceptBtn.Font = New Font("Microsoft YaHei", 8)
+        _AcceptBtn.ImageSize = New Size(25, 25)
     End Sub
 
     '*****///// SOME DEFAULT BUTTON SETTINGS
@@ -197,7 +203,6 @@ Public Class GenericPanel
         btn.ImageAlign = HorizontalAlignment.Center
         btn.Anchor = AnchorStyles.Right
         btn.OnHoverBaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_DarkBlue))
-
     End Sub
 
     '*****///// DEFAULT SETTINGS FOR RADIUSE BORDER
