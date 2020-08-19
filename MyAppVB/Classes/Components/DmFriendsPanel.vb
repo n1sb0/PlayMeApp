@@ -123,7 +123,8 @@ Public Class DmFriendsPanel
 
     '*****///// ON MOUSE LEAVE EVENT
     Private Sub On_UserDmPanel_Leave()
-        _UserPanel.BackColor = Color.Transparent
+        If Not _DmForm.pnlOfFriends.GetChildAtPoint(_DmForm.pnlOfFriends.PointToClient(Cursor.Position)) Is _UserPanel OrElse _UserPanel.GetChildAtPoint(_UserPanel.PointToClient(Cursor.Position)) Is Nothing Then
+            _UserPanel.BackColor = Color.Transparent
+        End If
     End Sub
-
 End Class

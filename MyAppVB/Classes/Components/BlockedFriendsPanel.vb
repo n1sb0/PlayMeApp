@@ -138,6 +138,12 @@ Public Class BlockedFriendsPanel
 
     '*****///// ON MOUSE LEAVE EVENT
     Private Sub On_BlockedFriendPanel_Leave()
+        If Not _BlockedFriendsForm.BlockedFriendsPanel.GetChildAtPoint(_BlockedFriendsForm.BlockedFriendsPanel.PointToClient(Cursor.Position)) Is _UserPanel OrElse _UserPanel.GetChildAtPoint(_UserPanel.PointToClient(Cursor.Position)) Is Nothing Then
+            Leave_ListOfPanels()
+        End If
+    End Sub
+
+    Private Sub Leave_ListOfPanels()
         _UserLine.Visible = True
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
 

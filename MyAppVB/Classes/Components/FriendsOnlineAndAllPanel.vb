@@ -70,6 +70,7 @@ Public Class FriendsOnlineAndAllPanel
     Public Sub AddEventRef()
         '*****///// ON MOUSE ENTER HOVER THE PANEL EVENT
         AddHandler _MenuBtn.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Enter
+        AddHandler _UserLine.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Enter
         AddHandler _UserPanel.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Enter
         AddHandler _OvalOnline.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Enter
         AddHandler _UserNameLbl.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Enter
@@ -115,6 +116,7 @@ Public Class FriendsOnlineAndAllPanel
 
     '*****///// ADD ALL ELEMENTS ON THE PANEL
     Private Sub AddComponents()
+
         _UserPanel.Controls.Add(Ctr)
         _UserPanel.Controls.Add(_MenuBtn)
         _UserPanel.Controls.Add(_UserLine)
@@ -125,7 +127,7 @@ Public Class FriendsOnlineAndAllPanel
     End Sub
 
     '*****///// ON PANEL MOUSE HOVER EVENT
-    Private Sub On_FriendsOnlineAndAllPanel_Enter()
+    Private Sub On_FriendsOnlineAndAllPanel_Enter(sender As Object, e As EventArgs)
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
         _UserLine.Visible = False
 
@@ -136,7 +138,19 @@ Public Class FriendsOnlineAndAllPanel
     End Sub
 
     '*****///// ON MOUSE LEAVE EVENT
-    Private Sub On_FriendsOnlineAndAllPanel_Leave()
+    Private Sub On_FriendsOnlineAndAllPanel_Leave(sender As Object, e As EventArgs)
+        If Application.OpenForms().OfType(Of OnlineFriendsForm).Any Then
+            If Not _OnlineFriendsForm.pnlFriendsOnlineNow.GetChildAtPoint(_OnlineFriendsForm.pnlFriendsOnlineNow.PointToClient(Cursor.Position)) Is _UserPanel OrElse _UserPanel.GetChildAtPoint(_UserPanel.PointToClient(Cursor.Position)) Is Nothing Then
+                Leave_ListOfPanels()
+            End If
+        ElseIf Application.OpenForms().OfType(Of AllFriendsForm).Any Then
+            If Not _AllFriendsForm.AllFriendsPanel.GetChildAtPoint(_AllFriendsForm.AllFriendsPanel.PointToClient(Cursor.Position)) Is _UserPanel OrElse _UserPanel.GetChildAtPoint(_UserPanel.PointToClient(Cursor.Position)) Is Nothing Then
+                Leave_ListOfPanels()
+            End If
+        End If
+    End Sub
+
+    Public Sub Leave_ListOfPanels()
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
         _UserLine.Visible = True
 

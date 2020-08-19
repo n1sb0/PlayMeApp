@@ -251,10 +251,9 @@ Public Class HomeForm
 
     '*****///// FUNCTION TO OPEN OTHER FORMS ON LEFT MAIN PANEL
     Private Sub On_Click_LeftPanel_Buttons(sender As System.Object, e As System.EventArgs) _
-      Handles btnHomeChat.Click, btnPersonalBlog.Click, btnVideo.Click, btnMusic.Click, btnGames.Click
+      Handles btnHomeChat.Click, btnVideo.Click, btnMusic.Click, btnGames.Click, btnPersonalBlog.Click
         _ButtonWasSelected.Radius = 25
         _ButtonWasSelected.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColor))
-
 
         _GenericButton = DirectCast(sender, GunaButton)
 

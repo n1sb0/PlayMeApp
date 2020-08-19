@@ -7,6 +7,7 @@ Public Class FriendsChatPanel
     Public _E As New System.EventArgs
     Public _Sender As New System.Object
 
+    '*****///// CONSTRUCTOR OF PANELS
     Sub New(ByRef mainForm As HomeForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar,
             panelname As String, userPicture As Byte(), userName As String, userStateOnline As String, user_id As Integer)
 
