@@ -28,7 +28,7 @@
         SUBJECT_STATE_ONLINE = "Offline"
     End Sub
 
-    Public Sub Insert_With_Transaction()
+    Public Sub Insert_UserData_With_Transaction()
         Dim connection As New SqlClient.SqlConnection(MyConnection.Get_Connection())
         Dim transaction As SqlClient.SqlTransaction = Nothing
 

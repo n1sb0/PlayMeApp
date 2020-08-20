@@ -72,13 +72,13 @@ Partial Class ChatFriendForm
         'lblStateOnlineOfFriend
         '
         Me.lblStateOnlineOfFriend.BorderColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.lblStateOnlineOfFriend.BorderWidth = 2
+        Me.lblStateOnlineOfFriend.BorderWidth = 3
         Me.lblStateOnlineOfFriend.FillColor = System.Drawing.Color.Gray
         Me.lblStateOnlineOfFriend.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
         Me.lblStateOnlineOfFriend.Location = New System.Drawing.Point(165, 19)
         Me.lblStateOnlineOfFriend.Name = "lblStateOnlineOfFriend"
         Me.lblStateOnlineOfFriend.SelectionColor = System.Drawing.Color.Transparent
-        Me.lblStateOnlineOfFriend.Size = New System.Drawing.Size(12, 12)
+        Me.lblStateOnlineOfFriend.Size = New System.Drawing.Size(13, 13)
         '
         'txtFindMessage
         '

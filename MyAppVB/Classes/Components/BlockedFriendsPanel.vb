@@ -117,7 +117,7 @@ Public Class BlockedFriendsPanel
         Dim strQuery As String = MyConnection.Get_UnBlock_Query
 
 
-        Subject_Friends.Delete_Pending_Request(_BlockedFriendsForm._Subject.SUBJECT_ID, _Friend.SUBJECT_ID, strQuery)
+        Subject_Friends.Delete_Reference_OfTwoFriends(_BlockedFriendsForm._Subject.SUBJECT_ID, _Friend.SUBJECT_ID, strQuery)
     End Sub
     Private Sub On_UnBlockFriend(index As Integer)
         For i As Integer = index To  _BlockedFriendsForm._ListOfUserBlockedFriendsPanel.Count - 1

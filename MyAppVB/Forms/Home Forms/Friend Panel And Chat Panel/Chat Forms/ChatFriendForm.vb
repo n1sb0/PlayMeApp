@@ -1,13 +1,30 @@
-﻿Public Class ChatFriendForm
+﻿Imports FontAwesome.Sharp
+
+Public Class ChatFriendForm
     '*****///// VARS
+    Private _MsgText As String
     Public _MsgToUser As String
     Public _StateOnline As String
+    Private _LocX, _LocY As Integer
+    Private _PopUpmsgForm As PopUpMessageForm
+    Private _ShowPopUpMsg As New Show_PopUpMessageForm(Me)
 
     '*****///// CLASSES
     Private _Utility_Style As New Utility_Style
 
+    '*****///// COMPONENTS
+    Private _IconPic As New IconPictureBox
+
     '*****///// COLORS
     Private _GreenColor As String = "#2ecc71"
+    Private _WhiteCOlor As String = _Utility_Style.WhiteColor
+
+    Sub New()
+
+        ' La chiamata è richiesta dalla finestra di progettazione.
+        InitializeComponent()
+
+    End Sub
 
     Private Sub ChatFriendForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -29,4 +46,42 @@
 
         rbp.On_Panel_Paint(sender, e, pnlMessage, 20)
     End Sub
+
+    Private Sub On_Buttons_MouseEnter(sender As Object, e As EventArgs) _
+        Handles btnCall.MouseEnter, btnVideoCall.MouseEnter, btnAddFriendToChat.MouseEnter, btnHelp.MouseEnter
+
+        _IconPic = DirectCast(sender, IconPictureBox)
+
+        _IconPic.ForeColor = Color.White
+
+        Select Case _IconPic.Name
+            Case "btnCall"
+                _MsgText = "Strat Voice Call"
+
+            Case "btnVideoCall"
+                _MsgText = "Strat Video Call"
+
+            Case "btnAddFriendToChat"
+                _MsgText = "Add Friend to DM"
+
+            Case "btnHelp"
+                _MsgText = "Help"
+        End Select
+
+        _LocX = _IconPic.Location.X + _IconPic.Width / 2
+        _LocY = _IconPic.Location.Y + 35
+
+        _ShowPopUpMsg.Open_MessageForm(_MsgText, _LocX, _LocY)
+    End Sub
+
+    Private Sub On_Buttons_MouseLeave(sender As Object, e As EventArgs) _
+        Handles btnCall.MouseLeave, btnVideoCall.MouseLeave, btnAddFriendToChat.MouseLeave, btnHelp.MouseLeave
+
+        _IconPic = DirectCast(sender, IconPictureBox)
+
+        _IconPic.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_WhiteCOlor))
+
+        _ShowPopUpMsg.Open_MessageForm()
+    End Sub
+
 End Class

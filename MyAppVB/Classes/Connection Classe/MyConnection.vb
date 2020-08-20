@@ -74,6 +74,13 @@
         Return query
     End Function
 
+    Public Shared Function Insert_Query_Add_Friend() As String
+        Dim query As String = "INSERT INTO TBL_USER_FRIENDS (USER_ID, FRIEND_ID) " &
+                              "VALUES (@USER_1, @USER_2)"
+
+        Return query
+    End Function
+
     Public Shared Function Get_UnBlock_Query() As String
         Dim query As String = "DELETE FROM TBL_BLOCKED_FRIENDS WHERE USER_ID = @USER_1 AND FRIEND_ID = @USER_2"
 

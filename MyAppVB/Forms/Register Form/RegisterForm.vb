@@ -287,7 +287,7 @@
 
             SaveAll_Data()
 
-            _NewSubj.Insert_With_Transaction()
+            _NewSubj.Insert_UserData_With_Transaction()
 
             Me.Close()
         End If

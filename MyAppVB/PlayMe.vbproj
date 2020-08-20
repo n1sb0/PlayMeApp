@@ -239,6 +239,7 @@
     <Compile Include="Classes\Components\FriendsOnlineAndAllPanel.vb" />
     <Compile Include="Classes\Components\PendingRequestPanel.vb" />
     <Compile Include="Classes\Components\RadiusBorderPanel.vb" />
+    <Compile Include="Classes\Components\Show_PopUpMessageForm.vb" />
     <Compile Include="Classes\Subject Classe\Subject_Friends.vb" />
     <Compile Include="Classes\Utility Classe\ControlChildForm.vb" />
     <Compile Include="Classes\Components\FriendsChatPanel.vb" />
@@ -265,6 +266,12 @@
       <DependentUpon>CreateDMForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\CreateDMForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\PopUpMessageForm.Designer.vb">
+      <DependentUpon>PopUpMessageForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\PopUpMessageForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\Menu More\DeleteFriendForm.Designer.vb">
@@ -405,6 +412,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\CreateDMForm.resx">
       <DependentUpon>CreateDMForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\PopUpMessageForm.resx">
+      <DependentUpon>PopUpMessageForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\AddFriendForm.resx">
       <DependentUpon>AddFriendForm.vb</DependentUpon>

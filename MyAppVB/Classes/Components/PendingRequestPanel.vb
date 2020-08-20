@@ -4,6 +4,7 @@ Public Class PendingRequestPanel
     Inherits GenericPanel
 
     Private _Friend As New Subject
+    Private _Subject As New Subject
     Private _Request As String
     '*****///// CONSTRUCTOR OF PANELS
     Sub New(ByRef pForm As PendingForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar,
@@ -96,8 +97,9 @@ Public Class PendingRequestPanel
         '*****///// ON MOUSE LEAVE THE PANEL
         AddHandler _UserPanel.MouseLeave, AddressOf On_PendingReqPanel_Leave
 
-        '*****///// ON DELETE BUTTON CLICK EVENY
+        '*****///// ON BUTTON CLICK EVENT
         AddHandler _DeleteBtn.MouseClick, AddressOf On_DeleteRequest_Click
+        AddHandler _AcceptBtn.MouseClick, AddressOf On_AcceptButton_Click
     End Sub
 
     '*****///// SET NAME OF WHICH ELEMENT INSIDE OF PANEL
@@ -161,12 +163,13 @@ Public Class PendingRequestPanel
         Dim strQuery As String = MyConnection.Get_Delete_Pending_Request
 
         If _Request.Equals("Friend Request") Then
-            Subject_Friends.Delete_Pending_Request(_Friend.SUBJECT_ID, _PendingForm._Subject.SUBJECT_ID, strQuery)
+            Subject_Friends.Delete_Reference_OfTwoFriends(_Friend.SUBJECT_ID, _PendingForm._Subject.SUBJECT_ID, strQuery)
         ElseIf _Request.Equals("Outgoing Friend Request") Then
-            Subject_Friends.Delete_Pending_Request(_PendingForm._Subject.SUBJECT_ID, _Friend.SUBJECT_ID, strQuery)
+            Subject_Friends.Delete_Reference_OfTwoFriends(_PendingForm._Subject.SUBJECT_ID, _Friend.SUBJECT_ID, strQuery)
         End If
 
     End Sub
+
     Private Sub On_ClosedRequest(index As Integer)
         For i As Integer = index To _PendingForm._ListOfUserPendingReq.Count - 1
             _PendingForm._ListOfUserPendingReq.Item(i)._UserPanel.Location = New Point(10, _PendingForm._ListOfUserPendingReq.Item(i)._UserPanel.Location.Y - 61)
@@ -211,5 +214,24 @@ Public Class PendingRequestPanel
         Else
             _PendingForm.pnlUnderTextPeddingReq.Visible = state
         End If
+    End Sub
+
+    '*****///// ON ACCPET BUTTON CLICK
+    Private Sub On_AcceptButton_Click()
+        _PendingForm.pnlPendingReq.Controls.Remove(_UserPanel)
+
+        Dim indexOfPanel As Integer = _PendingForm._ListOfUserPendingReq.IndexOf(Me)
+
+        _PendingForm._ListOfUserPendingReq.RemoveAt(indexOfPanel)
+
+        On_ClosedRequest(indexOfPanel)
+
+        _Subject = _PendingForm._Subject
+        _Friend = Subject.Get_Subject_Data(_UserName)
+
+        Dim friendObj As New Subject_Friends
+
+        friendObj.Update_DataWith_Transaction(_Subject.SUBJECT_ID, _Friend.SUBJECT_ID)
+
     End Sub
 End Class

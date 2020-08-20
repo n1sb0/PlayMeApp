@@ -64,10 +64,10 @@ Partial Class HomeForm
         Me.btnFriends = New Guna.UI.WinForms.GunaButton()
         Me.txtFindFriends = New Guna.UI.WinForms.GunaTextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.btnHide = New FontAwesome.Sharp.IconPictureBox()
         Me.btnMaxSizeForm = New FontAwesome.Sharp.IconPictureBox()
         Me.btnExit = New FontAwesome.Sharp.IconPictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.LeftButtomPanel.SuspendLayout()
         CType(Me.UserPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnSettings, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -301,6 +301,7 @@ Partial Class HomeForm
         '
         Me.UserPicture.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.UserPicture.BaseColor = System.Drawing.Color.White
+        Me.UserPicture.Cursor = System.Windows.Forms.Cursors.Hand
         Me.UserPicture.Image = Global.PlayME.My.Resources.Resources._123123c12321
         Me.UserPicture.Location = New System.Drawing.Point(10, 579)
         Me.UserPicture.Name = "UserPicture"
@@ -354,7 +355,7 @@ Partial Class HomeForm
         Me.pointOnline.BorderColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.pointOnline.BorderWidth = 3
         Me.pointOnline.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pointOnline.FillColor = System.Drawing.Color.Lime
+        Me.pointOnline.FillColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
         Me.pointOnline.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid
         Me.pointOnline.Location = New System.Drawing.Point(45, 616)
         Me.pointOnline.Name = "pointOnline"
@@ -797,6 +798,18 @@ Partial Class HomeForm
         Me.Panel3.Size = New System.Drawing.Size(260, 2)
         Me.Panel3.TabIndex = 67
         '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(37, Byte), Integer))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(37, 1)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(34, 17)
+        Me.Label1.TabIndex = 76
+        Me.Label1.Text = "Me"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'btnHide
         '
         Me.btnHide.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -841,18 +854,6 @@ Partial Class HomeForm
         Me.btnExit.Size = New System.Drawing.Size(20, 18)
         Me.btnExit.TabIndex = 70
         Me.btnExit.TabStop = False
-        '
-        'Label1
-        '
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(37, Byte), Integer))
-        Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(37, 1)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(34, 17)
-        Me.Label1.TabIndex = 76
-        Me.Label1.Text = "Me"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'HomeForm
         '

@@ -1,13 +1,16 @@
-﻿Imports Guna.UI.WinForms
+﻿Imports FontAwesome.Sharp
+Imports Guna.UI.WinForms
 Imports System.Runtime.InteropServices
 
 Public Class HomeForm
 
     '*****///// VARS
+    Private _MsgText As String
     Private _UserName As String
     Private _MoveForm As Boolean
     Public _OpenedChat As Integer
     Private _LocX, _LocY As Integer
+    Private _IconPic As IconPictureBox
     Private _DmFormWidth As Integer = 400
     Private _FirstClick As Boolean = False
     Private _SaveSecondChildForm As Boolean
@@ -37,6 +40,7 @@ Public Class HomeForm
     Private _Utility_Style As New Utility_Style
     Private _Utility_Secure As New Utility_Secure
     Public _ControlChildForm As New ControlChildForm
+    Private _ShowPopUpMsg As New Show_PopUpMessageForm(Me)
 
     '*****///// COLORS
     Private _RedColor As String = _Utility_Style.RedColor
@@ -44,6 +48,7 @@ Public Class HomeForm
     Private _MainColor As String = _Utility_Style.MainColor
     Private _GrayColor As String = _Utility_Style.WhiteColor
     Private _PanelsColor As String = _Utility_Style.DarkBlue
+    Private _WhiteCOlor As String = _Utility_Style.WhiteColor
     Private _BackGColor As String = _Utility_Style.BackGroundColor
     Private _PanelsColorLightDarkBlue As String = _Utility_Style.LightDarkBlue
 
@@ -106,6 +111,7 @@ Public Class HomeForm
         UserPicture.SendToBack()
         _ButtonWasSelected = btnHomeChat
 
+        pointOnline.BringToFront()
         Me.ControlBox = False
         Me.Text = String.Empty
         Me.DoubleBuffered = True
@@ -186,7 +192,7 @@ Public Class HomeForm
     Private Sub myMoveForm_MouseMove(sender As Object, e As MouseEventArgs) Handles TopPanel.MouseMove
         If _MoveForm Then
             _MoveForm = False
-            ' FormBorderStyle = FormBorderStyle.Sizable
+            'FormBorderStyle = FormBorderStyle.Sizable
             Me.Cursor = Cursors.SizeAll
 
             ReleaseCapture()
@@ -204,10 +210,10 @@ Public Class HomeForm
 
     Private Sub MainForm_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         If WindowState = FormWindowState.Maximized Then
-            FormBorderStyle = FormBorderStyle.None
+            'FormBorderStyle = FormBorderStyle.None
             btnMaxSizeForm.IconChar = FontAwesome.Sharp.IconChar.WindowRestore
         Else
-            FormBorderStyle = FormBorderStyle.Sizable
+            'FormBorderStyle = FormBorderStyle.Sizable
             btnMaxSizeForm.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize
         End If
 
@@ -309,8 +315,6 @@ Public Class HomeForm
     End Sub
 
     Private Sub Open_SavedChildForm()
-        Debug.WriteLine(_SecondChildForm.Name)
-
         Select Case _SecondChildForm.Name
             Case "AddFriendForm", "AllFriendsForm", "BlockedFriendsForm", "OnlineFriendsForm", "PendingForm"
                 Onclick_OpenChildForm_FriendPanels(_SecondChildForm.Name)
@@ -494,6 +498,55 @@ Public Class HomeForm
         _LocY = btnCreateChat.Location.Y + 50
 
         Open_CreateChatForm(_LocX, _LocY)
+    End Sub
+
+    Private Sub On_CreateDM_MouseEnter(sender As Object, e As EventArgs) _
+        Handles btnNewDirect.MouseEnter, btnCreateChat.MouseEnter, btnHelp.MouseEnter, btnSettings.MouseEnter
+
+        _IconPic = DirectCast(sender, IconPictureBox)
+
+        _IconPic.ForeColor = Color.White
+
+        Select Case _IconPic.Name
+            Case "btnNewDirect"
+                _MsgText = "Create DM"
+
+                _LocX = (_IconPic.Location.X + _IconPic.Width / 2) + 70
+                _LocY = _IconPic.Location.Y - 12
+
+            Case "btnCreateChat"
+                _MsgText = "New Gruop DM"
+
+                _LocX = (_IconPic.Location.X + _IconPic.Width / 2) + 330
+                _LocY = _IconPic.Location.Y + 55
+
+            Case "btnHelp"
+                _MsgText = "Help"
+
+                _LocX = (_IconPic.Location.X + _IconPic.Width / 2) + 330
+                _LocY = _IconPic.Location.Y + 55
+
+            Case "btnSettings"
+                _MsgText = "User Settings"
+
+                _LocX = _IconPic.Location.X + 95
+                _LocY = _IconPic.Location.Y + 18
+
+        End Select
+
+        _ShowPopUpMsg.Open_MessageForm(_MsgText, _LocX, _LocY)
+    End Sub
+
+
+    Private Sub On_CreateDM_MouseLeave(sender As Object, e As EventArgs) _
+        Handles btnNewDirect.MouseLeave, btnCreateChat.MouseLeave, btnHelp.MouseLeave, btnSettings.MouseLeave
+
+        _IconPic = DirectCast(sender, IconPictureBox)
+
+        _IconPic.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_WhiteCOlor))
+
+        _ShowPopUpMsg.Open_MessageForm()
+
     End Sub
 
     Private Sub Open_CreateChatForm(x As Integer, y As Integer)

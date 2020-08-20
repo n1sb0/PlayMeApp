@@ -102,7 +102,9 @@ Public Class FriendsChatPanel
 
     '*****///// ON MOUSE LEAVE EVENT
     Private Sub On_ChatPanel_Leave(sender As Object, e As EventArgs)
-        If _MainForm.PanelListOfChatFriends.GetChildAtPoint(_MainForm.PanelListOfChatFriends.PointToClient(Cursor.Position)) Is _MainForm.FriendsChatScrollBar OrElse _UserPanel.GetChildAtPoint(_UserPanel.PointToClient(Cursor.Position)) Is Nothing Then
+        If Not _MainForm.PanelListOfChatFriends.GetChildAtPoint(_MainForm.PanelListOfChatFriends.PointToClient(Cursor.Position)) Is _UserPanel _
+           OrElse _UserPanel.GetChildAtPoint(_UserPanel.PointToClient(Cursor.Position)) Is Nothing Then
+
             Leave_ListOfChatPanels()
         End If
     End Sub
@@ -124,7 +126,7 @@ Public Class FriendsChatPanel
     Public Sub On_ChatPanel_Click(sender As System.Object, e As System.EventArgs)
         _Sender = sender
         _E = e
-        Dim chatform As New ChatFriendForm
+        Dim chatform As New ChatFriendForm()
 
         _MainForm._OpenedChat = _NumberOfPanel - 1
 

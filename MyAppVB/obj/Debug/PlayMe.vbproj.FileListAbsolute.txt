@@ -81,8 +81,6 @@ A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\bin\Debug\EO.WebBrowser.xml
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\bin\Debug\EO.WebEngine.xml
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.SettingsForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\bin\Debug\Icons8.UI.dll
-A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\bin\Debug\Bunifu_UI_v1.52.dll
-A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\bin\Debug\Bunifu_UI_v1.5.3.dll
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\bin\Debug\Bunifu_UI_v1.5.3.xml
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.GameForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.MusicForm.resources
@@ -102,3 +100,4 @@ A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.CreateDMForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.DeleteFriendForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.MenuMoreForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.HomeForm.resources
+A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.PopUpMessageForm.resources

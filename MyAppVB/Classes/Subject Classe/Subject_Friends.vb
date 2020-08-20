@@ -8,6 +8,9 @@
     Property FRIENDS_USERNAME As String
     Property FRIENDS_STATE_ONLINE As String
 
+    Private _Subject_ID As Integer
+    Private _SubFriend_ID As Integer
+
     Public Sub Clean()
         USER_ID = 0
         FRIEND_ID = 0
@@ -62,9 +65,8 @@
                 End While
 
                 reader.Close()
+                command.Connection.Close()
                 command.Dispose()
-                connection.Close()
-                connection.Dispose()
             Catch ex As Exception
                 Throw ex
             End Try
@@ -113,25 +115,128 @@
     End Sub
 
 
-    Public Shared Sub Delete_Pending_Request(user_1 As Integer, user_2 As Integer, strQuery As String)
-        Try
-            Dim conn As New SqlClient.SqlConnection(MyConnection.Get_Connection)
-            Dim queryS As String = strQuery
-            Dim command As New SqlClient.SqlCommand
+    Public Sub Update_DataWith_Transaction(subject_id As Integer, friend_id As Integer)
 
-            conn.Open()
+        _Subject_ID = subject_id
+        _SubFriend_ID = friend_id
+
+        Dim connection As New SqlClient.SqlConnection(MyConnection.Get_Connection())
+        Dim transaction As SqlClient.SqlTransaction = Nothing
+
+        Try
+            connection.Open()
+            transaction = connection.BeginTransaction()
+
+            Update_Date_T(transaction, connection)
+
+            connection.Close()
+        Catch ex As Exception
+
+            If Not IsNothing(transaction) Then
+                transaction.Rollback()
+            End If
+
+            If Not IsNothing(connection) AndAlso connection.State = ConnectionState.Closed Then
+                connection.Close()
+            End If
+
+            Throw New Exception("Errore: " + vbCrLf + ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Update_Date_T(transazione As SqlClient.SqlTransaction, Connection As SqlClient.SqlConnection)
+        Dim strQuery As String
+        Dim commandInsert As New SqlClient.SqlCommand
+        Dim commandDelete As New SqlClient.SqlCommand
+
+        Try
+            strQuery = MyConnection.Get_Delete_Pending_Request
+            Delete_Reference_OfTwoFriends(_SubFriend_ID, _Subject_ID, strQuery, transazione, commandDelete, Connection)
+
+            strQuery = MyConnection.Insert_Query_Add_Friend
+            Add_User_To_FriendList(_Subject_ID, _SubFriend_ID, strQuery, transazione, commandInsert, Connection)
+
+            transazione.Commit()
+
+            commandInsert.Connection.Close()
+            commandInsert.Dispose()
+
+            commandDelete.Connection.Close()
+            commandDelete.Dispose()
+
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Public Shared Sub Delete_Reference_OfTwoFriends(user_1 As Integer, user_2 As Integer, strQuery As String, Optional transazione As SqlClient.SqlTransaction = Nothing,
+                                                    Optional cmd As SqlClient.SqlCommand = Nothing, Optional connection As SqlClient.SqlConnection = Nothing)
+
+        Dim queryS As String = strQuery
+        Dim command As SqlClient.SqlCommand
+        Dim conn As SqlClient.SqlConnection
+
+        Try
+            If Not connection Is Nothing Then
+                command = cmd
+                conn = connection
+            Else
+                command = New SqlClient.SqlCommand
+                conn = New SqlClient.SqlConnection(MyConnection.Get_Connection)
+
+                conn.Open()
+            End If
 
             With command
                 .CommandText = queryS
                 .Connection = conn
+                .Transaction = transazione
 
                 .Parameters.AddWithValue("@USER_1", user_1)
                 .Parameters.AddWithValue("@USER_2", user_2)
                 .ExecuteNonQuery()
             End With
 
-            command.Connection.Close()
-            command.Dispose()
+            If connection Is Nothing Then
+                command.Connection.Close()
+                command.Dispose()
+            End If
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Public Shared Sub Add_User_To_FriendList(user_1 As Integer, user_2 As Integer, strQuery As String, Optional transazione As SqlClient.SqlTransaction = Nothing,
+                                                    Optional cmd As SqlClient.SqlCommand = Nothing, Optional connection As SqlClient.SqlConnection = Nothing)
+        Dim queryS As String = strQuery
+        Dim command As New SqlClient.SqlCommand
+        Dim conn As New SqlClient.SqlConnection(MyConnection.Get_Connection)
+
+        Try
+            If Not connection Is Nothing Then
+                command = cmd
+                conn = connection
+            Else
+                command = New SqlClient.SqlCommand
+                conn = New SqlClient.SqlConnection(MyConnection.Get_Connection)
+
+                conn.Open()
+            End If
+
+            With command
+                .CommandText = queryS
+                .Connection = conn
+                .Transaction = transazione
+
+                .Parameters.AddWithValue("@USER_1", user_1)
+                .Parameters.AddWithValue("@USER_2", user_2)
+                .ExecuteNonQuery()
+            End With
+
+            If connection Is Nothing Then
+                command.Connection.Close()
+                command.Dispose()
+            End If
         Catch ex As Exception
             Throw ex
         End Try

@@ -3,8 +3,10 @@
 Public Class FriendsOnlineAndAllPanel
     Inherits GenericPanel
 
-    '*****///// CONSTRUCTOR OF PANELS
+    Property _E As New System.EventArgs
+    Public _Sender As New System.Object
 
+    '*****///// CONSTRUCTOR OF PANELS
     '*****///// ONLINE FRIENDS PANEL
     Sub New(ByRef oForm As OnlineFriendsForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar,
             panelname As String, userPicture As Byte(), userName As String, userStateOnline As String, user_id As Integer)
@@ -78,6 +80,16 @@ Public Class FriendsOnlineAndAllPanel
         AddHandler _SendMessageBtn.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Enter
         AddHandler _UserStateOnline_Label.MouseEnter, AddressOf On_FriendsOnlineAndAllPanel_Enter
 
+        '*****///// ON MOUSE CLICK HOVER THE PANEL EVENT
+        AddHandler _UserLine.MouseClick, AddressOf On_Panel_Click
+        AddHandler _UserPanel.MouseClick, AddressOf On_Panel_Click
+        AddHandler _OvalOnline.MouseClick, AddressOf On_Panel_Click
+        AddHandler _UserNameLbl.MouseClick, AddressOf On_Panel_Click
+        AddHandler _UserPictureBox.MouseClick, AddressOf On_Panel_Click
+        AddHandler _SendMessageBtn.MouseClick, AddressOf On_Panel_Click
+        AddHandler _UserStateOnline_Label.MouseClick, AddressOf On_Panel_Click
+
+
         '*****///// ON MOUSE LEAVE THE PANEL
         AddHandler _UserPanel.MouseLeave, AddressOf On_FriendsOnlineAndAllPanel_Leave
     End Sub
@@ -124,6 +136,26 @@ Public Class FriendsOnlineAndAllPanel
         _UserPanel.Controls.Add(_UserPictureBox)
         _UserPanel.Controls.Add(_SendMessageBtn)
         _UserPanel.Controls.Add(_UserStateOnline_Label)
+    End Sub
+
+    Public Sub On_Panel_Click(sender As System.Object, e As System.EventArgs)
+        Dim chatform As New ChatFriendForm
+
+        _Sender = sender
+        _E = e
+
+        HomeForm._OpenedChat = _NumberOfPanel - 1
+
+        HomeForm.txtFindFriends_Leave(sender, e)
+
+        chatform._MsgToUser = _UserName
+        chatform._StateOnline = _UserStateOnlineStr
+
+        Dim positionOflblOnline As New Point(chatform.lblFriendName.Location.X + chatform.lblFriendName.Width + 5, chatform.lblStateOnlineOfFriend.Location.Y)
+
+        chatform.lblStateOnlineOfFriend.Location = New Point(positionOflblOnline)
+
+        _ControlChildForm.OpenChildForm(chatform, HomeForm.MainChatAndFriendPanel, HomeForm._CurrentChildForm)
     End Sub
 
     '*****///// ON PANEL MOUSE HOVER EVENT
@@ -181,4 +213,6 @@ Public Class FriendsOnlineAndAllPanel
             End If
         End If
     End Sub
+
+
 End Class

@@ -44,19 +44,19 @@
         vScrollHelper = New Guna.UI.Lib.ScrollBar.PanelScrollHelper(pnlOfFriends, dmFriendScrollBar, True)
         vScrollHelper.UpdateScrollBar()
 
-        For i As Integer = 0 To _ListOfUserDmFriendsPanel.Count - 1
-            pnlOfFriends.Controls.Remove(_ListOfUserDmFriendsPanel.Item(i)._UserPanel)
+        For Each pnl In _ListOfUserDmFriendsPanel
+            pnlOfFriends.Controls.Remove(pnl._UserPanel)
         Next
 
         Dim yl As Integer = 1
 
         _ListOfUserDmFriendsPanel.Sort(Function(x, y) x._UserName.CompareTo(y._UserName))
 
-        For i As Integer = 0 To _ListOfUserDmFriendsPanel.Count - 1
-            _ListOfUserDmFriendsPanel.Item(i)._UserPanel.Location = New Point(10, yl)
+        For Each pnl In _ListOfUserDmFriendsPanel
+            pnl._UserPanel.Location = New Point(10, yl)
             yl += 61
 
-            pnlOfFriends.Controls.Add(_ListOfUserDmFriendsPanel.Item(i)._UserPanel)
+            pnlOfFriends.Controls.Add(pnl._UserPanel)
         Next
     End Sub
 
