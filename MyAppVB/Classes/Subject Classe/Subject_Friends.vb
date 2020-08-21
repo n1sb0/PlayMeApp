@@ -114,7 +114,6 @@
         End With
     End Sub
 
-
     Public Sub Update_DataWith_Transaction(subject_id As Integer, friend_id As Integer)
 
         _Subject_ID = subject_id
@@ -209,8 +208,8 @@
     Public Shared Sub Add_User_To_FriendList(user_1 As Integer, user_2 As Integer, strQuery As String, Optional transazione As SqlClient.SqlTransaction = Nothing,
                                                     Optional cmd As SqlClient.SqlCommand = Nothing, Optional connection As SqlClient.SqlConnection = Nothing)
         Dim queryS As String = strQuery
-        Dim command As New SqlClient.SqlCommand
-        Dim conn As New SqlClient.SqlConnection(MyConnection.Get_Connection)
+        Dim command As SqlClient.SqlCommand
+        Dim conn As SqlClient.SqlConnection
 
         Try
             If Not connection Is Nothing Then

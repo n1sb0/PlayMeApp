@@ -32,7 +32,7 @@ Partial Class PopUpMessageForm
         Me.lblMessage.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.lblMessage.ForeColor = System.Drawing.Color.White
         Me.lblMessage.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.lblMessage.Location = New System.Drawing.Point(6, 3)
+        Me.lblMessage.Location = New System.Drawing.Point(6, 2)
         Me.lblMessage.Name = "lblMessage"
         Me.lblMessage.Size = New System.Drawing.Size(111, 19)
         Me.lblMessage.TabIndex = 80

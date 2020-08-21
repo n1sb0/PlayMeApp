@@ -86,4 +86,18 @@
 
         Return query
     End Function
+
+    Public Shared Function Get_Subject_Friend() As String
+        Dim query As String = "SELECT * FROM TBL_USER_FRIENDS"
+
+        Return query
+    End Function
+
+    Public Shared Function Get_Subject_Request() As String
+        Dim query As String = "SELECT * FROM TBL_PENDING_FRENDS_REQUEST"
+
+        Return query
+    End Function
+
+
 End Class

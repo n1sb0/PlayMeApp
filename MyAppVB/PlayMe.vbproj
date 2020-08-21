@@ -240,6 +240,7 @@
     <Compile Include="Classes\Components\PendingRequestPanel.vb" />
     <Compile Include="Classes\Components\RadiusBorderPanel.vb" />
     <Compile Include="Classes\Components\Show_PopUpMessageForm.vb" />
+    <Compile Include="Classes\Subject Classe\DR_Subject_Friend.vb" />
     <Compile Include="Classes\Subject Classe\Subject_Friends.vb" />
     <Compile Include="Classes\Utility Classe\ControlChildForm.vb" />
     <Compile Include="Classes\Components\FriendsChatPanel.vb" />
