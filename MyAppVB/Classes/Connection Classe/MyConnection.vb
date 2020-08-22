@@ -98,6 +98,4 @@
 
         Return query
     End Function
-
-
 End Class

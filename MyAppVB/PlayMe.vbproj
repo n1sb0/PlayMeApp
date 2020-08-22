@@ -233,118 +233,118 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="Classes\Components\BlockedFriendsPanel.vb" />
-    <Compile Include="Classes\Components\Create_ListOf_Panels.vb" />
-    <Compile Include="Classes\Components\DmFriendsPanel.vb" />
-    <Compile Include="Classes\Components\FriendsOnlineAndAllPanel.vb" />
-    <Compile Include="Classes\Components\PendingRequestPanel.vb" />
-    <Compile Include="Classes\Components\RadiusBorderPanel.vb" />
-    <Compile Include="Classes\Components\Show_PopUpMessageForm.vb" />
-    <Compile Include="Classes\Subject Classe\DR_Subject_Friend.vb" />
-    <Compile Include="Classes\Subject Classe\Subject_Friends.vb" />
+    <Compile Include="Classes\Components Classe\Panels\BlockedFriendsPanel.vb" />
+    <Compile Include="Classes\Components Classe\Classes To Create Panels\Create_ListOf_Panels.vb" />
+    <Compile Include="Classes\Components Classe\Panels\DmFriendsPanel.vb" />
+    <Compile Include="Classes\Components Classe\Panels\OnlineAndAllFriendsPanel.vb" />
+    <Compile Include="Classes\Components Classe\Panels\PendingRequestPanel.vb" />
+    <Compile Include="Classes\Utility Classe\RadiusBorderPanel.vb" />
+    <Compile Include="Classes\Utility Classe\Open_PopUpForm.vb" />
+    <Compile Include="Classes\Subject Classe\Firend Subject\DR_Subject_Friend.vb" />
+    <Compile Include="Classes\Subject Classe\Firend Subject\Subject_Friends.vb" />
     <Compile Include="Classes\Utility Classe\ControlChildForm.vb" />
-    <Compile Include="Classes\Components\FriendsChatPanel.vb" />
-    <Compile Include="Classes\Components\GenericPanel.vb" />
+    <Compile Include="Classes\Components Classe\Panels\ChatFriendsPanel.vb" />
+    <Compile Include="Classes\Components Classe\Classes To Create Panels\GenericPanel.vb" />
     <Compile Include="Classes\Utility Classe\ResizeImage.vb" />
-    <Compile Include="Classes\Subject Classe\DR_Subject.vb" />
+    <Compile Include="Classes\Subject Classe\Subject\DR_Subject.vb" />
     <Compile Include="Classes\Encryption Classe\Encryption.vb" />
     <Compile Include="Classes\Connection Classe\MyConnection.vb" />
-    <Compile Include="Classes\Subject Classe\Subject.vb" />
-    <Compile Include="Classes\Utility Classe\Utility_Secure.vb" />
-    <Compile Include="Classes\Utility Classe\Utility_Style.vb" />
+    <Compile Include="Classes\Subject Classe\Subject\Subject.vb" />
+    <Compile Include="Classes\Utility Classe\Utility Classes\Utility_Secure.vb" />
+    <Compile Include="Classes\Utility Classe\Utility Classes\Utility_Style.vb" />
     <Compile Include="DB_PlayMeAppDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DB_PlayMeAppDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\ChatFriendForm.Designer.vb">
+    <Compile Include="Forms\Home Forms\Chat Forms\ChatFriendForm.Designer.vb">
       <DependentUpon>ChatFriendForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\ChatFriendForm.vb">
+    <Compile Include="Forms\Home Forms\Chat Forms\ChatFriendForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\CreateDMForm.Designer.vb">
+    <Compile Include="Forms\Home Forms\Chat Forms\CreateDMForm.Designer.vb">
       <DependentUpon>CreateDMForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\CreateDMForm.vb">
+    <Compile Include="Forms\Home Forms\Chat Forms\CreateDMForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\PopUpMessageForm.Designer.vb">
+    <Compile Include="Forms\Home Forms\Chat Forms\PopUpMessageForm.Designer.vb">
       <DependentUpon>PopUpMessageForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\PopUpMessageForm.vb">
+    <Compile Include="Forms\Home Forms\Chat Forms\PopUpMessageForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\Menu More\DeleteFriendForm.Designer.vb">
+    <Compile Include="Forms\Home Forms\Top Panel Forms\Menu More\DeleteFriendForm.Designer.vb">
       <DependentUpon>DeleteFriendForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\Menu More\DeleteFriendForm.vb">
+    <Compile Include="Forms\Home Forms\Top Panel Forms\Menu More\DeleteFriendForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\Menu More\MenuMoreForm.Designer.vb">
+    <Compile Include="Forms\Home Forms\Top Panel Forms\Menu More\MenuMoreForm.Designer.vb">
       <DependentUpon>MenuMoreForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\Menu More\MenuMoreForm.vb">
+    <Compile Include="Forms\Home Forms\Top Panel Forms\Menu More\MenuMoreForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\OnlineFriendsForm.Designer.vb">
+    <Compile Include="Forms\Home Forms\Top Panel Forms\Upper Panel Forms\OnlineFriendsForm.Designer.vb">
       <DependentUpon>OnlineFriendsForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\OnlineFriendsForm.vb">
+    <Compile Include="Forms\Home Forms\Top Panel Forms\Upper Panel Forms\OnlineFriendsForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\PendingForm.Designer.vb">
+    <Compile Include="Forms\Home Forms\Top Panel Forms\Upper Panel Forms\PendingForm.Designer.vb">
       <DependentUpon>PendingForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\PendingForm.vb">
+    <Compile Include="Forms\Home Forms\Top Panel Forms\Upper Panel Forms\PendingForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Home Forms\HomeForm.Designer.vb">
+    <Compile Include="Forms\Home Forms\Home Form\HomeForm.Designer.vb">
       <DependentUpon>HomeForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Home Forms\HomeForm.vb">
+    <Compile Include="Forms\Home Forms\Home Form\HomeForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Home Forms\LeftPanelForms\GameForm.Designer.vb">
+    <Compile Include="Forms\Home Forms\Left Panel Forms\GameForm.Designer.vb">
       <DependentUpon>GameForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Home Forms\LeftPanelForms\GameForm.vb">
+    <Compile Include="Forms\Home Forms\Left Panel Forms\GameForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Home Forms\LeftPanelForms\MusicForm.Designer.vb">
+    <Compile Include="Forms\Home Forms\Left Panel Forms\MusicForm.Designer.vb">
       <DependentUpon>MusicForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Home Forms\LeftPanelForms\MusicForm.vb">
+    <Compile Include="Forms\Home Forms\Left Panel Forms\MusicForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Home Forms\LeftPanelForms\PersonalBlogForm.Designer.vb">
+    <Compile Include="Forms\Home Forms\Left Panel Forms\PersonalBlogForm.Designer.vb">
       <DependentUpon>PersonalBlogForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Home Forms\LeftPanelForms\PersonalBlogForm.vb">
+    <Compile Include="Forms\Home Forms\Left Panel Forms\PersonalBlogForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Home Forms\LeftPanelForms\VideoForm.Designer.vb">
+    <Compile Include="Forms\Home Forms\Left Panel Forms\VideoForm.Designer.vb">
       <DependentUpon>VideoForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Home Forms\LeftPanelForms\VideoForm.vb">
+    <Compile Include="Forms\Home Forms\Left Panel Forms\VideoForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\AddFriendForm.Designer.vb">
+    <Compile Include="Forms\Home Forms\Top Panel Forms\Upper Panel Forms\AddFriendForm.Designer.vb">
       <DependentUpon>AddFriendForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\AddFriendForm.vb">
+    <Compile Include="Forms\Home Forms\Top Panel Forms\Upper Panel Forms\AddFriendForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\AllFriendsForm.Designer.vb">
+    <Compile Include="Forms\Home Forms\Top Panel Forms\Upper Panel Forms\AllFriendsForm.Designer.vb">
       <DependentUpon>AllFriendsForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\AllFriendsForm.vb">
+    <Compile Include="Forms\Home Forms\Top Panel Forms\Upper Panel Forms\AllFriendsForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\BlockedFriendsForm.Designer.vb">
+    <Compile Include="Forms\Home Forms\Top Panel Forms\Upper Panel Forms\BlockedFriendsForm.Designer.vb">
       <DependentUpon>BlockedFriendsForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\BlockedFriendsForm.vb">
+    <Compile Include="Forms\Home Forms\Top Panel Forms\Upper Panel Forms\BlockedFriendsForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Login Form\LoginForm.Designer.vb">
@@ -365,28 +365,28 @@
     <Compile Include="Forms\Register Form\RegisterForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Settings Forms\APP SETTINGS\LanguageForm.Designer.vb">
+    <Compile Include="Forms\Settings Forms\App Settings\LanguageForm.Designer.vb">
       <DependentUpon>LanguageForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Settings Forms\APP SETTINGS\LanguageForm.vb">
+    <Compile Include="Forms\Settings Forms\App Settings\LanguageForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Settings Forms\APP SETTINGS\VoiceAndVideoForm.Designer.vb">
+    <Compile Include="Forms\Settings Forms\App Settings\VoiceAndVideoForm.Designer.vb">
       <DependentUpon>VoiceAndVideoForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Settings Forms\APP SETTINGS\VoiceAndVideoForm.vb">
+    <Compile Include="Forms\Settings Forms\App Settings\VoiceAndVideoForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Settings Forms\USER SETTINGS\PrivacyAndSeftyForm.Designer.vb">
+    <Compile Include="Forms\Settings Forms\User Settings\PrivacyAndSeftyForm.Designer.vb">
       <DependentUpon>PrivacyAndSeftyForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Settings Forms\USER SETTINGS\PrivacyAndSeftyForm.vb">
+    <Compile Include="Forms\Settings Forms\User Settings\PrivacyAndSeftyForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Settings Forms\USER SETTINGS\SettingsForm.Designer.vb">
+    <Compile Include="Forms\Settings Forms\User Settings\SettingsForm.Designer.vb">
       <DependentUpon>SettingsForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Settings Forms\USER SETTINGS\SettingsForm.vb">
+    <Compile Include="Forms\Settings Forms\User Settings\SettingsForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -408,49 +408,49 @@
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\ChatFriendForm.resx">
+    <EmbeddedResource Include="Forms\Home Forms\Chat Forms\ChatFriendForm.resx">
       <DependentUpon>ChatFriendForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\CreateDMForm.resx">
+    <EmbeddedResource Include="Forms\Home Forms\Chat Forms\CreateDMForm.resx">
       <DependentUpon>CreateDMForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Home Forms\Friend Panel And Chat Panel\Chat Forms\PopUpMessageForm.resx">
+    <EmbeddedResource Include="Forms\Home Forms\Chat Forms\PopUpMessageForm.resx">
       <DependentUpon>PopUpMessageForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\AddFriendForm.resx">
+    <EmbeddedResource Include="Forms\Home Forms\Top Panel Forms\Upper Panel Forms\AddFriendForm.resx">
       <DependentUpon>AddFriendForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\AllFriendsForm.resx">
+    <EmbeddedResource Include="Forms\Home Forms\Top Panel Forms\Upper Panel Forms\AllFriendsForm.resx">
       <DependentUpon>AllFriendsForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\BlockedFriendsForm.resx">
+    <EmbeddedResource Include="Forms\Home Forms\Top Panel Forms\Upper Panel Forms\BlockedFriendsForm.resx">
       <DependentUpon>BlockedFriendsForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\Menu More\DeleteFriendForm.resx">
+    <EmbeddedResource Include="Forms\Home Forms\Top Panel Forms\Menu More\DeleteFriendForm.resx">
       <DependentUpon>DeleteFriendForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\Menu More\MenuMoreForm.resx">
+    <EmbeddedResource Include="Forms\Home Forms\Top Panel Forms\Menu More\MenuMoreForm.resx">
       <DependentUpon>MenuMoreForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\OnlineFriendsForm.resx">
+    <EmbeddedResource Include="Forms\Home Forms\Top Panel Forms\Upper Panel Forms\OnlineFriendsForm.resx">
       <DependentUpon>OnlineFriendsForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Home Forms\Friend Panel And Chat Panel\Upper Panel Friends %28Online All Blocked Add%29\PendingForm.resx">
+    <EmbeddedResource Include="Forms\Home Forms\Top Panel Forms\Upper Panel Forms\PendingForm.resx">
       <DependentUpon>PendingForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Home Forms\HomeForm.resx">
+    <EmbeddedResource Include="Forms\Home Forms\Home Form\HomeForm.resx">
       <DependentUpon>HomeForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Home Forms\LeftPanelForms\GameForm.resx">
+    <EmbeddedResource Include="Forms\Home Forms\Left Panel Forms\GameForm.resx">
       <DependentUpon>GameForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Home Forms\LeftPanelForms\MusicForm.resx">
+    <EmbeddedResource Include="Forms\Home Forms\Left Panel Forms\MusicForm.resx">
       <DependentUpon>MusicForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Home Forms\LeftPanelForms\PersonalBlogForm.resx">
+    <EmbeddedResource Include="Forms\Home Forms\Left Panel Forms\PersonalBlogForm.resx">
       <DependentUpon>PersonalBlogForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Home Forms\LeftPanelForms\VideoForm.resx">
+    <EmbeddedResource Include="Forms\Home Forms\Left Panel Forms\VideoForm.resx">
       <DependentUpon>VideoForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login Form\LoginForm.resx">
@@ -462,16 +462,16 @@
     <EmbeddedResource Include="Forms\Register Form\RegisterForm.resx">
       <DependentUpon>RegisterForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings Forms\APP SETTINGS\LanguageForm.resx">
+    <EmbeddedResource Include="Forms\Settings Forms\App Settings\LanguageForm.resx">
       <DependentUpon>LanguageForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings Forms\APP SETTINGS\VoiceAndVideoForm.resx">
+    <EmbeddedResource Include="Forms\Settings Forms\App Settings\VoiceAndVideoForm.resx">
       <DependentUpon>VoiceAndVideoForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings Forms\USER SETTINGS\PrivacyAndSeftyForm.resx">
+    <EmbeddedResource Include="Forms\Settings Forms\User Settings\PrivacyAndSeftyForm.resx">
       <DependentUpon>PrivacyAndSeftyForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Settings Forms\USER SETTINGS\SettingsForm.resx">
+    <EmbeddedResource Include="Forms\Settings Forms\User Settings\SettingsForm.resx">
       <DependentUpon>SettingsForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
@@ -539,6 +539,7 @@
     <Content Include="obj\Debug\PlayMe.xml" />
     <Content Include="obj\Debug\TempPE\DB_PlayMeAppDataSet.Designer.vb.dll" />
     <Content Include="obj\Debug\TempPE\My Project.Resources.Designer.vb.dll" />
+    <None Include="Resources\TransBackGround.png" />
     <None Include="Resources\NewUserPicture.png" />
     <None Include="Resources\PictureLogo.jpg" />
     <None Include="Resources\VerticleMenuDots.png" />

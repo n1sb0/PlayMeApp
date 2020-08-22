@@ -107,6 +107,11 @@ PlayME
   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:PlayME.My.Resources.Resources.TransBackGround">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:PlayME.My.Resources.Resources.VerticleMenuDots">
 <summary>
   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
