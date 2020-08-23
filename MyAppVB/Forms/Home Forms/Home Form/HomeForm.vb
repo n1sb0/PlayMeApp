@@ -67,6 +67,7 @@ Public Class HomeForm
     Private _WhiteCOlor As String = _Utility_Style.WhiteColor
     Private _BackGColor As String = _Utility_Style.BackGroundColor
     Private _PanelsColorLightDarkBlue As String = _Utility_Style.LightDarkBlue
+    Private _GreenSeaColor As String = _Utility_Style.GreenSeaColor
 
 
 
@@ -331,7 +332,7 @@ Public Class HomeForm
 
         _GenericButton = DirectCast(sender, GunaButton)
 
-        _GenericButton.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_MainColor))
+        _GenericButton.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GreenSeaColor))
 
         Onclick_OpenChildForm_LeftPanel(_GenericButton.Name)
 

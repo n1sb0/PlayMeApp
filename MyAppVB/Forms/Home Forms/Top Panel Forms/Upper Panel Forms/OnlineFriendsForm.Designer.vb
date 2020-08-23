@@ -226,7 +226,7 @@ Partial Class OnlineFriendsForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.OnlineFriendScrollBar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.OnlineFriendScrollBar.LargeChange = 10
-        Me.OnlineFriendScrollBar.Location = New System.Drawing.Point(920, 50)
+        Me.OnlineFriendScrollBar.Location = New System.Drawing.Point(937, 50)
         Me.OnlineFriendScrollBar.Maximum = 5000
         Me.OnlineFriendScrollBar.MouseWheelBarPartitions = 2
         Me.OnlineFriendScrollBar.Name = "OnlineFriendScrollBar"

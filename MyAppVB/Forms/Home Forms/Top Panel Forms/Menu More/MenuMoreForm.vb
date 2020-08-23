@@ -18,7 +18,7 @@ Public Class MenuMoreForm
         ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
 
-        _SubjFriend = subject
+        _Subject = subject
         _SubjFriend = subjFriend
         _MainForm = mForm
 
@@ -71,7 +71,7 @@ Public Class MenuMoreForm
                     _DeleteFriendForm.TopLevel = False
                     _DeleteFriendForm.Parent = _MainForm
 
-                    _DeleteFriendForm.SetBounds(_MainForm.Width / 2 - 150, _MainForm.Height / 2 - 150, 400, 200)
+                    _DeleteFriendForm.SetBounds(_MainForm.Width / 2 - 175, _MainForm.Height / 2 - 150, 400, 200)
                     _DeleteFriendForm.BringToFront()
                     _DeleteFriendForm.Show()
 

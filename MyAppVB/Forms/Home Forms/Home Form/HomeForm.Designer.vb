@@ -530,21 +530,21 @@ Partial Class HomeForm
         'txtFindFriends
         '
         Me.txtFindFriends.BackColor = System.Drawing.Color.Transparent
-        Me.txtFindFriends.BaseColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
-        Me.txtFindFriends.BorderColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.txtFindFriends.BaseColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.txtFindFriends.BorderColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.txtFindFriends.BorderSize = 1
         Me.txtFindFriends.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtFindFriends.FocusedBaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.txtFindFriends.FocusedBaseColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         Me.txtFindFriends.FocusedBorderColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         Me.txtFindFriends.FocusedForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.txtFindFriends.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.txtFindFriends.ForeColor = System.Drawing.Color.Silver
-        Me.txtFindFriends.Location = New System.Drawing.Point(15, 10)
+        Me.txtFindFriends.Location = New System.Drawing.Point(10, 10)
         Me.txtFindFriends.Name = "txtFindFriends"
         Me.txtFindFriends.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtFindFriends.Radius = 7
+        Me.txtFindFriends.Radius = 5
         Me.txtFindFriends.SelectedText = ""
-        Me.txtFindFriends.Size = New System.Drawing.Size(230, 30)
+        Me.txtFindFriends.Size = New System.Drawing.Size(240, 30)
         Me.txtFindFriends.TabIndex = 68
         Me.txtFindFriends.Text = "Find Your Friends"
         '
@@ -670,9 +670,9 @@ Partial Class HomeForm
         Me.TransparentBackGround.BackColor = System.Drawing.Color.Transparent
         Me.TransparentBackGround.BaseColor = System.Drawing.Color.Black
         Me.TransparentBackGround.Image = Global.PlayME.My.Resources.Resources.TransBackGround
-        Me.TransparentBackGround.Location = New System.Drawing.Point(15, 409)
+        Me.TransparentBackGround.Location = New System.Drawing.Point(0, 0)
         Me.TransparentBackGround.Name = "TransparentBackGround"
-        Me.TransparentBackGround.Size = New System.Drawing.Size(42, 43)
+        Me.TransparentBackGround.Size = New System.Drawing.Size(10, 10)
         Me.TransparentBackGround.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.TransparentBackGround.TabIndex = 76
         Me.TransparentBackGround.TabStop = False
@@ -790,7 +790,7 @@ Partial Class HomeForm
         Me.btnHomeChat.AnimationHoverSpeed = 0.07!
         Me.btnHomeChat.AnimationSpeed = 0.03!
         Me.btnHomeChat.BackColor = System.Drawing.Color.Transparent
-        Me.btnHomeChat.BaseColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.btnHomeChat.BaseColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(133, Byte), Integer))
         Me.btnHomeChat.BorderColor = System.Drawing.Color.Black
         Me.btnHomeChat.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnHomeChat.DialogResult = System.Windows.Forms.DialogResult.None
@@ -802,12 +802,12 @@ Partial Class HomeForm
         Me.btnHomeChat.ImageSize = New System.Drawing.Size(25, 25)
         Me.btnHomeChat.Location = New System.Drawing.Point(10, 27)
         Me.btnHomeChat.Name = "btnHomeChat"
-        Me.btnHomeChat.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.btnHomeChat.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
         Me.btnHomeChat.OnHoverBorderColor = System.Drawing.Color.Black
         Me.btnHomeChat.OnHoverForeColor = System.Drawing.Color.White
         Me.btnHomeChat.OnHoverImage = Nothing
-        Me.btnHomeChat.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.btnHomeChat.Radius = 10
+        Me.btnHomeChat.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnHomeChat.Radius = 15
         Me.btnHomeChat.Size = New System.Drawing.Size(50, 50)
         Me.btnHomeChat.TabIndex = 66
         '

@@ -18,11 +18,29 @@
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Close()
-        HomeForm.TransparentBackGround.Visible = False
+        Close_Delete_Friend_Form()
     End Sub
 
     Private Sub btnDeleteFriend_Click(sender As Object, e As EventArgs) Handles btnDeleteFriend.Click
 
+        If HomeForm._CurrentChildForm.Name.Equals("OnlineFriendsForm") _
+            OrElse HomeForm._CurrentChildForm.Name.Equals("AllFriendsForm") Then
+
+            Dim strQuery As String = MyConnection.Delete_From_FriendList()
+            Subject_Friends.Delete_Reference_OfTwoFriends(_Subject.SUBJECT_ID, _SubjFriend.SUBJECT_ID, strQuery)
+
+            If Application.OpenForms().OfType(Of OnlineFriendsForm).Any Then
+                HomeForm.Onclick_OpenChildForm_FriendPanels("OnlineFriendsForm")
+            Else
+                HomeForm.Onclick_OpenChildForm_FriendPanels("AllFriendsForm")
+            End If
+        End If
+
+        Close_Delete_Friend_Form()
+    End Sub
+
+    Private Sub Close_Delete_Friend_Form()
+        Close()
+        HomeForm.TransparentBackGround.Visible = False
     End Sub
 End Class

@@ -17,6 +17,7 @@ Public Class Utility_Style
     Property BackGroundColor As String = "#36393f"
     Property LightDarkHoverButtonColor As String = "#34373c"
     Property LightDarkClickOnButtonColor As String = "#393c43"
+    Property GreenSeaColor As String = "#16a085"
 
     Public defaultLabel As New Label
 
@@ -168,7 +169,7 @@ Public Class Utility_Style
         SelectedBtn.Top -= 5
         SelectedBtn.Location = New Point(SelectedBtn.Location.X, btn.Location.Y + 10)
 
-        btn.Radius = 10
+        btn.Radius = 15
     End Sub
 
     Public Sub Set_UserPicture(ByRef userPictureBox As PictureBox, userPicture As Byte())

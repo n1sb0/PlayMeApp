@@ -240,7 +240,7 @@ Partial Class BlockedFriendsForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BlockedFriendScrollBar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BlockedFriendScrollBar.LargeChange = 10
-        Me.BlockedFriendScrollBar.Location = New System.Drawing.Point(920, 50)
+        Me.BlockedFriendScrollBar.Location = New System.Drawing.Point(938, 50)
         Me.BlockedFriendScrollBar.Maximum = 5000
         Me.BlockedFriendScrollBar.MouseWheelBarPartitions = 2
         Me.BlockedFriendScrollBar.Name = "BlockedFriendScrollBar"

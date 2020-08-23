@@ -81,7 +81,7 @@ Partial Class AllFriendsForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.AllFriendScrollBar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.AllFriendScrollBar.LargeChange = 10
-        Me.AllFriendScrollBar.Location = New System.Drawing.Point(920, 50)
+        Me.AllFriendScrollBar.Location = New System.Drawing.Point(938, 50)
         Me.AllFriendScrollBar.Maximum = 5000
         Me.AllFriendScrollBar.MouseWheelBarPartitions = 2
         Me.AllFriendScrollBar.Name = "AllFriendScrollBar"

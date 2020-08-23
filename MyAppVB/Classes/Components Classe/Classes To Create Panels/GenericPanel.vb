@@ -33,7 +33,7 @@ Public Class GenericPanel
     Public _PanelName As String
     Public _PnlSelected As Boolean = False
     Public _User_ID As Integer
-    Public _RadiusBnum As Integer = 35
+    Public _RadiusBnum As Integer = 27
     Public _UserName As String
     Public _UserPicture As Byte()
     Public _NumberOfPanel As String

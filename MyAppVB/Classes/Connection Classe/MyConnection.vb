@@ -98,4 +98,11 @@
 
         Return query
     End Function
+
+    Public Shared Function Delete_From_FriendList() As String
+        Dim query As String = "DELETE FROM TBL_USER_FRIENDS WHERE USER_ID = @USER_1 AND FRIEND_ID = @USER_2"
+
+        Return query
+    End Function
+
 End Class

@@ -241,7 +241,7 @@ Partial Class PendingForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PendingReqScrollBar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PendingReqScrollBar.LargeChange = 10
-        Me.PendingReqScrollBar.Location = New System.Drawing.Point(920, 50)
+        Me.PendingReqScrollBar.Location = New System.Drawing.Point(939, 50)
         Me.PendingReqScrollBar.Maximum = 5000
         Me.PendingReqScrollBar.MouseWheelBarPartitions = 2
         Me.PendingReqScrollBar.Name = "PendingReqScrollBar"

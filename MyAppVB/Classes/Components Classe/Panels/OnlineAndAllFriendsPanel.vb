@@ -242,7 +242,6 @@ Public Class OnlineAndAllFriendsPanel
     Public Sub Open_Menu(Optional x As Integer = 0, Optional y As Integer = 0)
 
         If Not Application.OpenForms().OfType(Of MenuMoreForm).Any Then
-
             _MenuMoreForm = New MenuMoreForm(_Subject, _SubjFriend, _MainForm)
             _MainForm._MenuMoreForm = _MenuMoreForm
 
