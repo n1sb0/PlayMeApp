@@ -169,6 +169,11 @@ Public Class PendingRequestPanel
             Subject_Friends.Delete_Reference_OfTwoFriends(_PendingForm._Subject.SUBJECT_ID, _Friend.SUBJECT_ID, strQuery)
         End If
 
+        If _PendingForm._ListOfUserPendingReq.Count = 0 Then
+            _PendingForm.lblPendingReq.Visible = False
+            _PendingForm.pnlImgPendingReq.Visible = True
+        End If
+
     End Sub
 
     Private Sub On_ClosedRequest(index As Integer)

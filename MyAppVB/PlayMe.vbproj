@@ -236,6 +236,7 @@
     <Compile Include="Classes\Components Classe\Panels\BlockedFriendsPanel.vb" />
     <Compile Include="Classes\Components Classe\Classes To Create Panels\Create_ListOf_Panels.vb" />
     <Compile Include="Classes\Components Classe\Panels\DmFriendsPanel.vb" />
+    <Compile Include="Classes\Components Classe\Panels\MessagePanel.vb" />
     <Compile Include="Classes\Components Classe\Panels\OnlineAndAllFriendsPanel.vb" />
     <Compile Include="Classes\Components Classe\Panels\PendingRequestPanel.vb" />
     <Compile Include="Classes\Utility Classe\RadiusBorderPanel.vb" />

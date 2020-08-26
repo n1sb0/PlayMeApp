@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ChatFriendForm
     Inherits System.Windows.Forms.Form
 
     'Form esegue l'override del metodo Dispose per pulire l'elenco dei componenti.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class ChatFriendForm
     'NOTA: la procedura che segue è richiesta da Progettazione Windows Form
     'Può essere modificata in Progettazione Windows Form.  
     'Non modificarla mediante l'editor del codice.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.lblFriendName = New System.Windows.Forms.Label()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
@@ -32,18 +32,22 @@ Partial Class ChatFriendForm
         Me.btnCall = New FontAwesome.Sharp.IconPictureBox()
         Me.btnHelp = New FontAwesome.Sharp.IconPictureBox()
         Me.btnVideoCall = New FontAwesome.Sharp.IconPictureBox()
-        Me.pnlMessage = New System.Windows.Forms.Panel()
+        Me.btnSentMsg = New FontAwesome.Sharp.IconPictureBox()
+        Me.lblTextMsg = New System.Windows.Forms.Label()
+        Me.txtMessage = New System.Windows.Forms.TextBox()
         Me.btnAddSmile = New FontAwesome.Sharp.IconPictureBox()
         Me.btnAddFiles = New FontAwesome.Sharp.IconPictureBox()
-        Me.txtMessage = New System.Windows.Forms.TextBox()
+        Me.MessagesPanel = New System.Windows.Forms.Panel()
+        Me.pnlMessage = New Guna.UI.WinForms.GunaElipsePanel()
         CType(Me.picFriend, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnAddFriendToChat, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnCall, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnVideoCall, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlMessage.SuspendLayout()
+        CType(Me.btnSentMsg, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnAddSmile, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnAddFiles, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlMessage.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblFriendName
@@ -184,28 +188,62 @@ Partial Class ChatFriendForm
         Me.btnVideoCall.TabIndex = 91
         Me.btnVideoCall.TabStop = False
         '
-        'pnlMessage
+        'btnSentMsg
         '
-        Me.pnlMessage.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.btnSentMsg.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSentMsg.BackColor = System.Drawing.Color.Transparent
+        Me.btnSentMsg.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSentMsg.ForeColor = System.Drawing.Color.DimGray
+        Me.btnSentMsg.IconChar = FontAwesome.Sharp.IconChar.PaperPlane
+        Me.btnSentMsg.IconColor = System.Drawing.Color.DimGray
+        Me.btnSentMsg.IconSize = 25
+        Me.btnSentMsg.Location = New System.Drawing.Point(883, 10)
+        Me.btnSentMsg.Name = "btnSentMsg"
+        Me.btnSentMsg.Size = New System.Drawing.Size(25, 25)
+        Me.btnSentMsg.TabIndex = 98
+        Me.btnSentMsg.TabStop = False
+        '
+        'lblTextMsg
+        '
+        Me.lblTextMsg.AutoSize = True
+        Me.lblTextMsg.BackColor = System.Drawing.Color.Transparent
+        Me.lblTextMsg.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.lblTextMsg.Enabled = False
+        Me.lblTextMsg.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.lblTextMsg.ForeColor = System.Drawing.Color.Gray
+        Me.lblTextMsg.Location = New System.Drawing.Point(51, 11)
+        Me.lblTextMsg.Name = "lblTextMsg"
+        Me.lblTextMsg.Size = New System.Drawing.Size(145, 20)
+        Me.lblTextMsg.TabIndex = 96
+        Me.lblTextMsg.Text = "MESSAGE @NAME"
+        '
+        'txtMessage
+        '
+        Me.txtMessage.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pnlMessage.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
-        Me.pnlMessage.Controls.Add(Me.btnAddSmile)
-        Me.pnlMessage.Controls.Add(Me.btnAddFiles)
-        Me.pnlMessage.Controls.Add(Me.txtMessage)
-        Me.pnlMessage.Location = New System.Drawing.Point(15, 640)
-        Me.pnlMessage.Name = "pnlMessage"
-        Me.pnlMessage.Size = New System.Drawing.Size(920, 40)
-        Me.pnlMessage.TabIndex = 92
+        Me.txtMessage.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
+        Me.txtMessage.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtMessage.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.txtMessage.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.txtMessage.Location = New System.Drawing.Point(48, 11)
+        Me.txtMessage.MaximumSize = New System.Drawing.Size(801, 500)
+        Me.txtMessage.MinimumSize = New System.Drawing.Size(417, 25)
+        Me.txtMessage.Multiline = True
+        Me.txtMessage.Name = "txtMessage"
+        Me.txtMessage.Size = New System.Drawing.Size(801, 25)
+        Me.txtMessage.TabIndex = 97
         '
         'btnAddSmile
         '
         Me.btnAddSmile.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAddSmile.BackColor = System.Drawing.Color.Transparent
+        Me.btnAddSmile.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAddSmile.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnAddSmile.IconChar = FontAwesome.Sharp.IconChar.SmileWink
         Me.btnAddSmile.IconColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnAddSmile.IconSize = 25
-        Me.btnAddSmile.Location = New System.Drawing.Point(880, 8)
+        Me.btnAddSmile.Location = New System.Drawing.Point(851, 10)
         Me.btnAddSmile.Name = "btnAddSmile"
         Me.btnAddSmile.Size = New System.Drawing.Size(25, 25)
         Me.btnAddSmile.TabIndex = 24
@@ -214,30 +252,44 @@ Partial Class ChatFriendForm
         'btnAddFiles
         '
         Me.btnAddFiles.BackColor = System.Drawing.Color.Transparent
+        Me.btnAddFiles.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnAddFiles.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnAddFiles.IconChar = FontAwesome.Sharp.IconChar.PlusCircle
         Me.btnAddFiles.IconColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnAddFiles.IconSize = 25
-        Me.btnAddFiles.Location = New System.Drawing.Point(10, 8)
+        Me.btnAddFiles.Location = New System.Drawing.Point(13, 10)
         Me.btnAddFiles.Name = "btnAddFiles"
         Me.btnAddFiles.Size = New System.Drawing.Size(25, 25)
         Me.btnAddFiles.TabIndex = 23
         Me.btnAddFiles.TabStop = False
         '
-        'txtMessage
+        'MessagesPanel
         '
-        Me.txtMessage.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.MessagesPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtMessage.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
-        Me.txtMessage.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtMessage.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.txtMessage.ForeColor = System.Drawing.Color.Gray
-        Me.txtMessage.Location = New System.Drawing.Point(41, 10)
-        Me.txtMessage.Multiline = True
-        Me.txtMessage.Name = "txtMessage"
-        Me.txtMessage.Size = New System.Drawing.Size(843, 20)
-        Me.txtMessage.TabIndex = 22
-        Me.txtMessage.Text = "MESSEGE @FRIEND"
+        Me.MessagesPanel.BackColor = System.Drawing.Color.DimGray
+        Me.MessagesPanel.Location = New System.Drawing.Point(15, 50)
+        Me.MessagesPanel.Name = "MessagesPanel"
+        Me.MessagesPanel.Size = New System.Drawing.Size(920, 590)
+        Me.MessagesPanel.TabIndex = 93
+        '
+        'pnlMessage
+        '
+        Me.pnlMessage.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pnlMessage.BackColor = System.Drawing.Color.Transparent
+        Me.pnlMessage.BaseColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
+        Me.pnlMessage.Controls.Add(Me.btnAddSmile)
+        Me.pnlMessage.Controls.Add(Me.lblTextMsg)
+        Me.pnlMessage.Controls.Add(Me.btnSentMsg)
+        Me.pnlMessage.Controls.Add(Me.btnAddFiles)
+        Me.pnlMessage.Controls.Add(Me.txtMessage)
+        Me.pnlMessage.Location = New System.Drawing.Point(15, 640)
+        Me.pnlMessage.Name = "pnlMessage"
+        Me.pnlMessage.Radius = 13
+        Me.pnlMessage.Size = New System.Drawing.Size(920, 40)
+        Me.pnlMessage.TabIndex = 0
         '
         'ChatFriendForm
         '
@@ -254,6 +306,7 @@ Partial Class ChatFriendForm
         Me.Controls.Add(Me.txtFindMessage)
         Me.Controls.Add(Me.picFriend)
         Me.Controls.Add(Me.lblFriendName)
+        Me.Controls.Add(Me.MessagesPanel)
         Me.Controls.Add(Me.ShapeContainer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ChatFriendForm"
@@ -263,10 +316,11 @@ Partial Class ChatFriendForm
         CType(Me.btnCall, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnVideoCall, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlMessage.ResumeLayout(False)
-        Me.pnlMessage.PerformLayout()
+        CType(Me.btnSentMsg, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnAddSmile, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnAddFiles, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlMessage.ResumeLayout(False)
+        Me.pnlMessage.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -282,8 +336,11 @@ Partial Class ChatFriendForm
     Friend WithEvents btnCall As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents btnHelp As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents btnVideoCall As FontAwesome.Sharp.IconPictureBox
-    Friend WithEvents pnlMessage As Panel
     Friend WithEvents btnAddFiles As FontAwesome.Sharp.IconPictureBox
-    Friend WithEvents txtMessage As TextBox
     Friend WithEvents btnAddSmile As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents lblTextMsg As Label
+    Friend WithEvents txtMessage As TextBox
+    Friend WithEvents btnSentMsg As FontAwesome.Sharp.IconPictureBox
+    Friend WithEvents MessagesPanel As Panel
+    Friend WithEvents pnlMessage As Guna.UI.WinForms.GunaElipsePanel
 End Class

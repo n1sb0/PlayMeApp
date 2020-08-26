@@ -2,6 +2,7 @@
 
     Private _SeccessMsgRequest As String = "Success! Your friend request to "
     Private _MsgFriendAlreadyAdded As String = "Hm, didn't work. Double check maybe this Persone "
+    Private _MsgFriendIsWaiting As String = "Hm, didn't work. Double check maybe this Person "
     Private _FriendReqWasSent As String = "Hm, didn't work. Double check maybe you are already sent a Friend Request to this Person "
     Private _StartMsg As String = "You can add a friend with thair Name. Be careful to write the Name in right way!"
     Private _ErroreMsgShortName As String = "Hm, didn't work. Double check that the NAME contains at least 4 characters."
@@ -14,6 +15,7 @@
     Private _OrngColor As String = _Utility_Style.OrngColor
 
     Private _keyPressed As Integer
+    Private _PaintPanelBool As Boolean = False
     Private _Subject As New Subject
     Private _Friend As New Subject
 
@@ -55,12 +57,16 @@
                 If dr_subjFriend.Check_Friend_Request Then
                     Change_MSG(_FriendReqWasSent + "(" + txtFindFriend.Text + ").", _OrngColor)
                 Else
-                    If Not dr_subjFriend.Check_Friend_List Then
-                        _Subject.Insert_Pending_Request(_Friend.SUBJECT_ID)
-
-                        Change_MSG(_SeccessMsgRequest + txtFindFriend.Text + " was sent.", _GreenColor)
+                    If dr_subjFriend.Check_Friend_Request(_Friend.SUBJECT_ID, _Subject.SUBJECT_ID) Then
+                        Change_MSG(_MsgFriendIsWaiting + "(" + txtFindFriend.Text + ") already in pending request list", _OrngColor)
                     Else
-                        Change_MSG(_MsgFriendAlreadyAdded + "(" + txtFindFriend.Text + "), already in your friend list!", _OrngColor)
+                        If Not dr_subjFriend.Check_Friend_List Then
+                            _Subject.Insert_Pending_Request(_Friend.SUBJECT_ID)
+
+                            Change_MSG(_SeccessMsgRequest + txtFindFriend.Text + " was sent.", _GreenColor)
+                        Else
+                            Change_MSG(_MsgFriendAlreadyAdded + "(" + txtFindFriend.Text + "), already in your friend list!", _OrngColor)
+                        End If
                     End If
                 End If
             Else
@@ -76,12 +82,6 @@
         lblMsgAddFriend.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(strColor))
     End Sub
 
-    Private Sub FindFriendPanel_Paint(sender As Object, e As PaintEventArgs) Handles FindFriendPanel.Paint
-        Dim rbp As New RadiusBorderPanel
-
-        rbp.On_Panel_Paint(sender, e, FindFriendPanel)
-    End Sub
-
     Private Sub txtFindFriend_KeyDown(sender As Object, e As KeyEventArgs) Handles txtFindFriend.KeyDown
         _keyPressed = e.KeyCode
 
@@ -90,4 +90,5 @@
             btnSendFriendRequest_Click(Me, New EventArgs())
         End If
     End Sub
+
 End Class

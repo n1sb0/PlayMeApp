@@ -8,6 +8,9 @@ Public Class ChatFriendForm
     Private _LocX, _LocY As Integer
     Private _PopUpmsgForm As PopUpMessageForm
     Private _ShowPopUpMsg As New Open_PopUpForm(Me)
+    Private _keyPressed As Integer
+    Private _PaintPanelBool As Boolean = False
+    Private _NumOfLine As Integer = 1
 
     '*****///// CLASSES
     Private _Utility_Style As New Utility_Style
@@ -29,7 +32,7 @@ Public Class ChatFriendForm
     Private Sub ChatFriendForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         lblFriendName.Text = _MsgToUser
-        txtMessage.Text = "MESSEGE @" + _MsgToUser
+        lblTextMsg.Text = "MESSEGE @" + _MsgToUser
 
         Set_StateOnline()
     End Sub
@@ -39,12 +42,6 @@ Public Class ChatFriendForm
 
         _Utility_Style.Set_UserStateOnline(lblStateOnlineOfFriend, _StateOnline)
 
-    End Sub
-
-    Private Sub pnlMessage_Paint(sender As Object, e As PaintEventArgs) Handles pnlMessage.Paint
-        Dim rbp As New RadiusBorderPanel
-
-        rbp.On_Panel_Paint(sender, e, pnlMessage, 20)
     End Sub
 
     Private Sub On_Buttons_MouseEnter(sender As Object, e As EventArgs) _
@@ -72,6 +69,60 @@ Public Class ChatFriendForm
         _LocY = _IconPic.Location.Y + 35
 
         _ShowPopUpMsg.Open_MessageForm(_MsgText, _LocX, _LocY)
+    End Sub
+
+    Private Sub txtMessage_TextChanged(sender As Object, e As EventArgs) Handles txtMessage.TextChanged
+        Dim txtFont As New Font("Microsoft YaHei", 11.0F)
+        Dim txtSize As Size = TextRenderer.MeasureText(txtMessage.Text, txtFont)
+
+        Debug.WriteLine(txtSize.Width)
+        Debug.WriteLine(txtMessage.Width)
+        Debug.WriteLine("---")
+
+        Dim n As Integer = txtSize.Width - (_NumOfLine * txtMessage.Width)
+
+        Debug.WriteLine(n.ToString + " N")
+
+        If txtSize.Width > txtMessage.Width * _NumOfLine Then
+            txtMessage.Height += 25
+            pnlMessage.Height += 25
+            MessagesPanel.Height -= 25
+
+            pnlMessage.Location = New Point(15, pnlMessage.Location.Y - 25)
+
+            _NumOfLine += 1
+            Debug.WriteLine(_NumOfLine)
+        End If
+
+        If String.IsNullOrEmpty(txtMessage.Text) Then
+            Active_DisActive_TextBox(True)
+        Else
+            Active_DisActive_TextBox(False)
+        End If
+    End Sub
+
+    Private Sub Active_DisActive_TextBox(state As Boolean)
+        lblTextMsg.Visible = state
+        btnSentMsg.Enabled = Not state
+
+        If btnSentMsg.Enabled Then
+            btnSentMsg.IconColor = Color.FromArgb(255, ColorTranslator.FromHtml(_WhiteCOlor))
+        Else
+            btnSentMsg.IconColor = Color.DimGray
+        End If
+    End Sub
+
+    Private Sub txtMessage_KeyDown(sender As Object, e As KeyEventArgs) Handles txtMessage.KeyDown
+        _keyPressed = e.KeyCode
+
+        If _keyPressed = Keys.Enter Then
+            e.SuppressKeyPress = True
+            btnSentMsg_Click(Me, New EventArgs())
+        End If
+    End Sub
+
+    Private Sub btnSentMsg_Click(sender As Object, e As EventArgs) Handles btnSentMsg.Click
+
     End Sub
 
     Private Sub On_Buttons_MouseLeave(sender As Object, e As EventArgs) _

@@ -50,7 +50,12 @@
         End Try
     End Function
 
-    Public Function Check_Friend_Request() As Boolean
+    Public Function Check_Friend_Request(Optional user_1 As Integer = Nothing, Optional user_2 As Integer = Nothing) As Boolean
+
+        If IsNothing(user_1) Or IsNothing(user_2) Then
+            user_1 = _Subject_ID
+            user_2 = _SubjFriend_ID
+        End If
 
         Dim row As New DR_Subject_Friend
         Dim command As New SqlClient.SqlCommand
@@ -71,7 +76,7 @@
                     ._Subject_ID = ReadValue(reader("REQUEST_FROM"))
                     ._SubjFriend_ID = ReadValue(reader("REQUEST_TO"))
 
-                    If _Subject_ID = ._Subject_ID AndAlso _SubjFriend_ID = ._SubjFriend_ID Then
+                    If user_1 = ._Subject_ID AndAlso user_2 = ._SubjFriend_ID Then
                         Return True
                     End If
                 End With

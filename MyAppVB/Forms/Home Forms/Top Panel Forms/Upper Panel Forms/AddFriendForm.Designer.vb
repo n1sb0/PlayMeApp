@@ -25,7 +25,6 @@ Partial Class AddFriendForm
         Me.lblAddFriend = New System.Windows.Forms.Label()
         Me.lblMsgAddFriend = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.FindFriendPanel = New System.Windows.Forms.Panel()
         Me.lblEnterUserName = New System.Windows.Forms.Label()
         Me.txtFindFriend = New System.Windows.Forms.TextBox()
         Me.btnSendFriendRequest = New Guna.UI.WinForms.GunaButton()
@@ -42,7 +41,7 @@ Partial Class AddFriendForm
         Me.IconPictureBox3 = New FontAwesome.Sharp.IconPictureBox()
         Me.IconPictureBox4 = New FontAwesome.Sharp.IconPictureBox()
         Me.pnlImgAddFriends = New System.Windows.Forms.Panel()
-        Me.FindFriendPanel.SuspendLayout()
+        Me.FindFriendPanel = New Guna.UI.WinForms.GunaElipsePanel()
         CType(Me.iconPicUsers, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.iconPicGlobeAfrica, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IconPicAmerica, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,6 +54,7 @@ Partial Class AddFriendForm
         CType(Me.IconPictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IconPictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlImgAddFriends.SuspendLayout()
+        Me.FindFriendPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblAddFriend
@@ -62,7 +62,7 @@ Partial Class AddFriendForm
         Me.lblAddFriend.BackColor = System.Drawing.Color.Transparent
         Me.lblAddFriend.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.lblAddFriend.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.lblAddFriend.Location = New System.Drawing.Point(40, 30)
+        Me.lblAddFriend.Location = New System.Drawing.Point(40, 35)
         Me.lblAddFriend.Name = "lblAddFriend"
         Me.lblAddFriend.Size = New System.Drawing.Size(110, 20)
         Me.lblAddFriend.TabIndex = 74
@@ -74,7 +74,7 @@ Partial Class AddFriendForm
         Me.lblMsgAddFriend.BackColor = System.Drawing.Color.Transparent
         Me.lblMsgAddFriend.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.lblMsgAddFriend.ForeColor = System.Drawing.Color.Silver
-        Me.lblMsgAddFriend.Location = New System.Drawing.Point(40, 60)
+        Me.lblMsgAddFriend.Location = New System.Drawing.Point(40, 65)
         Me.lblMsgAddFriend.Name = "lblMsgAddFriend"
         Me.lblMsgAddFriend.Size = New System.Drawing.Size(506, 17)
         Me.lblMsgAddFriend.TabIndex = 75
@@ -90,19 +90,6 @@ Partial Class AddFriendForm
         Me.Panel1.Size = New System.Drawing.Size(950, 2)
         Me.Panel1.TabIndex = 76
         '
-        'FindFriendPanel
-        '
-        Me.FindFriendPanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FindFriendPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.FindFriendPanel.Controls.Add(Me.lblEnterUserName)
-        Me.FindFriendPanel.Controls.Add(Me.txtFindFriend)
-        Me.FindFriendPanel.Controls.Add(Me.btnSendFriendRequest)
-        Me.FindFriendPanel.Location = New System.Drawing.Point(40, 90)
-        Me.FindFriendPanel.Name = "FindFriendPanel"
-        Me.FindFriendPanel.Size = New System.Drawing.Size(870, 50)
-        Me.FindFriendPanel.TabIndex = 77
-        '
         'lblEnterUserName
         '
         Me.lblEnterUserName.BackColor = System.Drawing.Color.Transparent
@@ -110,7 +97,7 @@ Partial Class AddFriendForm
         Me.lblEnterUserName.Enabled = False
         Me.lblEnterUserName.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.lblEnterUserName.ForeColor = System.Drawing.Color.Gray
-        Me.lblEnterUserName.Location = New System.Drawing.Point(18, 15)
+        Me.lblEnterUserName.Location = New System.Drawing.Point(20, 14)
         Me.lblEnterUserName.Name = "lblEnterUserName"
         Me.lblEnterUserName.Size = New System.Drawing.Size(146, 20)
         Me.lblEnterUserName.TabIndex = 80
@@ -124,7 +111,7 @@ Partial Class AddFriendForm
         Me.txtFindFriend.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtFindFriend.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.txtFindFriend.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.txtFindFriend.Location = New System.Drawing.Point(15, 15)
+        Me.txtFindFriend.Location = New System.Drawing.Point(17, 14)
         Me.txtFindFriend.Multiline = True
         Me.txtFindFriend.Name = "txtFindFriend"
         Me.txtFindFriend.Size = New System.Drawing.Size(650, 25)
@@ -147,7 +134,7 @@ Partial Class AddFriendForm
         Me.btnSendFriendRequest.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnSendFriendRequest.Image = Nothing
         Me.btnSendFriendRequest.ImageSize = New System.Drawing.Size(20, 20)
-        Me.btnSendFriendRequest.Location = New System.Drawing.Point(680, 10)
+        Me.btnSendFriendRequest.Location = New System.Drawing.Point(682, 9)
         Me.btnSendFriendRequest.Name = "btnSendFriendRequest"
         Me.btnSendFriendRequest.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(101, Byte), Integer), CType(CType(124, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.btnSendFriendRequest.OnHoverBorderColor = System.Drawing.Color.Black
@@ -334,22 +321,35 @@ Partial Class AddFriendForm
         Me.pnlImgAddFriends.Size = New System.Drawing.Size(420, 240)
         Me.pnlImgAddFriends.TabIndex = 116
         '
+        'FindFriendPanel
+        '
+        Me.FindFriendPanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FindFriendPanel.BackColor = System.Drawing.Color.Transparent
+        Me.FindFriendPanel.BaseColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.FindFriendPanel.Controls.Add(Me.lblEnterUserName)
+        Me.FindFriendPanel.Controls.Add(Me.btnSendFriendRequest)
+        Me.FindFriendPanel.Controls.Add(Me.txtFindFriend)
+        Me.FindFriendPanel.Location = New System.Drawing.Point(40, 100)
+        Me.FindFriendPanel.Name = "FindFriendPanel"
+        Me.FindFriendPanel.Radius = 13
+        Me.FindFriendPanel.Size = New System.Drawing.Size(870, 50)
+        Me.FindFriendPanel.TabIndex = 117
+        '
         'AddFriendForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(950, 650)
-        Me.Controls.Add(Me.pnlImgAddFriends)
         Me.Controls.Add(Me.FindFriendPanel)
+        Me.Controls.Add(Me.pnlImgAddFriends)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblMsgAddFriend)
         Me.Controls.Add(Me.lblAddFriend)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "AddFriendForm"
         Me.Text = "AddFriendForm"
-        Me.FindFriendPanel.ResumeLayout(False)
-        Me.FindFriendPanel.PerformLayout()
         CType(Me.iconPicUsers, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.iconPicGlobeAfrica, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IconPicAmerica, System.ComponentModel.ISupportInitialize).EndInit()
@@ -363,6 +363,8 @@ Partial Class AddFriendForm
         CType(Me.IconPictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlImgAddFriends.ResumeLayout(False)
         Me.pnlImgAddFriends.PerformLayout()
+        Me.FindFriendPanel.ResumeLayout(False)
+        Me.FindFriendPanel.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -371,7 +373,6 @@ Partial Class AddFriendForm
     Friend WithEvents lblAddFriend As Label
     Friend WithEvents lblMsgAddFriend As Label
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents FindFriendPanel As Panel
     Friend WithEvents btnSendFriendRequest As Guna.UI.WinForms.GunaButton
     Friend WithEvents txtFindFriend As TextBox
     Friend WithEvents lblEnterUserName As Label
@@ -388,4 +389,5 @@ Partial Class AddFriendForm
     Friend WithEvents IconPictureBox3 As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents IconPictureBox4 As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents pnlImgAddFriends As Panel
+    Friend WithEvents FindFriendPanel As Guna.UI.WinForms.GunaElipsePanel
 End Class
