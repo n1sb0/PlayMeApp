@@ -11,6 +11,9 @@ Public Class ChatFriendForm
     Private _keyPressed As Integer
     Private _PaintPanelBool As Boolean = False
     Private _NumOfLine As Integer = 1
+    Private _vScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
+    Private _pnlMsgHeight As Integer
+    Private _pnlMsgLoc As Point
 
     '*****///// CLASSES
     Private _Utility_Style As New Utility_Style
@@ -27,6 +30,19 @@ Public Class ChatFriendForm
         ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
 
+
+        _vScrollHelper = New Guna.UI.Lib.ScrollBar.PanelScrollHelper(MainChatPanel, ChatScrollBar, True)
+        _vScrollHelper.UpdateScrollBar()
+
+
+        Form_style()
+    End Sub
+
+    Private Sub Form_style()
+
+        txtMessage.ScrollBars = RichTextBoxScrollBars.None
+        _pnlMsgHeight = pnlMessage.Height
+        _pnlMsgLoc = pnlMessage.Location
     End Sub
 
     Private Sub ChatFriendForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -71,35 +87,8 @@ Public Class ChatFriendForm
         _ShowPopUpMsg.Open_MessageForm(_MsgText, _LocX, _LocY)
     End Sub
 
-    Private Sub txtMessage_TextChanged(sender As Object, e As EventArgs) Handles txtMessage.TextChanged
-        Dim txtFont As New Font("Microsoft YaHei", 11.0F)
-        Dim txtSize As Size = TextRenderer.MeasureText(txtMessage.Text, txtFont)
-
-        Debug.WriteLine(txtSize.Width)
-        Debug.WriteLine(txtMessage.Width)
-        Debug.WriteLine("---")
-
-        Dim n As Integer = txtSize.Width - (_NumOfLine * txtMessage.Width)
-
-        Debug.WriteLine(n.ToString + " N")
-
-        If txtSize.Width > txtMessage.Width * _NumOfLine Then
-            txtMessage.Height += 25
-            pnlMessage.Height += 25
-            MessagesPanel.Height -= 25
-
-            pnlMessage.Location = New Point(15, pnlMessage.Location.Y - 25)
-
-            _NumOfLine += 1
-            Debug.WriteLine(_NumOfLine)
-        End If
-
-        If String.IsNullOrEmpty(txtMessage.Text) Then
-            Active_DisActive_TextBox(True)
-        Else
-            Active_DisActive_TextBox(False)
-        End If
-    End Sub
+    Private txtSize As Size
+    Private _textChanged As Boolean
 
     Private Sub Active_DisActive_TextBox(state As Boolean)
         lblTextMsg.Visible = state
@@ -112,17 +101,53 @@ Public Class ChatFriendForm
         End If
     End Sub
 
+    Private Sub btnSentMsg_Click(sender As Object, e As EventArgs) Handles btnSentMsg.Click
+        Debug.WriteLine("Message was sent")
+    End Sub
+
+    Private Sub txtMessage_TextChanged(sender As Object, e As EventArgs) Handles txtMessage.TextChanged
+        If String.IsNullOrEmpty(txtMessage.Text) Then
+            pnlMessage.Location = _pnlMsgLoc
+            Active_DisActive_TextBox(True)
+        Else
+            Active_DisActive_TextBox(False)
+        End If
+    End Sub
+
+    Private Sub txtMessage_ContentsResized(sender As Object, e As ContentsResizedEventArgs) Handles txtMessage.ContentsResized
+        txtMessage.Height = e.NewRectangle.Height + 5
+        pnlMessage.Height = e.NewRectangle.Height + 20
+
+    End Sub
+
+    Private Sub pnlMessage_SizeChanged() Handles pnlMessage.SizeChanged
+
+        If _pnlMsgHeight <> pnlMessage.Height Then
+            If _pnlMsgHeight > pnlMessage.Height Then
+                MainChatPanel.Height += 20
+                pnlMessage.Location = New Point(15, pnlMessage.Location.Y + 20)
+            Else
+                MainChatPanel.Height -= 20
+                pnlMessage.Location = New Point(15, pnlMessage.Location.Y - 20)
+            End If
+
+            _pnlMsgHeight = pnlMessage.Height
+        End If
+    End Sub
+
     Private Sub txtMessage_KeyDown(sender As Object, e As KeyEventArgs) Handles txtMessage.KeyDown
         _keyPressed = e.KeyCode
 
         If _keyPressed = Keys.Enter Then
             e.SuppressKeyPress = True
             btnSentMsg_Click(Me, New EventArgs())
+            txtMessage.Text = String.Empty
         End If
     End Sub
 
-    Private Sub btnSentMsg_Click(sender As Object, e As EventArgs) Handles btnSentMsg.Click
+    Private Sub pnlMessage_Resize(sender As Object, e As EventArgs) Handles pnlMessage.Resize
 
+        'MainMessagesPanel.Height -= 20
     End Sub
 
     Private Sub On_Buttons_MouseLeave(sender As Object, e As EventArgs) _

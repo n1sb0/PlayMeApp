@@ -34,11 +34,12 @@ Partial Class ChatFriendForm
         Me.btnVideoCall = New FontAwesome.Sharp.IconPictureBox()
         Me.btnSentMsg = New FontAwesome.Sharp.IconPictureBox()
         Me.lblTextMsg = New System.Windows.Forms.Label()
-        Me.txtMessage = New System.Windows.Forms.TextBox()
         Me.btnAddSmile = New FontAwesome.Sharp.IconPictureBox()
         Me.btnAddFiles = New FontAwesome.Sharp.IconPictureBox()
-        Me.MessagesPanel = New System.Windows.Forms.Panel()
+        Me.txtMessage = New System.Windows.Forms.RichTextBox()
         Me.pnlMessage = New Guna.UI.WinForms.GunaElipsePanel()
+        Me.MainChatPanel = New Guna.UI.WinForms.GunaPanel()
+        Me.ChatScrollBar = New Guna.UI.WinForms.GunaVScrollBar()
         CType(Me.picFriend, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnAddFriendToChat, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnCall, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -205,34 +206,19 @@ Partial Class ChatFriendForm
         '
         'lblTextMsg
         '
+        Me.lblTextMsg.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblTextMsg.AutoSize = True
         Me.lblTextMsg.BackColor = System.Drawing.Color.Transparent
         Me.lblTextMsg.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.lblTextMsg.Enabled = False
         Me.lblTextMsg.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.lblTextMsg.ForeColor = System.Drawing.Color.Gray
-        Me.lblTextMsg.Location = New System.Drawing.Point(51, 11)
+        Me.lblTextMsg.Location = New System.Drawing.Point(57, 12)
         Me.lblTextMsg.Name = "lblTextMsg"
         Me.lblTextMsg.Size = New System.Drawing.Size(145, 20)
         Me.lblTextMsg.TabIndex = 96
         Me.lblTextMsg.Text = "MESSAGE @NAME"
-        '
-        'txtMessage
-        '
-        Me.txtMessage.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtMessage.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
-        Me.txtMessage.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtMessage.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.txtMessage.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.txtMessage.Location = New System.Drawing.Point(48, 11)
-        Me.txtMessage.MaximumSize = New System.Drawing.Size(801, 500)
-        Me.txtMessage.MinimumSize = New System.Drawing.Size(417, 25)
-        Me.txtMessage.Multiline = True
-        Me.txtMessage.Name = "txtMessage"
-        Me.txtMessage.Size = New System.Drawing.Size(801, 25)
-        Me.txtMessage.TabIndex = 97
         '
         'btnAddSmile
         '
@@ -263,16 +249,19 @@ Partial Class ChatFriendForm
         Me.btnAddFiles.TabIndex = 23
         Me.btnAddFiles.TabStop = False
         '
-        'MessagesPanel
+        'txtMessage
         '
-        Me.MessagesPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.txtMessage.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MessagesPanel.BackColor = System.Drawing.Color.DimGray
-        Me.MessagesPanel.Location = New System.Drawing.Point(15, 50)
-        Me.MessagesPanel.Name = "MessagesPanel"
-        Me.MessagesPanel.Size = New System.Drawing.Size(920, 590)
-        Me.MessagesPanel.TabIndex = 93
+        Me.txtMessage.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
+        Me.txtMessage.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtMessage.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!)
+        Me.txtMessage.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.txtMessage.Location = New System.Drawing.Point(53, 11)
+        Me.txtMessage.Name = "txtMessage"
+        Me.txtMessage.Size = New System.Drawing.Size(792, 20)
+        Me.txtMessage.TabIndex = 0
+        Me.txtMessage.Text = ""
         '
         'pnlMessage
         '
@@ -280,16 +269,44 @@ Partial Class ChatFriendForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnlMessage.BackColor = System.Drawing.Color.Transparent
         Me.pnlMessage.BaseColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
+        Me.pnlMessage.Controls.Add(Me.btnSentMsg)
         Me.pnlMessage.Controls.Add(Me.btnAddSmile)
         Me.pnlMessage.Controls.Add(Me.lblTextMsg)
-        Me.pnlMessage.Controls.Add(Me.btnSentMsg)
         Me.pnlMessage.Controls.Add(Me.btnAddFiles)
         Me.pnlMessage.Controls.Add(Me.txtMessage)
-        Me.pnlMessage.Location = New System.Drawing.Point(15, 640)
+        Me.pnlMessage.Location = New System.Drawing.Point(15, 660)
         Me.pnlMessage.Name = "pnlMessage"
         Me.pnlMessage.Radius = 13
         Me.pnlMessage.Size = New System.Drawing.Size(920, 40)
         Me.pnlMessage.TabIndex = 0
+        '
+        'MainChatPanel
+        '
+        Me.MainChatPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.MainChatPanel.Location = New System.Drawing.Point(15, 52)
+        Me.MainChatPanel.Name = "MainChatPanel"
+        Me.MainChatPanel.Size = New System.Drawing.Size(920, 620)
+        Me.MainChatPanel.TabIndex = 93
+        '
+        'ChatScrollBar
+        '
+        Me.ChatScrollBar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ChatScrollBar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ChatScrollBar.LargeChange = 10
+        Me.ChatScrollBar.Location = New System.Drawing.Point(940, 58)
+        Me.ChatScrollBar.Maximum = 5000
+        Me.ChatScrollBar.MouseWheelBarPartitions = 2
+        Me.ChatScrollBar.Name = "ChatScrollBar"
+        Me.ChatScrollBar.ScrollIdleColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(68, Byte), Integer), CType(CType(75, Byte), Integer))
+        Me.ChatScrollBar.Size = New System.Drawing.Size(10, 595)
+        Me.ChatScrollBar.TabIndex = 92
+        Me.ChatScrollBar.ThumbColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.ChatScrollBar.ThumbHoverColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.ChatScrollBar.ThumbPressedColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.ChatScrollBar.Visible = False
         '
         'ChatFriendForm
         '
@@ -297,6 +314,7 @@ Partial Class ChatFriendForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(950, 700)
+        Me.Controls.Add(Me.ChatScrollBar)
         Me.Controls.Add(Me.pnlMessage)
         Me.Controls.Add(Me.btnVideoCall)
         Me.Controls.Add(Me.btnHelp)
@@ -306,7 +324,7 @@ Partial Class ChatFriendForm
         Me.Controls.Add(Me.txtFindMessage)
         Me.Controls.Add(Me.picFriend)
         Me.Controls.Add(Me.lblFriendName)
-        Me.Controls.Add(Me.MessagesPanel)
+        Me.Controls.Add(Me.MainChatPanel)
         Me.Controls.Add(Me.ShapeContainer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ChatFriendForm"
@@ -339,8 +357,9 @@ Partial Class ChatFriendForm
     Friend WithEvents btnAddFiles As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents btnAddSmile As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents lblTextMsg As Label
-    Friend WithEvents txtMessage As TextBox
     Friend WithEvents btnSentMsg As FontAwesome.Sharp.IconPictureBox
-    Friend WithEvents MessagesPanel As Panel
     Friend WithEvents pnlMessage As Guna.UI.WinForms.GunaElipsePanel
+    Friend WithEvents txtMessage As RichTextBox
+    Friend WithEvents MainChatPanel As Guna.UI.WinForms.GunaPanel
+    Friend WithEvents ChatScrollBar As Guna.UI.WinForms.GunaVScrollBar
 End Class
