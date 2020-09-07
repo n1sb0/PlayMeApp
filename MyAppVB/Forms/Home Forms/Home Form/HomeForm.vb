@@ -69,8 +69,6 @@ Public Class HomeForm
     Private _PanelsColorLightDarkBlue As String = _Utility_Style.LightDarkBlue
     Private _GreenSeaColor As String = _Utility_Style.GreenSeaColor
 
-
-
     '*****///// SUB NEW FOR TESTS
     Sub New()
         ' La chiamata è richiesta dalla finestra di progettazione.

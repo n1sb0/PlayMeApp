@@ -4,19 +4,19 @@ Public Class ChatFriendForm
     '*****///// VARS
     Private _MsgText As String
     Public _MsgToUser As String
+    Private _pnlMsgLoc As Point
     Public _StateOnline As String
     Private _LocX, _LocY As Integer
-    Private _PopUpmsgForm As PopUpMessageForm
-    Private _ShowPopUpMsg As New Open_PopUpForm(Me)
-    Private _keyPressed As Integer
-    Private _PaintPanelBool As Boolean = False
-    Private _NumOfLine As Integer = 1
-    Private _vScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
     Private _pnlMsgHeight As Integer
-    Private _pnlMsgLoc As Point
+    Private _keyPressed As KeyEventArgs
+    Private _NewHeightMsgPnl As Integer
+    Private _OldHeightMsgPnl As Integer = 40
+    Private _vScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
 
     '*****///// CLASSES
+    Private _PopUpmsgForm As PopUpMessageForm
     Private _Utility_Style As New Utility_Style
+    Private _ShowPopUpMsg As New Open_PopUpForm(Me)
 
     '*****///// COMPONENTS
     Private _IconPic As New IconPictureBox
@@ -25,26 +25,25 @@ Public Class ChatFriendForm
     Private _GreenColor As String = "#2ecc71"
     Private _WhiteCOlor As String = _Utility_Style.WhiteColor
 
+    '*****///// SUB NEW
     Sub New()
-
         ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
-
-
-        _vScrollHelper = New Guna.UI.Lib.ScrollBar.PanelScrollHelper(MainChatPanel, ChatScrollBar, True)
-        _vScrollHelper.UpdateScrollBar()
-
 
         Form_style()
     End Sub
 
+    '*****///// FORM STYLE
     Private Sub Form_style()
 
-        txtMessage.ScrollBars = RichTextBoxScrollBars.None
+        _vScrollHelper = New Guna.UI.Lib.ScrollBar.PanelScrollHelper(MainChatPanel, ChatScrollBar, True)
+        _vScrollHelper.UpdateScrollBar()
+
+        'txtMessage.ScrollBars = RichTextBoxScrollBars.None
         _pnlMsgHeight = pnlMessage.Height
-        _pnlMsgLoc = pnlMessage.Location
     End Sub
 
+    '*****///// ON LOAD FORM
     Private Sub ChatFriendForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         lblFriendName.Text = _MsgToUser
@@ -53,13 +52,14 @@ Public Class ChatFriendForm
         Set_StateOnline()
     End Sub
 
+    '*****///// STATE ONLINE OF PERSONE WITH WHO CHAT 
     Private Sub Set_StateOnline()
         lblStateOnlineOfFriend.Location = New Point(lblFriendName.Location.X + lblFriendName.Width, lblStateOnlineOfFriend.Location.Y)
 
         _Utility_Style.Set_UserStateOnline(lblStateOnlineOfFriend, _StateOnline)
-
     End Sub
 
+    '*****///// MOUSE ENTER UPPER PANEL (POP UP MSG)
     Private Sub On_Buttons_MouseEnter(sender As Object, e As EventArgs) _
         Handles btnCall.MouseEnter, btnVideoCall.MouseEnter, btnAddFriendToChat.MouseEnter, btnHelp.MouseEnter
 
@@ -87,9 +87,18 @@ Public Class ChatFriendForm
         _ShowPopUpMsg.Open_MessageForm(_MsgText, _LocX, _LocY)
     End Sub
 
-    Private txtSize As Size
-    Private _textChanged As Boolean
+    '*****///// ON MOUSE LEAVE UPPER PANEL (POP UP MSG)
+    Private Sub On_Buttons_MouseLeave(sender As Object, e As EventArgs) _
+        Handles btnCall.MouseLeave, btnVideoCall.MouseLeave, btnAddFriendToChat.MouseLeave, btnHelp.MouseLeave
 
+        _IconPic = DirectCast(sender, IconPictureBox)
+
+        _IconPic.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_WhiteCOlor))
+
+        _ShowPopUpMsg.Open_MessageForm()
+    End Sub
+
+    '*****///// STATE OF TEXT BOX
     Private Sub Active_DisActive_TextBox(state As Boolean)
         lblTextMsg.Visible = state
         btnSentMsg.Enabled = Not state
@@ -101,63 +110,73 @@ Public Class ChatFriendForm
         End If
     End Sub
 
+    '*****///// SENT MESSAGE
     Private Sub btnSentMsg_Click(sender As Object, e As EventArgs) Handles btnSentMsg.Click
         Debug.WriteLine("Message was sent")
     End Sub
 
+    '*****///// ON txtMessage TEXT CHANGED
     Private Sub txtMessage_TextChanged(sender As Object, e As EventArgs) Handles txtMessage.TextChanged
         If String.IsNullOrEmpty(txtMessage.Text) Then
-            pnlMessage.Location = _pnlMsgLoc
+            pnlMessage.Location = New Point(15, Me.Height - 60)
             Active_DisActive_TextBox(True)
+            _OldHeightMsgPnl = 40
         Else
             Active_DisActive_TextBox(False)
         End If
     End Sub
 
+    '*****///// ON CONTENTS txtMessage RESIZE
     Private Sub txtMessage_ContentsResized(sender As Object, e As ContentsResizedEventArgs) Handles txtMessage.ContentsResized
         txtMessage.Height = e.NewRectangle.Height + 5
-        pnlMessage.Height = e.NewRectangle.Height + 20
 
-    End Sub
-
-    Private Sub pnlMessage_SizeChanged() Handles pnlMessage.SizeChanged
-
-        If _pnlMsgHeight <> pnlMessage.Height Then
-            If _pnlMsgHeight > pnlMessage.Height Then
-                MainChatPanel.Height += 20
-                pnlMessage.Location = New Point(15, pnlMessage.Location.Y + 20)
-            Else
-                MainChatPanel.Height -= 20
-                pnlMessage.Location = New Point(15, pnlMessage.Location.Y - 20)
-            End If
-
-            _pnlMsgHeight = pnlMessage.Height
+        If txtMessage.Height <= 100 Then
+            pnlMessage.Height = e.NewRectangle.Height + 20
         End If
     End Sub
 
-    Private Sub txtMessage_KeyDown(sender As Object, e As KeyEventArgs) Handles txtMessage.KeyDown
-        _keyPressed = e.KeyCode
+    '*****///// ON pnlMessage SIZE CHANGED
+    Private Sub pnlMessage_SizeChanged() Handles pnlMessage.SizeChanged
+        If txtMessage.Height <= 100 AndAlso Not String.IsNullOrEmpty(txtMessage.Text) Then
+            _NewHeightMsgPnl = _OldHeightMsgPnl - pnlMessage.Height
 
-        If _keyPressed = Keys.Enter Then
+            If _NewHeightMsgPnl < 0 Then
+                _NewHeightMsgPnl *= -1
+            End If
+
+            'If _pnlMsgHeight <> pnlMessage.Height Then
+            If _pnlMsgHeight > pnlMessage.Height Then
+                MainChatPanel.Height += _NewHeightMsgPnl
+                pnlMessage.Location = New Point(15, pnlMessage.Location.Y + _NewHeightMsgPnl)
+            Else
+                MainChatPanel.Height -= _NewHeightMsgPnl
+                pnlMessage.Location = New Point(15, pnlMessage.Location.Y - _NewHeightMsgPnl)
+            End If
+
+            _pnlMsgHeight = pnlMessage.Height
+            _OldHeightMsgPnl = pnlMessage.Height
+            'End If
+        End If
+
+    End Sub
+
+    '*****///// ON txtMessage KEY DOWN
+    Private Sub txtMessage_KeyDown(sender As Object, e As KeyEventArgs) Handles txtMessage.KeyDown
+        _keyPressed = e
+
+        If _keyPressed.KeyCode = Keys.Enter Then
             e.SuppressKeyPress = True
             btnSentMsg_Click(Me, New EventArgs())
             txtMessage.Text = String.Empty
         End If
     End Sub
 
+    Private Sub ChatFriendForm_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        _pnlMsgLoc = pnlMessage.Location
+    End Sub
+
+    '*****///// ON pnlMessage RESIZE
     Private Sub pnlMessage_Resize(sender As Object, e As EventArgs) Handles pnlMessage.Resize
-
-        'MainMessagesPanel.Height -= 20
+        txtMessage.Width = (CInt(btnAddSmile.Location.X) - CInt(txtMessage.Location.X)) - 5
     End Sub
-
-    Private Sub On_Buttons_MouseLeave(sender As Object, e As EventArgs) _
-        Handles btnCall.MouseLeave, btnVideoCall.MouseLeave, btnAddFriendToChat.MouseLeave, btnHelp.MouseLeave
-
-        _IconPic = DirectCast(sender, IconPictureBox)
-
-        _IconPic.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_WhiteCOlor))
-
-        _ShowPopUpMsg.Open_MessageForm()
-    End Sub
-
 End Class

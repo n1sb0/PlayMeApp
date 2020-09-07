@@ -214,7 +214,7 @@ Partial Class ChatFriendForm
         Me.lblTextMsg.Enabled = False
         Me.lblTextMsg.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.lblTextMsg.ForeColor = System.Drawing.Color.Gray
-        Me.lblTextMsg.Location = New System.Drawing.Point(57, 12)
+        Me.lblTextMsg.Location = New System.Drawing.Point(57, 11)
         Me.lblTextMsg.Name = "lblTextMsg"
         Me.lblTextMsg.Size = New System.Drawing.Size(145, 20)
         Me.lblTextMsg.TabIndex = 96
@@ -257,7 +257,7 @@ Partial Class ChatFriendForm
         Me.txtMessage.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtMessage.Font = New System.Drawing.Font("Microsoft YaHei", 11.25!)
         Me.txtMessage.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.txtMessage.Location = New System.Drawing.Point(53, 11)
+        Me.txtMessage.Location = New System.Drawing.Point(53, 10)
         Me.txtMessage.Name = "txtMessage"
         Me.txtMessage.Size = New System.Drawing.Size(792, 20)
         Me.txtMessage.TabIndex = 0
@@ -274,7 +274,7 @@ Partial Class ChatFriendForm
         Me.pnlMessage.Controls.Add(Me.lblTextMsg)
         Me.pnlMessage.Controls.Add(Me.btnAddFiles)
         Me.pnlMessage.Controls.Add(Me.txtMessage)
-        Me.pnlMessage.Location = New System.Drawing.Point(15, 660)
+        Me.pnlMessage.Location = New System.Drawing.Point(15, 640)
         Me.pnlMessage.Name = "pnlMessage"
         Me.pnlMessage.Radius = 13
         Me.pnlMessage.Size = New System.Drawing.Size(920, 40)
@@ -287,7 +287,7 @@ Partial Class ChatFriendForm
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MainChatPanel.Location = New System.Drawing.Point(15, 52)
         Me.MainChatPanel.Name = "MainChatPanel"
-        Me.MainChatPanel.Size = New System.Drawing.Size(920, 620)
+        Me.MainChatPanel.Size = New System.Drawing.Size(920, 590)
         Me.MainChatPanel.TabIndex = 93
         '
         'ChatScrollBar
