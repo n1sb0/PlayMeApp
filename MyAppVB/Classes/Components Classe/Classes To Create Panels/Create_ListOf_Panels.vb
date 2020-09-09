@@ -11,11 +11,13 @@ Public Class Create_ListOf_Panels
     Private _Iy As Integer
     Private _ControlBy As String
     Private _X = 10, _Y = 0, _Count = 1
+    Private _msgText As String
     Private _ListOfsbjFriends As List(Of Subject_Friends)
 
     '*****///// FORMS
     Private _MainForm As HomeForm
     Private _DmForm As CreateDMForm
+    Private _ChatFriendForm As ChatFriendForm
     Private _PendingForm As PendingForm
     Private _AllFriendsForm As AllFriendsForm
     Private _OnlineFriendsForm As OnlineFriendsForm
@@ -115,8 +117,6 @@ Public Class Create_ListOf_Panels
         _ScrollBar = scrollBar
         _ListOfUserPanels = listOfUserPanel
     End Sub
-
-
     '*****///// END CONSTRUCTOR OF PANELS
 
     '*****///// CREATE LIST OF PANELS TAKING DATA FROM DB 
@@ -128,6 +128,7 @@ Public Class Create_ListOf_Panels
 
     '*****///// CONTROL WHICH PANEL NEEDS TO BE CREATED
     Private Sub Control_By()
+
         _ListOfsbjFriends = Subject_Friends.Get_SubjectFriends_ByID(_Subject.SUBJECT_ID, _ControlBy)
 
         If _ListOfsbjFriends IsNot Nothing Then

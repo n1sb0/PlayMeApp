@@ -39,12 +39,14 @@ Public Class GenericPanel
     Public _NumberOfPanel As String
     Public _UserStateOnlineStr As String
     Public _LocationOfPanel As New Point
+    Public _MessageText As String
     Public _ScrollBarOfUserChat As GunaVScrollBar
 
     '*****///// FORMS ON WHICH WE ADD A PANEL
     Public _MainForm As HomeForm
     Public _DmForm As CreateDMForm
     Public _PendingForm As PendingForm
+    Public _ChatFirendForm As ChatFriendForm
     Public _AllFriendsForm As AllFriendsForm
     Public _OnlineFriendsForm As OnlineFriendsForm
     Public _BlockedFriendsForm As BlockedFriendsForm

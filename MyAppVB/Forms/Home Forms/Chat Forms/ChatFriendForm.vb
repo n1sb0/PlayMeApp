@@ -2,6 +2,8 @@
 
 Public Class ChatFriendForm
     '*****///// VARS
+    Private _Subject As Subject
+    Private _SubjectFriend As Subject
     Private _MsgText As String
     Public _MsgToUser As String
     Private _pnlMsgLoc As Point
@@ -12,6 +14,7 @@ Public Class ChatFriendForm
     Private _NewHeightMsgPnl As Integer
     Private _OldHeightMsgPnl As Integer = 40
     Private _vScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
+    Public _ListOfMessagePanel As New List(Of MessagePanel)
 
     '*****///// CLASSES
     Private _PopUpmsgForm As PopUpMessageForm
@@ -26,10 +29,12 @@ Public Class ChatFriendForm
     Private _WhiteCOlor As String = _Utility_Style.WhiteColor
 
     '*****///// SUB NEW
-    Sub New()
+    Sub New(ByRef subj As Subject, ByRef subjF As Subject)
         ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
 
+        _Subject = subj
+        _SubjectFriend = subjF
         Form_style()
     End Sub
 
@@ -61,11 +66,14 @@ Public Class ChatFriendForm
 
     '*****///// MOUSE ENTER UPPER PANEL (POP UP MSG)
     Private Sub On_Buttons_MouseEnter(sender As Object, e As EventArgs) _
-        Handles btnCall.MouseEnter, btnVideoCall.MouseEnter, btnAddFriendToChat.MouseEnter, btnHelp.MouseEnter
+        Handles btnCall.MouseEnter, btnVideoCall.MouseEnter, btnAddFriendToChat.MouseEnter, btnHelp.MouseEnter, btnAddFiles.MouseEnter
 
         _IconPic = DirectCast(sender, IconPictureBox)
 
         _IconPic.ForeColor = Color.White
+
+        _LocX = _IconPic.Location.X + _IconPic.Width / 2
+        _LocY = _IconPic.Location.Y + 35
 
         Select Case _IconPic.Name
             Case "btnCall"
@@ -79,17 +87,19 @@ Public Class ChatFriendForm
 
             Case "btnHelp"
                 _MsgText = "Help"
-        End Select
 
-        _LocX = _IconPic.Location.X + _IconPic.Width / 2
-        _LocY = _IconPic.Location.Y + 35
+            Case "btnAddFiles"
+                _MsgText = "Add File"
+                _LocX = 30 + _IconPic.Width / 2
+                _LocY = Me.Height - 80
+        End Select
 
         _ShowPopUpMsg.Open_MessageForm(_MsgText, _LocX, _LocY)
     End Sub
 
     '*****///// ON MOUSE LEAVE UPPER PANEL (POP UP MSG)
     Private Sub On_Buttons_MouseLeave(sender As Object, e As EventArgs) _
-        Handles btnCall.MouseLeave, btnVideoCall.MouseLeave, btnAddFriendToChat.MouseLeave, btnHelp.MouseLeave
+        Handles btnCall.MouseLeave, btnVideoCall.MouseLeave, btnAddFriendToChat.MouseLeave, btnHelp.MouseLeave, btnAddFiles.MouseLeave
 
         _IconPic = DirectCast(sender, IconPictureBox)
 
@@ -113,6 +123,9 @@ Public Class ChatFriendForm
     '*****///// SENT MESSAGE
     Private Sub btnSentMsg_Click(sender As Object, e As EventArgs) Handles btnSentMsg.Click
         Debug.WriteLine("Message was sent")
+
+        My.Computer.FileSystem.WriteAllText("A:\test.txt", vbCrLf + _Subject.SUBJECT_ID.ToString + " | " + txtMessage.Text, True)
+
     End Sub
 
     '*****///// ON txtMessage TEXT CHANGED
@@ -130,15 +143,15 @@ Public Class ChatFriendForm
     Private Sub txtMessage_ContentsResized(sender As Object, e As ContentsResizedEventArgs) Handles txtMessage.ContentsResized
         txtMessage.Height = e.NewRectangle.Height + 5
 
-        If txtMessage.Height <= 100 Then
-            pnlMessage.Height = e.NewRectangle.Height + 20
-        End If
+        '  If txtMessage.Height <= 100 Then
+        pnlMessage.Height = e.NewRectangle.Height + 20
+        ' End If
     End Sub
 
     '*****///// ON pnlMessage SIZE CHANGED
     Private Sub pnlMessage_SizeChanged() Handles pnlMessage.SizeChanged
-        If txtMessage.Height <= 100 AndAlso Not String.IsNullOrEmpty(txtMessage.Text) Then
-            _NewHeightMsgPnl = _OldHeightMsgPnl - pnlMessage.Height
+        ' If txtMessage.Height <= 100 AndAlso Not String.IsNullOrEmpty(txtMessage.Text) Then
+        _NewHeightMsgPnl = _OldHeightMsgPnl - pnlMessage.Height
 
             If _NewHeightMsgPnl < 0 Then
                 _NewHeightMsgPnl *= -1
@@ -155,8 +168,8 @@ Public Class ChatFriendForm
 
             _pnlMsgHeight = pnlMessage.Height
             _OldHeightMsgPnl = pnlMessage.Height
-            'End If
-        End If
+        'End If
+        'End If
 
     End Sub
 

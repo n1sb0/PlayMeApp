@@ -154,7 +154,7 @@ Public Class OnlineAndAllFriendsPanel
     End Sub
 
     Public Sub On_Panel_Click(sender As System.Object, e As System.EventArgs)
-        Dim chatform As New ChatFriendForm
+        Dim chatform As New ChatFriendForm(_Subject, _SubjFriend)
 
         _Sender = sender
         _E = e

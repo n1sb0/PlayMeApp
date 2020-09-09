@@ -4,12 +4,15 @@ Imports FontAwesome.Sharp
 Public Class ChatFriendsPanel
     Inherits GenericPanel
 
+    Private _Subject As Subject
+    Private _SubjFriend As Subject
     Public _E As New System.EventArgs
     Public _Sender As New System.Object
 
     '*****///// CONSTRUCTOR OF PANELS
     Sub New(ByRef mainForm As HomeForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar,
             panelname As String, userPicture As Byte(), userName As String, userStateOnline As String, user_id As Integer)
+
 
         _PanelName = "Chat Friends Panel"
         _MainForm = mainForm
@@ -20,6 +23,9 @@ Public Class ChatFriendsPanel
         _LocationOfPanel = locationOfPanel
         _ScrollBarOfUserChat = friendScrollBar
         _UserStateOnlineStr = userStateOnline
+
+        _SubjFriend = Subject.Get_Subject_Data(_UserName)
+        _Subject = Subject.Get_Subject_Data(_MainForm.lblUserName.Text)
 
         Create_ChatPanel()
     End Sub
@@ -129,7 +135,8 @@ Public Class ChatFriendsPanel
     Public Sub On_ChatPanel_Click(sender As System.Object, e As System.EventArgs)
         _Sender = sender
         _E = e
-        Dim chatform As New ChatFriendForm()
+
+        Dim chatform As New ChatFriendForm(_Subject, _SubjFriend)
 
         _MainForm._OpenedChat = _NumberOfPanel - 1
 
