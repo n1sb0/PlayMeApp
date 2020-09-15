@@ -154,13 +154,17 @@ Public Class ChatFriendsPanel
 
     '*****///// ON DELETE CHAT BUTTON MOUSE CLICK EVENT
     Private Sub On_DeleteChatButton_Click(sender As Object, e As EventArgs)
+        Dim strQuery As String = MyConnection.Delete_Chat_With
+
+        Subject_Friends.Delete_Reference_OfTwoFriends(_Subject.SUBJECT_ID, _SubjFriend.SUBJECT_ID, strQuery)
+
         _MainForm.PanelListOfChatFriends.Controls.Remove(_UserPanel)
 
         Dim indexOfPanel As Integer = _MainForm._ListOfUserFriendsChatPanel.IndexOf(Me)
 
         _MainForm._ListOfUserFriendsChatPanel.RemoveAt(indexOfPanel)
 
-        On_DirectWasDeleted(_NumberOfPanel - 1)
+        On_DirectWasDeleted(indexOfPanel)
 
         If HomeForm._OpenedChat = _NumberOfPanel Then
             If _MainForm._CurrentChildForm IsNot Nothing Then

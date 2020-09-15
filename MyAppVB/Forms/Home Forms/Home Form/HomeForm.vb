@@ -386,7 +386,11 @@ Public Class HomeForm
             Case "AddFriendForm", "AllFriendsForm", "BlockedFriendsForm", "OnlineFriendsForm", "PendingForm"
                 Onclick_OpenChildForm_FriendPanels(_SecondChildForm.Name)
             Case "ChatFriendForm"
-                _ListOfUserFriendsChatPanel.Item(_OpenedChat).On_ChatPanel_Click(_ListOfUserFriendsChatPanel.Item(_OpenedChat)._Sender, _ListOfUserFriendsChatPanel.Item(_OpenedChat)._E)
+                If _ListOfUserFriendsChatPanel.Count > 0 Then
+                    _ListOfUserFriendsChatPanel.Item(_OpenedChat).On_ChatPanel_Click(_ListOfUserFriendsChatPanel.Item(_OpenedChat)._Sender, _ListOfUserFriendsChatPanel.Item(_OpenedChat)._E)
+                Else
+                    Onclick_OpenChildForm_FriendPanels("OnlineFriendsForm")
+                End If
         End Select
     End Sub
 

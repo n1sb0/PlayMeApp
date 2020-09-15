@@ -3,6 +3,7 @@
     Private _MainForm As New HomeForm
     Private _Subject As Subject
     Public _ListOfUserDmFriendsPanel As New List(Of DmFriendsPanel)
+    Public createListOfPanels As New Create_ListOf_Panels
 
     Sub New()
         ' La chiamata è richiesta dalla finestra di progettazione.
@@ -27,7 +28,7 @@
     End Sub
 
     Private Sub Create_All_DM_Friends()
-        Dim createListOfPanels As New Create_ListOf_Panels(_Subject, dmFriendScrollBar, Me, 50, "DM", _ListOfUserDmFriendsPanel, pnlOfFriends)
+        createListOfPanels = New Create_ListOf_Panels(_Subject, dmFriendScrollBar, Me, 50, "DM", _ListOfUserDmFriendsPanel, pnlOfFriends)
 
         createListOfPanels.Create_ListOfPanels()
     End Sub
@@ -68,5 +69,47 @@
         Dim rbp As New RadiusBorderPanel
 
         rbp.On_Panel_Paint(sender, e, pnlFindOrStartDM, 15)
+    End Sub
+
+    Private Sub btnCreateGruopDM_Click(sender As Object, e As EventArgs) Handles btnCreateGruopDM.Click
+        Dim subjF As New Subject_Friends
+        Dim subj As Subject
+        Dim _OpenChat As Integer = 0
+        Dim _NameOfUserChat As String = ""
+
+        subjF.USER_ID = _Subject.SUBJECT_ID
+
+        For Each item In _ListOfUserDmFriendsPanel
+            If item._Cheked Then
+                subj = Subject.Get_Subject_Data(item._UserName)
+                _NameOfUserChat = item._UserName
+                subjF.FRIEND_ID = subj.SUBJECT_ID
+                subj.ClearObj()
+            End If
+        Next
+
+        Dim dr_subjFriend As New DR_Subject_Friend(subjF.USER_ID, subjF.FRIEND_ID, MyConnection.Get_Subject_ChatWith)
+
+        If Not dr_subjFriend.Check_Friend_List() Then
+            subjF.Insert_Chat_With()
+
+            _MainForm.PanelListOfChatFriends.Controls.Clear()
+            _MainForm._ListOfUserFriendsChatPanel.Clear()
+
+            createListOfPanels = New Create_ListOf_Panels(_Subject, _MainForm.FriendsChatScrollBar, _MainForm, 60, "Chat", _MainForm._ListOfUserFriendsChatPanel, _MainForm.PanelListOfChatFriends)
+
+            createListOfPanels.Create_ListOfPanels()
+
+        Else
+            For Each item In _MainForm._ListOfUserFriendsChatPanel
+                If item._UserName.Equals(_NameOfUserChat) Then
+
+                End If
+            Next
+
+            _MainForm._ListOfUserFriendsChatPanel.Item(_OpenChat).On_ChatPanel_Click(_MainForm._ListOfUserFriendsChatPanel.Item(_OpenChat)._Sender, _MainForm._ListOfUserFriendsChatPanel.Item(_OpenChat)._E)
+        End If
+
+        Me.Close()
     End Sub
 End Class

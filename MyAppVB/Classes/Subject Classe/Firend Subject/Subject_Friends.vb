@@ -240,6 +240,29 @@
             Throw ex
         End Try
     End Sub
+    Public Sub Insert_Chat_With()
+        Try
+            Dim conn As New SqlClient.SqlConnection(MyConnection.Get_Connection)
+            Dim queryS As String = MyConnection.Get_Insert_ChatWith()
+            Dim command As New SqlClient.SqlCommand
+
+            conn.Open()
+
+            With command
+                .CommandText = queryS
+                .Connection = conn
+
+                .Parameters.AddWithValue("@USER_ID", USER_ID)
+                .Parameters.AddWithValue("@FRIEND_ID", FRIEND_ID)
+                .ExecuteNonQuery()
+            End With
+
+            command.Connection.Close()
+            command.Dispose()
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
 
     Private Shared Function ReadValue(value As Object) As Object
         If IsDBNull(value) Then

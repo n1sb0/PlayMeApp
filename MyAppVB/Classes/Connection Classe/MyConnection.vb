@@ -99,10 +99,30 @@
         Return query
     End Function
 
+    Public Shared Function Get_Subject_ChatWith() As String
+        Dim query As String = "SELECT * FROM TBL_HAVE_CHAT_WITH_USER"
+
+        Return query
+    End Function
+
     Public Shared Function Delete_From_FriendList() As String
         Dim query As String = "DELETE FROM TBL_USER_FRIENDS WHERE USER_ID = @USER_1 AND FRIEND_ID = @USER_2"
 
         Return query
     End Function
+
+    Public Shared Function Delete_Chat_With() As String
+        Dim query As String = "DELETE FROM TBL_HAVE_CHAT_WITH_USER WHERE USER_ID = @USER_1 AND FRIEND_ID = @USER_2"
+
+        Return query
+    End Function
+
+    Public Shared Function Get_Insert_ChatWith() As String
+        Dim query As String = "INSERT INTO TBL_HAVE_CHAT_WITH_USER (USER_ID, FRIEND_ID) " &
+                              "VALUES (@USER_ID,  @FRIEND_ID) "
+
+        Return query
+    End Function
+
 
 End Class

@@ -3,7 +3,7 @@
 Public Class DmFriendsPanel
     Inherits GenericPanel
 
-    Public _Cheked As Integer = 0
+    Public _Cheked As Boolean = False
 
     Sub New(ByRef dForm As CreateDMForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar,
             panelname As String, userPicture As Byte(), userName As String, userStateOnline As String, user_id As Integer)
@@ -100,7 +100,7 @@ Public Class DmFriendsPanel
 
     '*****///// ON PANEL CLICK EVENT
     Private Sub On_Panel_Click()
-        If _Cheked = 0 Then
+        If Not _Cheked Then
             _CheckBoxBtn.IconChar = FontAwesome.Sharp.IconChar.CheckSquare
             _Cheked = Not _Cheked
         Else

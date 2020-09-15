@@ -1,29 +1,34 @@
 ﻿Public Class DR_Subject_Friend
 
-    Property _Subject_ID
-    Property _SubjFriend_ID
+    Property _Subject_ID As Integer
+    Property _SubjFriend_ID As Integer
+    Property _QueryString As String
 
     Sub New()
 
     End Sub
 
-    Sub New(subj_id As Integer, subjFriend_id As Integer)
+    Sub New(subj_id As Integer, subjFriend_id As Integer, Optional qS As String = Nothing)
         _Subject_ID = subj_id
         _SubjFriend_ID = subjFriend_id
+        _QueryString = qS
     End Sub
 
     Public Function Check_Friend_List() As Boolean
 
+        If String.IsNullOrEmpty(_QueryString) Then
+            _QueryString = MyConnection.Get_Subject_Friend
+        End If
+
         Dim row As New DR_Subject_Friend
         Dim command As New SqlClient.SqlCommand
         Dim reader As SqlClient.SqlDataReader = Nothing
-        Dim queryS As String = MyConnection.Get_Subject_Friend
         Dim connection As New SqlClient.SqlConnection(MyConnection.Get_Connection)
 
         Try
             connection.Open()
             command.Connection = connection
-            command.CommandText = queryS
+            command.CommandText = _QueryString
             reader = command.ExecuteReader()
 
             While reader.Read()
