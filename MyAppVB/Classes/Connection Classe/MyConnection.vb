@@ -2,7 +2,7 @@
 
     '*****///// STRING OF CONNECTION TO DATA BASE
     Public Shared Function Get_Connection() As String
-        Dim connQuery As String = "*****"
+        Dim connQuery As String = ""
 
         Return connQuery
     End Function

@@ -24,10 +24,18 @@ Partial Class HomeForm
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(HomeForm))
         Me.LeftButtomPanel = New System.Windows.Forms.Panel()
+        Me.TransparentBackGround = New Guna.UI.WinForms.GunaTransfarantPictureBox()
         Me.clikedPoint = New Guna.UI.WinForms.GunaButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.selectedPoint = New Guna.UI.WinForms.GunaButton()
+        Me.btnGames = New Guna.UI.WinForms.GunaButton()
+        Me.btnMusic = New Guna.UI.WinForms.GunaButton()
+        Me.btnVideo = New Guna.UI.WinForms.GunaButton()
+        Me.btnPersonalBlog = New Guna.UI.WinForms.GunaButton()
+        Me.btnHomeChat = New Guna.UI.WinForms.GunaButton()
+        Me.UserPicture = New Guna.UI.WinForms.GunaCirclePictureBox()
         Me.lblUserName = New System.Windows.Forms.Label()
+        Me.btnSettings = New FontAwesome.Sharp.IconPictureBox()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.pointOnline = New Microsoft.VisualBasic.PowerPacks.OvalShape()
         Me.TopPanel = New System.Windows.Forms.Label()
@@ -42,47 +50,39 @@ Partial Class HomeForm
         Me.btnBlockedFriends = New Guna.UI.WinForms.GunaButton()
         Me.btnAllFrineds = New Guna.UI.WinForms.GunaButton()
         Me.btnFriendsOnline = New Guna.UI.WinForms.GunaButton()
+        Me.picFriend = New System.Windows.Forms.PictureBox()
         Me.lblFriends = New System.Windows.Forms.Label()
         Me.pnlBFA = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.btnHelp = New FontAwesome.Sharp.IconPictureBox()
+        Me.btnCreateChat = New FontAwesome.Sharp.IconPictureBox()
         Me.pnBCH = New System.Windows.Forms.Panel()
         Me.pnlMsgFriends = New System.Windows.Forms.Panel()
+        Me.btnNewDirect = New FontAwesome.Sharp.IconPictureBox()
         Me.FriendsChatScrollBar = New Guna.UI.WinForms.GunaVScrollBar()
         Me.PanelListOfChatFriends = New Guna.UI.WinForms.GunaPanel()
         Me.lblDirectMessages = New System.Windows.Forms.Label()
+        Me.btnFriends = New Guna.UI.WinForms.GunaButton()
         Me.txtFindFriends = New Guna.UI.WinForms.GunaTextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnHide = New FontAwesome.Sharp.IconPictureBox()
-        Me.picFriend = New System.Windows.Forms.PictureBox()
-        Me.btnHelp = New FontAwesome.Sharp.IconPictureBox()
-        Me.btnCreateChat = New FontAwesome.Sharp.IconPictureBox()
-        Me.btnNewDirect = New FontAwesome.Sharp.IconPictureBox()
-        Me.btnFriends = New Guna.UI.WinForms.GunaButton()
-        Me.TransparentBackGround = New Guna.UI.WinForms.GunaTransfarantPictureBox()
-        Me.btnGames = New Guna.UI.WinForms.GunaButton()
-        Me.btnMusic = New Guna.UI.WinForms.GunaButton()
-        Me.btnVideo = New Guna.UI.WinForms.GunaButton()
-        Me.btnPersonalBlog = New Guna.UI.WinForms.GunaButton()
-        Me.btnHomeChat = New Guna.UI.WinForms.GunaButton()
-        Me.UserPicture = New Guna.UI.WinForms.GunaCirclePictureBox()
-        Me.btnSettings = New FontAwesome.Sharp.IconPictureBox()
         Me.btnMaxSizeForm = New FontAwesome.Sharp.IconPictureBox()
         Me.btnExit = New FontAwesome.Sharp.IconPictureBox()
         Me.LeftButtomPanel.SuspendLayout()
+        CType(Me.TransparentBackGround, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UserPicture, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnSettings, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MainPanel.SuspendLayout()
         Me.PlayGroundPanel.SuspendLayout()
         Me.MainChatAndFriendPanel.SuspendLayout()
         Me.topNavFriend.SuspendLayout()
-        Me.pnlMsgFriends.SuspendLayout()
-        CType(Me.btnHide, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picFriend, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnCreateChat, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlMsgFriends.SuspendLayout()
         CType(Me.btnNewDirect, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TransparentBackGround, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UserPicture, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btnSettings, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnHide, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnMaxSizeForm, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnExit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -109,6 +109,18 @@ Partial Class HomeForm
         Me.LeftButtomPanel.Name = "LeftButtomPanel"
         Me.LeftButtomPanel.Size = New System.Drawing.Size(70, 700)
         Me.LeftButtomPanel.TabIndex = 65
+        '
+        'TransparentBackGround
+        '
+        Me.TransparentBackGround.BackColor = System.Drawing.Color.Transparent
+        Me.TransparentBackGround.BaseColor = System.Drawing.Color.Black
+        Me.TransparentBackGround.Image = Global.PlayME.My.Resources.Resources.TransBackGround
+        Me.TransparentBackGround.Location = New System.Drawing.Point(0, 0)
+        Me.TransparentBackGround.Name = "TransparentBackGround"
+        Me.TransparentBackGround.Size = New System.Drawing.Size(10, 10)
+        Me.TransparentBackGround.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.TransparentBackGround.TabIndex = 76
+        Me.TransparentBackGround.TabStop = False
         '
         'clikedPoint
         '
@@ -166,6 +178,154 @@ Partial Class HomeForm
         Me.selectedPoint.Size = New System.Drawing.Size(20, 15)
         Me.selectedPoint.TabIndex = 72
         '
+        'btnGames
+        '
+        Me.btnGames.Animated = True
+        Me.btnGames.AnimationHoverSpeed = 0.07!
+        Me.btnGames.AnimationSpeed = 0.03!
+        Me.btnGames.BackColor = System.Drawing.Color.Transparent
+        Me.btnGames.BaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.btnGames.BorderColor = System.Drawing.Color.Black
+        Me.btnGames.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnGames.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnGames.FocusedColor = System.Drawing.Color.Empty
+        Me.btnGames.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnGames.ForeColor = System.Drawing.Color.White
+        Me.btnGames.Image = Global.PlayME.My.Resources.Resources.icon_Game
+        Me.btnGames.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.btnGames.ImageSize = New System.Drawing.Size(25, 25)
+        Me.btnGames.Location = New System.Drawing.Point(10, 302)
+        Me.btnGames.Name = "btnGames"
+        Me.btnGames.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.btnGames.OnHoverBorderColor = System.Drawing.Color.Black
+        Me.btnGames.OnHoverForeColor = System.Drawing.Color.White
+        Me.btnGames.OnHoverImage = Nothing
+        Me.btnGames.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
+        Me.btnGames.Radius = 25
+        Me.btnGames.Size = New System.Drawing.Size(50, 50)
+        Me.btnGames.TabIndex = 71
+        '
+        'btnMusic
+        '
+        Me.btnMusic.Animated = True
+        Me.btnMusic.AnimationHoverSpeed = 0.07!
+        Me.btnMusic.AnimationSpeed = 0.03!
+        Me.btnMusic.BackColor = System.Drawing.Color.Transparent
+        Me.btnMusic.BaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.btnMusic.BorderColor = System.Drawing.Color.Black
+        Me.btnMusic.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnMusic.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnMusic.FocusedColor = System.Drawing.Color.Empty
+        Me.btnMusic.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnMusic.ForeColor = System.Drawing.Color.White
+        Me.btnMusic.Image = Global.PlayME.My.Resources.Resources.icon_Music
+        Me.btnMusic.ImageOffsetX = 2
+        Me.btnMusic.ImageSize = New System.Drawing.Size(25, 25)
+        Me.btnMusic.Location = New System.Drawing.Point(10, 237)
+        Me.btnMusic.Name = "btnMusic"
+        Me.btnMusic.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.btnMusic.OnHoverBorderColor = System.Drawing.Color.Black
+        Me.btnMusic.OnHoverForeColor = System.Drawing.Color.White
+        Me.btnMusic.OnHoverImage = Nothing
+        Me.btnMusic.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
+        Me.btnMusic.Radius = 25
+        Me.btnMusic.Size = New System.Drawing.Size(50, 50)
+        Me.btnMusic.TabIndex = 70
+        '
+        'btnVideo
+        '
+        Me.btnVideo.Animated = True
+        Me.btnVideo.AnimationHoverSpeed = 0.07!
+        Me.btnVideo.AnimationSpeed = 0.03!
+        Me.btnVideo.BackColor = System.Drawing.Color.Transparent
+        Me.btnVideo.BaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.btnVideo.BorderColor = System.Drawing.Color.Black
+        Me.btnVideo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnVideo.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnVideo.FocusedColor = System.Drawing.Color.Empty
+        Me.btnVideo.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnVideo.ForeColor = System.Drawing.Color.White
+        Me.btnVideo.Image = Global.PlayME.My.Resources.Resources.icons8_play_52
+        Me.btnVideo.ImageOffsetX = 1
+        Me.btnVideo.ImageSize = New System.Drawing.Size(35, 35)
+        Me.btnVideo.Location = New System.Drawing.Point(10, 172)
+        Me.btnVideo.Name = "btnVideo"
+        Me.btnVideo.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.btnVideo.OnHoverBorderColor = System.Drawing.Color.Black
+        Me.btnVideo.OnHoverForeColor = System.Drawing.Color.White
+        Me.btnVideo.OnHoverImage = Nothing
+        Me.btnVideo.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
+        Me.btnVideo.Radius = 25
+        Me.btnVideo.Size = New System.Drawing.Size(50, 50)
+        Me.btnVideo.TabIndex = 69
+        '
+        'btnPersonalBlog
+        '
+        Me.btnPersonalBlog.Animated = True
+        Me.btnPersonalBlog.AnimationHoverSpeed = 0.07!
+        Me.btnPersonalBlog.AnimationSpeed = 0.03!
+        Me.btnPersonalBlog.BackColor = System.Drawing.Color.Transparent
+        Me.btnPersonalBlog.BaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.btnPersonalBlog.BorderColor = System.Drawing.Color.Black
+        Me.btnPersonalBlog.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnPersonalBlog.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnPersonalBlog.FocusedColor = System.Drawing.Color.Empty
+        Me.btnPersonalBlog.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnPersonalBlog.ForeColor = System.Drawing.Color.White
+        Me.btnPersonalBlog.Image = Global.PlayME.My.Resources.Resources.icons8_list_48
+        Me.btnPersonalBlog.ImageSize = New System.Drawing.Size(30, 30)
+        Me.btnPersonalBlog.Location = New System.Drawing.Point(10, 107)
+        Me.btnPersonalBlog.Name = "btnPersonalBlog"
+        Me.btnPersonalBlog.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.btnPersonalBlog.OnHoverBorderColor = System.Drawing.Color.Black
+        Me.btnPersonalBlog.OnHoverForeColor = System.Drawing.Color.White
+        Me.btnPersonalBlog.OnHoverImage = Nothing
+        Me.btnPersonalBlog.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
+        Me.btnPersonalBlog.Radius = 25
+        Me.btnPersonalBlog.Size = New System.Drawing.Size(50, 50)
+        Me.btnPersonalBlog.TabIndex = 68
+        '
+        'btnHomeChat
+        '
+        Me.btnHomeChat.Animated = True
+        Me.btnHomeChat.AnimationHoverSpeed = 0.07!
+        Me.btnHomeChat.AnimationSpeed = 0.03!
+        Me.btnHomeChat.BackColor = System.Drawing.Color.Transparent
+        Me.btnHomeChat.BaseColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(133, Byte), Integer))
+        Me.btnHomeChat.BorderColor = System.Drawing.Color.Black
+        Me.btnHomeChat.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnHomeChat.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnHomeChat.FocusedColor = System.Drawing.Color.Empty
+        Me.btnHomeChat.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnHomeChat.ForeColor = System.Drawing.Color.White
+        Me.btnHomeChat.Image = Global.PlayME.My.Resources.Resources.icons8_chat_50__1_
+        Me.btnHomeChat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.btnHomeChat.ImageSize = New System.Drawing.Size(25, 25)
+        Me.btnHomeChat.Location = New System.Drawing.Point(10, 27)
+        Me.btnHomeChat.Name = "btnHomeChat"
+        Me.btnHomeChat.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnHomeChat.OnHoverBorderColor = System.Drawing.Color.Black
+        Me.btnHomeChat.OnHoverForeColor = System.Drawing.Color.White
+        Me.btnHomeChat.OnHoverImage = Nothing
+        Me.btnHomeChat.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btnHomeChat.Radius = 15
+        Me.btnHomeChat.Size = New System.Drawing.Size(50, 50)
+        Me.btnHomeChat.TabIndex = 66
+        '
+        'UserPicture
+        '
+        Me.UserPicture.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.UserPicture.BaseColor = System.Drawing.Color.White
+        Me.UserPicture.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.UserPicture.Image = Global.PlayME.My.Resources.Resources._123123c12321
+        Me.UserPicture.Location = New System.Drawing.Point(10, 579)
+        Me.UserPicture.Name = "UserPicture"
+        Me.UserPicture.Size = New System.Drawing.Size(50, 50)
+        Me.UserPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.UserPicture.TabIndex = 67
+        Me.UserPicture.TabStop = False
+        Me.UserPicture.UseTransfarantBackground = False
+        '
         'lblUserName
         '
         Me.lblUserName.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -177,6 +337,21 @@ Partial Class HomeForm
         Me.lblUserName.TabIndex = 2
         Me.lblUserName.Text = "UserName"
         Me.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btnSettings
+        '
+        Me.btnSettings.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnSettings.BackColor = System.Drawing.Color.Transparent
+        Me.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSettings.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.btnSettings.IconChar = FontAwesome.Sharp.IconChar.Cog
+        Me.btnSettings.IconColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.btnSettings.IconSize = 20
+        Me.btnSettings.Location = New System.Drawing.Point(25, 668)
+        Me.btnSettings.Name = "btnSettings"
+        Me.btnSettings.Size = New System.Drawing.Size(20, 20)
+        Me.btnSettings.TabIndex = 1
+        Me.btnSettings.TabStop = False
         '
         'ShapeContainer1
         '
@@ -433,6 +608,16 @@ Partial Class HomeForm
         Me.btnFriendsOnline.TabIndex = 90
         Me.btnFriendsOnline.Text = "Online"
         '
+        'picFriend
+        '
+        Me.picFriend.Image = Global.PlayME.My.Resources.Resources.Person
+        Me.picFriend.Location = New System.Drawing.Point(25, 12)
+        Me.picFriend.Name = "picFriend"
+        Me.picFriend.Size = New System.Drawing.Size(25, 25)
+        Me.picFriend.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picFriend.TabIndex = 77
+        Me.picFriend.TabStop = False
+        '
         'lblFriends
         '
         Me.lblFriends.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
@@ -463,6 +648,36 @@ Partial Class HomeForm
         Me.Panel4.Size = New System.Drawing.Size(950, 2)
         Me.Panel4.TabIndex = 68
         '
+        'btnHelp
+        '
+        Me.btnHelp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnHelp.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnHelp.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnHelp.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.btnHelp.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle
+        Me.btnHelp.IconColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.btnHelp.IconSize = 30
+        Me.btnHelp.Location = New System.Drawing.Point(905, 12)
+        Me.btnHelp.Name = "btnHelp"
+        Me.btnHelp.Size = New System.Drawing.Size(30, 30)
+        Me.btnHelp.TabIndex = 94
+        Me.btnHelp.TabStop = False
+        '
+        'btnCreateChat
+        '
+        Me.btnCreateChat.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCreateChat.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnCreateChat.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnCreateChat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.btnCreateChat.IconChar = FontAwesome.Sharp.IconChar.CommentMedical
+        Me.btnCreateChat.IconColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.btnCreateChat.IconSize = 30
+        Me.btnCreateChat.Location = New System.Drawing.Point(838, 12)
+        Me.btnCreateChat.Name = "btnCreateChat"
+        Me.btnCreateChat.Size = New System.Drawing.Size(30, 30)
+        Me.btnCreateChat.TabIndex = 96
+        Me.btnCreateChat.TabStop = False
+        '
         'pnBCH
         '
         Me.pnBCH.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -488,6 +703,21 @@ Partial Class HomeForm
         Me.pnlMsgFriends.Name = "pnlMsgFriends"
         Me.pnlMsgFriends.Size = New System.Drawing.Size(260, 700)
         Me.pnlMsgFriends.TabIndex = 0
+        '
+        'btnNewDirect
+        '
+        Me.btnNewDirect.BackColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.btnNewDirect.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnNewDirect.ForeColor = System.Drawing.Color.Silver
+        Me.btnNewDirect.IconChar = FontAwesome.Sharp.IconChar.Plus
+        Me.btnNewDirect.IconColor = System.Drawing.Color.Silver
+        Me.btnNewDirect.IconSize = 20
+        Me.btnNewDirect.ImageLocation = ""
+        Me.btnNewDirect.Location = New System.Drawing.Point(215, 108)
+        Me.btnNewDirect.Name = "btnNewDirect"
+        Me.btnNewDirect.Size = New System.Drawing.Size(20, 20)
+        Me.btnNewDirect.TabIndex = 77
+        Me.btnNewDirect.TabStop = False
         '
         'FriendsChatScrollBar
         '
@@ -526,6 +756,33 @@ Partial Class HomeForm
         Me.lblDirectMessages.TabIndex = 74
         Me.lblDirectMessages.Text = "DIRECT MESSAGES"
         Me.lblDirectMessages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'btnFriends
+        '
+        Me.btnFriends.Animated = True
+        Me.btnFriends.AnimationHoverSpeed = 0.07!
+        Me.btnFriends.AnimationSpeed = 0.03!
+        Me.btnFriends.BackColor = System.Drawing.Color.Transparent
+        Me.btnFriends.BaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.btnFriends.BorderColor = System.Drawing.Color.Black
+        Me.btnFriends.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnFriends.DialogResult = System.Windows.Forms.DialogResult.None
+        Me.btnFriends.FocusedColor = System.Drawing.Color.Empty
+        Me.btnFriends.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.btnFriends.ForeColor = System.Drawing.Color.White
+        Me.btnFriends.Image = Global.PlayME.My.Resources.Resources.Person
+        Me.btnFriends.ImageSize = New System.Drawing.Size(20, 20)
+        Me.btnFriends.Location = New System.Drawing.Point(15, 58)
+        Me.btnFriends.Name = "btnFriends"
+        Me.btnFriends.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnFriends.OnHoverBorderColor = System.Drawing.Color.Black
+        Me.btnFriends.OnHoverForeColor = System.Drawing.Color.White
+        Me.btnFriends.OnHoverImage = Nothing
+        Me.btnFriends.OnPressedColor = System.Drawing.Color.Black
+        Me.btnFriends.Radius = 7
+        Me.btnFriends.Size = New System.Drawing.Size(230, 30)
+        Me.btnFriends.TabIndex = 74
+        Me.btnFriends.Text = "Friends"
         '
         'txtFindFriends
         '
@@ -583,263 +840,6 @@ Partial Class HomeForm
         Me.btnHide.TabIndex = 75
         Me.btnHide.TabStop = False
         '
-        'picFriend
-        '
-        Me.picFriend.Image = Global.PlayME.My.Resources.Resources.Person
-        Me.picFriend.Location = New System.Drawing.Point(25, 12)
-        Me.picFriend.Name = "picFriend"
-        Me.picFriend.Size = New System.Drawing.Size(25, 25)
-        Me.picFriend.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picFriend.TabIndex = 77
-        Me.picFriend.TabStop = False
-        '
-        'btnHelp
-        '
-        Me.btnHelp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnHelp.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnHelp.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnHelp.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.btnHelp.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle
-        Me.btnHelp.IconColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.btnHelp.IconSize = 30
-        Me.btnHelp.Location = New System.Drawing.Point(905, 12)
-        Me.btnHelp.Name = "btnHelp"
-        Me.btnHelp.Size = New System.Drawing.Size(30, 30)
-        Me.btnHelp.TabIndex = 94
-        Me.btnHelp.TabStop = False
-        '
-        'btnCreateChat
-        '
-        Me.btnCreateChat.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCreateChat.BackColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnCreateChat.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnCreateChat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.btnCreateChat.IconChar = FontAwesome.Sharp.IconChar.CommentMedical
-        Me.btnCreateChat.IconColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.btnCreateChat.IconSize = 30
-        Me.btnCreateChat.Location = New System.Drawing.Point(838, 12)
-        Me.btnCreateChat.Name = "btnCreateChat"
-        Me.btnCreateChat.Size = New System.Drawing.Size(30, 30)
-        Me.btnCreateChat.TabIndex = 96
-        Me.btnCreateChat.TabStop = False
-        '
-        'btnNewDirect
-        '
-        Me.btnNewDirect.BackColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.btnNewDirect.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnNewDirect.ForeColor = System.Drawing.Color.Silver
-        Me.btnNewDirect.IconChar = FontAwesome.Sharp.IconChar.Plus
-        Me.btnNewDirect.IconColor = System.Drawing.Color.Silver
-        Me.btnNewDirect.IconSize = 20
-        Me.btnNewDirect.ImageLocation = ""
-        Me.btnNewDirect.Location = New System.Drawing.Point(215, 108)
-        Me.btnNewDirect.Name = "btnNewDirect"
-        Me.btnNewDirect.Size = New System.Drawing.Size(20, 20)
-        Me.btnNewDirect.TabIndex = 77
-        Me.btnNewDirect.TabStop = False
-        '
-        'btnFriends
-        '
-        Me.btnFriends.Animated = True
-        Me.btnFriends.AnimationHoverSpeed = 0.07!
-        Me.btnFriends.AnimationSpeed = 0.03!
-        Me.btnFriends.BackColor = System.Drawing.Color.Transparent
-        Me.btnFriends.BaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.btnFriends.BorderColor = System.Drawing.Color.Black
-        Me.btnFriends.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnFriends.DialogResult = System.Windows.Forms.DialogResult.None
-        Me.btnFriends.FocusedColor = System.Drawing.Color.Empty
-        Me.btnFriends.Font = New System.Drawing.Font("Microsoft YaHei", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.btnFriends.ForeColor = System.Drawing.Color.White
-        Me.btnFriends.Image = Global.PlayME.My.Resources.Resources.Person
-        Me.btnFriends.ImageSize = New System.Drawing.Size(20, 20)
-        Me.btnFriends.Location = New System.Drawing.Point(15, 58)
-        Me.btnFriends.Name = "btnFriends"
-        Me.btnFriends.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(54, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnFriends.OnHoverBorderColor = System.Drawing.Color.Black
-        Me.btnFriends.OnHoverForeColor = System.Drawing.Color.White
-        Me.btnFriends.OnHoverImage = Nothing
-        Me.btnFriends.OnPressedColor = System.Drawing.Color.Black
-        Me.btnFriends.Radius = 7
-        Me.btnFriends.Size = New System.Drawing.Size(230, 30)
-        Me.btnFriends.TabIndex = 74
-        Me.btnFriends.Text = "Friends"
-        '
-        'TransparentBackGround
-        '
-        Me.TransparentBackGround.BackColor = System.Drawing.Color.Transparent
-        Me.TransparentBackGround.BaseColor = System.Drawing.Color.Black
-        Me.TransparentBackGround.Image = Global.PlayME.My.Resources.Resources.TransBackGround
-        Me.TransparentBackGround.Location = New System.Drawing.Point(0, 0)
-        Me.TransparentBackGround.Name = "TransparentBackGround"
-        Me.TransparentBackGround.Size = New System.Drawing.Size(10, 10)
-        Me.TransparentBackGround.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.TransparentBackGround.TabIndex = 76
-        Me.TransparentBackGround.TabStop = False
-        '
-        'btnGames
-        '
-        Me.btnGames.Animated = True
-        Me.btnGames.AnimationHoverSpeed = 0.07!
-        Me.btnGames.AnimationSpeed = 0.03!
-        Me.btnGames.BackColor = System.Drawing.Color.Transparent
-        Me.btnGames.BaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.btnGames.BorderColor = System.Drawing.Color.Black
-        Me.btnGames.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnGames.DialogResult = System.Windows.Forms.DialogResult.None
-        Me.btnGames.FocusedColor = System.Drawing.Color.Empty
-        Me.btnGames.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnGames.ForeColor = System.Drawing.Color.White
-        Me.btnGames.Image = Global.PlayME.My.Resources.Resources.icon_Game
-        Me.btnGames.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.btnGames.ImageSize = New System.Drawing.Size(25, 25)
-        Me.btnGames.Location = New System.Drawing.Point(10, 302)
-        Me.btnGames.Name = "btnGames"
-        Me.btnGames.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.btnGames.OnHoverBorderColor = System.Drawing.Color.Black
-        Me.btnGames.OnHoverForeColor = System.Drawing.Color.White
-        Me.btnGames.OnHoverImage = Nothing
-        Me.btnGames.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
-        Me.btnGames.Radius = 25
-        Me.btnGames.Size = New System.Drawing.Size(50, 50)
-        Me.btnGames.TabIndex = 71
-        '
-        'btnMusic
-        '
-        Me.btnMusic.Animated = True
-        Me.btnMusic.AnimationHoverSpeed = 0.07!
-        Me.btnMusic.AnimationSpeed = 0.03!
-        Me.btnMusic.BackColor = System.Drawing.Color.Transparent
-        Me.btnMusic.BaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.btnMusic.BorderColor = System.Drawing.Color.Black
-        Me.btnMusic.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnMusic.DialogResult = System.Windows.Forms.DialogResult.None
-        Me.btnMusic.FocusedColor = System.Drawing.Color.Empty
-        Me.btnMusic.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnMusic.ForeColor = System.Drawing.Color.White
-        Me.btnMusic.Image = Global.PlayME.My.Resources.Resources.icon_Music
-        Me.btnMusic.ImageOffsetX = 2
-        Me.btnMusic.ImageSize = New System.Drawing.Size(25, 25)
-        Me.btnMusic.Location = New System.Drawing.Point(10, 237)
-        Me.btnMusic.Name = "btnMusic"
-        Me.btnMusic.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.btnMusic.OnHoverBorderColor = System.Drawing.Color.Black
-        Me.btnMusic.OnHoverForeColor = System.Drawing.Color.White
-        Me.btnMusic.OnHoverImage = Nothing
-        Me.btnMusic.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
-        Me.btnMusic.Radius = 25
-        Me.btnMusic.Size = New System.Drawing.Size(50, 50)
-        Me.btnMusic.TabIndex = 70
-        '
-        'btnVideo
-        '
-        Me.btnVideo.Animated = True
-        Me.btnVideo.AnimationHoverSpeed = 0.07!
-        Me.btnVideo.AnimationSpeed = 0.03!
-        Me.btnVideo.BackColor = System.Drawing.Color.Transparent
-        Me.btnVideo.BaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.btnVideo.BorderColor = System.Drawing.Color.Black
-        Me.btnVideo.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnVideo.DialogResult = System.Windows.Forms.DialogResult.None
-        Me.btnVideo.FocusedColor = System.Drawing.Color.Empty
-        Me.btnVideo.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnVideo.ForeColor = System.Drawing.Color.White
-        Me.btnVideo.Image = Global.PlayME.My.Resources.Resources.icons8_play_52
-        Me.btnVideo.ImageOffsetX = 1
-        Me.btnVideo.ImageSize = New System.Drawing.Size(35, 35)
-        Me.btnVideo.Location = New System.Drawing.Point(10, 172)
-        Me.btnVideo.Name = "btnVideo"
-        Me.btnVideo.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.btnVideo.OnHoverBorderColor = System.Drawing.Color.Black
-        Me.btnVideo.OnHoverForeColor = System.Drawing.Color.White
-        Me.btnVideo.OnHoverImage = Nothing
-        Me.btnVideo.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
-        Me.btnVideo.Radius = 25
-        Me.btnVideo.Size = New System.Drawing.Size(50, 50)
-        Me.btnVideo.TabIndex = 69
-        '
-        'btnPersonalBlog
-        '
-        Me.btnPersonalBlog.Animated = True
-        Me.btnPersonalBlog.AnimationHoverSpeed = 0.07!
-        Me.btnPersonalBlog.AnimationSpeed = 0.03!
-        Me.btnPersonalBlog.BackColor = System.Drawing.Color.Transparent
-        Me.btnPersonalBlog.BaseColor = System.Drawing.Color.FromArgb(CType(CType(47, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.btnPersonalBlog.BorderColor = System.Drawing.Color.Black
-        Me.btnPersonalBlog.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnPersonalBlog.DialogResult = System.Windows.Forms.DialogResult.None
-        Me.btnPersonalBlog.FocusedColor = System.Drawing.Color.Empty
-        Me.btnPersonalBlog.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnPersonalBlog.ForeColor = System.Drawing.Color.White
-        Me.btnPersonalBlog.Image = Global.PlayME.My.Resources.Resources.icons8_list_48
-        Me.btnPersonalBlog.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnPersonalBlog.Location = New System.Drawing.Point(10, 107)
-        Me.btnPersonalBlog.Name = "btnPersonalBlog"
-        Me.btnPersonalBlog.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.btnPersonalBlog.OnHoverBorderColor = System.Drawing.Color.Black
-        Me.btnPersonalBlog.OnHoverForeColor = System.Drawing.Color.White
-        Me.btnPersonalBlog.OnHoverImage = Nothing
-        Me.btnPersonalBlog.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
-        Me.btnPersonalBlog.Radius = 25
-        Me.btnPersonalBlog.Size = New System.Drawing.Size(50, 50)
-        Me.btnPersonalBlog.TabIndex = 68
-        '
-        'btnHomeChat
-        '
-        Me.btnHomeChat.Animated = True
-        Me.btnHomeChat.AnimationHoverSpeed = 0.07!
-        Me.btnHomeChat.AnimationSpeed = 0.03!
-        Me.btnHomeChat.BackColor = System.Drawing.Color.Transparent
-        Me.btnHomeChat.BaseColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(133, Byte), Integer))
-        Me.btnHomeChat.BorderColor = System.Drawing.Color.Black
-        Me.btnHomeChat.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnHomeChat.DialogResult = System.Windows.Forms.DialogResult.None
-        Me.btnHomeChat.FocusedColor = System.Drawing.Color.Empty
-        Me.btnHomeChat.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnHomeChat.ForeColor = System.Drawing.Color.White
-        Me.btnHomeChat.Image = Global.PlayME.My.Resources.Resources.icons8_chat_50__1_
-        Me.btnHomeChat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.btnHomeChat.ImageSize = New System.Drawing.Size(25, 25)
-        Me.btnHomeChat.Location = New System.Drawing.Point(10, 27)
-        Me.btnHomeChat.Name = "btnHomeChat"
-        Me.btnHomeChat.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.btnHomeChat.OnHoverBorderColor = System.Drawing.Color.Black
-        Me.btnHomeChat.OnHoverForeColor = System.Drawing.Color.White
-        Me.btnHomeChat.OnHoverImage = Nothing
-        Me.btnHomeChat.OnPressedColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.btnHomeChat.Radius = 15
-        Me.btnHomeChat.Size = New System.Drawing.Size(50, 50)
-        Me.btnHomeChat.TabIndex = 66
-        '
-        'UserPicture
-        '
-        Me.UserPicture.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.UserPicture.BaseColor = System.Drawing.Color.White
-        Me.UserPicture.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.UserPicture.Image = Global.PlayME.My.Resources.Resources._123123c12321
-        Me.UserPicture.Location = New System.Drawing.Point(10, 579)
-        Me.UserPicture.Name = "UserPicture"
-        Me.UserPicture.Size = New System.Drawing.Size(50, 50)
-        Me.UserPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.UserPicture.TabIndex = 67
-        Me.UserPicture.TabStop = False
-        Me.UserPicture.UseTransfarantBackground = False
-        '
-        'btnSettings
-        '
-        Me.btnSettings.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnSettings.BackColor = System.Drawing.Color.Transparent
-        Me.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSettings.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.btnSettings.IconChar = FontAwesome.Sharp.IconChar.Cog
-        Me.btnSettings.IconColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.btnSettings.IconSize = 20
-        Me.btnSettings.Location = New System.Drawing.Point(25, 668)
-        Me.btnSettings.Name = "btnSettings"
-        Me.btnSettings.Size = New System.Drawing.Size(20, 20)
-        Me.btnSettings.TabIndex = 1
-        Me.btnSettings.TabStop = False
-        '
         'btnMaxSizeForm
         '
         Me.btnMaxSizeForm.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -892,19 +892,19 @@ Partial Class HomeForm
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Home Page"
         Me.LeftButtomPanel.ResumeLayout(False)
+        CType(Me.TransparentBackGround, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UserPicture, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnSettings, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MainPanel.ResumeLayout(False)
         Me.PlayGroundPanel.ResumeLayout(False)
         Me.MainChatAndFriendPanel.ResumeLayout(False)
         Me.topNavFriend.ResumeLayout(False)
-        Me.pnlMsgFriends.ResumeLayout(False)
-        CType(Me.btnHide, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picFriend, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnHelp, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnCreateChat, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlMsgFriends.ResumeLayout(False)
         CType(Me.btnNewDirect, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TransparentBackGround, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UserPicture, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btnSettings, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnHide, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnMaxSizeForm, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.btnExit, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

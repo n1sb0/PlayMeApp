@@ -154,17 +154,21 @@ Public Class OnlineAndAllFriendsPanel
     End Sub
 
     Public Sub On_Panel_Click(sender As System.Object, e As System.EventArgs)
-        Dim chatform As New ChatFriendForm(_Subject, _SubjFriend)
-
+        Dim chatform As New ChatFriendForm(_Subject, _SubjFriend, _UserName, _UserStateOnlineStr)
+        Dim indexOfPanel As Integer
         _Sender = sender
         _E = e
 
-        HomeForm._OpenedChat = _NumberOfPanel - 1
+        If Not _OnlineFriendsForm Is Nothing Then
+            indexOfPanel = _OnlineFriendsForm._ListOfUserFriendsOnline.IndexOf(Me)
+        Else
+            indexOfPanel = _AllFriendsForm._ListOfUserFriendsAllPanel.IndexOf(Me)
+        End If
+
+
+        HomeForm._OpenedChat = indexOfPanel
 
         HomeForm.txtFindFriends_Leave(sender, e)
-
-        chatform._MsgToUser = _UserName
-        chatform._StateOnline = _UserStateOnlineStr
 
         Dim positionOflblOnline As New Point(chatform.lblFriendName.Location.X + chatform.lblFriendName.Width + 5, chatform.lblStateOnlineOfFriend.Location.Y)
 

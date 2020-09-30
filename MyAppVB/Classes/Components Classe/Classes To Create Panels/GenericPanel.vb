@@ -30,16 +30,16 @@ Public Class GenericPanel
     Public _RadiusBorderPanel As New RadiusBorderPanel
 
     '*****///// VARS
-    Public _PanelName As String
-    Public _PnlSelected As Boolean = False
     Public _User_ID As Integer
-    Public _RadiusBnum As Integer = 27
     Public _UserName As String
+    Public _PanelName As String
     Public _UserPicture As Byte()
+    Public _MessageText As String
     Public _NumberOfPanel As String
+    Public _RadiusBnum As Integer = 27
     Public _UserStateOnlineStr As String
     Public _LocationOfPanel As New Point
-    Public _MessageText As String
+    Public _PnlSelected As Boolean = False
     Public _ScrollBarOfUserChat As GunaVScrollBar
 
     '*****///// FORMS ON WHICH WE ADD A PANEL
@@ -56,10 +56,10 @@ Public Class GenericPanel
     Public _RedColor As String = _Utility_Style.RedColor
     Public _LightBlue As String = _Utility_Style.LightBlue
     Public _GrayColor As String = _Utility_Style.WhiteColor
-    Public _BackGColor As String = _Utility_Style.BackGroundColor
-    Public _PanelsColorLightDarkBlue As String = _Utility_Style.LightDarkBlue
     Public _GreenColor As String = _Utility_Style.GreenColor
+    Public _BackGColor As String = _Utility_Style.BackGroundColor
     Public _GreenHoverColor As String = _Utility_Style.BtnHoverColor
+    Public _PanelsColorLightDarkBlue As String = _Utility_Style.LightDarkBlue
 
     '*****///// CREATE A PANEL
     Public Sub Create_Panel(width As Integer, hight As Integer)

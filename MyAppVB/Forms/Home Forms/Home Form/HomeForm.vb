@@ -387,6 +387,9 @@ Public Class HomeForm
                 Onclick_OpenChildForm_FriendPanels(_SecondChildForm.Name)
             Case "ChatFriendForm"
                 If _ListOfUserFriendsChatPanel.Count > 0 Then
+
+                    'take put user_id in _OpenedChat = id and create new chat from with data from db with id
+
                     _ListOfUserFriendsChatPanel.Item(_OpenedChat).On_ChatPanel_Click(_ListOfUserFriendsChatPanel.Item(_OpenedChat)._Sender, _ListOfUserFriendsChatPanel.Item(_OpenedChat)._E)
                 Else
                     Onclick_OpenChildForm_FriendPanels("OnlineFriendsForm")
@@ -602,6 +605,10 @@ Public Class HomeForm
     Private Sub TransparentBackGround_Click(sender As Object, e As EventArgs) Handles TransparentBackGround.Click
         TransparentBackGround.Visible = False
         _DeleteFriendForm.Close()
+    End Sub
+
+    Private Sub UserPicture_Click(sender As Object, e As EventArgs) Handles UserPicture.Click
+
     End Sub
 
     Private Sub Open_CreateChatForm(x As Integer, y As Integer)

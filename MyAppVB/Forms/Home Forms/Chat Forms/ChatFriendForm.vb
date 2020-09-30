@@ -13,8 +13,8 @@ Public Class ChatFriendForm
     Private _keyPressed As KeyEventArgs
     Private _NewHeightMsgPnl As Integer
     Private _OldHeightMsgPnl As Integer = 40
-    Private _vScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
     Public _ListOfMessagePanel As New List(Of MessagePanel)
+    Private _vScrollHelper As Guna.UI.Lib.ScrollBar.PanelScrollHelper
 
     '*****///// CLASSES
     Private _PopUpmsgForm As PopUpMessageForm
@@ -29,12 +29,15 @@ Public Class ChatFriendForm
     Private _WhiteCOlor As String = _Utility_Style.WhiteColor
 
     '*****///// SUB NEW
-    Sub New(ByRef subj As Subject, ByRef subjF As Subject)
+    Sub New(ByRef subj As Subject, ByRef subjF As Subject, userName As String, userStateOnline As String)
         ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
 
         _Subject = subj
         _SubjectFriend = subjF
+        _MsgToUser = userName
+        _StateOnline = userStateOnline
+
         Form_style()
     End Sub
 

@@ -136,14 +136,12 @@ Public Class ChatFriendsPanel
         _Sender = sender
         _E = e
 
-        Dim chatform As New ChatFriendForm(_Subject, _SubjFriend)
+        Dim chatform As New ChatFriendForm(_Subject, _SubjFriend, _UserName, _UserStateOnlineStr)
+        Dim indexOfPanel As Integer = _MainForm._ListOfUserFriendsChatPanel.IndexOf(Me)
 
-        _MainForm._OpenedChat = _NumberOfPanel - 1
+        _MainForm._OpenedChat = indexOfPanel
 
         _MainForm.txtFindFriends_Leave(sender, e)
-
-        chatform._MsgToUser = _UserName
-        chatform._StateOnline = _UserStateOnlineStr
 
         Dim positionOflblOnline As New Point(chatform.lblFriendName.Location.X + chatform.lblFriendName.Width + 5, chatform.lblStateOnlineOfFriend.Location.Y)
 

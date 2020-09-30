@@ -240,6 +240,7 @@
             Throw ex
         End Try
     End Sub
+
     Public Sub Insert_Chat_With()
         Try
             Dim conn As New SqlClient.SqlConnection(MyConnection.Get_Connection)
