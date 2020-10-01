@@ -30,11 +30,12 @@ Public Class GenericPanel
     Public _RadiusBorderPanel As New RadiusBorderPanel
 
     '*****///// VARS
-    Public _User_ID As Integer
+
     Public _UserName As String
     Public _PanelName As String
     Public _UserPicture As Byte()
     Public _MessageText As String
+    Public _Friend_ID As Integer
     Public _NumberOfPanel As String
     Public _RadiusBnum As Integer = 27
     Public _UserStateOnlineStr As String

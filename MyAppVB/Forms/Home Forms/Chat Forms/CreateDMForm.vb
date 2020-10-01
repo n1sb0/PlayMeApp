@@ -21,7 +21,6 @@
         Create_All_DM_Friends()
 
         Style_Form()
-
     End Sub
 
     Private Sub Style_Form()
@@ -74,7 +73,6 @@
     Private Sub btnCreateGruopDM_Click(sender As Object, e As EventArgs) Handles btnCreateGruopDM.Click
         Dim subjF As New Subject_Friends
         Dim subj As Subject
-        Dim _OpenChat As Integer = 0
         Dim _NameOfUserChat As String = ""
 
         subjF.USER_ID = _Subject.SUBJECT_ID
@@ -107,7 +105,8 @@
                 End If
             Next
 
-            _MainForm._ListOfUserFriendsChatPanel.Item(_OpenChat).On_ChatPanel_Click(_MainForm._ListOfUserFriendsChatPanel.Item(_OpenChat)._Sender, _MainForm._ListOfUserFriendsChatPanel.Item(_OpenChat)._E)
+            'FIX CREATE LIST OF(Subject's ID) or (Subject) to add all person to a common gruop
+            '_MainForm._ListOfUserFriendsChatPanel.Item(_OpenChat).On_ChatPanel_Click(_MainForm._ListOfUserFriendsChatPanel.Item(_OpenChat)._Sender, _MainForm._ListOfUserFriendsChatPanel.Item(_OpenChat)._E)
         End If
 
         Me.Close()

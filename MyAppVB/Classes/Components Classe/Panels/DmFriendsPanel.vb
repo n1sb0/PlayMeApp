@@ -10,7 +10,7 @@ Public Class DmFriendsPanel
 
         _PanelName = "DM Friends Panel"
         _DmForm = dForm
-        _User_ID = user_id
+        _Friend_ID = user_id
         _UserName = userName
         _NumberOfPanel = panelname
         _UserPicture = userPicture

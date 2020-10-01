@@ -177,8 +177,6 @@
             End If
 
             Try
-                command.CommandText = MyConnection.Get_Base_Select_SujectData()
-
                 With command
                     .CommandText = MyConnection.Get_Base_Select_SujectData() + strQuery
                     .Connection = Connection
@@ -202,6 +200,38 @@
             End Try
 
         End If
+
+        Return subject
+    End Function
+
+    Public Shared Function Get_SubjectByID(user_id As Integer)
+        Dim subject As New Subject
+
+        Dim Connection As New SqlClient.SqlConnection(MyConnection.Get_Connection)
+        Dim command As New SqlClient.SqlCommand
+
+        Try
+            With command
+                .CommandText = MyConnection.Get_SubjectData_ByID
+                .Connection = Connection
+
+                .Parameters.AddWithValue("@USER_ID", user_id)
+                .Connection.Open()
+            End With
+
+            Dim reader As SqlClient.SqlDataReader = command.ExecuteReader()
+
+            If reader.Read Then
+                ReadFromDataReader(subject, reader)
+            End If
+
+            reader.Close()
+            command.Dispose()
+            Connection.Close()
+            Connection.Dispose()
+        Catch ex As Exception
+            MessageBox.Show("Can't read data :(" + vbCrLf + ex.Message, "ERRORE")
+        End Try
 
         Return subject
     End Function

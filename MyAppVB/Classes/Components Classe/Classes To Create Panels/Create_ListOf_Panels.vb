@@ -140,14 +140,14 @@ Public Class Create_ListOf_Panels
                     Case "All"
                         _UserPanel_Class = New OnlineAndAllFriendsPanel(_AllFriendsForm, _LocationOfUserPanel, _ScrollBar, (_Count).ToString _
                                             , _ListOfsbjFriends.Item(i).FRIENDS_PICTURE, _ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
-                                            , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE, _ListOfsbjFriends.Item(i).USER_ID, _MainForm)
+                                            , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE, _ListOfsbjFriends.Item(i).FRIEND_ID, _MainForm)
 
                         Create_Panel(_UserPanel_Class)
 
                     Case "Chat"
                         _UserPanel_Class = New ChatFriendsPanel(_MainForm, _LocationOfUserPanel, _ScrollBar, (_Count).ToString _
                                             , _ListOfsbjFriends.Item(i).FRIENDS_PICTURE, _ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
-                                            , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE, _ListOfsbjFriends.Item(i).USER_ID)
+                                            , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE, _ListOfsbjFriends.Item(i).FRIEND_ID)
 
                         Create_Panel(_UserPanel_Class)
 
@@ -155,7 +155,7 @@ Public Class Create_ListOf_Panels
                         If _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE.Equals("Online") Then
                             _UserPanel_Class = New OnlineAndAllFriendsPanel(_OnlineFriendsForm, _LocationOfUserPanel, _ScrollBar, (_Count).ToString _
                                             , _ListOfsbjFriends.Item(i).FRIENDS_PICTURE, _ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
-                                            , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE, _ListOfsbjFriends.Item(i).USER_ID, _MainForm)
+                                            , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE, _ListOfsbjFriends.Item(i).FRIEND_ID, _MainForm)
 
                             Create_Panel(_UserPanel_Class)
                         End If
@@ -163,21 +163,21 @@ Public Class Create_ListOf_Panels
                     Case "Blocked"
                         _UserPanel_Class = New BlockedFriendsPanel(_BlockedFriendsForm, _LocationOfUserPanel, _ScrollBar, (_Count).ToString _
                                             , _ListOfsbjFriends.Item(i).FRIENDS_PICTURE, _ListOfsbjFriends.Item(i).FRIENDS_USERNAME,
-                                              _ListOfsbjFriends.Item(i).USER_ID)
+                                              _ListOfsbjFriends.Item(i).FRIEND_ID)
 
                         Create_Panel(_UserPanel_Class)
 
                     Case "DM"
                         _UserPanel_Class = New DmFriendsPanel(_DmForm, _LocationOfUserPanel, _ScrollBar, (_Count).ToString _
                                             , _ListOfsbjFriends.Item(i).FRIENDS_PICTURE, _ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
-                                            , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE, _ListOfsbjFriends.Item(i).USER_ID)
+                                            , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE, _ListOfsbjFriends.Item(i).FRIEND_ID)
 
                         Create_Panel(_UserPanel_Class)
 
                     Case "Friend Request", "Outgoing Friend Request"
                         _UserPanel_Class = New PendingRequestPanel(_PendingForm, _LocationOfUserPanel, _ScrollBar, (_ListOfUserPanels.Count() + 1).ToString _
                                             , _ListOfsbjFriends.Item(i).FRIENDS_PICTURE, _ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
-                                            , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE, _ListOfsbjFriends.Item(i).USER_ID, _ControlBy)
+                                            , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE, _ListOfsbjFriends.Item(i).FRIEND_ID, _ControlBy)
 
                         Create_Panel(_UserPanel_Class)
                 End Select

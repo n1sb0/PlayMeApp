@@ -11,7 +11,7 @@ Public Class PendingRequestPanel
             panelname As String, userPicture As Byte(), userName As String, userStateOnline As String, user_id As Integer, request As String)
 
         _PanelName = "Pending Request Panel"
-        _User_ID = user_id
+        _Friend_ID = user_id
         _UserName = userName
         _PendingForm = pForm
         _NumberOfPanel = panelname

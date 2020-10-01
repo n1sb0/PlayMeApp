@@ -8,7 +8,7 @@ Public Class HomeForm
     Private _MsgText As String
     Private _UserName As String
     Private _MoveForm As Boolean
-    Public _OpenedChat As Integer
+    Public _OpenedChatFriendID As Integer
     Private _LocX, _LocY As Integer
     Private _IconPic As IconPictureBox
     Private _DmFormWidth As Integer = 400
@@ -387,10 +387,12 @@ Public Class HomeForm
                 Onclick_OpenChildForm_FriendPanels(_SecondChildForm.Name)
             Case "ChatFriendForm"
                 If _ListOfUserFriendsChatPanel.Count > 0 Then
+                    Dim _SubjFriend As Subject
 
-                    'take put user_id in _OpenedChat = id and create new chat from with data from db with id
+                    _SubjFriend = Subject.Get_SubjectByID(_OpenedChatFriendID)
 
-                    _ListOfUserFriendsChatPanel.Item(_OpenedChat).On_ChatPanel_Click(_ListOfUserFriendsChatPanel.Item(_OpenedChat)._Sender, _ListOfUserFriendsChatPanel.Item(_OpenedChat)._E)
+                    Dim chatform As New ChatFriendForm(_Subject, _SubjFriend, _SubjFriend.SUBJECT_USERNAME, _SubjFriend.SUBJECT_STATE_ONLINE)
+                    _ControlChildForm.OpenChildForm(chatform, MainChatAndFriendPanel, _CurrentChildForm)
                 Else
                     Onclick_OpenChildForm_FriendPanels("OnlineFriendsForm")
                 End If

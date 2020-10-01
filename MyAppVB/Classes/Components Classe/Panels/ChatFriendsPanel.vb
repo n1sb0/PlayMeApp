@@ -6,8 +6,6 @@ Public Class ChatFriendsPanel
 
     Private _Subject As Subject
     Private _SubjFriend As Subject
-    Public _E As New System.EventArgs
-    Public _Sender As New System.Object
 
     '*****///// CONSTRUCTOR OF PANELS
     Sub New(ByRef mainForm As HomeForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar,
@@ -16,7 +14,7 @@ Public Class ChatFriendsPanel
 
         _PanelName = "Chat Friends Panel"
         _MainForm = mainForm
-        _User_ID = user_id
+        _Friend_ID = user_id
         _UserName = userName
         _NumberOfPanel = panelname
         _UserPicture = userPicture
@@ -133,19 +131,11 @@ Public Class ChatFriendsPanel
 
     '*****///// ON CHAT PANEL MOUSE CLICK EVENT
     Public Sub On_ChatPanel_Click(sender As System.Object, e As System.EventArgs)
-        _Sender = sender
-        _E = e
-
         Dim chatform As New ChatFriendForm(_Subject, _SubjFriend, _UserName, _UserStateOnlineStr)
-        Dim indexOfPanel As Integer = _MainForm._ListOfUserFriendsChatPanel.IndexOf(Me)
 
-        _MainForm._OpenedChat = indexOfPanel
+        _MainForm._OpenedChatFriendID = _Friend_ID
 
         _MainForm.txtFindFriends_Leave(sender, e)
-
-        Dim positionOflblOnline As New Point(chatform.lblFriendName.Location.X + chatform.lblFriendName.Width + 5, chatform.lblStateOnlineOfFriend.Location.Y)
-
-        chatform.lblStateOnlineOfFriend.Location = New Point(positionOflblOnline)
 
         _ControlChildForm.OpenChildForm(chatform, _MainForm.MainChatAndFriendPanel, _MainForm._CurrentChildForm)
     End Sub
@@ -164,7 +154,7 @@ Public Class ChatFriendsPanel
 
         On_DirectWasDeleted(indexOfPanel)
 
-        If HomeForm._OpenedChat = _NumberOfPanel Then
+        If HomeForm._OpenedChatFriendID = _NumberOfPanel Then
             If _MainForm._CurrentChildForm IsNot Nothing Then
                 _MainForm._CurrentChildForm.Close()
             End If

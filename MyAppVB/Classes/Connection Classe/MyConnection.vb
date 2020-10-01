@@ -30,6 +30,12 @@
         Return query
     End Function
 
+    Public Shared Function Get_SubjectData_ByID() As String
+        Dim query As String = "SELECT * FROM TBL_USER_DATA WHERE SUBJECT_ID = @USER_ID"
+
+        Return query
+    End Function
+
     '*****///// UPDATE PASSWORD QUERY
     Public Shared Function Get_Update_Password_Query() As String
         Dim query As String = "UPDATE TBL_USER_DATA " &

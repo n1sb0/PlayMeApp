@@ -38,6 +38,7 @@ Public Class ChatFriendForm
         _MsgToUser = userName
         _StateOnline = userStateOnline
 
+
         Form_style()
     End Sub
 
@@ -58,6 +59,9 @@ Public Class ChatFriendForm
         lblTextMsg.Text = "MESSEGE @" + _MsgToUser
 
         Set_StateOnline()
+
+        Dim positionOflblOnline As New Point(lblFriendName.Location.X + lblFriendName.Width + 5, lblStateOnlineOfFriend.Location.Y)
+        lblStateOnlineOfFriend.Location = New Point(positionOflblOnline)
     End Sub
 
     '*****///// STATE ONLINE OF PERSONE WITH WHO CHAT 

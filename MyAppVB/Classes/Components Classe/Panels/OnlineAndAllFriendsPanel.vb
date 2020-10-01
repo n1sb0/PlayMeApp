@@ -5,8 +5,6 @@ Public Class OnlineAndAllFriendsPanel
 
     Private _Subject As Subject
     Private _SubjFriend As Subject
-    Property _E As New System.EventArgs
-    Public _Sender As New System.Object
     Private _MenuMoreForm As New MenuMoreForm
 
     '*****///// CONSTRUCTOR OF PANELS
@@ -15,7 +13,7 @@ Public Class OnlineAndAllFriendsPanel
             panelname As String, userPicture As Byte(), userName As String, userStateOnline As String, user_id As Integer, ByRef mform As HomeForm)
 
         _PanelName = "Online Friends Panel"
-        _User_ID = user_id
+        _Friend_ID = user_id
         _MainForm = mform
         _UserName = userName
         _OnlineFriendsForm = oForm
@@ -35,7 +33,7 @@ Public Class OnlineAndAllFriendsPanel
             panelname As String, userPicture As Byte(), userName As String, userStateOnline As String, user_id As Integer, ByRef mform As HomeForm)
 
         _PanelName = "All Friends Panel"
-        _User_ID = user_id
+        _Friend_ID = user_id
         _MainForm = mform
         _UserName = userName
         _AllFriendsForm = allFForm
@@ -143,7 +141,6 @@ Public Class OnlineAndAllFriendsPanel
 
     '*****///// ADD ALL ELEMENTS ON THE PANEL
     Private Sub AddComponents()
-
         _UserPanel.Controls.Add(Ctr)
         _UserPanel.Controls.Add(_MenuBtn)
         _UserPanel.Controls.Add(_UserLine)
@@ -155,26 +152,12 @@ Public Class OnlineAndAllFriendsPanel
 
     Public Sub On_Panel_Click(sender As System.Object, e As System.EventArgs)
         Dim chatform As New ChatFriendForm(_Subject, _SubjFriend, _UserName, _UserStateOnlineStr)
-        Dim indexOfPanel As Integer
-        _Sender = sender
-        _E = e
 
-        If Not _OnlineFriendsForm Is Nothing Then
-            indexOfPanel = _OnlineFriendsForm._ListOfUserFriendsOnline.IndexOf(Me)
-        Else
-            indexOfPanel = _AllFriendsForm._ListOfUserFriendsAllPanel.IndexOf(Me)
-        End If
+        _MainForm._OpenedChatFriendID = _Friend_ID
 
+        _MainForm.txtFindFriends_Leave(sender, e)
 
-        HomeForm._OpenedChat = indexOfPanel
-
-        HomeForm.txtFindFriends_Leave(sender, e)
-
-        Dim positionOflblOnline As New Point(chatform.lblFriendName.Location.X + chatform.lblFriendName.Width + 5, chatform.lblStateOnlineOfFriend.Location.Y)
-
-        chatform.lblStateOnlineOfFriend.Location = New Point(positionOflblOnline)
-
-        _ControlChildForm.OpenChildForm(chatform, HomeForm.MainChatAndFriendPanel, HomeForm._CurrentChildForm)
+        _ControlChildForm.OpenChildForm(chatform, _MainForm.MainChatAndFriendPanel, _MainForm._CurrentChildForm)
     End Sub
 
     '*****///// ON PANEL MOUSE HOVER EVENT

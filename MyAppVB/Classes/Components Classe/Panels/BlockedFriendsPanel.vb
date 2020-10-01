@@ -8,7 +8,7 @@ Public Class BlockedFriendsPanel
 
         _PanelName = "Blocekd Friends Panel"
         _UserName = userName
-        _User_ID = user_id
+        _Friend_ID = user_id
         _NumberOfPanel = panelname
         _UserPicture = userPicture
         _BlockedFriendsForm = bForm

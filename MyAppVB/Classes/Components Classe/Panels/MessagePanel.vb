@@ -17,7 +17,7 @@ Public Class MessagePanel
         _PanelName = "Message Panel"
         _ChatFirendForm = chatForm
         _MessageText = msgText
-        _User_ID = user_id
+        _Friend_ID = user_id
         _UserName = userName
         _NumberOfPanel = panelname
         _UserPicture = userPicture
