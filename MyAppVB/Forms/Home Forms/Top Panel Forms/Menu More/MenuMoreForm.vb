@@ -66,7 +66,7 @@ Public Class MenuMoreForm
                     _MainForm.TransparentBackGround.Size = _MainForm.MainPanel.Size
                     _MainForm.TransparentBackGround.Location = New Point(0, 0)
                     _MainForm.TransparentBackGround.Visible = True
-                    _DeleteFriendForm = New DeleteFriendForm(_Subject, _SubjFriend)
+                    _DeleteFriendForm = New DeleteFriendForm(_Subject, _SubjFriend, _MainForm)
 
                     _DeleteFriendForm.TopLevel = False
                     _DeleteFriendForm.Parent = _MainForm

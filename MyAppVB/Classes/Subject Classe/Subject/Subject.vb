@@ -260,25 +260,37 @@
 
     End Sub
 
-    Public Sub Insert_Pending_Request(request_to As Integer)
+    Public Sub Insert_Pending_Request(request_to As Integer, Optional transazione As SqlClient.SqlTransaction = Nothing,
+                                                    Optional cmd As SqlClient.SqlCommand = Nothing, Optional connection As SqlClient.SqlConnection = Nothing)
         Try
-            Dim conn As New SqlClient.SqlConnection(MyConnection.Get_Connection)
-            Dim queryS As String = MyConnection.Get_Insert_PendingReq()
+            Dim conn As SqlClient.SqlConnection
             Dim command As New SqlClient.SqlCommand
+            Dim queryS As String = MyConnection.Get_Insert_PendingReq()
 
-            conn.Open()
+            If Not connection Is Nothing Then
+                command = cmd
+                conn = connection
+            Else
+                command = New SqlClient.SqlCommand
+                conn = New SqlClient.SqlConnection(MyConnection.Get_Connection)
+
+                conn.Open()
+            End If
 
             With command
                 .CommandText = queryS
                 .Connection = conn
+                .Transaction = transazione
 
                 .Parameters.AddWithValue("@REQUEST_FROM", SUBJECT_ID)
                 .Parameters.AddWithValue("@REQUEST_TO", request_to)
                 .ExecuteNonQuery()
             End With
 
-            command.Connection.Close()
-            command.Dispose()
+            If connection Is Nothing Then
+                command.Connection.Close()
+                command.Dispose()
+            End If
         Catch ex As Exception
             Throw ex
         End Try

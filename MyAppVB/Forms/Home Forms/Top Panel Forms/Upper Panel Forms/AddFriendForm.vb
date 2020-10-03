@@ -48,20 +48,29 @@
 
     Private Sub btnSendFriendRequest_Click(sender As Object, e As EventArgs) Handles btnSendFriendRequest.Click
 
+
+
         If txtFindFriend.Text.Length >= 4 Then
-            If DR_Subject.Get_Subject_By("username", txtFindFriend.Text) AndAlso Not _Subject.SUBJECT_USERNAME.Equals(txtFindFriend.Text) Then
+            If DR_Subject.Get_Subject_By("username", txtFindFriend.Text) AndAlso Not _Subject.SUBJECT_USERNAME.Equals(txtFindFriend.Text) _
+                OrElse Not txtFindFriend.Text.Equals(_Subject.SUBJECT_USERNAME) Then
                 _Friend = Subject.Get_Subject_Data(txtFindFriend.Text)
 
                 Dim dr_subjFriend As New DR_Subject_Friend(_Subject.SUBJECT_ID, _Friend.SUBJECT_ID)
 
-                If dr_subjFriend.Check_Friend_Request Then
+                If dr_subjFriend.Check_If_RequestData_Exist("Request") Then
                     Change_MSG(_FriendReqWasSent + "(" + txtFindFriend.Text + ").", _OrngColor)
                 Else
-                    If dr_subjFriend.Check_Friend_Request(_Friend.SUBJECT_ID, _Subject.SUBJECT_ID) Then
+                    If dr_subjFriend.Check_If_RequestData_Exist("Request", _Friend.SUBJECT_ID, _Subject.SUBJECT_ID) Then
                         Change_MSG(_MsgFriendIsWaiting + "(" + txtFindFriend.Text + ") already in pending request list", _OrngColor)
                     Else
                         If Not dr_subjFriend.Check_Friend_List Then
                             _Subject.Insert_Pending_Request(_Friend.SUBJECT_ID)
+
+                            If dr_subjFriend.Check_If_RequestData_Exist("Unblock", _Subject.SUBJECT_ID, _Friend.SUBJECT_ID) Then
+                                Dim strQuery As String = MyConnection.Get_UnBlock_Query
+
+                                Subject_Friends.Delete_Reference_OfTwoFriends(_Subject.SUBJECT_ID, _Friend.SUBJECT_ID, strQuery)
+                            End If
 
                             Change_MSG(_SeccessMsgRequest + txtFindFriend.Text + " was sent.", _GreenColor)
                         Else

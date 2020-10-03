@@ -2,7 +2,7 @@
 
     '*****///// STRING OF CONNECTION TO DATA BASE
     Public Shared Function Get_Connection() As String
-        Dim connQuery As String = ""
+        Dim connQuery As String = "*****"
 
         Return connQuery
     End Function
@@ -101,6 +101,12 @@
 
     Public Shared Function Get_Subject_Request() As String
         Dim query As String = "SELECT * FROM TBL_PENDING_FRENDS_REQUEST"
+
+        Return query
+    End Function
+
+    Public Shared Function Get_Subject_BlockedFriends() As String
+        Dim query As String = "SELECT * FROM TBL_BLOCKED_FRIENDS"
 
         Return query
     End Function

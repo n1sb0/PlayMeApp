@@ -150,6 +150,26 @@ Public Class PendingRequestPanel
         End If
     End Sub
 
+    '*****///// ON ACCPET BUTTON CLICK
+    Private Sub On_AcceptButton_Click()
+        _PendingForm.pnlPendingReq.Controls.Remove(_UserPanel)
+
+        Dim indexOfPanel As Integer = _PendingForm._ListOfUserPendingReq.IndexOf(Me)
+
+        _PendingForm._ListOfUserPendingReq.RemoveAt(indexOfPanel)
+
+        On_ClosedRequest(indexOfPanel)
+
+        _Subject = _PendingForm._Subject
+        _Friend = Subject.Get_Subject_Data(_UserName)
+
+        Dim friendObj As New Subject_Friends
+
+        friendObj.UpdateData_With_Transaction(_Subject.SUBJECT_ID, _Friend.SUBJECT_ID, "Accept")
+
+        Count_Requests()
+    End Sub
+
     '*****///// ON DELETE BUTTON CLICK
     Private Sub On_DeleteRequest_Click()
         _PendingForm.pnlPendingReq.Controls.Remove(_UserPanel)
@@ -169,11 +189,17 @@ Public Class PendingRequestPanel
             Subject_Friends.Delete_Reference_OfTwoFriends(_PendingForm._Subject.SUBJECT_ID, _Friend.SUBJECT_ID, strQuery)
         End If
 
+        Count_Requests()
+    End Sub
+
+    '*****///// COUNT REQUESTS
+    Private Sub Count_Requests()
         If _PendingForm._ListOfUserPendingReq.Count = 0 Then
             _PendingForm.lblPendingReq.Visible = False
             _PendingForm.pnlImgPendingReq.Visible = True
+        Else
+            _PendingForm.lblPendingReq.Text = "PENDING REQUESTS - " + (_PendingForm._ListOfUserPendingReq.Count()).ToString
         End If
-
     End Sub
 
     Private Sub On_ClosedRequest(index As Integer)
@@ -224,22 +250,5 @@ Public Class PendingRequestPanel
         End If
     End Sub
 
-    '*****///// ON ACCPET BUTTON CLICK
-    Private Sub On_AcceptButton_Click()
-        _PendingForm.pnlPendingReq.Controls.Remove(_UserPanel)
 
-        Dim indexOfPanel As Integer = _PendingForm._ListOfUserPendingReq.IndexOf(Me)
-
-        _PendingForm._ListOfUserPendingReq.RemoveAt(indexOfPanel)
-
-        On_ClosedRequest(indexOfPanel)
-
-        _Subject = _PendingForm._Subject
-        _Friend = Subject.Get_Subject_Data(_UserName)
-
-        Dim friendObj As New Subject_Friends
-
-        friendObj.Update_DataWith_Transaction(_Subject.SUBJECT_ID, _Friend.SUBJECT_ID)
-
-    End Sub
 End Class

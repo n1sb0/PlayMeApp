@@ -150,18 +150,34 @@ Public Class OnlineAndAllFriendsPanel
         _UserPanel.Controls.Add(_UserStateOnline_Label)
     End Sub
 
-    Public Sub On_Panel_Click(sender As System.Object, e As System.EventArgs)
-        Dim chatform As New ChatFriendForm(_Subject, _SubjFriend, _UserName, _UserStateOnlineStr)
+    Public Sub On_Panel_Click(sender As System.Object, e As MouseEventArgs)
 
-        _MainForm._OpenedChatFriendID = _Friend_ID
+        Select Case e.Button
+            Case MouseButtons.Left
 
-        _MainForm.txtFindFriends_Leave(sender, e)
+                Dim chatform As New ChatFriendForm(_Subject, _SubjFriend, _UserName, _UserStateOnlineStr)
 
-        _ControlChildForm.OpenChildForm(chatform, _MainForm.MainChatAndFriendPanel, _MainForm._CurrentChildForm)
+                _MainForm._FriendID = _Friend_ID
+
+                _MainForm.txtFindFriends_Leave(sender, e)
+
+                _ControlChildForm.OpenChildForm(chatform, _MainForm.MainChatAndFriendPanel, _MainForm._CurrentChildForm)
+
+            Case MouseButtons.Right
+
+                'On Right Click open menu 
+        End Select
     End Sub
 
     '*****///// ON PANEL MOUSE HOVER EVENT
     Private Sub On_FriendsOnlineAndAllPanel_Enter(sender As Object, e As EventArgs)
+        If Application.OpenForms().OfType(Of OnlineFriendsForm).Any Then
+            Leave_AllOther_Panels(_OnlineFriendsForm._ListOfUserFriendsOnline)
+
+        ElseIf Application.OpenForms().OfType(Of AllFriendsForm).Any Then
+            Leave_AllOther_Panels(_AllFriendsForm._ListOfUserFriendsAllPanel)
+        End If
+
         _PnlSelected = True
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_PanelsColorLightDarkBlue))
         _UserLine.Visible = False
@@ -172,8 +188,14 @@ Public Class OnlineAndAllFriendsPanel
         _MenuBtn.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_DarkBlue))
     End Sub
 
+    Private Sub Leave_AllOther_Panels(_ListOfUserFriendsOnline As List(Of OnlineAndAllFriendsPanel))
+        For Each thisPanel In _ListOfUserFriendsOnline
+            If thisPanel._Friend_ID <> _Friend_ID Then thisPanel.Leave_ListOfPanels()
+        Next
+    End Sub
+
     '*****///// ON MOUSE LEAVE EVENT
-    Private Sub On_FriendsOnlineAndAllPanel_Leave(sender As Object, e As EventArgs)
+    Public Sub On_FriendsOnlineAndAllPanel_Leave(sender As Object, e As EventArgs)
         If Application.OpenForms().OfType(Of OnlineFriendsForm).Any Then
             If Not _OnlineFriendsForm.pnlFriendsOnlineNow.GetChildAtPoint(_OnlineFriendsForm.pnlFriendsOnlineNow.PointToClient(Cursor.Position)) Is _UserPanel OrElse _UserPanel.GetChildAtPoint(_UserPanel.PointToClient(Cursor.Position)) Is Nothing Then
                 Leave_ListOfPanels()
@@ -219,6 +241,8 @@ Public Class OnlineAndAllFriendsPanel
     End Sub
 
     Private Sub On_MenuButton_Click()
+
+        _MainForm._FriendID = _Friend_ID
 
         Dim _LocX = 360 + _UserPanel.Location.X + _MenuBtn.Location.X - _MenuMoreForm.Width
         Dim _LocY = 115 + _UserPanel.Location.Y + _UserPanel.Height / 2

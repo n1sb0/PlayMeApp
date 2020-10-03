@@ -8,7 +8,7 @@ Public Class HomeForm
     Private _MsgText As String
     Private _UserName As String
     Private _MoveForm As Boolean
-    Public _OpenedChatFriendID As Integer
+    Public _FriendID As Integer
     Private _LocX, _LocY As Integer
     Private _IconPic As IconPictureBox
     Private _DmFormWidth As Integer = 400
@@ -41,7 +41,7 @@ Public Class HomeForm
     Public _CurrentChildForm As Form
     Private _CreateDmForm As CreateDMForm
     Public _MenuMoreForm As MenuMoreForm
-    Public _DeleteFriendForm As DeleteFriendForm
+    Property _DeleteFriendForm As DeleteFriendForm
 
     '*****///// COMPONENTS
     Private _GenericButton As GunaButton
@@ -76,10 +76,6 @@ Public Class HomeForm
 
         Save_UserName("n1sb0")
         SetStyle_For_Components()
-    End Sub
-
-    Protected Overrides Sub OnPaint(ByVal e As PaintEventArgs)
-        e.Graphics.DrawLine(Pens.Yellow, 0, 0, 100, 100)
     End Sub
     '*****///// SUB NEW
     Sub New(userName As String)
@@ -389,7 +385,7 @@ Public Class HomeForm
                 If _ListOfUserFriendsChatPanel.Count > 0 Then
                     Dim _SubjFriend As Subject
 
-                    _SubjFriend = Subject.Get_SubjectByID(_OpenedChatFriendID)
+                    _SubjFriend = Subject.Get_SubjectByID(_FriendID)
 
                     Dim chatform As New ChatFriendForm(_Subject, _SubjFriend, _SubjFriend.SUBJECT_USERNAME, _SubjFriend.SUBJECT_STATE_ONLINE)
                     _ControlChildForm.OpenChildForm(chatform, MainChatAndFriendPanel, _CurrentChildForm)

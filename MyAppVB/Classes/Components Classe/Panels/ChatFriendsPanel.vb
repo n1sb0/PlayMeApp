@@ -133,7 +133,7 @@ Public Class ChatFriendsPanel
     Public Sub On_ChatPanel_Click(sender As System.Object, e As System.EventArgs)
         Dim chatform As New ChatFriendForm(_Subject, _SubjFriend, _UserName, _UserStateOnlineStr)
 
-        _MainForm._OpenedChatFriendID = _Friend_ID
+        _MainForm._FriendID = _Friend_ID
 
         _MainForm.txtFindFriends_Leave(sender, e)
 
@@ -154,7 +154,7 @@ Public Class ChatFriendsPanel
 
         On_DirectWasDeleted(indexOfPanel)
 
-        If HomeForm._OpenedChatFriendID = _NumberOfPanel Then
+        If HomeForm._FriendID = _NumberOfPanel Then
             If _MainForm._CurrentChildForm IsNot Nothing Then
                 _MainForm._CurrentChildForm.Close()
             End If

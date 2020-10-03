@@ -55,17 +55,32 @@
         End Try
     End Function
 
-    Public Function Check_Friend_Request(Optional user_1 As Integer = Nothing, Optional user_2 As Integer = Nothing) As Boolean
+    Public Function Check_If_RequestData_Exist(checkBy As String, Optional user_1 As Integer = Nothing, Optional user_2 As Integer = Nothing) As Boolean
 
         If IsNothing(user_1) Or IsNothing(user_2) Then
             user_1 = _Subject_ID
             user_2 = _SubjFriend_ID
         End If
 
+        Dim queryS As String = ""
+        Dim row1 As String = ""
+        Dim row2 As String = ""
         Dim row As New DR_Subject_Friend
         Dim command As New SqlClient.SqlCommand
         Dim reader As SqlClient.SqlDataReader = Nothing
-        Dim queryS As String = MyConnection.Get_Subject_Request
+
+        Select Case checkBy
+            Case "Request"
+                queryS = MyConnection.Get_Subject_Request
+                row1 = "REQUEST_FROM"
+                row2 = "REQUEST_TO"
+
+            Case "Unblock"
+                queryS = MyConnection.Get_Subject_BlockedFriends
+                row1 = "USER_ID"
+                row2 = "FRIEND_ID"
+        End Select
+
         Dim connection As New SqlClient.SqlConnection(MyConnection.Get_Connection)
 
         Try
@@ -78,8 +93,8 @@
                 row = New DR_Subject_Friend
 
                 With row
-                    ._Subject_ID = ReadValue(reader("REQUEST_FROM"))
-                    ._SubjFriend_ID = ReadValue(reader("REQUEST_TO"))
+                    ._Subject_ID = ReadValue(reader(row1))
+                    ._SubjFriend_ID = ReadValue(reader(row2))
 
                     If user_1 = ._Subject_ID AndAlso user_2 = ._SubjFriend_ID Then
                         Return True

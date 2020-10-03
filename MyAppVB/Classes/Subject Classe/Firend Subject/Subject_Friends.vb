@@ -114,7 +114,7 @@
         End With
     End Sub
 
-    Public Sub Update_DataWith_Transaction(subject_id As Integer, friend_id As Integer)
+    Public Sub UpdateData_With_Transaction(subject_id As Integer, friend_id As Integer, UpdateBy As String)
 
         _Subject_ID = subject_id
         _SubFriend_ID = friend_id
@@ -126,7 +126,12 @@
             connection.Open()
             transaction = connection.BeginTransaction()
 
-            Update_Date_T(transaction, connection)
+            Select Case UpdateBy
+                Case "Accept"
+                    Accept_FriendRequest_UpdateData(transaction, connection)
+                Case "Delete"
+                    DeleteFriend_FromFriendList_UpdateData(transaction, connection)
+            End Select
 
             connection.Close()
         Catch ex As Exception
@@ -139,14 +144,15 @@
                 connection.Close()
             End If
 
-            Throw New Exception("Errore: " + vbCrLf + ex.Message)
+            Throw New Exception("Errore can't add a person: " + vbCrLf + ex.Message)
         End Try
     End Sub
 
-    Private Sub Update_Date_T(transazione As SqlClient.SqlTransaction, Connection As SqlClient.SqlConnection)
+    Private Sub Accept_FriendRequest_UpdateData(transazione As SqlClient.SqlTransaction, Connection As SqlClient.SqlConnection)
         Dim strQuery As String
         Dim commandInsert As New SqlClient.SqlCommand
         Dim commandDelete As New SqlClient.SqlCommand
+        Dim commandInsert2 As New SqlClient.SqlCommand
 
         Try
             strQuery = MyConnection.Get_Delete_Pending_Request
@@ -154,14 +160,49 @@
 
             strQuery = MyConnection.Insert_Query_Add_Friend
             Add_User_To_FriendList(_Subject_ID, _SubFriend_ID, strQuery, transazione, commandInsert, Connection)
+            Add_User_To_FriendList(_SubFriend_ID, _Subject_ID, strQuery, transazione, commandInsert2, Connection)
 
             transazione.Commit()
 
             commandInsert.Connection.Close()
             commandInsert.Dispose()
 
+            commandInsert2.Connection.Close()
+            commandInsert2.Dispose()
+
             commandDelete.Connection.Close()
             commandDelete.Dispose()
+
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub DeleteFriend_FromFriendList_UpdateData(transazione As SqlClient.SqlTransaction, Connection As SqlClient.SqlConnection)
+        Dim strQuery As String
+        Dim subj As Subject
+        Dim commandDeleteUser1 As New SqlClient.SqlCommand
+        Dim commandDeleteUser2 As New SqlClient.SqlCommand
+        Dim commandPendingRequest As New SqlClient.SqlCommand
+
+        Try
+            strQuery = MyConnection.Delete_From_FriendList()
+            Delete_Reference_OfTwoFriends(_SubFriend_ID, _Subject_ID, strQuery, transazione, commandDeleteUser2, Connection)
+            Delete_Reference_OfTwoFriends(_Subject_ID, _SubFriend_ID, strQuery, transazione, commandDeleteUser1, Connection)
+
+            subj = Subject.Get_SubjectByID(_SubFriend_ID)
+            subj.Insert_Pending_Request(_Subject_ID, transazione, commandPendingRequest, Connection)
+
+            transazione.Commit()
+
+            commandPendingRequest.Connection.Close()
+            commandPendingRequest.Dispose()
+
+            commandDeleteUser1.Connection.Close()
+            commandDeleteUser1.Dispose()
+
+            commandDeleteUser2.Connection.Close()
+            commandDeleteUser2.Dispose()
 
         Catch ex As Exception
             Throw ex
