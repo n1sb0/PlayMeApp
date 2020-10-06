@@ -53,7 +53,7 @@ Partial Class DeleteFriendForm
         Me.lblMsgToDeleteUser.Name = "lblMsgToDeleteUser"
         Me.lblMsgToDeleteUser.Size = New System.Drawing.Size(376, 62)
         Me.lblMsgToDeleteUser.TabIndex = 78
-        Me.lblMsgToDeleteUser.Text = "Are you sure you want to permanently remove "
+        Me.lblMsgToDeleteUser.Text = "Are you sure you want to permanently "
         '
         'btnCancel
         '

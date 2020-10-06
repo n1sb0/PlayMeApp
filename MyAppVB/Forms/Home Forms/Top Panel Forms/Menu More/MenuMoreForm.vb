@@ -1,11 +1,15 @@
 ﻿Imports Guna.UI.WinForms
 
 Public Class MenuMoreForm
-    Private _MainForm As HomeForm
+
     Private _Subject As Subject
     Private _SubjFriend As Subject
-    Private _DeleteFriendForm As DeleteFriendForm
+
     Private _GenericButton As GunaButton
+
+    Private _MainForm As HomeForm
+    Private _DeleteFriendForm As DeleteFriendForm
+    Private _Open_DeleteBlockForm As Open_DeleteRemoveForm
 
     Sub New()
         ' La chiamata è richiesta dalla finestra di progettazione.
@@ -29,30 +33,16 @@ Public Class MenuMoreForm
 
     Private _GenButton As GunaButton
     Private Sub MenuMoreForm_Paint(sender As Object, e As PaintEventArgs) Handles MyBase.Paint
-        e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias
-        e.Graphics.Clear(Me.Parent.BackColor)
-        Dim control As Control = Me
-        Dim radius As Integer = 12
+        Dim RComp_OnPaint As New RoundComponent_OnPaint
 
-        Using path As System.Drawing.Drawing2D.GraphicsPath = New System.Drawing.Drawing2D.GraphicsPath()
-            path.AddLine(radius, 0, control.Width - radius, 0)
-            path.AddArc(control.Width - radius, 0, radius, radius, 270, 90)
-            path.AddLine(control.Width, radius, control.Width, control.Height - radius)
-            path.AddArc(control.Width - radius, control.Height - radius, radius, radius, 0, 90)
-            path.AddLine(control.Width - radius, control.Height, radius, control.Height)
-            path.AddArc(0, control.Height - radius, radius, radius, 90, 90)
-            path.AddLine(0, control.Height - radius, 0, radius)
-            path.AddArc(0, 0, radius, radius, 180, 90)
-
-            Using brush As SolidBrush = New SolidBrush(control.BackColor)
-                e.Graphics.FillPath(brush, path)
-            End Using
-        End Using
+        RComp_OnPaint.On_Paint_Forms(sender, e, Me)
     End Sub
 
     Private Sub On_Buttons_Click(sender As Object, e As EventArgs) Handles btnStartVideoCall.Click, btnStartVoiceCall.Click, btnDeleteFriend.Click
 
         _GenButton = DirectCast(sender, GunaButton)
+
+        _Open_DeleteBlockForm = New Open_DeleteRemoveForm(_Subject, _SubjFriend, _MainForm, _DeleteFriendForm)
 
         Select Case _GenButton.Name
 
@@ -61,22 +51,7 @@ Public Class MenuMoreForm
             Case "btmStartVideoCall"
 
             Case "btnDeleteFriend"
-
-                If Not Application.OpenForms().OfType(Of DeleteFriendForm).Any Then
-                    _MainForm.TransparentBackGround.Size = _MainForm.MainPanel.Size
-                    _MainForm.TransparentBackGround.Location = New Point(0, 0)
-                    _MainForm.TransparentBackGround.Visible = True
-                    _DeleteFriendForm = New DeleteFriendForm(_Subject, _SubjFriend, _MainForm)
-
-                    _DeleteFriendForm.TopLevel = False
-                    _DeleteFriendForm.Parent = _MainForm
-
-                    _DeleteFriendForm.SetBounds(_MainForm.Width / 2 - 175, _MainForm.Height / 2 - 150, 400, 200)
-                    _DeleteFriendForm.BringToFront()
-                    _DeleteFriendForm.Show()
-
-                    _MainForm._DeleteFriendForm = _DeleteFriendForm
-                End If
+                _Open_DeleteBlockForm.Open_Form("Delete")
         End Select
 
         Close()

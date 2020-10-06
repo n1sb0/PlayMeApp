@@ -239,6 +239,7 @@
     <Compile Include="Classes\Components Classe\Panels\MessagePanel.vb" />
     <Compile Include="Classes\Components Classe\Panels\OnlineAndAllFriendsPanel.vb" />
     <Compile Include="Classes\Components Classe\Panels\PendingRequestPanel.vb" />
+    <Compile Include="Classes\Utility Classe\Open_DeleteRemoveForm.vb" />
     <Compile Include="Classes\Utility Classe\RadiusBorderPanel.vb" />
     <Compile Include="Classes\Utility Classe\Open_PopUpForm.vb" />
     <Compile Include="Classes\Subject Classe\Firend Subject\DR_Subject_Friend.vb" />
@@ -251,6 +252,7 @@
     <Compile Include="Classes\Encryption Classe\Encryption.vb" />
     <Compile Include="Classes\Connection Classe\MyConnection.vb" />
     <Compile Include="Classes\Subject Classe\Subject\Subject.vb" />
+    <Compile Include="Classes\Utility Classe\RoundComponent_OnPaint.vb" />
     <Compile Include="Classes\Utility Classe\Utility Classes\Utility_Secure.vb" />
     <Compile Include="Classes\Utility Classe\Utility Classes\Utility_Style.vb" />
     <Compile Include="DB_PlayMeAppDataSet.Designer.vb">
@@ -286,6 +288,12 @@
       <DependentUpon>MenuMoreForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Home Forms\Top Panel Forms\Menu More\MenuMoreForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Home Forms\Top Panel Forms\Menu More\RightClickMenuForm.Designer.vb">
+      <DependentUpon>RightClickMenuForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home Forms\Top Panel Forms\Menu More\RightClickMenuForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Home Forms\Top Panel Forms\Upper Panel Forms\OnlineFriendsForm.Designer.vb">
@@ -417,6 +425,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home Forms\Chat Forms\PopUpMessageForm.resx">
       <DependentUpon>PopUpMessageForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home Forms\Top Panel Forms\Menu More\RightClickMenuForm.resx">
+      <DependentUpon>RightClickMenuForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home Forms\Top Panel Forms\Upper Panel Forms\AddFriendForm.resx">
       <DependentUpon>AddFriendForm.vb</DependentUpon>

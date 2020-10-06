@@ -158,7 +158,7 @@
         End Try
     End Sub
 
-    Public Shared Function Get_Subject_Data(userName As String)
+    Public Shared Function Get_Subject_Data_By(userName As String)
         Dim subject As New Subject
 
         If Not String.IsNullOrEmpty(userName) Then

@@ -131,6 +131,8 @@
                     Accept_FriendRequest_UpdateData(transaction, connection)
                 Case "Delete"
                     DeleteFriend_FromFriendList_UpdateData(transaction, connection)
+                Case "ADD"
+                    AddFriend_ToFriendList_UpdateData(transaction, connection)
             End Select
 
             connection.Close()
@@ -145,6 +147,36 @@
             End If
 
             Throw New Exception("Errore can't add a person: " + vbCrLf + ex.Message)
+        End Try
+    End Sub
+
+    Private Sub AddFriend_ToFriendList_UpdateData(transazione As SqlClient.SqlTransaction, Connection As SqlClient.SqlConnection)
+        Dim subj As Subject
+        Dim strQuery As String
+        Dim dr_subjFriend As New DR_Subject_Friend
+        Dim commandRequest As New SqlClient.SqlCommand
+        Dim commandUnBlock As New SqlClient.SqlCommand
+
+        Try
+            subj = Subject.Get_SubjectByID(_Subject_ID)
+            subj.Insert_Pending_Request(_SubFriend_ID, transazione, commandRequest, Connection)
+
+            If dr_subjFriend.Check_If_RequestData_Exist("Block", _Subject_ID, _SubFriend_ID) Then
+                strQuery = MyConnection.Get_UnBlock_Query
+
+                Subject_Friends.Delete_Reference_OfTwoFriends(_Subject_ID, _SubFriend_ID, strQuery, transazione, commandUnBlock, Connection)
+            End If
+
+            transazione.Commit()
+
+            commandRequest.Connection.Close()
+            commandRequest.Dispose()
+
+            commandUnBlock.Connection.Close()
+            commandUnBlock.Dispose()
+
+        Catch ex As Exception
+            Throw ex
         End Try
     End Sub
 

@@ -101,3 +101,4 @@ A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.DeleteFriendForm.resour
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.MenuMoreForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.HomeForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.PopUpMessageForm.resources
+A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.RightClickMenuForm.resources

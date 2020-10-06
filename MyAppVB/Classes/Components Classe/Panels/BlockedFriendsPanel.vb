@@ -114,10 +114,23 @@ Public Class BlockedFriendsPanel
 
         On_UnBlockFriend(indexOfPanel)
 
-        _Friend = Subject.Get_Subject_Data(_UserName)
+        _Friend = Subject.Get_Subject_Data_By(_UserName)
         Dim strQuery As String = MyConnection.Get_UnBlock_Query
 
         Subject_Friends.Delete_Reference_OfTwoFriends(_BlockedFriendsForm._Subject.SUBJECT_ID, _Friend.SUBJECT_ID, strQuery)
+
+        Count_Requests()
+    End Sub
+
+    Private Sub Count_Requests()
+        'If _BlockedFriendsForm._ListOfUserBlockedFriendsPanel.Count = 0 Then
+        '    _BlockedFriendsForm.lblBlocekdFriends.Visible = False
+        '    _BlockedFriendsForm.pnlImgBlockedFirends.Visible = True
+        'Else
+        '    _BlockedFriendsForm.lblBlocekdFriends.Text = "BLOCKED - " + (_BlockedFriendsForm._ListOfUserBlockedFriendsPanel.Count()).ToString
+        'End If
+
+        HomeForm.Onclick_OpenChildForm_FriendPanels("BlockedFriendsForm")
     End Sub
     Private Sub On_UnBlockFriend(index As Integer)
         For i As Integer = index To  _BlockedFriendsForm._ListOfUserBlockedFriendsPanel.Count - 1

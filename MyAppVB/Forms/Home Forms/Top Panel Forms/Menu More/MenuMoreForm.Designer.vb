@@ -123,6 +123,7 @@ Partial Class MenuMoreForm
         Me.Controls.Add(Me.btnStartVideoCall)
         Me.Controls.Add(Me.btnStartVoiceCall)
         Me.Controls.Add(Me.btnDeleteFriend)
+        Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "MenuMoreForm"
         Me.Text = "MenuMoreForm"

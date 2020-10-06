@@ -79,7 +79,7 @@
 
         For Each item In _ListOfUserDmFriendsPanel
             If item._Cheked Then
-                subj = Subject.Get_Subject_Data(item._UserName)
+                subj = Subject.Get_Subject_Data_By(item._UserName)
                 _NameOfUserChat = item._UserName
                 subjF.FRIEND_ID = subj.SUBJECT_ID
                 subj.ClearObj()

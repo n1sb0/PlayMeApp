@@ -39,9 +39,10 @@ Public Class HomeForm
     Private _PopUpForm
     Public _SecondChildForm As Form
     Public _CurrentChildForm As Form
-    Private _CreateDmForm As CreateDMForm
+    Public _CreateDmForm As CreateDMForm
     Public _MenuMoreForm As MenuMoreForm
-    Property _DeleteFriendForm As DeleteFriendForm
+    Public _DeleteFriendForm As DeleteFriendForm
+    Public _RightClickMenuForm As RightClickMenuForm
 
     '*****///// COMPONENTS
     Private _GenericButton As GunaButton
@@ -89,7 +90,7 @@ Public Class HomeForm
 
     '*****///// SAVE USER DATA AND UPDATE USER DATA ON UI
     Private Sub Save_UserName(userName As String)
-        _Subject = Subject.Get_Subject_Data(userName)
+        _Subject = Subject.Get_Subject_Data_By(userName)
 
         If Not String.IsNullOrEmpty(_Subject.SUBJECT_USERNAME) Then
             Update_UserData()
@@ -105,16 +106,17 @@ Public Class HomeForm
     End Sub
 
     Private Sub Check_Opened_Form()
-        If Not _CreateDmForm Is Nothing Then
-            _PopUpForm = _CreateDmForm
-        ElseIf Not _MenuMoreForm Is Nothing Then
-            _PopUpForm = _MenuMoreForm
-        End If
+        Dim forms As Form() = Application.OpenForms.Cast(Of Form)().ToArray()
+
+        For Each thisForm As Form In forms
+            If thisForm.Name.Equals("RightClickMenuForm") OrElse thisForm.Name.Equals("MenuMoreForm") OrElse thisForm.Name.Equals("CreateDMForm") Then _PopUpForm = thisForm
+        Next
 
         If Not _PopUpForm Is Nothing Then
             Close_PopUp_Form()
         End If
     End Sub
+
 
     Public Sub Close_PopUp_Form()
         _FormWidth = _PopUpForm.Width
@@ -287,6 +289,10 @@ Public Class HomeForm
             _MenuMoreForm.Close()
         End If
 
+        If Application.OpenForms().OfType(Of RightClickMenuForm).Any Then
+            _RightClickMenuForm.Close()
+        End If
+
         If Application.OpenForms().OfType(Of DeleteFriendForm).Any Then
             _DeleteFriendForm.Close()
             TransparentBackGround.Visible = False
@@ -346,7 +352,7 @@ Public Class HomeForm
 
         Select Case buttonName
             Case "btnPersonalBlog"
-                Dim persinalBlogForm As New PersonalBlogForm
+                Dim persinalBlogForm As New PersonalBlogForm(_Subject)
                 _ControlChildForm.OpenChildForm(persinalBlogForm, PlayGroundPanel, _CurrentChildForm)
 
             Case "btnGames"

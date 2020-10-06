@@ -75,7 +75,7 @@
                 row1 = "REQUEST_FROM"
                 row2 = "REQUEST_TO"
 
-            Case "Unblock"
+            Case "Block"
                 queryS = MyConnection.Get_Subject_BlockedFriends
                 row1 = "USER_ID"
                 row2 = "FRIEND_ID"

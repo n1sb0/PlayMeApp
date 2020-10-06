@@ -161,7 +161,7 @@ Public Class PendingRequestPanel
         On_ClosedRequest(indexOfPanel)
 
         _Subject = _PendingForm._Subject
-        _Friend = Subject.Get_Subject_Data(_UserName)
+        _Friend = Subject.Get_Subject_Data_By(_UserName)
 
         Dim friendObj As New Subject_Friends
 
@@ -180,7 +180,7 @@ Public Class PendingRequestPanel
 
         On_ClosedRequest(indexOfPanel)
 
-        _Friend = Subject.Get_Subject_Data(_UserName)
+        _Friend = Subject.Get_Subject_Data_By(_UserName)
         Dim strQuery As String = MyConnection.Get_Delete_Pending_Request
 
         If _Request.Equals("Friend Request") Then
@@ -194,12 +194,14 @@ Public Class PendingRequestPanel
 
     '*****///// COUNT REQUESTS
     Private Sub Count_Requests()
-        If _PendingForm._ListOfUserPendingReq.Count = 0 Then
-            _PendingForm.lblPendingReq.Visible = False
-            _PendingForm.pnlImgPendingReq.Visible = True
-        Else
-            _PendingForm.lblPendingReq.Text = "PENDING REQUESTS - " + (_PendingForm._ListOfUserPendingReq.Count()).ToString
-        End If
+        HomeForm.Onclick_OpenChildForm_FriendPanels("PendingForm")
+
+        'If _PendingForm._ListOfUserPendingReq.Count = 0 Then
+        '    _PendingForm.lblPendingReq.Visible = False
+        '    _PendingForm.pnlImgPendingReq.Visible = True
+        'Else
+        '    _PendingForm.lblPendingReq.Text = "PENDING REQUESTS - " + (_PendingForm._ListOfUserPendingReq.Count()).ToString
+        'End If
     End Sub
 
     Private Sub On_ClosedRequest(index As Integer)

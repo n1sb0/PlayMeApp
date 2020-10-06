@@ -1,24 +1,40 @@
 ﻿Public Class DeleteFriendForm
+
+    Private _strBy As String
+
     Private _Subject As Subject
     Private _SubjFriend As Subject
+
     Private _MainForm As HomeForm
 
-    Sub New(subject As Subject, subjFriend As Subject, ByRef mForm As HomeForm)
-        ' La chiamata è richiesta dalla finestra di progettazione.
+    Sub New(subject As Subject, subjFriend As Subject, ByRef mForm As HomeForm, strBy As String)
         InitializeComponent()
 
+        _strBy = strBy
         _MainForm = mForm
         _Subject = subject
         _SubjFriend = subjFriend
-
-        Style_From()
-    End Sub
-
-    Private Sub Style_From()
         _MainForm._DeleteFriendForm = Me
 
-        lblRemoveName.Text &= " " + _SubjFriend.SUBJECT_USERNAME
-        lblMsgToDeleteUser.Text += " " + _SubjFriend.SUBJECT_USERNAME + " from your friends?"
+        Select Case _strBy
+            Case "Block"
+                Style_Form_To_Block()
+
+            Case "Delete"
+                Style_Form_To_Delete()
+        End Select
+    End Sub
+
+    Private Sub Style_Form_To_Delete()
+        btnDeleteFriend.Text = "Remove Friend"
+        lblRemoveName.Text = "REMOVE " + _SubjFriend.SUBJECT_USERNAME
+        lblMsgToDeleteUser.Text += "remove " + _SubjFriend.SUBJECT_USERNAME + " from your friends?"
+    End Sub
+
+    Private Sub Style_Form_To_Block()
+        btnDeleteFriend.Text = "Block Friend"
+        lblRemoveName.Text = "BLOCK " + _SubjFriend.SUBJECT_USERNAME
+        lblMsgToDeleteUser.Text += "block " + _SubjFriend.SUBJECT_USERNAME + "?"
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
@@ -32,7 +48,11 @@
 
             Dim friendObj As New Subject_Friends
 
-            friendObj.UpdateData_With_Transaction(_Subject.SUBJECT_ID, _SubjFriend.SUBJECT_ID, "Delete")
+            If _strBy.Equals("Delete") Then
+                friendObj.UpdateData_With_Transaction(_Subject.SUBJECT_ID, _SubjFriend.SUBJECT_ID, "Delete")
+            Else
+
+            End If
 
             If Application.OpenForms().OfType(Of OnlineFriendsForm).Any Then
                 _MainForm.Onclick_OpenChildForm_FriendPanels("OnlineFriendsForm")

@@ -61,7 +61,7 @@ Public Class SettingsForm
 
     '*****///// UPDATE USER DATA ON UI
     Private Sub Put_Subject_Data()
-        _Subject = Subject.Get_Subject_Data(_UserName)
+        _Subject = Subject.Get_Subject_Data_By(_UserName)
 
         If Not String.IsNullOrEmpty(_Subject.SUBJECT_USERNAME) Then
             txtUserEmail.Text = _Subject.SUBJECT_EMAIL
@@ -251,7 +251,7 @@ Public Class SettingsForm
 
             Change_EditState(False)
 
-            _Subject = Subject.Get_Subject_Data(_Subject.SUBJECT_USERNAME)
+            _Subject = Subject.Get_Subject_Data_By(_Subject.SUBJECT_USERNAME)
         Else
             lblWrongPassword.Visible = True
         End If

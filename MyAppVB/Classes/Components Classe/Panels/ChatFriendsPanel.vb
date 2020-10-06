@@ -22,8 +22,8 @@ Public Class ChatFriendsPanel
         _ScrollBarOfUserChat = friendScrollBar
         _UserStateOnlineStr = userStateOnline
 
-        _SubjFriend = Subject.Get_Subject_Data(_UserName)
-        _Subject = Subject.Get_Subject_Data(_MainForm.lblUserName.Text)
+        _SubjFriend = Subject.Get_Subject_Data_By(_UserName)
+        _Subject = Subject.Get_Subject_Data_By(_MainForm.lblUserName.Text)
 
         Create_ChatPanel()
     End Sub

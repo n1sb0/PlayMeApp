@@ -6,6 +6,7 @@ Public Class OnlineAndAllFriendsPanel
     Private _Subject As Subject
     Private _SubjFriend As Subject
     Private _MenuMoreForm As New MenuMoreForm
+    Private _RightClickMenuForm As New RightClickMenuForm
 
     '*****///// CONSTRUCTOR OF PANELS
     '*****///// ONLINE FRIENDS PANEL
@@ -50,7 +51,7 @@ Public Class OnlineAndAllFriendsPanel
 
     '*****///// CREATE A PANEL WITH ALL COMPONENTS
     Private Sub Create_FriendsPanelOnline()
-        _SubjFriend = Subject.Get_Subject_Data(_UserName)
+        _SubjFriend = Subject.Get_Subject_Data_By(_UserName)
 
         Create_UserName()
         Create_MenuButton()
@@ -165,7 +166,7 @@ Public Class OnlineAndAllFriendsPanel
 
             Case MouseButtons.Right
 
-                'On Right Click open menu 
+                On_RightButtonMenu_Click()
         End Select
     End Sub
 
@@ -240,14 +241,41 @@ Public Class OnlineAndAllFriendsPanel
         End If
     End Sub
 
-    Private Sub On_MenuButton_Click()
+    Private Sub On_RightButtonMenu_Click()
+        _MainForm._FriendID = _Friend_ID
 
+        Dim _MouseLocationX = HomeForm.MousePosition.X - HomeForm.Bounds.Location.X
+        Dim _MouseLocationY = HomeForm.MousePosition.Y - HomeForm.Bounds.Location.Y - 8
+
+        Open_RightClick_Menu(_MouseLocationX, _MouseLocationY)
+    End Sub
+
+    Private Sub On_MenuButton_Click()
         _MainForm._FriendID = _Friend_ID
 
         Dim _LocX = 360 + _UserPanel.Location.X + _MenuBtn.Location.X - _MenuMoreForm.Width
         Dim _LocY = 115 + _UserPanel.Location.Y + _UserPanel.Height / 2
 
         Open_Menu(_LocX, _LocY)
+    End Sub
+
+    Public Sub Open_RightClick_Menu(Optional x As Integer = 0, Optional y As Integer = 0)
+
+        If Application.OpenForms().OfType(Of RightClickMenuForm).Any Then
+            RightClickMenuForm.Close()
+        End If
+
+        If Not Application.OpenForms().OfType(Of RightClickMenuForm).Any Then
+            _RightClickMenuForm = New RightClickMenuForm(_Subject, _SubjFriend, _MainForm)
+            _MainForm._RightClickMenuForm = _RightClickMenuForm
+
+            _RightClickMenuForm.TopLevel = False
+            _RightClickMenuForm.Parent = _MainForm
+
+            _RightClickMenuForm.SetBounds(x, y, 156, 185)
+            _RightClickMenuForm.BringToFront()
+            _RightClickMenuForm.Show()
+        End If
     End Sub
 
     Public Sub Open_Menu(Optional x As Integer = 0, Optional y As Integer = 0)

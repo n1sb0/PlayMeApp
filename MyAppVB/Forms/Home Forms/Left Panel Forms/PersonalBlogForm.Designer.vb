@@ -54,7 +54,7 @@ Partial Class PersonalBlogForm
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.UserPicBox = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lblUserName = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -77,7 +77,7 @@ Partial Class PersonalBlogForm
         CType(Me.UserPicture, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.btnAddSmile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UserProfilePanel.SuspendLayout()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UserPicBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'FeedPanel
@@ -465,7 +465,7 @@ Partial Class PersonalBlogForm
         Me.UserProfilePanel.Controls.Add(Me.Label19)
         Me.UserProfilePanel.Controls.Add(Me.Label18)
         Me.UserProfilePanel.Controls.Add(Me.Label17)
-        Me.UserProfilePanel.Controls.Add(Me.PictureBox5)
+        Me.UserProfilePanel.Controls.Add(Me.UserPicBox)
         Me.UserProfilePanel.Controls.Add(Me.Label4)
         Me.UserProfilePanel.Controls.Add(Me.lblUserName)
         Me.UserProfilePanel.Controls.Add(Me.Label3)
@@ -533,15 +533,15 @@ Partial Class PersonalBlogForm
         Me.Label17.Text = "6/March/2000"
         Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'PictureBox5
+        'UserPicBox
         '
-        Me.PictureBox5.Image = Global.PlayME.My.Resources.Resources._123123c12321
-        Me.PictureBox5.Location = New System.Drawing.Point(30, 30)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(150, 150)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox5.TabIndex = 91
-        Me.PictureBox5.TabStop = False
+        Me.UserPicBox.Image = Global.PlayME.My.Resources.Resources._123123c12321
+        Me.UserPicBox.Location = New System.Drawing.Point(30, 30)
+        Me.UserPicBox.Name = "UserPicBox"
+        Me.UserPicBox.Size = New System.Drawing.Size(150, 150)
+        Me.UserPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.UserPicBox.TabIndex = 91
+        Me.UserPicBox.TabStop = False
         '
         'Label4
         '
@@ -656,7 +656,7 @@ Partial Class PersonalBlogForm
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         Me.btnEdit.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
-        Me.btnEdit.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
+        Me.btnEdit.OnHoverForeColor = System.Drawing.Color.White
         Me.btnEdit.OnHoverImage = Nothing
         Me.btnEdit.OnPressedColor = System.Drawing.Color.Black
         Me.btnEdit.Radius = 7
@@ -727,7 +727,7 @@ Partial Class PersonalBlogForm
         CType(Me.btnAddSmile, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UserProfilePanel.ResumeLayout(False)
         Me.UserProfilePanel.PerformLayout()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UserPicBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -740,7 +740,7 @@ Partial Class PersonalBlogForm
     Friend WithEvents lblEnterUserName As Label
     Friend WithEvents txtFindFriend As TextBox
     Friend WithEvents UserProfilePanel As Panel
-    Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents UserPicBox As PictureBox
     Friend WithEvents Label4 As Label
     Friend WithEvents lblUserName As Label
     Friend WithEvents Label3 As Label
