@@ -57,20 +57,6 @@ Public Class MenuMoreForm
         Close()
     End Sub
 
-    Private Sub MenuMoreForm_MouseLeave(sender As Object, e As EventArgs) Handles MyBase.MouseLeave
-        Dim count As Integer = 0
-
-        For Each c In Me.Controls
-            If Not MouseIsOverControl(c) Then
-                count += 1
-            End If
-        Next
-
-        If count = 3 Then
-            Close()
-        End If
-    End Sub
-
     Public Function MouseIsOverControl(ByVal c As Control) As Boolean
         Return c.ClientRectangle.Contains(c.PointToClient(Control.MousePosition))
     End Function

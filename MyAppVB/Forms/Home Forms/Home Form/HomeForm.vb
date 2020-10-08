@@ -19,6 +19,8 @@ Public Class HomeForm
     Private _IsFirstTimeSerchChatPnl As Boolean = True
     Public _SerchListOfChatPanels As New List(Of ChatFriendsPanel)
     Public _ListOfUserFriendsChatPanel As New List(Of ChatFriendsPanel)
+    Public _ChatPnltoUnSelect As ChatFriendsPanel
+    Public _OnlAllFPnltoUnSelect As OnlineAndAllFriendsPanel
 
     '*****///// FORM LOCATION
     Private _FormLocationX As Integer = 0
@@ -117,7 +119,6 @@ Public Class HomeForm
         End If
     End Sub
 
-
     Public Sub Close_PopUp_Form()
         _FormWidth = _PopUpForm.Width
         _FormLocationX = _PopUpForm.Bounds.Location.X
@@ -132,6 +133,14 @@ Public Class HomeForm
 
             If _MouseLocationY > 20 Then
                 _PopUpForm.Close()
+
+                If Not _ChatPnltoUnSelect Is Nothing Then
+                    _ChatPnltoUnSelect.Leave_ListOfPanels()
+                End If
+
+                If Not _OnlAllFPnltoUnSelect Is Nothing Then
+                    _OnlAllFPnltoUnSelect.Leave_ListOfPanels()
+                End If
             End If
         End If
     End Sub
@@ -325,23 +334,32 @@ Public Class HomeForm
     End Sub
 
     '*****///// FUNCTION TO OPEN OTHER FORMS ON LEFT MAIN PANEL
-    Private Sub On_Click_LeftPanel_Buttons(sender As System.Object, e As System.EventArgs) _
+    Public Sub On_Click_LeftPanel_Buttons(Optional sender As System.Object = Nothing, Optional e As System.EventArgs = Nothing,
+                                          Optional genButt As GunaButton = Nothing, Optional outsubj As Subject = Nothing) _
       Handles btnHomeChat.Click, btnVideo.Click, btnMusic.Click, btnGames.Click, btnPersonalBlog.Click
+        Dim subj As Subject
+
         _ButtonWasSelected.Radius = 25
         _ButtonWasSelected.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
 
-        _GenericButton = DirectCast(sender, GunaButton)
+        If Not genButt Is Nothing Then
+            _GenericButton = genButt
+            subj = outsubj
+        Else
+            _GenericButton = DirectCast(sender, GunaButton)
+            subj = _Subject
+        End If
 
         _GenericButton.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GreenSeaColor))
 
-        Onclick_OpenChildForm_LeftPanel(_GenericButton.Name)
+        Onclick_OpenChildForm_LeftPanel(_GenericButton.Name, subj)
 
         _Utility_Style.Select_Btn_UI(selectedPoint, New Point(selectedPoint.Location.X, _GenericButton.Location.Y + 18))
         _Utility_Style.Selected_Btn_Cliked_UI(clikedPoint, _GenericButton)
         _ButtonWasSelected = _GenericButton
     End Sub
 
-    Private Sub Onclick_OpenChildForm_LeftPanel(buttonName As String)
+    Public Sub Onclick_OpenChildForm_LeftPanel(buttonName As String, subj As Subject)
 
         If Not _SaveSecondChildForm Then
             Change_lastGenericButton()
@@ -352,7 +370,7 @@ Public Class HomeForm
 
         Select Case buttonName
             Case "btnPersonalBlog"
-                Dim persinalBlogForm As New PersonalBlogForm(_Subject)
+                Dim persinalBlogForm As New PersonalBlogForm(subj)
                 _ControlChildForm.OpenChildForm(persinalBlogForm, PlayGroundPanel, _CurrentChildForm)
 
             Case "btnGames"

@@ -4,9 +4,6 @@ Imports FontAwesome.Sharp
 Public Class ChatFriendsPanel
     Inherits GenericPanel
 
-    Private _Subject As Subject
-    Private _SubjFriend As Subject
-
     '*****///// CONSTRUCTOR OF PANELS
     Sub New(ByRef mainForm As HomeForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar,
             panelname As String, userPicture As Byte(), userName As String, userStateOnline As String, user_id As Integer)
@@ -100,20 +97,39 @@ Public Class ChatFriendsPanel
 
     '*****///// ON PANEL MOUSE HOVER EVENT
     Private Sub On_ChatPanel_Enter(sender As Object, e As EventArgs)
+
+        _MainForm._ChatPnltoUnSelect = Me
+        Check_PopUp_MenuForms()
+
+        Leave_AllOther_Panels()
+
         _PnlSelected = True
         _DeleteChatWithUserBtn.Visible = True
         _UserPanel.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
         _UserNameLbl.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GrayColor))
     End Sub
 
+    Private Sub Leave_AllOther_Panels()
+        For Each thisPanel In _MainForm._ListOfUserFriendsChatPanel
+            If thisPanel._Friend_ID <> _Friend_ID Then thisPanel.Leave_ListOfPanels()
+        Next
+    End Sub
+
     '*****///// ON MOUSE LEAVE EVENT
     Private Sub On_ChatPanel_Leave(sender As Object, e As EventArgs)
+        Leave_ListOfPanels()
+        Check_PopUp_MenuForms()
+    End Sub
+
+    Public Sub Leave_ListOfPanels()
+
         If Not _MainForm.PanelListOfChatFriends.GetChildAtPoint(_MainForm.PanelListOfChatFriends.PointToClient(Cursor.Position)) Is _UserPanel _
-           OrElse _UserPanel.GetChildAtPoint(_UserPanel.PointToClient(Cursor.Position)) Is Nothing Then
+       OrElse _UserPanel.GetChildAtPoint(_UserPanel.PointToClient(Cursor.Position)) Is Nothing Then
 
             Leave_ListOfChatPanels()
         End If
     End Sub
+
 
     '*****///// ON SCROLLBAR MOUSE HOVER
     Private Sub On_ScrollBar_Enter()
@@ -130,14 +146,23 @@ Public Class ChatFriendsPanel
     End Sub
 
     '*****///// ON CHAT PANEL MOUSE CLICK EVENT
-    Public Sub On_ChatPanel_Click(sender As System.Object, e As System.EventArgs)
-        Dim chatform As New ChatFriendForm(_Subject, _SubjFriend, _UserName, _UserStateOnlineStr)
+    Public Sub On_ChatPanel_Click(sender As System.Object, e As MouseEventArgs)
 
-        _MainForm._FriendID = _Friend_ID
+        Select Case e.Button
+            Case MouseButtons.Left
 
-        _MainForm.txtFindFriends_Leave(sender, e)
+                Dim chatform As New ChatFriendForm(_Subject, _SubjFriend, _UserName, _UserStateOnlineStr)
 
-        _ControlChildForm.OpenChildForm(chatform, _MainForm.MainChatAndFriendPanel, _MainForm._CurrentChildForm)
+                _MainForm._FriendID = _Friend_ID
+
+                _MainForm.txtFindFriends_Leave(sender, e)
+
+                _ControlChildForm.OpenChildForm(chatform, _MainForm.MainChatAndFriendPanel, _MainForm._CurrentChildForm)
+
+            Case MouseButtons.Right
+
+                On_RightButtonMenu_Click()
+        End Select
     End Sub
 
     '*****///// ON DELETE CHAT BUTTON MOUSE CLICK EVENT

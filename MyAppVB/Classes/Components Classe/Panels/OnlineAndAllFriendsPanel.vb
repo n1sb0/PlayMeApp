@@ -3,10 +3,10 @@
 Public Class OnlineAndAllFriendsPanel
     Inherits GenericPanel
 
-    Private _Subject As Subject
-    Private _SubjFriend As Subject
+    'Private _Subject As Subject
+    'Private _SubjFriend As Subject
     Private _MenuMoreForm As New MenuMoreForm
-    Private _RightClickMenuForm As New RightClickMenuForm
+    'Private _RightClickMenuForm As New RightClickMenuForm
 
     '*****///// CONSTRUCTOR OF PANELS
     '*****///// ONLINE FRIENDS PANEL
@@ -172,6 +172,10 @@ Public Class OnlineAndAllFriendsPanel
 
     '*****///// ON PANEL MOUSE HOVER EVENT
     Private Sub On_FriendsOnlineAndAllPanel_Enter(sender As Object, e As EventArgs)
+
+        _MainForm._OnlAllFPnltoUnSelect = Me
+        Check_PopUp_MenuForms()
+
         If Application.OpenForms().OfType(Of OnlineFriendsForm).Any Then
             Leave_AllOther_Panels(_OnlineFriendsForm._ListOfUserFriendsOnline)
 
@@ -197,6 +201,7 @@ Public Class OnlineAndAllFriendsPanel
 
     '*****///// ON MOUSE LEAVE EVENT
     Public Sub On_FriendsOnlineAndAllPanel_Leave(sender As Object, e As EventArgs)
+
         If Application.OpenForms().OfType(Of OnlineFriendsForm).Any Then
             If Not _OnlineFriendsForm.pnlFriendsOnlineNow.GetChildAtPoint(_OnlineFriendsForm.pnlFriendsOnlineNow.PointToClient(Cursor.Position)) Is _UserPanel OrElse _UserPanel.GetChildAtPoint(_UserPanel.PointToClient(Cursor.Position)) Is Nothing Then
                 Leave_ListOfPanels()
@@ -206,6 +211,8 @@ Public Class OnlineAndAllFriendsPanel
                 Leave_ListOfPanels()
             End If
         End If
+
+        Check_PopUp_MenuForms()
     End Sub
 
     Public Sub Leave_ListOfPanels()
@@ -241,15 +248,6 @@ Public Class OnlineAndAllFriendsPanel
         End If
     End Sub
 
-    Private Sub On_RightButtonMenu_Click()
-        _MainForm._FriendID = _Friend_ID
-
-        Dim _MouseLocationX = HomeForm.MousePosition.X - HomeForm.Bounds.Location.X
-        Dim _MouseLocationY = HomeForm.MousePosition.Y - HomeForm.Bounds.Location.Y - 8
-
-        Open_RightClick_Menu(_MouseLocationX, _MouseLocationY)
-    End Sub
-
     Private Sub On_MenuButton_Click()
         _MainForm._FriendID = _Friend_ID
 
@@ -257,25 +255,6 @@ Public Class OnlineAndAllFriendsPanel
         Dim _LocY = 115 + _UserPanel.Location.Y + _UserPanel.Height / 2
 
         Open_Menu(_LocX, _LocY)
-    End Sub
-
-    Public Sub Open_RightClick_Menu(Optional x As Integer = 0, Optional y As Integer = 0)
-
-        If Application.OpenForms().OfType(Of RightClickMenuForm).Any Then
-            RightClickMenuForm.Close()
-        End If
-
-        If Not Application.OpenForms().OfType(Of RightClickMenuForm).Any Then
-            _RightClickMenuForm = New RightClickMenuForm(_Subject, _SubjFriend, _MainForm)
-            _MainForm._RightClickMenuForm = _RightClickMenuForm
-
-            _RightClickMenuForm.TopLevel = False
-            _RightClickMenuForm.Parent = _MainForm
-
-            _RightClickMenuForm.SetBounds(x, y, 156, 185)
-            _RightClickMenuForm.BringToFront()
-            _RightClickMenuForm.Show()
-        End If
     End Sub
 
     Public Sub Open_Menu(Optional x As Integer = 0, Optional y As Integer = 0)

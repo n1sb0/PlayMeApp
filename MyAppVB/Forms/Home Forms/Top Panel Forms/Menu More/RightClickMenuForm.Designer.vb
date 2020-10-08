@@ -46,14 +46,14 @@ Partial Class RightClickMenuForm
         Me.btnProfile.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnProfile.Image = Nothing
         Me.btnProfile.ImageSize = New System.Drawing.Size(10, 10)
-        Me.btnProfile.Location = New System.Drawing.Point(3, 4)
+        Me.btnProfile.Location = New System.Drawing.Point(5, 5)
         Me.btnProfile.Name = "btnProfile"
         Me.btnProfile.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
         Me.btnProfile.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
         Me.btnProfile.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         Me.btnProfile.OnHoverImage = Nothing
         Me.btnProfile.OnPressedColor = System.Drawing.Color.Black
-        Me.btnProfile.Radius = 5
+        Me.btnProfile.Radius = 3
         Me.btnProfile.Size = New System.Drawing.Size(150, 30)
         Me.btnProfile.TabIndex = 104
         Me.btnProfile.Text = "Profile"
@@ -74,14 +74,14 @@ Partial Class RightClickMenuForm
         Me.btnMessage.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnMessage.Image = Nothing
         Me.btnMessage.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnMessage.Location = New System.Drawing.Point(3, 39)
+        Me.btnMessage.Location = New System.Drawing.Point(5, 40)
         Me.btnMessage.Name = "btnMessage"
         Me.btnMessage.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
         Me.btnMessage.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
         Me.btnMessage.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         Me.btnMessage.OnHoverImage = Nothing
         Me.btnMessage.OnPressedColor = System.Drawing.Color.Black
-        Me.btnMessage.Radius = 5
+        Me.btnMessage.Radius = 3
         Me.btnMessage.Size = New System.Drawing.Size(150, 30)
         Me.btnMessage.TabIndex = 103
         Me.btnMessage.Text = "Message"
@@ -102,14 +102,14 @@ Partial Class RightClickMenuForm
         Me.btnCall.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnCall.Image = Nothing
         Me.btnCall.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnCall.Location = New System.Drawing.Point(3, 74)
+        Me.btnCall.Location = New System.Drawing.Point(5, 80)
         Me.btnCall.Name = "btnCall"
         Me.btnCall.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
         Me.btnCall.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
         Me.btnCall.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         Me.btnCall.OnHoverImage = Nothing
         Me.btnCall.OnPressedColor = System.Drawing.Color.Black
-        Me.btnCall.Radius = 5
+        Me.btnCall.Radius = 3
         Me.btnCall.Size = New System.Drawing.Size(150, 30)
         Me.btnCall.TabIndex = 105
         Me.btnCall.Text = "Call"
@@ -119,9 +119,9 @@ Partial Class RightClickMenuForm
         Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
-        Me.Panel1.Location = New System.Drawing.Point(10, 110)
+        Me.Panel1.Location = New System.Drawing.Point(10, 115)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(135, 2)
+        Me.Panel1.Size = New System.Drawing.Size(140, 2)
         Me.Panel1.TabIndex = 106
         '
         'btnRemove
@@ -140,14 +140,14 @@ Partial Class RightClickMenuForm
         Me.btnRemove.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnRemove.Image = Nothing
         Me.btnRemove.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnRemove.Location = New System.Drawing.Point(3, 117)
+        Me.btnRemove.Location = New System.Drawing.Point(5, 120)
         Me.btnRemove.Name = "btnRemove"
         Me.btnRemove.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
         Me.btnRemove.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
         Me.btnRemove.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         Me.btnRemove.OnHoverImage = Nothing
         Me.btnRemove.OnPressedColor = System.Drawing.Color.Black
-        Me.btnRemove.Radius = 5
+        Me.btnRemove.Radius = 3
         Me.btnRemove.Size = New System.Drawing.Size(150, 30)
         Me.btnRemove.TabIndex = 107
         Me.btnRemove.Text = "Remove Friend"
@@ -168,14 +168,14 @@ Partial Class RightClickMenuForm
         Me.btnBlock.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnBlock.Image = Nothing
         Me.btnBlock.ImageSize = New System.Drawing.Size(30, 30)
-        Me.btnBlock.Location = New System.Drawing.Point(3, 152)
+        Me.btnBlock.Location = New System.Drawing.Point(5, 155)
         Me.btnBlock.Name = "btnBlock"
         Me.btnBlock.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
         Me.btnBlock.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
         Me.btnBlock.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         Me.btnBlock.OnHoverImage = Nothing
         Me.btnBlock.OnPressedColor = System.Drawing.Color.Black
-        Me.btnBlock.Radius = 5
+        Me.btnBlock.Radius = 3
         Me.btnBlock.Size = New System.Drawing.Size(150, 30)
         Me.btnBlock.TabIndex = 108
         Me.btnBlock.Text = "Block"
@@ -185,7 +185,7 @@ Partial Class RightClickMenuForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(28, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(156, 185)
+        Me.ClientSize = New System.Drawing.Size(160, 190)
         Me.Controls.Add(Me.btnBlock)
         Me.Controls.Add(Me.btnRemove)
         Me.Controls.Add(Me.Panel1)

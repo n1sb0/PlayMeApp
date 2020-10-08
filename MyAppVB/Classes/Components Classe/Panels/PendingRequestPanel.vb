@@ -3,8 +3,6 @@
 Public Class PendingRequestPanel
     Inherits GenericPanel
 
-    Private _Friend As New Subject
-    Private _Subject As New Subject
     Private _Request As String
     '*****///// CONSTRUCTOR OF PANELS
     Sub New(ByRef pForm As PendingForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar,
@@ -161,11 +159,11 @@ Public Class PendingRequestPanel
         On_ClosedRequest(indexOfPanel)
 
         _Subject = _PendingForm._Subject
-        _Friend = Subject.Get_Subject_Data_By(_UserName)
+        _SubjFriend = Subject.Get_Subject_Data_By(_UserName)
 
         Dim friendObj As New Subject_Friends
 
-        friendObj.UpdateData_With_Transaction(_Subject.SUBJECT_ID, _Friend.SUBJECT_ID, "Accept")
+        friendObj.UpdateData_With_Transaction(_Subject.SUBJECT_ID, _SubjFriend.SUBJECT_ID, "Accept")
 
         Count_Requests()
     End Sub
@@ -180,13 +178,13 @@ Public Class PendingRequestPanel
 
         On_ClosedRequest(indexOfPanel)
 
-        _Friend = Subject.Get_Subject_Data_By(_UserName)
+        _SubjFriend = Subject.Get_Subject_Data_By(_UserName)
         Dim strQuery As String = MyConnection.Get_Delete_Pending_Request
 
         If _Request.Equals("Friend Request") Then
-            Subject_Friends.Delete_Reference_OfTwoFriends(_Friend.SUBJECT_ID, _PendingForm._Subject.SUBJECT_ID, strQuery)
+            Subject_Friends.Delete_Reference_OfTwoFriends(_SubjFriend.SUBJECT_ID, _PendingForm._Subject.SUBJECT_ID, strQuery)
         ElseIf _Request.Equals("Outgoing Friend Request") Then
-            Subject_Friends.Delete_Reference_OfTwoFriends(_PendingForm._Subject.SUBJECT_ID, _Friend.SUBJECT_ID, strQuery)
+            Subject_Friends.Delete_Reference_OfTwoFriends(_PendingForm._Subject.SUBJECT_ID, _SubjFriend.SUBJECT_ID, strQuery)
         End If
 
         Count_Requests()

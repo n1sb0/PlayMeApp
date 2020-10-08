@@ -50,7 +50,7 @@ Partial Class MenuMoreForm
         Me.btnStartVideoCall.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         Me.btnStartVideoCall.OnHoverImage = Nothing
         Me.btnStartVideoCall.OnPressedColor = System.Drawing.Color.Black
-        Me.btnStartVideoCall.Radius = 5
+        Me.btnStartVideoCall.Radius = 3
         Me.btnStartVideoCall.Size = New System.Drawing.Size(185, 30)
         Me.btnStartVideoCall.TabIndex = 101
         Me.btnStartVideoCall.Text = "Start Video Call"
@@ -79,7 +79,7 @@ Partial Class MenuMoreForm
         Me.btnStartVoiceCall.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         Me.btnStartVoiceCall.OnHoverImage = Nothing
         Me.btnStartVoiceCall.OnPressedColor = System.Drawing.Color.Black
-        Me.btnStartVoiceCall.Radius = 5
+        Me.btnStartVoiceCall.Radius = 3
         Me.btnStartVoiceCall.Size = New System.Drawing.Size(185, 30)
         Me.btnStartVoiceCall.TabIndex = 100
         Me.btnStartVoiceCall.Text = "Start Voice Call"
@@ -108,7 +108,7 @@ Partial Class MenuMoreForm
         Me.btnDeleteFriend.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.btnDeleteFriend.OnHoverImage = Nothing
         Me.btnDeleteFriend.OnPressedColor = System.Drawing.Color.Black
-        Me.btnDeleteFriend.Radius = 5
+        Me.btnDeleteFriend.Radius = 3
         Me.btnDeleteFriend.Size = New System.Drawing.Size(185, 30)
         Me.btnDeleteFriend.TabIndex = 99
         Me.btnDeleteFriend.Text = "Remove Friend"

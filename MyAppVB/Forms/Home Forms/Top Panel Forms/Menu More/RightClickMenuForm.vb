@@ -31,6 +31,7 @@ Public Class RightClickMenuForm
 
         Select Case _GenericButton.Name
             Case "btnProfile"
+                _MainForm.On_Click_LeftPanel_Buttons(Nothing, Nothing, _MainForm.btnPersonalBlog, _SubjFriend)
 
             Case "btnMessage"
                 Dim chatform As New ChatFriendForm(_Subject, _SubjFriend, _SubjFriend.SUBJECT_USERNAME, _SubjFriend.SUBJECT_STATE_ONLINE)
@@ -57,4 +58,5 @@ Public Class RightClickMenuForm
 
         RComp_OnPaint.On_Paint_Forms(sender, e, Me)
     End Sub
+
 End Class

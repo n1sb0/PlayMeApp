@@ -30,6 +30,9 @@ Public Class GenericPanel
     Public _RadiusBorderPanel As New RadiusBorderPanel
 
     '*****///// VARS
+    Public _Subject As Subject
+    Public _SubjFriend As Subject
+    Public _RightClickMenuForm As New RightClickMenuForm
 
     Public _UserName As String
     Public _PanelName As String
@@ -230,5 +233,51 @@ Public Class GenericPanel
         _CheckBoxBtn.IconChar = FontAwesome.Sharp.IconChar.Square
         _CheckBoxBtn.IconColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GrayColor))
         _CheckBoxBtn.BackColor = Color.Transparent
+    End Sub
+
+    Public Sub On_RightButtonMenu_Click()
+        _MainForm._FriendID = _Friend_ID
+
+        Dim _MouseLocationX = HomeForm.MousePosition.X - HomeForm.Bounds.Location.X
+        Dim _MouseLocationY = HomeForm.MousePosition.Y - HomeForm.Bounds.Location.Y - 8
+
+        If _MouseLocationX > HomeForm.Size.Width - 320 Then
+            _MouseLocationX -= 170
+        End If
+
+        Open_RightClick_Menu(_MouseLocationX, _MouseLocationY)
+    End Sub
+
+    Public Sub Open_RightClick_Menu(Optional x As Integer = 0, Optional y As Integer = 0)
+
+        If Application.OpenForms().OfType(Of RightClickMenuForm).Any Then
+            RightClickMenuForm.Close()
+        End If
+
+        If Not Application.OpenForms().OfType(Of RightClickMenuForm).Any Then
+            _RightClickMenuForm = New RightClickMenuForm(_Subject, _SubjFriend, _MainForm)
+            _MainForm._RightClickMenuForm = _RightClickMenuForm
+
+            _RightClickMenuForm.TopLevel = False
+            _RightClickMenuForm.Parent = _MainForm
+
+            _RightClickMenuForm.SetBounds(x, y, 160, 190)
+            _RightClickMenuForm.BringToFront()
+            _RightClickMenuForm.Show()
+        End If
+    End Sub
+
+    Public Sub Check_PopUp_MenuForms()
+        If Application.OpenForms().OfType(Of MenuMoreForm).Any Then
+            If _MainForm._FriendID <> _Friend_ID OrElse Not _PnlSelected Then
+                _MainForm._MenuMoreForm.Close()
+            End If
+        End If
+
+        If Application.OpenForms().OfType(Of RightClickMenuForm).Any Then
+            If _MainForm._FriendID <> _Friend_ID OrElse Not _PnlSelected Then
+                _MainForm._RightClickMenuForm.Close()
+            End If
+        End If
     End Sub
 End Class
