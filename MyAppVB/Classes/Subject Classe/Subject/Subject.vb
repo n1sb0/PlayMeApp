@@ -40,6 +40,7 @@
 
             ClearObj()
 
+            transaction.Commit()
             connection.Close()
         Catch ex As Exception
 
@@ -47,15 +48,15 @@
                 transaction.Rollback()
             End If
 
-            If Not IsNothing(connection) AndAlso connection.State = ConnectionState.Closed Then
+            If Not IsNothing(connection) AndAlso Not connection.State = ConnectionState.Closed Then
                 connection.Close()
             End If
 
-            Throw New Exception("Errore: " + vbCrLf + ex.Message)
+            Throw New Exception("Errore! : " + vbCrLf + ex.Message)
         End Try
     End Sub
 
-    Public Sub Insert_All_Data(transazione As SqlClient.SqlTransaction, Connection As SqlClient.SqlConnection)
+    Public Sub Insert_All_Data(ByRef transazione As SqlClient.SqlTransaction, ByRef Connection As SqlClient.SqlConnection)
         Dim command As New SqlClient.SqlCommand
         Dim commandB As New SqlClient.SqlCommand
 
@@ -85,14 +86,9 @@
                 .ExecuteNonQuery()
             End With
 
-            transazione.Commit()
-
             NewAccout = False
 
-            commandB.Connection.Close()
             commandB.Dispose()
-
-            command.Connection.Close()
             command.Dispose()
         Catch ex As Exception
             Throw ex
@@ -198,7 +194,6 @@
             Catch ex As Exception
                 MessageBox.Show("Can't read data :(" + vbCrLf + ex.Message, "ERRORE")
             End Try
-
         End If
 
         Return subject
@@ -260,8 +255,8 @@
 
     End Sub
 
-    Public Sub Insert_Pending_Request(request_to As Integer, Optional transazione As SqlClient.SqlTransaction = Nothing,
-                                                    Optional cmd As SqlClient.SqlCommand = Nothing, Optional connection As SqlClient.SqlConnection = Nothing)
+    Public Sub Insert_Pending_Request(request_to As Integer, ByRef Optional transazione As SqlClient.SqlTransaction = Nothing,
+                                                    ByRef Optional cmd As SqlClient.SqlCommand = Nothing, ByRef Optional connection As SqlClient.SqlConnection = Nothing)
         Try
             Dim conn As SqlClient.SqlConnection
             Dim command As New SqlClient.SqlCommand
@@ -289,8 +284,8 @@
 
             If connection Is Nothing Then
                 command.Connection.Close()
-                command.Dispose()
             End If
+            command.Dispose()
         Catch ex As Exception
             Throw ex
         End Try

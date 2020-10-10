@@ -93,6 +93,13 @@
         Return query
     End Function
 
+    Public Shared Function Insert_Add_ToBlockList_Query() As String
+        Dim query As String = "INSERT INTO TBL_BLOCKED_FRIENDS (USER_ID, FRIEND_ID) " &
+                              "VALUES (@USER_1, @USER_2)"
+
+        Return query
+    End Function
+
     Public Shared Function Get_Subject_Friend() As String
         Dim query As String = "SELECT * FROM TBL_USER_FRIENDS"
 

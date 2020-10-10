@@ -182,9 +182,9 @@ Public Class PendingRequestPanel
         Dim strQuery As String = MyConnection.Get_Delete_Pending_Request
 
         If _Request.Equals("Friend Request") Then
-            Subject_Friends.Delete_Reference_OfTwoFriends(_SubjFriend.SUBJECT_ID, _PendingForm._Subject.SUBJECT_ID, strQuery)
+            Subject_Friends.Create_Reference_OfTwoSubjects(_SubjFriend.SUBJECT_ID, _PendingForm._Subject.SUBJECT_ID, strQuery)
         ElseIf _Request.Equals("Outgoing Friend Request") Then
-            Subject_Friends.Delete_Reference_OfTwoFriends(_PendingForm._Subject.SUBJECT_ID, _SubjFriend.SUBJECT_ID, strQuery)
+            Subject_Friends.Create_Reference_OfTwoSubjects(_PendingForm._Subject.SUBJECT_ID, _SubjFriend.SUBJECT_ID, strQuery)
         End If
 
         Count_Requests()

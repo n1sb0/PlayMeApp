@@ -48,8 +48,6 @@
 
     Private Sub btnSendFriendRequest_Click(sender As Object, e As EventArgs) Handles btnSendFriendRequest.Click
 
-
-
         If txtFindFriend.Text.Length >= 4 Then
             If DR_Subject.Get_Subject_By("username", txtFindFriend.Text) AndAlso Not _Subject.SUBJECT_USERNAME.Equals(txtFindFriend.Text) _
                 OrElse Not txtFindFriend.Text.Equals(_Subject.SUBJECT_USERNAME) Then
@@ -66,9 +64,14 @@
                     Else
                         If Not dr_subjFriend.Check_Friend_List Then
 
-                            friendObj.UpdateData_With_Transaction(_Subject.SUBJECT_ID, _Friend.SUBJECT_ID, "ADD")
+                            If Not dr_subjFriend.Check_If_RequestData_Exist("Block", _Subject.SUBJECT_ID, _Friend.SUBJECT_ID) _
+                            AndAlso Not dr_subjFriend.Check_If_RequestData_Exist("Block", _Friend.SUBJECT_ID, _Subject.SUBJECT_ID) Then
+                                friendObj.UpdateData_With_Transaction(_Subject.SUBJECT_ID, _Friend.SUBJECT_ID, "ADD")
 
-                            Change_MSG(_SeccessMsgRequest + txtFindFriend.Text + " was sent.", _GreenColor)
+                                Change_MSG(_SeccessMsgRequest + txtFindFriend.Text + " was sent.", _GreenColor)
+                            Else
+                                Change_MSG(_ErroreMsgNotFoundName + " (" + txtFindFriend.Text + "), maybe in the Block list or you are!", _RedColor)
+                            End If
                         Else
                             Change_MSG(_MsgFriendAlreadyAdded + "(" + txtFindFriend.Text + "), already in your friend list!", _OrngColor)
                         End If

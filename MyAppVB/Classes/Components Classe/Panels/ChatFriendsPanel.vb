@@ -169,7 +169,7 @@ Public Class ChatFriendsPanel
     Private Sub On_DeleteChatButton_Click(sender As Object, e As EventArgs)
         Dim strQuery As String = MyConnection.Delete_Chat_With
 
-        Subject_Friends.Delete_Reference_OfTwoFriends(_Subject.SUBJECT_ID, _SubjFriend.SUBJECT_ID, strQuery)
+        Subject_Friends.Create_Reference_OfTwoSubjects(_Subject.SUBJECT_ID, _SubjFriend.SUBJECT_ID, strQuery)
 
         _MainForm.PanelListOfChatFriends.Controls.Remove(_UserPanel)
 

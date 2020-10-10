@@ -173,6 +173,11 @@ Public Class OnlineAndAllFriendsPanel
     '*****///// ON PANEL MOUSE HOVER EVENT
     Private Sub On_FriendsOnlineAndAllPanel_Enter(sender As Object, e As EventArgs)
 
+        If Not _MainForm._ChatPnltoUnSelect Is Nothing Then
+            _MainForm._ChatPnltoUnSelect.Leave_ListOfPanels()
+            _MainForm._ChatPnltoUnSelect = Nothing
+        End If
+
         _MainForm._OnlAllFPnltoUnSelect = Me
         Check_PopUp_MenuForms()
 

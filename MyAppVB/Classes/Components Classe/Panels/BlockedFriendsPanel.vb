@@ -117,7 +117,7 @@ Public Class BlockedFriendsPanel
         _Friend = Subject.Get_Subject_Data_By(_UserName)
         Dim strQuery As String = MyConnection.Get_UnBlock_Query
 
-        Subject_Friends.Delete_Reference_OfTwoFriends(_BlockedFriendsForm._Subject.SUBJECT_ID, _Friend.SUBJECT_ID, strQuery)
+        Subject_Friends.Create_Reference_OfTwoSubjects(_BlockedFriendsForm._Subject.SUBJECT_ID, _Friend.SUBJECT_ID, strQuery)
 
         Count_Requests()
     End Sub

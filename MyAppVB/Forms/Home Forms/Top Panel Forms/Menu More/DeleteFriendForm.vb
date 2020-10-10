@@ -27,14 +27,14 @@
 
     Private Sub Style_Form_To_Delete()
         btnDeleteFriend.Text = "Remove Friend"
-        lblRemoveName.Text = "REMOVE " + _SubjFriend.SUBJECT_USERNAME
+        lblRemoveName.Text = "REMOVE " + _SubjFriend.SUBJECT_USERNAME + "?"
         lblMsgToDeleteUser.Text += "remove " + _SubjFriend.SUBJECT_USERNAME + " from your friends?"
     End Sub
 
     Private Sub Style_Form_To_Block()
         btnDeleteFriend.Text = "Block Friend"
-        lblRemoveName.Text = "BLOCK " + _SubjFriend.SUBJECT_USERNAME
-        lblMsgToDeleteUser.Text += "block " + _SubjFriend.SUBJECT_USERNAME + "?"
+        lblRemoveName.Text = "BLOCK " + _SubjFriend.SUBJECT_USERNAME + "?"
+        lblMsgToDeleteUser.Text = "Are you sure you want to block " + _SubjFriend.SUBJECT_USERNAME + "? Blocking this user will also remove them form your firends list."
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
@@ -51,7 +51,7 @@
             If _strBy.Equals("Delete") Then
                 friendObj.UpdateData_With_Transaction(_Subject.SUBJECT_ID, _SubjFriend.SUBJECT_ID, "Delete")
             Else
-
+                friendObj.UpdateData_With_Transaction(_Subject.SUBJECT_ID, _SubjFriend.SUBJECT_ID, "Block")
             End If
 
             If Application.OpenForms().OfType(Of OnlineFriendsForm).Any Then

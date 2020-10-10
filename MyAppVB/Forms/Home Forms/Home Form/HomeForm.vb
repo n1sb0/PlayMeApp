@@ -136,10 +136,12 @@ Public Class HomeForm
 
                 If Not _ChatPnltoUnSelect Is Nothing Then
                     _ChatPnltoUnSelect.Leave_ListOfPanels()
+                    _ChatPnltoUnSelect = Nothing
                 End If
 
                 If Not _OnlAllFPnltoUnSelect Is Nothing Then
                     _OnlAllFPnltoUnSelect.Leave_ListOfPanels()
+                    _OnlAllFPnltoUnSelect = Nothing
                 End If
             End If
         End If
