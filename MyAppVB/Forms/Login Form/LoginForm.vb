@@ -189,6 +189,13 @@
         End If
 
         If ris Then
+            'Change state Online on LoginIn
+            Dim subj As Subject
+
+            subj = Subject.Get_Subject_Data_By(txtLogin.Text)
+
+            subj.Update_Subject_StateOnline("Online")
+
             Dim homeform As New HomeForm(txtLogin.Text)
             homeform.Show()
             _Utility_Secure.Close_AllOpenedFormAndLeftOnlyOne("HomeForm")

@@ -384,7 +384,7 @@ Partial Class HomeForm
         Me.TopPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(37, Byte), Integer))
         Me.TopPanel.Cursor = System.Windows.Forms.Cursors.Default
         Me.TopPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(73, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.TopPanel.Location = New System.Drawing.Point(0, 0)
+        Me.TopPanel.Location = New System.Drawing.Point(37, 0)
         Me.TopPanel.Name = "TopPanel"
         Me.TopPanel.Size = New System.Drawing.Size(1280, 20)
         Me.TopPanel.TabIndex = 69

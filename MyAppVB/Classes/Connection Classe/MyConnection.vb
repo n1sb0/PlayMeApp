@@ -45,6 +45,14 @@
         Return query
     End Function
 
+    Public Shared Function Get_Update_StateOnline() As String
+        Dim query As String = "UPDATE TBL_USER_DATA " &
+                              "SET SUBJECT_STATE_ONLINE = @SUBJECT_STATE_ONLINE " &
+                              "WHERE SUBJECT_ID = @SUBJECT_ID"
+
+        Return query
+    End Function
+
     '*****///// UPDATE USER DATA 
     Public Shared Function Get_Update_Some_Data_Query() As String
         Dim query As String = "UPDATE TBL_USER_DATA " &

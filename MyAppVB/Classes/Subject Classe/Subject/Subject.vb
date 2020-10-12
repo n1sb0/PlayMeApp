@@ -123,6 +123,33 @@
         End Try
     End Sub
 
+    Public Sub Update_Subject_StateOnline(stateOnline As String)
+        Dim command As New SqlClient.SqlCommand
+        Dim query As String = MyConnection.Get_Update_StateOnline()
+        Dim connection As New SqlClient.SqlConnection(MyConnection.Get_Connection())
+
+        Try
+            connection.Open()
+
+            With command
+                .CommandText = query
+                .Connection = connection
+
+                .Parameters.AddWithValue("@SUBJECT_STATE_ONLINE", stateOnline)
+                .Parameters.AddWithValue("@SUBJECT_ID", SUBJECT_ID)
+
+                .ExecuteNonQuery()
+            End With
+
+            command.Connection.Close()
+            command.Dispose()
+            connection.Close()
+            connection.Dispose()
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
     Public Sub Update_Subject_Data(strQuery As String)
         Dim query As String = strQuery
         Dim command As New SqlClient.SqlCommand

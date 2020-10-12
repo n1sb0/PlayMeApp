@@ -635,6 +635,12 @@ Public Class HomeForm
 
     End Sub
 
+    Private Sub HomeForm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        'To save subject state online
+        My.Settings.StateOnline = _Subject.SUBJECT_STATE_ONLINE
+        _Subject.Update_Subject_StateOnline("Offline")
+    End Sub
+
     Private Sub Open_CreateChatForm(x As Integer, y As Integer)
 
         If Not Application.OpenForms().OfType(Of CreateDMForm).Any Then
