@@ -81,7 +81,6 @@ A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\bin\Debug\EO.WebBrowser.xml
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\bin\Debug\EO.WebEngine.xml
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.SettingsForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\bin\Debug\Icons8.UI.dll
-A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\bin\Debug\Bunifu_UI_v1.5.3.xml
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.GameForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.MusicForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.PersonalBlogForm.resources
@@ -93,7 +92,6 @@ A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.ChatFriendForm.resource
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.AddFriendForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.AllFriendsForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.BlockedFriendsForm.resources
-A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayMe.vbprojAssemblyReference.cache
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.OnlineFriendsForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.PendingForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.CreateDMForm.resources
@@ -102,3 +100,4 @@ A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.MenuMoreForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.HomeForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.PopUpMessageForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.RightClickMenuForm.resources
+A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.StateOnlineForm.resources

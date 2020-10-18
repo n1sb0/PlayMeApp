@@ -189,6 +189,10 @@ Public Class Utility_Style
                 ovalOnline.FillColor = Color.FromArgb(255, ColorTranslator.FromHtml("#2ecc71"))
             Case "Offline", "Blocked"
                 ovalOnline.FillColor = Color.Silver
+            Case "Away"
+                ovalOnline.FillColor = Color.FromArgb(255, ColorTranslator.FromHtml("#f1c40f"))
+            Case "NotDisturb"
+                ovalOnline.FillColor = Color.FromArgb(255, ColorTranslator.FromHtml(RedColor))
         End Select
 
     End Sub

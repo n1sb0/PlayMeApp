@@ -5,6 +5,7 @@ Imports System.Runtime.InteropServices
 Public Class HomeForm
 
     '*****///// VARS
+    Public _StateOnline As String
     Private _MsgText As String
     Private _UserName As String
     Private _MoveForm As Boolean
@@ -42,6 +43,7 @@ Public Class HomeForm
     Public _SecondChildForm As Form
     Public _CurrentChildForm As Form
     Public _CreateDmForm As CreateDMForm
+    Public _StateOnlineForm As StateOnlineForm
     Public _MenuMoreForm As MenuMoreForm
     Public _DeleteFriendForm As DeleteFriendForm
     Public _RightClickMenuForm As RightClickMenuForm
@@ -70,29 +72,30 @@ Public Class HomeForm
     Private _WhiteCOlor As String = _Utility_Style.WhiteColor
     Private _BackGColor As String = _Utility_Style.BackGroundColor
     Private _PanelsColorLightDarkBlue As String = _Utility_Style.LightDarkBlue
-    Private _GreenSeaColor As String = _Utility_Style.GreenSeaColor
+    Private _GreenSeaColor As String = _Utility_Style.GreenColor
 
     '*****///// SUB NEW FOR TESTS
     Sub New()
         ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
 
-        Save_UserName("n1sb0")
+        Dim subj = Subject.Get_Subject_Data_By("n1sb0")
+        Save_UserName(subj)
         SetStyle_For_Components()
     End Sub
     '*****///// SUB NEW
-    Sub New(userName As String)
+    Sub New(ByRef subj As Subject)
         ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
 
         'Take UserName
-        Save_UserName(userName)
+        Save_UserName(subj)
         SetStyle_For_Components()
     End Sub
 
     '*****///// SAVE USER DATA AND UPDATE USER DATA ON UI
-    Private Sub Save_UserName(userName As String)
-        _Subject = Subject.Get_Subject_Data_By(userName)
+    Private Sub Save_UserName(subj As Subject)
+        _Subject = subj
 
         If Not String.IsNullOrEmpty(_Subject.SUBJECT_USERNAME) Then
             Update_UserData()
@@ -167,6 +170,7 @@ Public Class HomeForm
     Private Sub SetStyle_For_Components()
         Form_style()
         Create_ListOfFriends()
+        _Utility_Style.Set_UserStateOnline(pointOnline, My.Settings.StateOnline)
     End Sub
 
     Public Sub Form_style()
@@ -313,7 +317,7 @@ Public Class HomeForm
     '*****///// BUTTON OPEN SETTINGS FORM
     Private Sub btnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
         LeftButtomPanel.Visible = False
-        Dim settingsForm As New SettingsForm(lblUserName.Text)
+        Dim settingsForm As New SettingsForm(_Subject)
         _ControlChildForm.OpenChildForm(settingsForm, MainPanel, _CurrentChildForm)
     End Sub
 
@@ -340,6 +344,7 @@ Public Class HomeForm
                                           Optional genButt As GunaButton = Nothing, Optional outsubj As Subject = Nothing) _
       Handles btnHomeChat.Click, btnVideo.Click, btnMusic.Click, btnGames.Click, btnPersonalBlog.Click
         Dim subj As Subject
+        Dim modOfGest As String
 
         _ButtonWasSelected.Radius = 25
         _ButtonWasSelected.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
@@ -347,21 +352,23 @@ Public Class HomeForm
         If Not genButt Is Nothing Then
             _GenericButton = genButt
             subj = outsubj
+            modOfGest = "Friend"
         Else
             _GenericButton = DirectCast(sender, GunaButton)
             subj = _Subject
+            modOfGest = "Subject"
         End If
 
         _GenericButton.BaseColor = Color.FromArgb(255, ColorTranslator.FromHtml(_GreenSeaColor))
 
-        Onclick_OpenChildForm_LeftPanel(_GenericButton.Name, subj)
+        Onclick_OpenChildForm_LeftPanel(_GenericButton.Name, subj, modOfGest)
 
         _Utility_Style.Select_Btn_UI(selectedPoint, New Point(selectedPoint.Location.X, _GenericButton.Location.Y + 18))
         _Utility_Style.Selected_Btn_Cliked_UI(clikedPoint, _GenericButton)
         _ButtonWasSelected = _GenericButton
     End Sub
 
-    Public Sub Onclick_OpenChildForm_LeftPanel(buttonName As String, subj As Subject)
+    Public Sub Onclick_OpenChildForm_LeftPanel(buttonName As String, subj As Subject, modOfGest As String)
 
         If Not _SaveSecondChildForm Then
             Change_lastGenericButton()
@@ -372,7 +379,7 @@ Public Class HomeForm
 
         Select Case buttonName
             Case "btnPersonalBlog"
-                Dim persinalBlogForm As New PersonalBlogForm(subj)
+                Dim persinalBlogForm As New PersonalBlogForm(subj, modOfGest)
                 _ControlChildForm.OpenChildForm(persinalBlogForm, PlayGroundPanel, _CurrentChildForm)
 
             Case "btnGames"
@@ -633,12 +640,30 @@ Public Class HomeForm
 
     Private Sub UserPicture_Click(sender As Object, e As EventArgs) Handles UserPicture.Click
 
+        _LocX = UserPicture.Location.X + 25
+        _LocY = UserPicture.Location.Y + 25
+
+        Open_StateOnlineForm(_LocX, _LocY)
     End Sub
 
     Private Sub HomeForm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         'To save subject state online
         My.Settings.StateOnline = _Subject.SUBJECT_STATE_ONLINE
         _Subject.Update_Subject_StateOnline("Offline")
+    End Sub
+
+    Private Sub Open_StateOnlineForm(x As Integer, y As Integer)
+
+        If Not Application.OpenForms().OfType(Of StateOnlineForm).Any Then
+            _StateOnlineForm = New StateOnlineForm(Me, _Subject)
+
+            _StateOnlineForm.TopLevel = False
+            _StateOnlineForm.Parent = Me
+
+            _StateOnlineForm.SetBounds(x, y - 150, 150, 160)
+            _StateOnlineForm.BringToFront()
+            _StateOnlineForm.Show()
+        End If
     End Sub
 
     Private Sub Open_CreateChatForm(x As Integer, y As Integer)

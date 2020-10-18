@@ -36,12 +36,12 @@ Public Class SettingsForm
     Private _ButtonSelectedColor As String = _Utility_Style.LightDarkHoverButtonColor
     Private _ButtonClickedColor As String = _Utility_Style.LightDarkClickOnButtonColor
 
-    Sub New(userName As String)
+    Sub New(subj As Subject)
         ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
 
         ' Aggiungere le eventuali istruzioni di inizializzazione dopo la chiamata a InitializeComponent().
-        _UserName = userName
+        _Subject = subj
         Put_Subject_Data()
         SetStyle_For_Components()
     End Sub
@@ -61,7 +61,6 @@ Public Class SettingsForm
 
     '*****///// UPDATE USER DATA ON UI
     Private Sub Put_Subject_Data()
-        _Subject = Subject.Get_Subject_Data_By(_UserName)
 
         If Not String.IsNullOrEmpty(_Subject.SUBJECT_USERNAME) Then
             txtUserEmail.Text = _Subject.SUBJECT_EMAIL
@@ -78,7 +77,7 @@ Public Class SettingsForm
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Change_EditState(False)
 
-        Dim homeform As New HomeForm(_Subject.SUBJECT_USERNAME)
+        Dim homeform As New HomeForm(_Subject)
         _Utility_Secure.Close_AllOpenedFormAndLeftOnlyOne("deff")
         homeform.Show()
     End Sub
@@ -197,6 +196,9 @@ Public Class SettingsForm
 
     '*****///// LOG OUT FROM MAIN FORM AND OPEN LOGIN FORM
     Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
+        My.Settings.StateOnline = _Subject.SUBJECT_STATE_ONLINE
+        _Subject.Update_Subject_StateOnline("Offline")
+
         OpenLoginForm()
     End Sub
     '*****///// END LOG OUT FROM MAIN FORM AND OPEN LOGIN FORM

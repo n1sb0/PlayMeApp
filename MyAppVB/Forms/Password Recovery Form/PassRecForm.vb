@@ -121,7 +121,12 @@ Public Class PassRecForm
 
                 _Utility_Style.Change_Msg_Warning_To(confEmail, "✖")
 
-                _Utility_Secure.Close_LoginForm(Me, ris)
+                If ris = MsgBoxResult.Yes Then
+                    Dim openForm As New RegisterForm
+                    openForm.Show()
+
+                    _Utility_Secure.Close_AllOpenedFormAndLeftOnlyOne(openForm.Name)
+                End If
             End If
 
             If confEmail.Text.Equals("✖") Then
@@ -263,7 +268,11 @@ Public Class PassRecForm
 
     '*****///// BUTTON COME BACK
     Private Sub btnComeBack_Click(sender As Object, e As EventArgs) Handles btnComeBack.Click
-        Me.Close()
+        Dim logForm As New LoginForm
+
+        logForm.Show()
+
+        _Utility_Secure.Close_AllOpenedFormAndLeftOnlyOne("LoginForm")
     End Sub
 
     Private Sub btnComeBack_MouseHover(sender As Object, e As EventArgs) Handles btnComeBack.MouseEnter

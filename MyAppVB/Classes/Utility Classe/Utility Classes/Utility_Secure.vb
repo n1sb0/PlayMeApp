@@ -144,19 +144,6 @@
         Return s.IndexOfAny("[1234567890]".ToCharArray) <> -1
     End Function
 
-    Public Sub Close_LoginForm(form As Form, ris As MsgBoxResult)
-        If ris = MsgBoxResult.Yes Then
-            Dim regForm As New RegisterForm
-            regForm.Show()
-
-            If Application.OpenForms().OfType(Of LoginForm).Any Then
-                LoginForm.Close()
-            End If
-
-            form.Close()
-        End If
-    End Sub
-
     Public Sub Close_AllOpenedFormAndLeftOnlyOne(NotCloseForm As String)
         Dim forms As Form() = Application.OpenForms.Cast(Of Form)().ToArray()
 

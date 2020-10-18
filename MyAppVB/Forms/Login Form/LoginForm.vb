@@ -193,10 +193,11 @@
             Dim subj As Subject
 
             subj = Subject.Get_Subject_Data_By(txtLogin.Text)
+            subj.SUBJECT_STATE_ONLINE = My.Settings.StateOnline
 
-            subj.Update_Subject_StateOnline("Online")
+            subj.Update_Subject_StateOnline(subj.SUBJECT_STATE_ONLINE)
 
-            Dim homeform As New HomeForm(txtLogin.Text)
+            Dim homeform As New HomeForm(subj)
             homeform.Show()
             _Utility_Secure.Close_AllOpenedFormAndLeftOnlyOne("HomeForm")
         Else

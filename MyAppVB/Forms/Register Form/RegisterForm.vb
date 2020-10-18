@@ -137,7 +137,11 @@
 
     '*****///// BTN EXIT
     Private Sub btnComeBack_Click(sender As Object, e As EventArgs) Handles btnComeBack.Click
-        Me.Close()
+        Dim logForm As New LoginForm
+
+        logForm.Show()
+
+        _Utility_Secure.Close_AllOpenedFormAndLeftOnlyOne("LoginForm")
     End Sub
     '*****///// END BTN EXIT 
 
@@ -267,7 +271,12 @@
             If Not txtEmail.Text.Equals(_StrEmail) Then
                 Dim ris As MsgBoxResult = MessageBox.Show("This Email Address is already Registered!" + vbCrLf + "If you want to recovery your Account click Yes.", "Attention!", MessageBoxButtons.YesNo)
 
-                _Utility_Secure.Close_LoginForm(Me, ris)
+                If ris = MsgBoxResult.Yes Then
+                    Dim openForm As New PassRecForm
+                    openForm.Show()
+
+                    _Utility_Secure.Close_AllOpenedFormAndLeftOnlyOne(openForm.Name)
+                End If
             End If
         Else
             _Utility_Style.Change_Msg_Warning_To(confEmail, "✔")

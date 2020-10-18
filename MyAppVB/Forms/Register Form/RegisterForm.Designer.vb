@@ -625,7 +625,7 @@ Partial Class RegisterForm
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "RegisterForm"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Register Form"
         Me.Panel8.ResumeLayout(False)
         CType(Me.btnSeeConfPassword, System.ComponentModel.ISupportInitialize).EndInit()
