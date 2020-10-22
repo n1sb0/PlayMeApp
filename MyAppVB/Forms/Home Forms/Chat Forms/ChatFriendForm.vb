@@ -28,12 +28,17 @@ Public Class ChatFriendForm
     Private _GreenColor As String = "#2ecc71"
     Private _WhiteCOlor As String = _Utility_Style.WhiteColor
 
+    '*****////// FORMS
+    Private _MainForm As HomeForm
+    Private _RightClickMenuForm As RightClickMenuForm
+
     '*****///// SUB NEW
-    Sub New(ByRef subj As Subject, ByRef subjF As Subject, userName As String, userStateOnline As String)
+    Sub New(ByRef subj As Subject, ByRef mform As HomeForm, ByRef subjF As Subject, userName As String, userStateOnline As String)
         ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
 
         _Subject = subj
+        _MainForm = mform
         _SubjectFriend = subjF
         _MsgToUser = userName
         _StateOnline = userStateOnline
@@ -193,6 +198,54 @@ Public Class ChatFriendForm
 
     Private Sub ChatFriendForm_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         _pnlMsgLoc = pnlMessage.Location
+    End Sub
+
+
+    Private Sub Mouse_Hover_Buttons(sender As System.Object, e As MouseEventArgs) _
+      Handles picFriend.Click, lblFriendName.Click
+
+        Select Case e.Button
+            Case MouseButtons.Left
+
+                'Open Person Profile form ...
+
+            Case MouseButtons.Right
+
+                On_RightButtonMenu_Click()
+        End Select
+
+    End Sub
+
+    Public Sub On_RightButtonMenu_Click()
+        _MainForm._FriendID = _SubjectFriend.SUBJECT_ID
+
+        Dim _MouseLocationX = HomeForm.MousePosition.X - _MainForm.Bounds.Location.X
+        Dim _MouseLocationY = HomeForm.MousePosition.Y - _MainForm.Bounds.Location.Y - 8
+
+        If _MouseLocationX > _MainForm.Size.Width - 320 Then
+            _MouseLocationX -= 170
+        End If
+
+        Open_RightClick_Menu(_MouseLocationX, _MouseLocationY)
+    End Sub
+
+    Public Sub Open_RightClick_Menu(Optional x As Integer = 0, Optional y As Integer = 0)
+
+        If Application.OpenForms().OfType(Of RightClickMenuForm).Any Then
+            RightClickMenuForm.Close()
+        End If
+
+        If Not Application.OpenForms().OfType(Of RightClickMenuForm).Any Then
+            _RightClickMenuForm = New RightClickMenuForm(_Subject, _SubjectFriend, _MainForm)
+            _MainForm._RightClickMenuForm = _RightClickMenuForm
+
+            _RightClickMenuForm.TopLevel = False
+            _RightClickMenuForm.Parent = _MainForm
+
+            _RightClickMenuForm.SetBounds(x, y, 160, 190)
+            _RightClickMenuForm.BringToFront()
+            _RightClickMenuForm.Show()
+        End If
     End Sub
 
     '*****///// ON pnlMessage RESIZE

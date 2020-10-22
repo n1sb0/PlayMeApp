@@ -254,20 +254,20 @@
     <Compile Include="Classes\Components Classe\Panels\MessagePanel.vb" />
     <Compile Include="Classes\Components Classe\Panels\OnlineAndAllFriendsPanel.vb" />
     <Compile Include="Classes\Components Classe\Panels\PendingRequestPanel.vb" />
-    <Compile Include="Classes\Utility Classe\Open_DeleteRemoveForm.vb" />
-    <Compile Include="Classes\Utility Classe\RadiusBorderPanel.vb" />
-    <Compile Include="Classes\Utility Classe\Open_PopUpForm.vb" />
+    <Compile Include="Classes\Utility Classe\Utility_Forms\Open_DeleteRemoveForm.vb" />
+    <Compile Include="Classes\Utility Classe\Utility_Components\RadiusBorderPanel.vb" />
+    <Compile Include="Classes\Utility Classe\Utility_Forms\Open_PopUpForm.vb" />
     <Compile Include="Classes\Subject Classe\Firend Subject\DR_Subject_Friend.vb" />
     <Compile Include="Classes\Subject Classe\Firend Subject\Subject_Friends.vb" />
-    <Compile Include="Classes\Utility Classe\ControlChildForm.vb" />
+    <Compile Include="Classes\Utility Classe\Utility_Forms\ControlChildForm.vb" />
     <Compile Include="Classes\Components Classe\Panels\ChatFriendsPanel.vb" />
     <Compile Include="Classes\Components Classe\Classes To Create Panels\GenericPanel.vb" />
-    <Compile Include="Classes\Utility Classe\ResizeImage.vb" />
+    <Compile Include="Classes\Utility Classe\Utility_Components\ResizeImage.vb" />
     <Compile Include="Classes\Subject Classe\Subject\DR_Subject.vb" />
     <Compile Include="Classes\Encryption Classe\Encryption.vb" />
     <Compile Include="Classes\Connection Classe\MyConnection.vb" />
     <Compile Include="Classes\Subject Classe\Subject\Subject.vb" />
-    <Compile Include="Classes\Utility Classe\RoundComponent_OnPaint.vb" />
+    <Compile Include="Classes\Utility Classe\Utility_Components\RoundComponent_OnPaint.vb" />
     <Compile Include="Classes\Utility Classe\Utility Classes\Utility_Secure.vb" />
     <Compile Include="Classes\Utility Classe\Utility Classes\Utility_Style.vb" />
     <Compile Include="DB_PlayMeAppDataSet.Designer.vb">
@@ -291,6 +291,12 @@
       <DependentUpon>PopUpMessageForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Home Forms\Chat Forms\PopUpMessageForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Home Forms\Chat Forms\PopUpMiniProfileForm.Designer.vb">
+      <DependentUpon>PopUpMiniProfileForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Home Forms\Chat Forms\PopUpMiniProfileForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Home Forms\StateOnlineForm.Designer.vb">
@@ -446,6 +452,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home Forms\Chat Forms\PopUpMessageForm.resx">
       <DependentUpon>PopUpMessageForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Home Forms\Chat Forms\PopUpMiniProfileForm.resx">
+      <DependentUpon>PopUpMiniProfileForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Home Forms\StateOnlineForm.resx">
       <DependentUpon>StateOnlineForm.vb</DependentUpon>

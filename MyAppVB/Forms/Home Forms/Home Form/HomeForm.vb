@@ -114,7 +114,7 @@ Public Class HomeForm
         Dim forms As Form() = Application.OpenForms.Cast(Of Form)().ToArray()
 
         For Each thisForm As Form In forms
-            If thisForm.Name.Equals("RightClickMenuForm") OrElse thisForm.Name.Equals("MenuMoreForm") OrElse thisForm.Name.Equals("CreateDMForm") Then _PopUpForm = thisForm
+            If thisForm.Name.Equals("StateOnlineForm") OrElse thisForm.Name.Equals("RightClickMenuForm") OrElse thisForm.Name.Equals("MenuMoreForm") OrElse thisForm.Name.Equals("CreateDMForm") Then _PopUpForm = thisForm
         Next
 
         If Not _PopUpForm Is Nothing Then
@@ -420,7 +420,7 @@ Public Class HomeForm
 
                     _SubjFriend = Subject.Get_SubjectByID(_FriendID)
 
-                    Dim chatform As New ChatFriendForm(_Subject, _SubjFriend, _SubjFriend.SUBJECT_USERNAME, _SubjFriend.SUBJECT_STATE_ONLINE)
+                    Dim chatform As New ChatFriendForm(_Subject, Me, _SubjFriend, _SubjFriend.SUBJECT_USERNAME, _SubjFriend.SUBJECT_STATE_ONLINE)
                     _ControlChildForm.OpenChildForm(chatform, MainChatAndFriendPanel, _CurrentChildForm)
                 Else
                     Onclick_OpenChildForm_FriendPanels("OnlineFriendsForm")

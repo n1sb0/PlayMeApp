@@ -151,7 +151,7 @@ Public Class ChatFriendsPanel
         Select Case e.Button
             Case MouseButtons.Left
 
-                Dim chatform As New ChatFriendForm(_Subject, _SubjFriend, _UserName, _UserStateOnlineStr)
+                Dim chatform As New ChatFriendForm(_Subject, _MainForm, _SubjFriend, _UserName, _UserStateOnlineStr)
 
                 _MainForm._FriendID = _Friend_ID
 

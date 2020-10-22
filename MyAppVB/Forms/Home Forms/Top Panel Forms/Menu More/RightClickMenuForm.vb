@@ -34,7 +34,7 @@ Public Class RightClickMenuForm
                 _MainForm.On_Click_LeftPanel_Buttons(Nothing, Nothing, _MainForm.btnPersonalBlog, _SubjFriend)
 
             Case "btnMessage"
-                Dim chatform As New ChatFriendForm(_Subject, _SubjFriend, _SubjFriend.SUBJECT_USERNAME, _SubjFriend.SUBJECT_STATE_ONLINE)
+                Dim chatform As New ChatFriendForm(_Subject, _MainForm, _SubjFriend, _SubjFriend.SUBJECT_USERNAME, _SubjFriend.SUBJECT_STATE_ONLINE)
 
                 _MainForm._FriendID = _SubjFriend.SUBJECT_ID
 

@@ -101,3 +101,5 @@ A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.HomeForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.PopUpMessageForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.RightClickMenuForm.resources
 A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.StateOnlineForm.resources
+A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayMe.vbprojAssemblyReference.cache
+A:\IT\Work\HomeProjects\MyAppVB\MyAppVB\obj\Debug\PlayME.PopUpMiniProfileForm.resources

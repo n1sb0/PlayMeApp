@@ -238,10 +238,10 @@ Public Class GenericPanel
     Public Sub On_RightButtonMenu_Click()
         _MainForm._FriendID = _Friend_ID
 
-        Dim _MouseLocationX = HomeForm.MousePosition.X - HomeForm.Bounds.Location.X
-        Dim _MouseLocationY = HomeForm.MousePosition.Y - HomeForm.Bounds.Location.Y - 8
+        Dim _MouseLocationX = HomeForm.MousePosition.X - _MainForm.Bounds.Location.X
+        Dim _MouseLocationY = HomeForm.MousePosition.Y - _MainForm.Bounds.Location.Y - 8
 
-        If _MouseLocationX > HomeForm.Size.Width - 320 Then
+        If _MouseLocationX > _MainForm.Size.Width - 320 Then
             _MouseLocationX -= 170
         End If
 
