@@ -8,7 +8,8 @@ Public Class RightClickMenuForm
     Private _MainForm As HomeForm
     Private _ControlChildForm As New ControlChildForm
     Private _DeleteFriendForm As DeleteFriendForm
-    Private _Open_DeleteBlockForm As Open_DeleteRemoveForm
+
+    Private _Utility_OpenForm As Utility_OpenForm
 
     Sub New()
         InitializeComponent()
@@ -27,7 +28,7 @@ Public Class RightClickMenuForm
 
         _GenericButton = DirectCast(sender, GunaButton)
 
-        _Open_DeleteBlockForm = New Open_DeleteRemoveForm(_Subject, _SubjFriend, _MainForm, _DeleteFriendForm)
+        _Utility_OpenForm = New Utility_OpenForm(_Subject, _SubjFriend, _MainForm, _DeleteFriendForm)
 
         Select Case _GenericButton.Name
             Case "btnProfile"
@@ -43,10 +44,10 @@ Public Class RightClickMenuForm
             Case "btnCall"
 
             Case "btnRemove"
-                _Open_DeleteBlockForm.Open_Form("Delete")
+                _Utility_OpenForm.Open_DeleteOrBlockFriendForm("Delete")
 
             Case "btnBlock"
-                _Open_DeleteBlockForm.Open_Form("Block")
+                _Utility_OpenForm.Open_DeleteOrBlockFriendForm("Block")
 
         End Select
 

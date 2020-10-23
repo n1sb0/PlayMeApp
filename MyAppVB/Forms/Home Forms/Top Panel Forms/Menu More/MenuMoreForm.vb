@@ -9,7 +9,7 @@ Public Class MenuMoreForm
 
     Private _MainForm As HomeForm
     Private _DeleteFriendForm As DeleteFriendForm
-    Private _Open_DeleteBlockForm As Open_DeleteRemoveForm
+    Private _Utility_OpenForm As Utility_OpenForm
 
     Sub New()
         ' La chiamata è richiesta dalla finestra di progettazione.
@@ -42,7 +42,7 @@ Public Class MenuMoreForm
 
         _GenButton = DirectCast(sender, GunaButton)
 
-        _Open_DeleteBlockForm = New Open_DeleteRemoveForm(_Subject, _SubjFriend, _MainForm, _DeleteFriendForm)
+        _Utility_OpenForm = New Utility_OpenForm(_Subject, _SubjFriend, _MainForm, _DeleteFriendForm)
 
         Select Case _GenButton.Name
 
@@ -51,7 +51,7 @@ Public Class MenuMoreForm
             Case "btmStartVideoCall"
 
             Case "btnDeleteFriend"
-                _Open_DeleteBlockForm.Open_Form("Delete")
+                _Utility_OpenForm.Open_DeleteOrBlockFriendForm("Delete")
         End Select
 
         Close()

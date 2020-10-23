@@ -61,7 +61,7 @@ Public Class HomeForm
     Private _Utility_Style As New Utility_Style
     Private _Utility_Secure As New Utility_Secure
     Public _ControlChildForm As New ControlChildForm
-    Private _ShowPopUpMsg As New Open_PopUpForm(Me)
+    Private _Utility_OpenForm As New Utility_OpenForm
 
     '*****///// COLORS
     Private _RedColor As String = _Utility_Style.RedColor
@@ -178,9 +178,7 @@ Public Class HomeForm
         _vScrollHelper.UpdateScrollBar()
 
         MainPanel.Controls.Add(TransparentBackGround)
-
         TransparentBackGround.BringToFront()
-
         TransparentBackGround.Visible = False
 
         FriendsChatScrollBar.BringToFront()
@@ -193,7 +191,7 @@ Public Class HomeForm
         Me.ControlBox = False
         Me.Text = String.Empty
         Me.DoubleBuffered = True
-        FormBorderStyle = FormBorderStyle.Sizable
+        'FormBorderStyle = FormBorderStyle.Sizable
         Me.MaximizedBounds = Screen.PrimaryScreen.WorkingArea
 
         Me.BackColor = Color.FromArgb(255, ColorTranslator.FromHtml(_BackGColor))
@@ -619,7 +617,7 @@ Public Class HomeForm
 
         End Select
 
-        _ShowPopUpMsg.Open_MessageForm(_MsgText, _LocX, _LocY)
+        _Utility_OpenForm.Open_PopUpMsgForm(Me, _MsgText, _LocX, _LocY)
     End Sub
 
     Private Sub On_CreateDM_MouseLeave(sender As Object, e As EventArgs) _
@@ -629,8 +627,7 @@ Public Class HomeForm
 
         _IconPic.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_WhiteCOlor))
 
-        _ShowPopUpMsg.Open_MessageForm()
-
+        _Utility_OpenForm.Open_PopUpMsgForm(Me)
     End Sub
 
     Private Sub TransparentBackGround_Click(sender As Object, e As EventArgs) Handles TransparentBackGround.Click

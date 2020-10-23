@@ -254,9 +254,7 @@
     <Compile Include="Classes\Components Classe\Panels\MessagePanel.vb" />
     <Compile Include="Classes\Components Classe\Panels\OnlineAndAllFriendsPanel.vb" />
     <Compile Include="Classes\Components Classe\Panels\PendingRequestPanel.vb" />
-    <Compile Include="Classes\Utility Classe\Utility_Forms\Open_DeleteRemoveForm.vb" />
     <Compile Include="Classes\Utility Classe\Utility_Components\RadiusBorderPanel.vb" />
-    <Compile Include="Classes\Utility Classe\Utility_Forms\Open_PopUpForm.vb" />
     <Compile Include="Classes\Subject Classe\Firend Subject\DR_Subject_Friend.vb" />
     <Compile Include="Classes\Subject Classe\Firend Subject\Subject_Friends.vb" />
     <Compile Include="Classes\Utility Classe\Utility_Forms\ControlChildForm.vb" />
@@ -270,6 +268,7 @@
     <Compile Include="Classes\Utility Classe\Utility_Components\RoundComponent_OnPaint.vb" />
     <Compile Include="Classes\Utility Classe\Utility Classes\Utility_Secure.vb" />
     <Compile Include="Classes\Utility Classe\Utility Classes\Utility_Style.vb" />
+    <Compile Include="Classes\Utility Classe\Utility_Forms\Utility_OpenForm.vb" />
     <Compile Include="DB_PlayMeAppDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

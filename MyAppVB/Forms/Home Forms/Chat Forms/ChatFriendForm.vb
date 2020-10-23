@@ -19,7 +19,7 @@ Public Class ChatFriendForm
     '*****///// CLASSES
     Private _PopUpmsgForm As PopUpMessageForm
     Private _Utility_Style As New Utility_Style
-    Private _ShowPopUpMsg As New Open_PopUpForm(Me)
+    Private _Utility_OpenForm As New Utility_OpenForm
 
     '*****///// COMPONENTS
     Private _IconPic As New IconPictureBox
@@ -106,7 +106,7 @@ Public Class ChatFriendForm
                 _LocY = Me.Height - 80
         End Select
 
-        _ShowPopUpMsg.Open_MessageForm(_MsgText, _LocX, _LocY)
+        _Utility_OpenForm.Open_PopUpMsgForm(Me, _MsgText, _LocX, _LocY)
     End Sub
 
     '*****///// ON MOUSE LEAVE UPPER PANEL (POP UP MSG)
@@ -117,7 +117,7 @@ Public Class ChatFriendForm
 
         _IconPic.ForeColor = Color.FromArgb(255, ColorTranslator.FromHtml(_WhiteCOlor))
 
-        _ShowPopUpMsg.Open_MessageForm()
+        _Utility_OpenForm.Open_PopUpMsgForm(Me)
     End Sub
 
     '*****///// STATE OF TEXT BOX
