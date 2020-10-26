@@ -6,9 +6,10 @@ Public Class PendingRequestPanel
     Private _Request As String
     '*****///// CONSTRUCTOR OF PANELS
     Sub New(ByRef pForm As PendingForm, locationOfPanel As Point, ByRef friendScrollBar As GunaVScrollBar,
-            panelname As String, userPicture As Byte(), userName As String, userStateOnline As String, user_id As Integer, request As String)
+            panelname As String, userPicture As Byte(), userName As String, userStateOnline As String, user_id As Integer, request As String, ByRef mform As HomeForm)
 
         _PanelName = "Pending Request Panel"
+        _MainForm = mform
         _Friend_ID = user_id
         _UserName = userName
         _PendingForm = pForm
@@ -192,14 +193,7 @@ Public Class PendingRequestPanel
 
     '*****///// COUNT REQUESTS
     Private Sub Count_Requests()
-        HomeForm.Onclick_OpenChildForm_FriendPanels("PendingForm")
-
-        'If _PendingForm._ListOfUserPendingReq.Count = 0 Then
-        '    _PendingForm.lblPendingReq.Visible = False
-        '    _PendingForm.pnlImgPendingReq.Visible = True
-        'Else
-        '    _PendingForm.lblPendingReq.Text = "PENDING REQUESTS - " + (_PendingForm._ListOfUserPendingReq.Count()).ToString
-        'End If
+        _MainForm.Onclick_OpenChildForm_FriendPanels("PendingForm")
     End Sub
 
     Private Sub On_ClosedRequest(index As Integer)

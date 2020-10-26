@@ -106,9 +106,10 @@ Public Class Create_ListOf_Panels
     End Sub
 
     Sub New(ByRef subject As Subject, ByRef scrollBar As GunaVScrollBar, ByRef pForm As PendingForm, iy As Integer, controlBy As String,
-            ByRef listOfUserPanel As List(Of PendingRequestPanel), ByRef mainPanl As Panel)
+            ByRef listOfUserPanel As List(Of PendingRequestPanel), ByRef mainPanl As Panel, ByRef mForm As HomeForm)
 
         _Iy = iy
+        _MainForm = mForm
         _Y = listOfUserPanel.Count * 61
         _PendingForm = pForm
         _Subject = subject
@@ -177,7 +178,7 @@ Public Class Create_ListOf_Panels
                     Case "Friend Request", "Outgoing Friend Request"
                         _UserPanel_Class = New PendingRequestPanel(_PendingForm, _LocationOfUserPanel, _ScrollBar, (_ListOfUserPanels.Count() + 1).ToString _
                                             , _ListOfsbjFriends.Item(i).FRIENDS_PICTURE, _ListOfsbjFriends.Item(i).FRIENDS_USERNAME _
-                                            , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE, _ListOfsbjFriends.Item(i).FRIEND_ID, _ControlBy)
+                                            , _ListOfsbjFriends.Item(i).FRIENDS_STATE_ONLINE, _ListOfsbjFriends.Item(i).FRIEND_ID, _ControlBy, _MainForm)
 
                         Create_Panel(_UserPanel_Class)
                 End Select

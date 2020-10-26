@@ -12,7 +12,6 @@ Public Class HomeForm
     Public _FriendID As Integer
     Private _LocX, _LocY As Integer
     Private _IconPic As IconPictureBox
-    Private _DmFormWidth As Integer = 400
     Private _FirstClick As Boolean = False
     Private _SaveSecondChildForm As Boolean
     Private _MoveForm_MousePosition As Point
@@ -79,7 +78,8 @@ Public Class HomeForm
         ' La chiamata è richiesta dalla finestra di progettazione.
         InitializeComponent()
 
-        Dim subj = Subject.Get_Subject_Data_By("n1sb0")
+        Dim subj As Subject = Subject.Get_Subject_Data_By("n1sb0")
+
         Save_UserName(subj)
         SetStyle_For_Components()
     End Sub
@@ -170,7 +170,11 @@ Public Class HomeForm
     Private Sub SetStyle_For_Components()
         Form_style()
         Create_ListOfFriends()
-        _Utility_Style.Set_UserStateOnline(pointOnline, My.Settings.StateOnline)
+
+        _Subject.SUBJECT_STATE_ONLINE = _Subject.Get_Subject_StateOnline(_Subject.SUBJECT_ID, "saved")
+        _Subject.Update_Subject_StateOnline(_Subject.SUBJECT_STATE_ONLINE)
+
+        _Utility_Style.Set_UserStateOnline(pointOnline, _Subject.SUBJECT_STATE_ONLINE)
     End Sub
 
     Public Sub Form_style()
@@ -487,7 +491,7 @@ Public Class HomeForm
                 _ControlChildForm.OpenChildForm(onlineFriendsForm, FriendsPanelChild, _CurrentChildForm)
 
             Case "btnPending", "PendingForm"
-                Dim pandingForm As New PendingForm(_Subject)
+                Dim pandingForm As New PendingForm(_Subject, Me)
                 _ControlChildForm.OpenChildForm(pandingForm, FriendsPanelChild, _CurrentChildForm)
 
         End Select
@@ -573,14 +577,14 @@ Public Class HomeForm
         _LocX = btnNewDirect.Location.X + 70
         _LocY = btnNewDirect.Location.Y + 40
 
-        Open_CreateChatForm(_LocX, _LocY)
+        _Utility_OpenForm.Open_CreateChatForm(_LocX, _LocY, Me, _Subject)
     End Sub
 
     Private Sub btnCreateChat_Click(sender As Object, e As EventArgs) Handles btnCreateChat.Click
-        _LocX = (btnCreateChat.Location.X + 330) - (_DmFormWidth - 30)
+        _LocX = (btnCreateChat.Location.X + 330) - (_Utility_OpenForm._DmFormWidth - 30)
         _LocY = btnCreateChat.Location.Y + 50
 
-        Open_CreateChatForm(_LocX, _LocY)
+        _Utility_OpenForm.Open_CreateChatForm(_LocX, _LocY, Me, _Subject)
     End Sub
 
     Private Sub On_CreateDM_MouseEnter(sender As Object, e As EventArgs) _
@@ -640,40 +644,12 @@ Public Class HomeForm
         _LocX = UserPicture.Location.X + 25
         _LocY = UserPicture.Location.Y + 25
 
-        Open_StateOnlineForm(_LocX, _LocY)
+        _Utility_OpenForm.Open_StateOnlineForm(_LocX, _LocY, Me, _Subject)
     End Sub
 
     Private Sub HomeForm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         'To save subject state online
-        My.Settings.StateOnline = _Subject.SUBJECT_STATE_ONLINE
+        _Subject.Update_Subject_StateOnline(_Subject.SUBJECT_STATE_ONLINE, "save state online")
         _Subject.Update_Subject_StateOnline("Offline")
-    End Sub
-
-    Private Sub Open_StateOnlineForm(x As Integer, y As Integer)
-
-        If Not Application.OpenForms().OfType(Of StateOnlineForm).Any Then
-            _StateOnlineForm = New StateOnlineForm(Me, _Subject)
-
-            _StateOnlineForm.TopLevel = False
-            _StateOnlineForm.Parent = Me
-
-            _StateOnlineForm.SetBounds(x, y - 150, 150, 160)
-            _StateOnlineForm.BringToFront()
-            _StateOnlineForm.Show()
-        End If
-    End Sub
-
-    Private Sub Open_CreateChatForm(x As Integer, y As Integer)
-
-        If Not Application.OpenForms().OfType(Of CreateDMForm).Any Then
-            _CreateDmForm = New CreateDMForm(Me, _Subject)
-
-            _CreateDmForm.TopLevel = False
-            _CreateDmForm.Parent = Me
-
-            _CreateDmForm.SetBounds(x, y, _DmFormWidth, _DmFormWidth - 50)
-            _CreateDmForm.BringToFront()
-            _CreateDmForm.Show()
-        End If
     End Sub
 End Class

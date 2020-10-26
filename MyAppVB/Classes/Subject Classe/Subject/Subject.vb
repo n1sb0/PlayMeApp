@@ -123,10 +123,56 @@
         End Try
     End Sub
 
-    Public Sub Update_Subject_StateOnline(stateOnline As String)
+    Public Function Get_Subject_StateOnline(user_id As Integer, getState As String)
+        Dim stateOnlie As String = ""
+        Dim searchState As String = ""
+
+        If getState.Equals("Now") Then
+            searchState = "SUBJECT_STATE_ONLINE"
+        Else
+            searchState = "SUBJECT_SAVED_STATE_ONLINE"
+        End If
+
+        Dim Connection As New SqlClient.SqlConnection(MyConnection.Get_Connection)
         Dim command As New SqlClient.SqlCommand
-        Dim query As String = MyConnection.Get_Update_StateOnline()
+
+        Try
+            With command
+                .CommandText = MyConnection.Get_Base_Select_SujectStateOnline()
+                .Connection = Connection
+
+                .Parameters.AddWithValue("@USER_ID", user_id)
+                .Connection.Open()
+            End With
+
+            Dim reader As SqlClient.SqlDataReader = command.ExecuteReader()
+
+            If reader.Read Then
+                stateOnlie = ReadValue(reader(searchState))
+            End If
+
+            reader.Close()
+            command.Dispose()
+            Connection.Close()
+            Connection.Dispose()
+        Catch ex As Exception
+            MessageBox.Show("Can't read data :( F*" + vbCrLf + ex.Message, "ERRORE")
+        End Try
+
+        Return stateOnlie
+    End Function
+
+    Public Sub Update_Subject_StateOnline(stateOnline As String, Optional saveOldState As String = "")
+        Dim query As String = ""
+        Dim command As New SqlClient.SqlCommand
         Dim connection As New SqlClient.SqlConnection(MyConnection.Get_Connection())
+
+
+        If String.IsNullOrEmpty(saveOldState) Then
+            query = MyConnection.Get_Update_StateOnline_Query()
+        Else
+            query = MyConnection.Get_Update_OldStateOnline_Query()
+        End If
 
         Try
             connection.Open()
@@ -193,15 +239,15 @@
 
             If userName.Contains("@") Then
                 login = "@EMAIL"
-                strQuery = " WHERE SUBJECT_EMAIL = @EMAIL"
+                strQuery = " WHERE tblUD.SUBJECT_EMAIL = @EMAIL"
             Else
                 login = "@USERNAME"
-                strQuery = " WHERE SUBJECT_USERNAME = @USERNAME"
+                strQuery = " WHERE tblUD.SUBJECT_USERNAME = @USERNAME"
             End If
 
             Try
                 With command
-                    .CommandText = MyConnection.Get_Base_Select_SujectData() + strQuery
+                    .CommandText = MyConnection.Get_SujectData_And_StateOnline() + strQuery
                     .Connection = Connection
 
                     .Parameters.AddWithValue(login, userName)
@@ -219,7 +265,7 @@
                 Connection.Close()
                 Connection.Dispose()
             Catch ex As Exception
-                MessageBox.Show("Can't read data :(" + vbCrLf + ex.Message, "ERRORE")
+                MessageBox.Show("Can't read data :( F me" + vbCrLf + ex.Message, "ERRORE")
             End Try
         End If
 
@@ -252,7 +298,7 @@
             Connection.Close()
             Connection.Dispose()
         Catch ex As Exception
-            MessageBox.Show("Can't read data :(" + vbCrLf + ex.Message, "ERRORE")
+            MessageBox.Show("Can't read data :( F*" + vbCrLf + ex.Message, "ERRORE")
         End Try
 
         Return subject

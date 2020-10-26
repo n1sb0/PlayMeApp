@@ -41,6 +41,8 @@ Public Class StateOnlineForm
 
         _Subject.SUBJECT_STATE_ONLINE = stateOnlie
 
+        _Subject.Update_Subject_StateOnline(_Subject.SUBJECT_STATE_ONLINE, "save state online")
+
         _Utility_Style.Set_UserStateOnline(_MainForm.pointOnline, stateOnlie)
 
         Close()

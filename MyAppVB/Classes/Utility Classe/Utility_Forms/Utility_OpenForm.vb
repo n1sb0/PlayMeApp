@@ -1,5 +1,8 @@
 ﻿Public Class Utility_OpenForm
 
+    '*****///// VARS
+    Public _DmFormWidth As Integer = 400
+
     '*****///// CLASSES
     Private _Subject As Subject
     Private _SubjFriend As Subject
@@ -8,6 +11,8 @@
     Private _MainForm As HomeForm
     Private _PopUpmsgForm As PopUpMessageForm
     Private _DeleteFriendForm As DeleteFriendForm
+    Private _StateOnlineForm As StateOnlineForm
+    Private _CreateDmForm As CreateDMForm
 
     Sub New()
     End Sub
@@ -57,4 +62,32 @@
         End If
     End Sub
 
+    Public Sub Open_StateOnlineForm(x As Integer, y As Integer, _Form As Form, subj As Subject)
+
+        If Not Application.OpenForms().OfType(Of StateOnlineForm).Any Then
+            _StateOnlineForm = New StateOnlineForm(_Form, subj)
+
+            _StateOnlineForm.TopLevel = False
+            _StateOnlineForm.Parent = _Form
+
+            _StateOnlineForm.SetBounds(x, y - 150, 150, 160)
+            _StateOnlineForm.BringToFront()
+            _StateOnlineForm.Show()
+        End If
+
+    End Sub
+
+    Public Sub Open_CreateChatForm(x As Integer, y As Integer, _Form As Form, subj As Subject)
+
+        If Not Application.OpenForms().OfType(Of CreateDMForm).Any Then
+            _CreateDmForm = New CreateDMForm(_Form, subj)
+
+            _CreateDmForm.TopLevel = False
+            _CreateDmForm.Parent = _Form
+
+            _CreateDmForm.SetBounds(x, y, _DmFormWidth, _DmFormWidth - 50)
+            _CreateDmForm.BringToFront()
+            _CreateDmForm.Show()
+        End If
+    End Sub
 End Class

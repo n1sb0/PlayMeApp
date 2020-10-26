@@ -77,8 +77,9 @@ Public Class SettingsForm
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Change_EditState(False)
 
-        Dim homeform As New HomeForm(_Subject)
         _Utility_Secure.Close_AllOpenedFormAndLeftOnlyOne("deff")
+
+        Dim homeform As New HomeForm(_Subject)
         homeform.Show()
     End Sub
     '*****///// END BUTTON CLOSE FORM
@@ -196,7 +197,7 @@ Public Class SettingsForm
 
     '*****///// LOG OUT FROM MAIN FORM AND OPEN LOGIN FORM
     Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
-        My.Settings.StateOnline = _Subject.SUBJECT_STATE_ONLINE
+        _Subject.Update_Subject_StateOnline(_Subject.SUBJECT_STATE_ONLINE, "save state onlie")
         _Subject.Update_Subject_StateOnline("Offline")
 
         OpenLoginForm()

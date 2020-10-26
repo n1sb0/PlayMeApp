@@ -3,10 +3,7 @@
 Public Class OnlineAndAllFriendsPanel
     Inherits GenericPanel
 
-    'Private _Subject As Subject
-    'Private _SubjFriend As Subject
     Private _MenuMoreForm As New MenuMoreForm
-    'Private _RightClickMenuForm As New RightClickMenuForm
 
     '*****///// CONSTRUCTOR OF PANELS
     '*****///// ONLINE FRIENDS PANEL

@@ -9,8 +9,8 @@
 
     '*****///// INSERT QUERY ALL DATA DATA BASE
     Public Shared Function Get_Insert_Query_SubjectData() As String
-        Dim query As String = "INSERT INTO TBL_USER_DATA (SUBJECT_USERNAME, SUBJECT_EMAIL, SUBJECT_PASSWORD, SALT ,SUBJECT_EMAIL_NOTIFICATION, SUBJECT_PICTURE, SUBJECT_STATE_ONLINE) " &
-                              "VALUES (@SUBJECT_USERNAME, @SUBJECT_EMAIL, @SUBJECT_PASSWORD, @SALT, @SUBJECT_EMAIL_NOTIFICATION, @SUBJECT_PICTURE, @SUBJECT_STATE_ONLINE)"
+        Dim query As String = "INSERT INTO TBL_USER_DATA (SUBJECT_USERNAME, SUBJECT_EMAIL, SUBJECT_PASSWORD, SALT ,SUBJECT_EMAIL_NOTIFICATION, SUBJECT_PICTURE) " &
+                              "VALUES (@SUBJECT_USERNAME, @SUBJECT_EMAIL, @SUBJECT_PASSWORD, @SALT, @SUBJECT_EMAIL_NOTIFICATION, @SUBJECT_PICTURE)"
 
         Return query
     End Function
@@ -25,13 +25,28 @@
 
     '*****///// DEFAULT SELECT QUERY
     Public Shared Function Get_Base_Select_SujectData() As String
-        Dim query As String = "SELECT * FROM  TBL_USER_DATA"
+        Dim query As String = "SELECT * FROM TBL_USER_DATA"
+
+        Return query
+    End Function
+
+    Public Shared Function Get_Base_Select_SujectStateOnline() As String
+        Dim query As String = "SELECT * FROM TBL_USER_STATE_ONLINE WHERE SUBJECT_ID = @USER_ID"
+
+        Return query
+    End Function
+
+    Public Shared Function Get_SujectData_And_StateOnline() As String
+        Dim query As String = "SELECT tblUD.*, tblUSO.SUBJECT_STATE_ONLINE FROM TBL_USER_DATA AS tblUD " &
+                              "LEFT JOIN TBL_USER_STATE_ONLINE AS tblUSO ON tblUSO.SUBJECT_ID = tblUD.SUBJECT_ID "
 
         Return query
     End Function
 
     Public Shared Function Get_SubjectData_ByID() As String
-        Dim query As String = "SELECT * FROM TBL_USER_DATA WHERE SUBJECT_ID = @USER_ID"
+        Dim query As String = "SELECT tblUD.*, tblUSO.SUBJECT_STATE_ONLINE FROM TBL_USER_DATA AS tblUD " &
+                              "LEFT JOIN TBL_USER_STATE_ONLINE AS tblUSO ON tblUSO.SUBJECT_ID = tblUD.SUBJECT_ID " &
+                              "WHERE tblUD.SUBJECT_ID = @USER_ID"
 
         Return query
     End Function
@@ -45,9 +60,17 @@
         Return query
     End Function
 
-    Public Shared Function Get_Update_StateOnline() As String
-        Dim query As String = "UPDATE TBL_USER_DATA " &
+    Public Shared Function Get_Update_StateOnline_Query() As String
+        Dim query As String = "UPDATE TBL_USER_STATE_ONLINE " &
                               "SET SUBJECT_STATE_ONLINE = @SUBJECT_STATE_ONLINE " &
+                              "WHERE SUBJECT_ID = @SUBJECT_ID"
+
+        Return query
+    End Function
+
+    Public Shared Function Get_Update_OldStateOnline_Query() As String
+        Dim query As String = "UPDATE TBL_USER_STATE_ONLINE " &
+                              "SET SUBJECT_SAVED_STATE_ONLINE = @SUBJECT_STATE_ONLINE " &
                               "WHERE SUBJECT_ID = @SUBJECT_ID"
 
         Return query
@@ -63,7 +86,7 @@
 
     '*****///// SELECT QUERY TO CHECK USER FRIENDS 
     Public Shared Function Get_SubjectFriends_ByIdQuery() As String
-        Dim query As String = "SELECT USER_ID, FRIEND_ID, tblU.SUBJECT_PICTURE, tblU.SUBJECT_USERNAME, tblU.SUBJECT_STATE_ONLINE "
+        Dim query As String = "SELECT USER_ID, FRIEND_ID, tblU.SUBJECT_PICTURE, tblU.SUBJECT_USERNAME, tblUSO.SUBJECT_STATE_ONLINE "
 
         Return query
     End Function

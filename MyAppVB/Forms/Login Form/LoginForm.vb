@@ -193,7 +193,7 @@
             Dim subj As Subject
 
             subj = Subject.Get_Subject_Data_By(txtLogin.Text)
-            subj.SUBJECT_STATE_ONLINE = My.Settings.StateOnline
+            subj.SUBJECT_STATE_ONLINE = subj.Get_Subject_StateOnline(subj.SUBJECT_ID, "Saved")
 
             subj.Update_Subject_StateOnline(subj.SUBJECT_STATE_ONLINE)
 

@@ -55,8 +55,14 @@
                             sbjFriend.FRIEND_ID = ReadValue(reader("REQUEST_FROM"))
 
                         Case Else
-                            sbjFriend.USER_ID = ReadValue(reader("USER_ID"))
-                            sbjFriend.FRIEND_ID = ReadValue(reader("FRIEND_ID"))
+                            If ReadValue(reader("USER_ID")) = userID Then
+                                sbjFriend.USER_ID = ReadValue(reader("USER_ID"))
+                                sbjFriend.FRIEND_ID = ReadValue(reader("FRIEND_ID"))
+                            Else
+                                sbjFriend.USER_ID = ReadValue(reader("FRIEND_ID"))
+                                sbjFriend.FRIEND_ID = ReadValue(reader("USER_ID"))
+                            End If
+
                     End Select
 
                     ReadFromDataReader(sbjFriend, reader)
@@ -77,11 +83,11 @@
 
     Public Shared Function Get_Query(str As String)
         Dim query As String = ""
-        Dim leftJoin As String = "LEFT JOIN TBL_USER_DATA AS tblU ON tblU.SUBJECT_ID = FRIEND_ID WHERE USER_ID = @USER_ID"
+        Dim leftJoin As String = ""
 
         Select Case str
             Case "DM", "All", "Online"
-                query += MyConnection.Get_SubjectFriends_ByIdQuery + "FROM TBL_USER_FRIENDS "
+                query += MyConnection.Get_SubjectFriends_ByIdQuery + "FROM TBL_USER_FRIENDS as tuf "
 
             Case "Chat"
                 query += MyConnection.Get_SubjectFriends_ByIdQuery + "FROM TBL_HAVE_CHAT_WITH_USER "
@@ -90,20 +96,52 @@
                 query += MyConnection.Get_SubjectFriends_ByIdQuery + "FROM TBL_BLOCKED_FRIENDS "
 
             Case "Friend Request", "Outgoing Friend Request"
-                query += "SELECT REQUEST_FROM, REQUEST_TO, tblU.SUBJECT_PICTURE, tblU.SUBJECT_USERNAME, tblU.SUBJECT_STATE_ONLINE " &
-                "FROM TBL_PENDING_FRENDS_REQUEST "
-                leftJoin = "LEFT JOIN TBL_USER_DATA AS tblU ON tblU.SUBJECT_ID = "
+                query += "SELECT REQUEST_FROM, REQUEST_TO, tblU.SUBJECT_PICTURE, tblU.SUBJECT_USERNAME, tblUSO.SUBJECT_STATE_ONLINE FROM TBL_PENDING_FRENDS_REQUEST "
+
         End Select
 
-        If str.Equals("Friend Request") Then
-            leftJoin += "REQUEST_FROM WHERE REQUEST_TO = @USER_ID"
-
-        ElseIf str.Equals("Outgoing Friend Request") Then
-            leftJoin += "REQUEST_TO WHERE REQUEST_FROM = @USER_ID"
-
-        End If
+        leftJoin = Get_Join_Query(str)
 
         Return query + leftJoin
+    End Function
+
+    Public Shared Function Get_Join_Query(str As String) As String
+        Dim reqStr As String = ""
+        Dim leftJoin As String = ""
+
+        Select Case str
+            Case "DM", "All", "Online"
+                leftJoin = " LEFT JOIN TBL_USER_STATE_ONLINE AS tblUSO ON tblUSO.SUBJECT_ID = CASE WHEN tuf.FRIEND_ID = @USER_ID THEN tuf.USER_ID ELSE tuf.FRIEND_ID END" &
+                           " LEFT JOIN TBL_USER_DATA AS tblU ON tblU.SUBJECT_ID = CASE WHEN tuf.FRIEND_ID = @USER_ID THEN tuf.USER_ID ELSE tuf.FRIEND_ID END" &
+                           " WHERE USER_ID = @USER_ID OR FRIEND_ID = @USER_ID "
+
+
+            Case "Chat", "Blocked"
+                leftJoin = " LEFT JOIN TBL_USER_STATE_ONLINE AS tblUSO ON tblUSO.SUBJECT_ID = FRIEND_ID" &
+                           " LEFT JOIN TBL_USER_DATA AS tblU ON tblU.SUBJECT_ID = FRIEND_ID"
+
+
+            Case "Friend Request", "Outgoing Friend Request"
+                If str.Equals("Friend Request") Then
+                    reqStr = " REQUEST_FROM"
+                    leftJoin = Get_JoinFor_FriendRequest(reqStr)
+                    leftJoin += " WHERE REQUEST_TO = @USER_ID"
+
+                ElseIf str.Equals("Outgoing Friend Request") Then
+                    reqStr = " REQUEST_TO"
+                    leftJoin = Get_JoinFor_FriendRequest(reqStr)
+                    leftJoin += " WHERE REQUEST_FROM = @USER_ID"
+                End If
+        End Select
+
+        Return leftJoin
+    End Function
+
+    Private Shared Function Get_JoinFor_FriendRequest(reqStr As String)
+        Dim joinStr = " LEFT JOIN TBL_USER_STATE_ONLINE AS tblUSO ON tblUSO.SUBJECT_ID = " + reqStr &
+                      " LEFT JOIN TBL_USER_DATA AS tblU ON tblU.SUBJECT_ID = " + reqStr
+
+        Return joinStr
     End Function
 
     Public Shared Sub ReadFromDataReader(ByRef rec As Subject_Friends, ByVal reader As SqlClient.SqlDataReader)
@@ -189,7 +227,6 @@
 
             strQuery = MyConnection.Insert_Query_Add_Friend
             Add_User_To_FriendList(_Subject_ID, _SubFriend_ID, strQuery, transazione, commandInsert, Connection)
-            Add_User_To_FriendList(_SubFriend_ID, _Subject_ID, strQuery, transazione, commandInsert2, Connection)
 
             commandInsert.Dispose()
             commandInsert2.Dispose()

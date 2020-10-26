@@ -142,8 +142,8 @@ Partial Class RightClickMenuForm
         Me.btnRemove.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnRemove.Location = New System.Drawing.Point(5, 120)
         Me.btnRemove.Name = "btnRemove"
-        Me.btnRemove.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
-        Me.btnRemove.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
+        Me.btnRemove.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.btnRemove.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.btnRemove.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         Me.btnRemove.OnHoverImage = Nothing
         Me.btnRemove.OnPressedColor = System.Drawing.Color.Black
@@ -170,8 +170,8 @@ Partial Class RightClickMenuForm
         Me.btnBlock.ImageSize = New System.Drawing.Size(30, 30)
         Me.btnBlock.Location = New System.Drawing.Point(5, 155)
         Me.btnBlock.Name = "btnBlock"
-        Me.btnBlock.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
-        Me.btnBlock.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(114, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(218, Byte), Integer))
+        Me.btnBlock.OnHoverBaseColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.btnBlock.OnHoverBorderColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.btnBlock.OnHoverForeColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(43, Byte), Integer), CType(CType(47, Byte), Integer))
         Me.btnBlock.OnHoverImage = Nothing
         Me.btnBlock.OnPressedColor = System.Drawing.Color.Black
